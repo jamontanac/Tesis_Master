@@ -1,3 +1,4 @@
 *.ipynb_checkpoints
 *.out
 *.x
+*.DS_Store
