@@ -2,3 +2,4 @@
 *.out
 *.x
 *.DS_Store
+*checkpoint.ipynb
