@@ -47,38 +47,50 @@ class Sampling_Random_State:
         beta = np.min(cls.Omega(np.linspace(-np.pi,np.pi,int(1000))))
         f=np.exp(beta*(cls.Omega(((2.*np.pi)/np.float64(cls.N_size)) * n)-mu)) +1
         return 1/f
-
     @classmethod
-    def Sample_State(cls,Ground:bool =False,mu:np.float64 = 0.0)-> np.ndarray:
-
+    def Sample_number_sin_cos(cls,Ground:bool = False, mu : np.float64 =0.0)-> list:
+        x=np.arange(0,(cls.N_size-1)/2+ 1)
         if Ground:
-            x=np.arange(0,(cls.N_size-1)/2+ 1)
             m_cos=[-0.5 for i in x]
             m_sin=[-0.5 for i in x]
-            x=np.arange(-(cls.N_size-1)/2,(cls.N_size-1)/2+1)
-            M_minous=[((m_cos[np.abs(int(i))]-m_sin[np.abs(int(i))])*0.5*np.exp(1.j*np.sign((2.0*np.pi/cls.N_size) * i)*cls.Phi(np.abs((2.0*np.pi/cls.N_size) * i)))) for i in x]
-            M_plus = [((m_cos[np.abs(int(i))]+m_sin[np.abs(int(i))])*0.5*np.exp(1.j*np.sign((2.0*np.pi/cls.N_size) * i)*cls.Phi(np.abs((2.0*np.pi/cls.N_size) * i)))) for i in x]
-            Mminousband=np.array(M_minous)
-            Mplusband=np.array(M_plus)
         else:
-            x=np.arange(0,(cls.N_size-1)/2+ 1)
             m_cos=[-0.5 if np.random.random()>cls.Fermi_dirac(mu=mu,n=i) else 0.5 for i in x]
             m_sin=[-0.5 if np.random.random()>cls.Fermi_dirac(mu=mu,n=i) else 0.5 for i in x]
-            x=np.arange(-(cls.N_size-1)/2,(cls.N_size-1)/2+1)
-            M_minous=[((m_cos[np.abs(int(i))]-m_sin[np.abs(int(i))])*0.5*np.exp(1.j*np.sign((2.0*np.pi/cls.N_size) * i)*cls.Phi(np.abs((2.0*np.pi/cls.N_size) * i)))) for i in x]
-            M_plus = [((m_cos[np.abs(int(i))]+m_sin[np.abs(int(i))])*0.5*np.exp(1.j*np.sign((2.0*np.pi/cls.N_size) * i)*cls.Phi(np.abs((2.0*np.pi/cls.N_size) * i)))) for i in x]
-            Mminousband=np.array(M_minous)
-            Mplusband=np.array(M_plus)
+        return m_sin,m_cos
+    @classmethod
+    def Sample_State(cls,Ground:bool =False,mu:np.float64 = 0.0)-> np.ndarray:
+        m_sin,m_cos = cls.Sample_number_sin_cos(Ground=Ground,mu=mu)
+        x=np.arange(-(cls.N_size-1)/2,(cls.N_size-1)/2+1)
+        M_minous=[((m_cos[np.abs(int(i))]-m_sin[np.abs(int(i))])*0.5*np.exp(1.j*np.sign((2.0*np.pi/cls.N_size) * i)*cls.Phi(np.abs((2.0*np.pi/cls.N_size) * i)))) for i in x]
+        M_plus = [((m_cos[np.abs(int(i))]+m_sin[np.abs(int(i))])*0.5*np.exp(1.j*np.sign((2.0*np.pi/cls.N_size) * i)*cls.Phi(np.abs((2.0*np.pi/cls.N_size) * i)))) for i in x]
+        Mminousband=np.array(M_minous)
+        Mplusband=np.array(M_plus)
         return Mminousband,Mplusband
 
     @classmethod
     def Get_Bands_Matrix(cls,Ground:bool =False,mu:np.float64 = 0.0)-> np.ndarray:
         Mminous, Mplus = cls.Sample_State(Ground=Ground,mu=mu)
         x=np.arange(-(cls.N_size-1)/2,(cls.N_size-1)/2+ 1)
-        Fourier_plus=pyfftw.empty_aligned(cls..N_size, dtype='complex128')
-        Fourier_plus[:]=np.fft.ifftshift(Mplus)
-        Fourier_minous=pyfftw.empty_aligned(cls..N_size, dtype='complex128')
-        Fourier_minous[:]=np.fft.ifftshift(Mminous)
+        M_plus=pyfftw.empty_aligned(cls.N_size, dtype='complex128')
+        M_plus[:]=np.fft.ifftshift(Mplus)
+        M_minous=pyfftw.empty_aligned(cls.N_size, dtype='complex128')
+        M_minous[:]=np.fft.ifftshift(Mminous)
+        Fourier_minous=pyfftw.interfaces.numpy_fft.fft(M_minous)
+        Fourier_plus=pyfftw.interfaces.numpy_fft.fft(M_plus)
+        return Fourier_minous/cls.N_size, Fourier_plus/cls.N_size
+
+    @classmethod
+    def Toeplitz_matrix(cls,Fourier_P:np.ndarray,L:np.int64)-> np.ndarray:
+        First_column = Fourier_P[:L]
+        First_row = np.roll(Fourier_P,-1)[::-1][:L]
+        return toeplitz(First_column,First_row)
+
+    @classmethod
+    def Hankel_matrix(cls,Fourier_minous:np.ndarray,L:np.int64)-> np.ndarray:
+        to_use=Fourier_minous[:2*L-1]
+        First_column=to_use[:L]
+        Last_row=np.roll(to_use,-L+1)[:L]
+        return hankel(First_column,Last_row)
 
     #
     #     x=np.arange(-(N_size-1)/2,(N_size-1)/2+ 1)
@@ -88,7 +100,7 @@ class Sampling_Random_State:
 
 
 a= Sampling_Random_State()
-uno,dos = a.Sample_State()
+uno,dos = a.Get_Bands_Matrix()
 plt.plot(uno.real)
 plt.show()
 plt.plot(dos.real)
