@@ -112,8 +112,12 @@ class Sampling_Random_State:
             return np.array([[Matrix[i,j] for i in range(L) if i-j == num_band] for j in range(-num_band,L)]).reshape(L+num_band)
         else:
             return np.diagonal(Matrix)
+    @classmethod
+    def Binary_entropy(cls,x:np.ndarray)->np.ndarray:
+        result=[0 if np.abs(i-1)<10E-12 or np.abs(i)<10E-12 else -i*np.log(i)-(1-i)*np.log(1-i) for i in x]
+        return np.array(result)
 
-
+# Define a fermidirac distribution to compare with the original
 def Fermi_dirac(n:np.int64,beta:np.float64,Size:np.int64,mu:np.float64 =0.0) -> np.float64:
     # beta is the inverse thermic energy associated in the system (beta)
     # mu corresponds to the chemical potential
@@ -124,16 +128,17 @@ def Fermi_dirac(n:np.int64,beta:np.float64,Size:np.int64,mu:np.float64 =0.0) -> 
     f=np.exp(beta*(instance.Omega(((2.*np.pi)/np.float64(Size)) * n)-mu)) +1
     return 1/f
 
-State = Sampling_Random_State()
-F_minous,F_plus=State.Get_Bands_Matrix()
-beta = np.min(State.Omega(np.linspace(-np.pi,np.pi,int(1000))))
-L=40
-New_cov_matrix=State.Covariance_matrix_from_sub_sample(F_plus,F_minous,L)
-S=np.linalg.svd(New_cov_matrix,compute_uv=False)
-n=np.arange(-(L-1)/2,(L-1)/2 +1)
-array_to_plot=sorted(-S+0.5,reverse=True)
-plt.plot(array_to_plot,label="Singular values")
-plt.plot(np.array(sorted(Fermi_dirac(n=n,Size=L,beta=beta),reverse=True)),label="Fermi distribution")
-plt.legend()
-plt.title("lenght of {}".format(L))
-plt.show()
+
+# L=30
+# State = Sampling_Random_State()
+# F_minous,F_plus=State.Get_Bands_Matrix()
+# beta = np.min(State.Omega(np.linspace(-np.pi,np.pi,int(1000))))
+# New_cov_matrix=State.Covariance_matrix_from_sub_sample(F_plus,F_minous,L)
+# S=np.linalg.svd(New_cov_matrix,compute_uv=False)
+# n=np.arange(-(L-1)/2,(L-1)/2 +1)
+# array_to_plot=sorted(-S+0.5,reverse=True)
+# plt.plot(array_to_plot,label="Singular values")
+# plt.plot(np.array(sorted(Fermi_dirac(n=n,Size=L,beta=beta),reverse=True)),label="Fermi distribution")
+# plt.legend()
+# plt.title("lenght of {}".format(L))
+# plt.show()
