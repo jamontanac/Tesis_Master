@@ -38,24 +38,25 @@ class Sampling_Random_State:
 
 
     @classmethod
-    def Fermi_dirac(cls,n:np.int64,mu:np.float64 =0) -> np.float64:
+    def Fermi_dirac(cls,n:np.int64,beta:np.float64,mu:np.float64 =0) -> np.float64:
         # beta is the inverse thermic energy associated in the system (beta)
         # mu corresponds to the chemical potential
         # n is the position of the particle
         # f=np.exp(T*(Omega(Gamma,Lambda,2.0*(np.pi/N)*n)-mu)) +1
         # N corresponds to the size of the system
-        beta = np.min(cls.Omega(np.linspace(-np.pi,np.pi,int(1000))))
+
         f=np.exp(beta*(cls.Omega(((2.*np.pi)/np.float64(cls.N_size)) * n)-mu)) +1
         return 1/f
     @classmethod
     def Sample_number_sin_cos(cls,Ground:bool = False, mu : np.float64 =0.0)-> list:
         x=np.arange(0,(cls.N_size-1)/2+ 1)
+        beta = np.min(cls.Omega(np.linspace(-np.pi,np.pi,int(1000))))
         if Ground:
             m_cos=[-0.5 for i in x]
             m_sin=[-0.5 for i in x]
         else:
-            m_cos=[-0.5 if np.random.random()>cls.Fermi_dirac(mu=mu,n=i) else 0.5 for i in x]
-            m_sin=[-0.5 if np.random.random()>cls.Fermi_dirac(mu=mu,n=i) else 0.5 for i in x]
+            m_cos=[-0.5 if np.random.random()>cls.Fermi_dirac(mu=mu,n=i,beta=beta) else 0.5 for i in x]
+            m_sin=[-0.5 if np.random.random()>cls.Fermi_dirac(mu=mu,n=i,beta=beta) else 0.5 for i in x]
         return m_sin,m_cos
     @classmethod
     def Sample_State(cls,Ground:bool =False,mu:np.float64 = 0.0)-> np.ndarray:
@@ -86,34 +87,53 @@ class Sampling_Random_State:
         return toeplitz(First_column,First_row)
 
     @classmethod
-    def Hankel_matrix(cls,Fourier_minous:np.ndarray,L:np.int64)-> np.ndarray:
-        to_use=Fourier_minous[:2*L-1]
+    def Hankel_matrix(cls,Fourier_M:np.ndarray,L:np.int64)-> np.ndarray:
+        to_use=Fourier_M[:2*L-1]
         First_column=to_use[:L]
         Last_row=np.roll(to_use,-L+1)[:L]
         return hankel(First_column,Last_row)
 
-    #
-    #     x=np.arange(-(N_size-1)/2,(N_size-1)/2+ 1)
-    #     Fourier_plus=fft(ifftshift(Mplusband))
-    #     Fourier_minous=fft(ifftshift(Mminousband))
-    #     return Fourier_plus/N_size,Fourier_minous/N_size
+    @classmethod
+    def Covariance_matrix(cls,L:np.int64,mu:np.float64=0.0,Ground:bool=False)-> np.ndarray:
+        Fourier_minous,Fourier_plus=cls.Get_Bands_Matrix(mu=mu,Ground=Ground)
+        return (cls.Toeplitz_matrix(Fourier_plus,L)+cls.Hankel_matrix(Fourier_minous,L))
+    @classmethod
+    def Covariance_matrix_from_sub_sample(cls,Fourier_plus:np.ndarray,Fourier_minous:np.ndarray,L:np.int64)-> np.ndarray:
+        return (cls.Toeplitz_matrix(Fourier_plus,L)+cls.Hankel_matrix(Fourier_minous,L))
+
+    @classmethod
+    def get_band_of_matrix(cls,Matrix:np.ndarray,num_band:np.int64)-> np.ndarray:
+        L,C=Matrix.shape
+        if L!=C:
+            raise ValueError("Only squared matrix can be computed")
+        if num_band > 0:
+            return np.array([[Matrix[i,j] for i in range(num_band,L) if i-j == num_band] for j in range(L-num_band)]).reshape(L-num_band)
+        elif num_band <0:
+            return np.array([[Matrix[i,j] for i in range(L) if i-j == num_band] for j in range(-num_band,L)]).reshape(L+num_band)
+        else:
+            return np.diagonal(Matrix)
 
 
-a= Sampling_Random_State()
-uno,dos = a.Get_Bands_Matrix()
-plt.plot(uno.real)
+def Fermi_dirac(n:np.int64,beta:np.float64,Size:np.int64,mu:np.float64 =0.0) -> np.float64:
+    # beta is the inverse thermic energy associated in the system (beta)
+    # mu corresponds to the chemical potential
+    # n is the position of the particle
+    # f=np.exp(T*(Omega(Gamma,Lambda,2.0*(np.pi/N)*n)-mu)) +1
+    # N corresponds to the size of the system
+    instance = Sampling_Random_State()
+    f=np.exp(beta*(instance.Omega(((2.*np.pi)/np.float64(Size)) * n)-mu)) +1
+    return 1/f
+
+State = Sampling_Random_State()
+F_minous,F_plus=State.Get_Bands_Matrix()
+beta = np.min(State.Omega(np.linspace(-np.pi,np.pi,int(1000))))
+L=40
+New_cov_matrix=State.Covariance_matrix_from_sub_sample(F_plus,F_minous,L)
+S=np.linalg.svd(New_cov_matrix,compute_uv=False)
+n=np.arange(-(L-1)/2,(L-1)/2 +1)
+array_to_plot=sorted(-S+0.5,reverse=True)
+plt.plot(array_to_plot,label="Singular values")
+plt.plot(np.array(sorted(Fermi_dirac(n=n,Size=L,beta=beta),reverse=True)),label="Fermi distribution")
+plt.legend()
+plt.title("lenght of {}".format(L))
 plt.show()
-plt.plot(dos.real)
-plt.show()
-
-#plt.show()
-# import time
-#
-# init = time.time()
-# l1=np.min(a.Omega(np.linspace(-np.pi,np.pi,int(500000))))
-# print("time = {}".format(time.time()-init))
-#
-# init = time.time()
-# l2=np.min(a.Omega(np.linspace(-np.pi,np.pi,int(1000))))
-# print("time = {}".format(time.time()-init))
-# print(l1-l2,l1,l2)
