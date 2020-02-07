@@ -196,6 +196,20 @@ class Computations_XY_model(Sampling_Random_State):
             return Fourier_minous,Fourier_plus
 
 
+    @classmethod
+    def Simple_Fourier_Transform(cls,num:np.int64,Ground = False):
+        """
+        This was done specially to use the pool function to use a multiple thread programing
+        """
+        Data = np.zeros((cls.N_size,2))
+        a,b = cls.Get_Bands_Matrix_local()
+        Data[:,0] = a.real
+        Data[:,1] = b.real
+        return Data
+
+
+
+
 
 
 
