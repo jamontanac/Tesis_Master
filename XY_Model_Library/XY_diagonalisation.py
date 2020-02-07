@@ -1,15 +1,12 @@
 import numpy as np
-import matplotlib.pylab as plt
-import numpy as np
-import matplotlib.pylab as plt
-import pandas as pd
-import pyfftw
 from scipy.linalg import circulant,toeplitz, hankel, expm
-from matplotlib import colors
+import warnings
 import pickle
-import sys
-#from scipy.fftpack import fft, ifft,ifftshift,fftshift
-#from IPython.display import display, HTML
+try:
+    import pyfftw
+except ImportError:
+    warnings.warn("I couldn't find the package pyfftw, please check the location of it and re run it. Our suggestion is to install it to use the functions that have been optimized")
+
 
 
 class Sampling_Random_State:
@@ -18,9 +15,9 @@ class Sampling_Random_State:
     N_size=500001
     Gamma=0.5
     Lambda=0.5
-    num_data = 2000
+    num_data = 200
+    mu = 0.0
     #### ------------------------------------------------------------
-
 
     @classmethod
     def Alpha(cls,theta:np.float64)-> np.float64:
@@ -38,29 +35,29 @@ class Sampling_Random_State:
 
 
     @classmethod
-    def Fermi_dirac(cls,n:np.int64,beta:np.float64,mu:np.float64 =0) -> np.float64:
+    def Fermi_dirac(cls,n:np.int64,beta:np.float64) -> np.float64:
         # beta is the inverse thermic energy associated in the system (beta)
         # mu corresponds to the chemical potential
         # n is the position of the particle
         # f=np.exp(T*(Omega(Gamma,Lambda,2.0*(np.pi/N)*n)-mu)) +1
         # N corresponds to the size of the system
 
-        f=np.exp(beta*(cls.Omega(((2.*np.pi)/np.float64(cls.N_size)) * n)-mu)) +1
+        f=np.exp(beta*(cls.Omega(((2.*np.pi)/np.float64(cls.N_size)) * n)-cls.mu)) +1
         return 1/f
     @classmethod
-    def Sample_number_sin_cos(cls,Ground:bool = False, mu : np.float64 =0.0)-> list:
+    def Sample_number_sin_cos(cls,Ground:bool = False)-> list:
         x=np.arange(0,(cls.N_size-1)/2+ 1)
         beta = np.min(cls.Omega(np.linspace(-np.pi,np.pi,int(1000))))
         if Ground:
             m_cos=[-0.5 for i in x]
             m_sin=[-0.5 for i in x]
         else:
-            m_cos=[-0.5 if np.random.random()>cls.Fermi_dirac(mu=mu,n=i,beta=beta) else 0.5 for i in x]
-            m_sin=[-0.5 if np.random.random()>cls.Fermi_dirac(mu=mu,n=i,beta=beta) else 0.5 for i in x]
+            m_cos=[-0.5 if np.random.random()>cls.Fermi_dirac(n=i,beta=beta) else 0.5 for i in x]
+            m_sin=[-0.5 if np.random.random()>cls.Fermi_dirac(n=i,beta=beta) else 0.5 for i in x]
         return m_sin,m_cos
     @classmethod
-    def Sample_State(cls,Ground:bool =False,mu:np.float64 = 0.0)-> np.ndarray:
-        m_sin,m_cos = cls.Sample_number_sin_cos(Ground=Ground,mu=mu)
+    def Sample_State(cls,Ground:bool =False)-> np.ndarray:
+        m_sin,m_cos = cls.Sample_number_sin_cos(Ground=Ground)
         x=np.arange(-(cls.N_size-1)/2,(cls.N_size-1)/2+1)
         M_minous=[((m_cos[np.abs(int(i))]-m_sin[np.abs(int(i))])*0.5*np.exp(1.j*np.sign((2.0*np.pi/cls.N_size) * i)*cls.Phi(np.abs((2.0*np.pi/cls.N_size) * i)))) for i in x]
         M_plus = [((m_cos[np.abs(int(i))]+m_sin[np.abs(int(i))])*0.5*np.exp(1.j*np.sign((2.0*np.pi/cls.N_size) * i)*cls.Phi(np.abs((2.0*np.pi/cls.N_size) * i)))) for i in x]
@@ -69,8 +66,8 @@ class Sampling_Random_State:
         return Mminousband,Mplusband
 
     @classmethod
-    def Get_Bands_Matrix(cls,Ground:bool =False,mu:np.float64 = 0.0)-> np.ndarray:
-        Mminous, Mplus = cls.Sample_State(Ground=Ground,mu=mu)
+    def Get_Bands_Matrix_local(cls,Ground:bool =False)-> np.ndarray:
+        Mminous, Mplus = cls.Sample_State(Ground=Ground)
         x=np.arange(-(cls.N_size-1)/2,(cls.N_size-1)/2+ 1)
         M_plus=pyfftw.empty_aligned(cls.N_size, dtype='complex128')
         M_plus[:]=np.fft.ifftshift(Mplus)
@@ -78,6 +75,18 @@ class Sampling_Random_State:
         M_minous[:]=np.fft.ifftshift(Mminous)
         Fourier_minous=pyfftw.interfaces.numpy_fft.fft(M_minous)
         Fourier_plus=pyfftw.interfaces.numpy_fft.fft(M_plus)
+        return Fourier_minous/cls.N_size, Fourier_plus/cls.N_size
+
+
+    @classmethod
+    def Get_Bands_Matrix_cluster(cls,Ground:bool =False)-> np.ndarray:
+        Mminous, Mplus = cls.Sample_State(Ground=Ground)
+        x=np.arange(-(cls.N_size-1)/2,(cls.N_size-1)/2+ 1)
+        M_plus=pyfftw.empty_aligned(cls.N_size, dtype='complex128')
+        M_plus[:]=np.fft.ifftshift(Mplus)
+        M_minous[:]=np.fft.ifftshift(Mminous)
+        Fourier_minous=np.fft.fft(M_minous)
+        Fourier_plus=np.fft.fft(M_plus)
         return Fourier_minous/cls.N_size, Fourier_plus/cls.N_size
 
     @classmethod
@@ -94,11 +103,11 @@ class Sampling_Random_State:
         return hankel(First_column,Last_row)
 
     @classmethod
-    def Covariance_matrix(cls,L:np.int64,mu:np.float64=0.0,Ground:bool=False)-> np.ndarray:
-        Fourier_minous,Fourier_plus=cls.Get_Bands_Matrix(mu=mu,Ground=Ground)
+    def Covariance_matrix(cls,L:np.int64,Ground:bool=False)-> np.ndarray:
+        Fourier_minous,Fourier_plus=cls.Get_Bands_Matrix(Ground=Ground)
         return (cls.Toeplitz_matrix(Fourier_plus,L)+cls.Hankel_matrix(Fourier_minous,L))
     @classmethod
-    def Covariance_matrix_from_sub_sample(cls,Fourier_plus:np.ndarray,Fourier_minous:np.ndarray,L:np.int64)-> np.ndarray:
+    def Covariance_matrix_from_sub_sample(cls,Fourier_minous:np.ndarray,Fourier_plus:np.ndarray,L:np.int64)-> np.ndarray:
         return (cls.Toeplitz_matrix(Fourier_plus,L)+cls.Hankel_matrix(Fourier_minous,L))
 
     @classmethod
@@ -117,16 +126,83 @@ class Sampling_Random_State:
         result=[0 if np.abs(i-1)<10E-12 or np.abs(i)<10E-12 else -i*np.log(i)-(1-i)*np.log(1-i) for i in x]
         return np.array(result)
 
-# Define a fermidirac distribution to compare with the original
-def Fermi_dirac(n:np.int64,beta:np.float64,Size:np.int64,mu:np.float64 =0.0) -> np.float64:
-    # beta is the inverse thermic energy associated in the system (beta)
-    # mu corresponds to the chemical potential
-    # n is the position of the particle
-    # f=np.exp(T*(Omega(Gamma,Lambda,2.0*(np.pi/N)*n)-mu)) +1
-    # N corresponds to the size of the system
-    instance = Sampling_Random_State()
-    f=np.exp(beta*(instance.Omega(((2.*np.pi)/np.float64(Size)) * n)-mu)) +1
-    return 1/f
+
+class Computations_XY_model(Sampling_Random_State):
+
+    beta = np.min(Sampling_Random_State.Omega(np.linspace(-np.pi,np.pi,int(1000))))
+
+    @classmethod
+    def Sample_Fermi_dirac(cls,n:np.int64,Size:np.int64) -> np.float64:
+        # beta is the inverse thermic energy associated in the system (beta)
+        # mu corresponds to the chemical potential
+        # n is the position of the particle
+        # f=np.exp(T*(Omega(Gamma,Lambda,2.0*(np.pi/N)*n)-mu)) +1
+        # N corresponds to the size of the system
+        f=np.exp(cls.beta*(cls.Omega(((2.*np.pi)/np.float64(Size)) * n)-cls.mu)) +1
+        return 1/f
+    @classmethod
+    def Compute_Entropy_State(cls,Fourier_M:np.ndarray,Fourier_P:np.ndarray,n_size:np.int64=100,step:np.int64=2)->np.ndarray:
+        """
+        This function computes the Entropy of a given state being this the reason why the Fourier plus and the minous band have
+        to be passed as a parameters. by default we compute the entropy for a size of 2 up to 100 and therfore we return
+        an array.
+        """
+        S = [np.sum(cls.Binary_entropy(0.5-np.linalg.svd(cls.Covariance_matrix_from_sub_sample(Fourier_minous=Fourier_M, Fourier_plus=Fourier_P, L=i),compute_uv=False))) for i in range(2,n_size,step)]
+        return S
+
+    @classmethod
+    def Compute_Density_Matrix_Random_State(cls,Fourier_M:np.ndarray,Fourier_P:np.ndarray,L:np.int64)->np.ndarray:
+        """
+        This function returns the  density matrix from a random state, this is why we need to pass the Fourier plus and minous
+        to this function, this does not compute the fourier transform, only the density matrix associated with it.
+        """
+        O_1, S, O_2 = np.linalg.svd(cls.Covariance_matrix_from_sub_sample( Fourier_minous=Fourier_M,Fourier_plus=Fourier_P, L=L))
+        S = -S +0.5
+        x= np.log(1-S) - np.log(S)
+        M = -(O_1@np.diag(x)@O_2)/cls.beta
+        return M
+    @classmethod
+    def Compute_Spectrum_Random_Distribution_Associated(cls,Fourier_M:np.ndarray,Fourier_P:np.ndarray,L:np.int64)->np.ndarray:
+        S = np.linalg.svd(cls.Covariance_matrix_from_sub_sample(Fourier_minous=Fourier_M,Fourier_plus= Fourier_P,L=L),compute_uv=False)
+        n=np.arange(-(L-1)/2,(L-1)/2 +1)
+        S=sorted(-S+0.5,reverse=True)
+        Fermi = sorted(cls.Sample_Fermi_dirac(n=n,Size=L),reverse=True)
+        return S,Fermi
+    @classmethod
+    def Compute_Fourier_Transforms(cls,Ground = False,Save=False,Route = None,Cluster = False):
+        if Cluster:
+            Fourier_minous = np.zeros((cls.num_data,cls.N_size))
+            Fourier_plus = np.zeros((cls.num_data,cls.N_size))
+            for i in range(cls.num_data):
+                a,b = cls.Get_Bands_Matrix_cluster(Ground=Ground)
+                Fourier_minous[i,:]=a.real
+                Fourier_plus[i,:]=b.real
+        else:
+            Fourier_minous = np.zeros((cls.num_data,cls.N_size))
+            Fourier_plus = np.zeros((cls.num_data,cls.N_size))
+            for i in range(cls.num_data):
+                a,b = cls.Get_Bands_Matrix_local(Ground=Ground)
+                Fourier_minous[i,:]=a.real
+                Fourier_plus[i,:]=b.real
+
+        if Save:
+            with open(Route + 'Fourier_plus.pkl','wb') as f:
+                pickle.dump(Fourier_plus, f)
+                f.close()
+            with open(Route + 'Fourier_minous.pkl','wb') as f:
+                pickle.dump(Fourier_minous, f)
+                f.close()
+        else:
+            return Fourier_minous,Fourier_plus
+
+
+
+
+
+
+
+
+
 
 
 # L=30
