@@ -2,6 +2,7 @@ import numpy as np
 from scipy.linalg import circulant,toeplitz, hankel, expm
 import warnings
 import pickle
+import matplotlib.pylab as plt
 try:
     import pyfftw
 except ImportError:
@@ -197,7 +198,7 @@ class Computations_XY_model(Sampling_Random_State):
 
 
     @classmethod
-    def Simple_Fourier_Transform(cls,num:np.int64,Ground = False):
+    def Simple_Fourier_Transform(cls,num:np.int64,Ground = False) ->np.ndarray:
         """
         This was done specially to use the pool function to use a multiple thread programing
         """
@@ -206,6 +207,105 @@ class Computations_XY_model(Sampling_Random_State):
         Data[:,0] = a.real
         Data[:,1] = b.real
         return Data
+
+    @classmethod
+    def Compute_Spectrum_Random_State_Circulant(cls,Fourier_M:np.ndarray,Fourier_P:np.ndarray,L:np.int64)->np.ndarray:
+        """
+        This function computes something similar to the function  Compute_Spectrum_Random_Distribution_Associated,
+        but the only difference is that this one completes the
+        """
+        Cov_matrix=cls.Covariance_matrix_from_sub_sample(Fourier_minous= Fourier_M,Fourier_plus = Fourier_P,L=L)
+        M_corner=np.zeros((L,L))
+        Cov_matrix[0,L-1],Cov_matrix[L-1,0] = 0.0,0.0
+        M_corner[0,L-1],M_corner[L-1,0]=Cov_matrix[1,0],Cov_matrix[0,1]
+        S = np.linalg.svd(Cov_matrix+M_corner,compute_uv=False)
+        return sorted(-S+0.5,reverse=True)
+    @classmethod
+    def Compute_svd_Cov_Matrix(cls,Fourier_M:np.ndarray,Fourier_P:np.ndarray,L:np.int64,Circulant:bool = False)->np.ndarray:
+        if Circulant:
+            Cov_matrix=cls.Covariance_matrix_from_sub_sample(Fourier_minous= Fourier_M,Fourier_plus = Fourier_P,L=L)
+            return np.linalg.svd(Cov_matrix)
+
+        else:
+            Cov_matrix=cls.Covariance_matrix_from_sub_sample(Fourier_minous= Fourier_M,Fourier_plus = Fourier_P,L=L)
+            M_corner=np.zeros((L,L))
+            Cov_matrix[0,L-1],Cov_matrix[L-1,0] = 0.0,0.0
+            M_corner[0,L-1],M_corner[L-1,0]=Cov_matrix[1,0],Cov_matrix[0,1]
+            return np.linalg.svd(Cov_matrix+M_corner)
+    @classmethod
+    def Compute_Participation_Function(cls,Fourier_M:np.ndarray,Fourier_P:np.ndarray,L:np.int64,Circulant:bool = False)->np.ndarray:
+        O_1,S,O_2 = cls.Compute_svd_Cov_Matrix(Fourier_M=Fourier_M,Fourier_P=Fourier_P,L=L,Circulant=Circulant)
+        return (O_1**2 + O_2**2)*0.5
+
+
+class Plot_XY_Computations(Computations_XY_model):
+    @classmethod
+    def Plot_Modes(cls,Fourier_M:np.ndarray,Fourier_P:np.ndarray,L:np.int64,Circulant:bool = False,Save:bool = False,title:str = "Normal modes",Both:bool=False)->np.ndarray:
+        fig,axes = plt.subplots(nrows=L, ncols=2, figsize=(15,int(2*L)), tight_layout=True)
+        if Both:
+            O_1,S,O_2 =cls.Compute_svd_Cov_Matrix(Fourier_M=Fourier_M, Fourier_P=Fourier_P, L=L,Circulant=True)
+            O_1_toe,S_toe,O_2_toe =cls.Compute_svd_Cov_Matrix(Fourier_M=Fourier_M, Fourier_P=Fourier_P, L=L,Circulant=False)
+            for i in range(L):
+                axes[i,0].set_title(r"Mode number {} of $O_1$".format(i+1))
+                axes[i,0].plot(O_1[:,i],color="navy",label="Circulant")
+                axes[i,0].plot(O_1_toe[:,i],color="forestgreen",label = "Toeplitz")
+                axes[i,1].set_title(r"Mode number {} of $O_2$".format(i+1))
+                axes[i,1].plot(O_2[i,:],color="firebrick",label="Circulant")
+                axes[i,1].plot(O_2_toe[i,:],color="rebeccapurple",label = "Toeplitz")
+                axes[i,0].legend()
+                axes[i,1].legend()
+            if Save:
+                fig.savefig(title+".png")
+                plt.close()
+            else:
+                return fig, axes
+        else:
+            O_1,S,O_2 =cls.Compute_svd_Cov_Matrix(Fourier_M=Fourier_M, Fourier_P=Fourier_P, L=L,Circulant=Circulant)
+            for i in range(L):
+                axes[i,0].set_title(r"Mode number {} of $O_1$".format(i+1))
+                axes[i,0].plot(O_1[:,i],color="navy")
+                axes[i,1].set_title(r"Mode number {} of $O_2$".format(i+1))
+                axes[i,1].plot(O_2[i,:],color="firebrick")
+            if Save:
+                fig.savefig(title+".png")
+                plt.close()
+            else:
+                return fig, axes
+
+
+    @classmethod
+    def Plot_Participation_Function(cls,Fourier_M:np.ndarray,Fourier_P:np.ndarray,L:np.int64,Circulant = False,Save:bool = False,title:str = "Participation Function",Both:bool=False)->np.ndarray:
+        fig,axes = plt.subplots(nrows=L, ncols=2, figsize=(15,int(2*L)), tight_layout=True)
+        if Both:
+            P=cls.Compute_Participation_Function(Fourier_M=Fourier_M,Fourier_P=Fourier_P,L=L,Circulant = True)
+            P_toe=cls.Compute_Participation_Function(Fourier_M=Fourier_M,Fourier_P=Fourier_P,L=L,Circulant = False)
+            for i in range(L):
+                axes[i,0].set_title(r"Participation Function Column {}".format(i+1))
+                axes[i,0].plot(P[:,i],color="navy",label="Circulant")
+                axes[i,0].plot(P_toe[:,i],color="forestgreen",label="Toeplitz")
+                axes[i,1].set_title(r"Participation Function rows {}".format(i+1))
+                axes[i,1].plot(P[i,:],color="firebrick",label = "Circulant")
+                axes[i,1].plot(P_toe[:,i],color="rebeccapurple",label="Toeplitz")
+                axes[i,0].legend()
+                axes[i,1].legend()
+            if Save:
+                fig.savefig(title+".png")
+                plt.close()
+            else:
+                return fig, axes
+
+        else:
+            P=cls.Compute_Participation_Function(Fourier_M=Fourier_M,Fourier_P=Fourier_P,L=L,Circulant = Circulant)
+            for i in range(L):
+                axes[i,0].set_title(r"Participation Function Column {}".format(i+1))
+                axes[i,0].plot(P[:,i],color="navy")
+                axes[i,1].set_title(r"Participation Function rows {}".format(i+1))
+                axes[i,1].plot(P[i,:],color="firebrick")
+            if Save:
+                fig.savefig(title+".png")
+                plt.close()
+            else:
+                return fig, axes
 
 
 
