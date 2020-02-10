@@ -149,7 +149,7 @@ class Computations_XY_model(Sampling_Random_State):
         an array.
         """
         S = [np.sum(cls.Binary_entropy(0.5-np.linalg.svd(cls.Covariance_matrix_from_sub_sample(Fourier_minous=Fourier_M, Fourier_plus=Fourier_P, L=i),compute_uv=False))) for i in range(2,n_size,step)]
-        return S
+        return np.array(S)
 
     @classmethod
     def Compute_Density_Matrix_Random_State(cls,Fourier_M:np.ndarray,Fourier_P:np.ndarray,L:np.int64)->np.ndarray:
@@ -168,7 +168,7 @@ class Computations_XY_model(Sampling_Random_State):
         n=np.arange(-(L-1)/2,(L-1)/2 +1)
         S=sorted(-S+0.5,reverse=True)
         Fermi = sorted(cls.Sample_Fermi_dirac(n=n,Size=L),reverse=True)
-        return S,Fermi
+        return np.array(S),np.array(Fermi)
     @classmethod
     def Compute_Fourier_Transforms(cls,Ground = False,Save=False,Route = None,Cluster = False):
         if Cluster:
@@ -203,7 +203,7 @@ class Computations_XY_model(Sampling_Random_State):
         This was done specially to use the pool function to use a multiple thread programing
         """
         Data = np.zeros((cls.N_size,2))
-        a,b = cls.Get_Bands_Matrix_local()
+        a,b = cls.Get_Bands_Matrix_local(Ground=Ground)
         Data[:,0] = a.real
         Data[:,1] = b.real
         return Data
@@ -219,7 +219,22 @@ class Computations_XY_model(Sampling_Random_State):
         Cov_matrix[0,L-1],Cov_matrix[L-1,0] = 0.0,0.0
         M_corner[0,L-1],M_corner[L-1,0]=Cov_matrix[1,0],Cov_matrix[0,1]
         S = np.linalg.svd(Cov_matrix+M_corner,compute_uv=False)
-        return sorted(-S+0.5,reverse=True)
+        return np.array(sorted(-S+0.5,reverse=True))
+    @classmethod
+    def Compute_Spectrum_Random_State_Toeplitz(cls,Fourier_P:np.ndarray,L:np.int64,Circulant:bool=False):
+        if Circulant:
+            Cov_Matrix = cls.Toeplitz_matrix(Fourier_plus=Fourier_P,L=L)
+            M_corner=np.zeros((L,L))
+            Cov_matrix[0,L-1],Cov_matrix[L-1,0] = 0.0,0.0
+            M_corner[0,L-1],M_corner[L-1,0]=Cov_matrix[1,0],Cov_matrix[0,1]
+            S = np.linalg.svd(Cov_matrix+M_corner,compute_uv=False)
+            return np.array(sorted(-S+0.5,reverse=True))
+        else:
+            Cov_Matrix = cls.Toeplitz_matrix(Fourier_plus=Fourier_P,L=L)
+            S = np.linalg.svd(Cov_matrix,compute_uv=False)
+            return np.array(sorted(-S+0.5,reverse=True))
+
+
     @classmethod
     def Compute_svd_Cov_Matrix(cls,Fourier_M:np.ndarray,Fourier_P:np.ndarray,L:np.int64,Circulant:bool = False)->np.ndarray:
         if Circulant:
