@@ -3,6 +3,8 @@ from scipy.linalg import circulant,toeplitz, hankel, expm
 import warnings
 import pickle
 import matplotlib.pylab as plt
+from multiprocessing import Pool
+from functools import partial
 try:
     import pyfftw
 except ImportError:
@@ -67,7 +69,7 @@ class Sampling_Random_State:
         return Mminousband,Mplusband
 
     @classmethod
-    def Get_Bands_Matrix(cls,Ground:bool =False,Cluster = False)-> np.ndarray:
+    def Get_Bands_Matrix(cls,Ground:bool =False,Cluster:bool = False)-> np.ndarray:
         Mminous, Mplus = cls.Sample_State(Ground=Ground)
         x=np.arange(-(cls.N_size-1)/2,(cls.N_size-1)/2+ 1)
         if Cluster:
@@ -194,7 +196,7 @@ class Computations_XY_model(Sampling_Random_State):
         return np.array(S),np.array(Fermi)
 
     @classmethod
-    def Compute_Fourier_Transforms(cls,Ground = False,Save=False,Route = "./",Cluster = False):
+    def Compute_Fourier_Transforms(cls,Ground:bool = False,Save:bool=False,Route:str = "./",Cluster:bool = False):
         Fourier_minous = np.zeros((cls.num_data,cls.N_size))
         Fourier_plus = np.zeros((cls.num_data,cls.N_size))
         for i in range(cls.num_data):
@@ -213,15 +215,23 @@ class Computations_XY_model(Sampling_Random_State):
 
 
     @classmethod
-    def Simple_Fourier_Transform(cls,num:np.int64,Ground = False) ->np.ndarray:
+    def Simple_Fourier_Transform(cls,num:np.int64,Ground:bool = False,Cluster:bool = False) ->np.ndarray:
         """
         This was done specially to use the pool function to use a multiple thread programing
         """
         Data = np.zeros((cls.N_size,2))
-        a,b = cls.Get_Bands_Matrix_local(Ground=Ground)
+        a,b = cls.Get_Bands_Matrix_local(Ground=Ground,Cluster=Cluster)
         Data[:,0] = a.real
         Data[:,1] = b.real
         return Data
+    @classmethod
+    def Fourier_Parallel_Transform(cls,Ground = False,Threads:np.int64 = 3, Cluster:bool = False) ->np.ndarray:
+        with Pool(Threads) as p:
+            Fourier_Function = partial(cls.Simple_Fourier_Transform,Ground=Ground,Cluster=Cluster)
+            Fourier_Transforms = np.array(p.map(Fourier_Function,range(cls.num_data)))
+        return Fourier_Transforms
+
+
 
 
 
