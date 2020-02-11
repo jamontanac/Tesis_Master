@@ -220,7 +220,7 @@ class Computations_XY_model(Sampling_Random_State):
         This was done specially to use the pool function to use a multiple thread programing
         """
         Data = np.zeros((cls.N_size,2))
-        a,b = cls.Get_Bands_Matrix_local(Ground=Ground,Cluster=Cluster)
+        a,b = cls.Get_Bands_Matrix(Ground=Ground,Cluster=Cluster)
         Data[:,0] = a.real
         Data[:,1] = b.real
         return Data
