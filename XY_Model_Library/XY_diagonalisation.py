@@ -67,28 +67,24 @@ class Sampling_Random_State:
         return Mminousband,Mplusband
 
     @classmethod
-    def Get_Bands_Matrix_local(cls,Ground:bool =False)-> np.ndarray:
+    def Get_Bands_Matrix(cls,Ground:bool =False,Cluster = False)-> np.ndarray:
         Mminous, Mplus = cls.Sample_State(Ground=Ground)
         x=np.arange(-(cls.N_size-1)/2,(cls.N_size-1)/2+ 1)
-        M_plus=pyfftw.empty_aligned(cls.N_size, dtype='complex128')
-        M_plus[:]=np.fft.ifftshift(Mplus)
-        M_minous=pyfftw.empty_aligned(cls.N_size, dtype='complex128')
-        M_minous[:]=np.fft.ifftshift(Mminous)
-        Fourier_minous=pyfftw.interfaces.numpy_fft.fft(M_minous)
-        Fourier_plus=pyfftw.interfaces.numpy_fft.fft(M_plus)
+        if Cluster:
+            M_plus=pyfftw.empty_aligned(cls.N_size, dtype='complex128')
+            M_plus[:]=np.fft.ifftshift(Mplus)
+            M_minous=pyfftw.empty_aligned(cls.N_size, dtype='complex128')
+            M_minous[:]=np.fft.ifftshift(Mminous)
+            Fourier_minous=pyfftw.interfaces.numpy_fft.fft(M_minous)
+            Fourier_plus=pyfftw.interfaces.numpy_fft.fft(M_plus)
+        else:
+            M_plus=pyfftw.empty_aligned(cls.N_size, dtype='complex128')
+            M_plus[:]=np.fft.ifftshift(Mplus)
+            M_minous[:]=np.fft.ifftshift(Mminous)
+            Fourier_minous=np.fft.fft(M_minous)
+            Fourier_plus=np.fft.fft(M_plus)
         return Fourier_minous/cls.N_size, Fourier_plus/cls.N_size
 
-
-    @classmethod
-    def Get_Bands_Matrix_cluster(cls,Ground:bool =False)-> np.ndarray:
-        Mminous, Mplus = cls.Sample_State(Ground=Ground)
-        x=np.arange(-(cls.N_size-1)/2,(cls.N_size-1)/2+ 1)
-        M_plus=pyfftw.empty_aligned(cls.N_size, dtype='complex128')
-        M_plus[:]=np.fft.ifftshift(Mplus)
-        M_minous[:]=np.fft.ifftshift(Mminous)
-        Fourier_minous=np.fft.fft(M_minous)
-        Fourier_plus=np.fft.fft(M_plus)
-        return Fourier_minous/cls.N_size, Fourier_plus/cls.N_size
 
     @classmethod
     def Toeplitz_matrix(cls,Fourier_P:np.ndarray,L:np.int64)-> np.ndarray:
@@ -198,22 +194,13 @@ class Computations_XY_model(Sampling_Random_State):
         return np.array(S),np.array(Fermi)
 
     @classmethod
-    def Compute_Fourier_Transforms(cls,Ground = False,Save=False,Route = None,Cluster = False):
-        if Cluster:
-            Fourier_minous = np.zeros((cls.num_data,cls.N_size))
-            Fourier_plus = np.zeros((cls.num_data,cls.N_size))
-            for i in range(cls.num_data):
-                a,b = cls.Get_Bands_Matrix_cluster(Ground=Ground)
-                Fourier_minous[i,:]=a.real
-                Fourier_plus[i,:]=b.real
-        else:
-            Fourier_minous = np.zeros((cls.num_data,cls.N_size))
-            Fourier_plus = np.zeros((cls.num_data,cls.N_size))
-            for i in range(cls.num_data):
-                a,b = cls.Get_Bands_Matrix_local(Ground=Ground)
-                Fourier_minous[i,:]=a.real
-                Fourier_plus[i,:]=b.real
-
+    def Compute_Fourier_Transforms(cls,Ground = False,Save=False,Route = "./",Cluster = False):
+        Fourier_minous = np.zeros((cls.num_data,cls.N_size))
+        Fourier_plus = np.zeros((cls.num_data,cls.N_size))
+        for i in range(cls.num_data):
+            a,b = cls.Get_Bands_Matrix(Ground=Ground,Cluster=Cluster)
+            Fourier_minous[i,:]=a.real
+            Fourier_plus[i,:]=b.real
         if Save:
             with open(Route + 'Fourier_plus.pkl','wb') as f:
                 pickle.dump(Fourier_plus, f)
@@ -226,7 +213,7 @@ class Computations_XY_model(Sampling_Random_State):
 
 
     @classmethod
-    def Simple_Fourier_Transform(cls,num:np.int64,Ground = False) ->np.ndarray:
+    def Simple_Fourier_Transform(cls,num:np.int64,Ground = False,Save = False, Route = "./") ->np.ndarray:
         """
         This was done specially to use the pool function to use a multiple thread programing
         """
@@ -234,6 +221,13 @@ class Computations_XY_model(Sampling_Random_State):
         a,b = cls.Get_Bands_Matrix_local(Ground=Ground)
         Data[:,0] = a.real
         Data[:,1] = b.real
+        if Save:
+            with open(Route + 'Fourier_plus.pkl','wb') as f:
+                pickle.dump(Fourier_plus, f)
+                f.close()
+            with open(Route + 'Fourier_minous.pkl','wb') as f:
+                pickle.dump(Fourier_minous, f)
+                f.close()
         return Data
 
 
