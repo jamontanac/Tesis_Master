@@ -108,8 +108,26 @@ class Sampling_Random_State:
         Fourier_minous,Fourier_plus=cls.Get_Bands_Matrix(Ground=Ground)
         return (cls.Toeplitz_matrix(Fourier_plus,L)+cls.Hankel_matrix(Fourier_minous,L))
     @classmethod
-    def Covariance_matrix_from_sub_sample(cls,Fourier_minous:np.ndarray,Fourier_plus:np.ndarray,L:np.int64)-> np.ndarray:
-        return (cls.Toeplitz_matrix(Fourier_plus,L)+cls.Hankel_matrix(Fourier_minous,L))
+    def Covariance_matrix_from_sub_sample(cls,Fourier_minous:np.ndarray,Fourier_plus:np.ndarray,L:np.int64,Circulant:bool=False)-> np.ndarray:
+        if Circulant:
+            Cov_matrix=(cls.Toeplitz_matrix(Fourier_plus,L)+cls.Hankel_matrix(Fourier_minous,L))
+            M_corner=np.zeros((L,L))
+            Cov_matrix[0,L-1],Cov_matrix[L-1,0] = 0.0,0.0
+            M_corner[0,L-1],M_corner[L-1,0]=Cov_matrix[1,0],Cov_matrix[0,1]
+            return M_corner + Cov_Matrix
+        else:
+            return (cls.Toeplitz_matrix(Fourier_plus,L)+cls.Hankel_matrix(Fourier_minous,L))
+
+    @classmethod
+    def Covariance_matrix_from_sub_sample_Toeplitz(cls,Fourier_plus:np.ndarray,L:np.int64,Circulant:bool=False)-> np.ndarray:
+        if Circulant:
+            Cov_matrix=(cls.Toeplitz_matrix(Fourier_plus=Fourier_plus,L=L))
+            M_corner=np.zeros((L,L))
+            Cov_matrix[0,L-1],Cov_matrix[L-1,0] = 0.0,0.0
+            M_corner[0,L-1],M_corner[L-1,0]=Cov_matrix[1,0],Cov_matrix[0,1]
+            return M_corner + Cov_Matrix
+        else:
+            return (cls.Toeplitz_matrix(Fourier_plus=Fourier_plus,L=L))
 
     @classmethod
     def get_band_of_matrix(cls,Matrix:np.ndarray,num_band:np.int64)-> np.ndarray:
@@ -142,29 +160,43 @@ class Computations_XY_model(Sampling_Random_State):
         f=np.exp(cls.beta*(cls.Omega(((2.*np.pi)/np.float64(Size)) * n)-cls.mu)) +1
         return 1/f
     @classmethod
-    def Compute_Entropy_State(cls,Fourier_M:np.ndarray,Fourier_P:np.ndarray,n_size:np.int64=100,step:np.int64=2)->np.ndarray:
+    def Compute_Entropy_State(cls,Fourier_M:np.ndarray,Fourier_P:np.ndarray,n_size:np.int64=100,step:np.int64=2,Circulant:bool=False)->np.ndarray:
         """
         This function computes the Entropy of a given state being this the reason why the Fourier plus and the minous band have
         to be passed as a parameters. by default we compute the entropy for a size of 2 up to 100 and therfore we return
         an array.
         """
-        S = [np.sum(cls.Binary_entropy(0.5-np.linalg.svd(cls.Covariance_matrix_from_sub_sample(Fourier_minous=Fourier_M, Fourier_plus=Fourier_P, L=i),compute_uv=False))) for i in range(2,n_size,step)]
+        if Fourier_M == None:
+            S = [np.sum(cls.Binary_entropy(0.5-np.linalg.svd(cls.Covariance_matrix_from_sub_sample_Toeplitz(Fourier_plus=Fourier_P, L=i,Circulant=Circulant),compute_uv=False))) for i in range(2,n_size,step)]
+        else:
+            S = [np.sum(cls.Binary_entropy(0.5-np.linalg.svd(cls.Covariance_matrix_from_sub_sample(Fourier_minous=Fourier_M, Fourier_plus=Fourier_P, L=i,Circulant=Circulant),compute_uv=False))) for i in range(2,n_size,step)]
         return np.array(S)
 
+
+
     @classmethod
-    def Compute_Density_Matrix_Random_State(cls,Fourier_M:np.ndarray,Fourier_P:np.ndarray,L:np.int64)->np.ndarray:
+    def Compute_Density_Matrix_Random_State(cls,Fourier_M:np.ndarray,Fourier_P:np.ndarray,L:np.int64,Circulant:bool=False)->np.ndarray:
         """
         This function returns the  density matrix from a random state, this is why we need to pass the Fourier plus and minous
         to this function, this does not compute the fourier transform, only the density matrix associated with it.
         """
-        O_1, S, O_2 = np.linalg.svd(cls.Covariance_matrix_from_sub_sample( Fourier_minous=Fourier_M,Fourier_plus=Fourier_P, L=L))
+        if Fourier_M == None:
+            O_1, S, O_2 = np.linalg.svd(cls.Covariance_matrix_from_sub_sample_Toeplitz( Fourier_plus=Fourier_P, L=L,Circulant=Circulant))
+        else:
+            O_1, S, O_2 = np.linalg.svd(cls.Covariance_matrix_from_sub_sample( Fourier_minous=Fourier_M,Fourier_plus=Fourier_P, L=L,Circulant=Circulant))
         S = -S +0.5
         x= np.log(1-S) - np.log(S)
         M = -(O_1@np.diag(x)@O_2)/cls.beta
         return M
+
+
+
     @classmethod
-    def Compute_Spectrum_Random_Distribution_Associated(cls,Fourier_M:np.ndarray,Fourier_P:np.ndarray,L:np.int64)->np.ndarray:
-        S = np.linalg.svd(cls.Covariance_matrix_from_sub_sample(Fourier_minous=Fourier_M,Fourier_plus= Fourier_P,L=L),compute_uv=False)
+    def Compute_Spectrum_Random_Distribution_Associated(cls,Fourier_M:np.ndarray,Fourier_P:np.ndarray,L:np.int64,Circulant:bool=False)->np.ndarray:
+        if Fourier_M ==None:
+            S = np.linalg.svd(cls.Covariance_matrix_from_sub_sample(Fourier_minous=Fourier_M,Fourier_plus= Fourier_P,L=L,Circulant=Circulant),compute_uv=False)
+        else:
+            S = np.linalg.svd(cls.Covariance_matrix_from_sub_sample(Fourier_minous=Fourier_M,Fourier_plus= Fourier_P,L=L,Circulant=Circulant),compute_uv=False)
         n=np.arange(-(L-1)/2,(L-1)/2 +1)
         S=sorted(-S+0.5,reverse=True)
         Fermi = sorted(cls.Sample_Fermi_dirac(n=n,Size=L),reverse=True)
@@ -214,12 +246,10 @@ class Computations_XY_model(Sampling_Random_State):
         This function computes something similar to the function  Compute_Spectrum_Random_Distribution_Associated,
         but the only difference is that this one completes the
         """
-        Cov_matrix=cls.Covariance_matrix_from_sub_sample(Fourier_minous= Fourier_M,Fourier_plus = Fourier_P,L=L)
-        M_corner=np.zeros((L,L))
-        Cov_matrix[0,L-1],Cov_matrix[L-1,0] = 0.0,0.0
-        M_corner[0,L-1],M_corner[L-1,0]=Cov_matrix[1,0],Cov_matrix[0,1]
-        S = np.linalg.svd(Cov_matrix+M_corner,compute_uv=False)
+        Cov_matrix=cls.Covariance_matrix_from_sub_sample_Circulant(Fourier_minous= Fourier_M,Fourier_plus = Fourier_P,L=L)
+        S = np.linalg.svd(Cov_matrix,compute_uv=False)
         return np.array(sorted(-S+0.5,reverse=True))
+
     @classmethod
     def Compute_Spectrum_Random_State_Toeplitz(cls,Fourier_P:np.ndarray,L:np.int64,Circulant:bool=False):
         if Circulant:
