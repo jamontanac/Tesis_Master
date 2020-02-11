@@ -213,7 +213,7 @@ class Computations_XY_model(Sampling_Random_State):
 
 
     @classmethod
-    def Simple_Fourier_Transform(cls,num:np.int64,Ground = False,Save = False, Route = "./") ->np.ndarray:
+    def Simple_Fourier_Transform(cls,num:np.int64,Ground = False) ->np.ndarray:
         """
         This was done specially to use the pool function to use a multiple thread programing
         """
@@ -221,13 +221,6 @@ class Computations_XY_model(Sampling_Random_State):
         a,b = cls.Get_Bands_Matrix_local(Ground=Ground)
         Data[:,0] = a.real
         Data[:,1] = b.real
-        if Save:
-            with open(Route + 'Fourier_plus.pkl','wb') as f:
-                pickle.dump(Fourier_plus, f)
-                f.close()
-            with open(Route + 'Fourier_minous.pkl','wb') as f:
-                pickle.dump(Fourier_minous, f)
-                f.close()
         return Data
 
 
