@@ -225,13 +225,13 @@ class Computations_XY_model(Sampling_Random_State):
         if Circulant:
             Cov_Matrix = cls.Toeplitz_matrix(Fourier_P,L)
             M_corner=np.zeros((L,L))
-            Cov_matrix[0,L-1],Cov_matrix[L-1,0] = 0.0,0.0
-            M_corner[0,L-1],M_corner[L-1,0]=Cov_matrix[1,0],Cov_matrix[0,1]
-            S = np.linalg.svd(Cov_matrix+M_corner,compute_uv=False)
+            Cov_Matrix[0,L-1],Cov_Matrix[L-1,0] = 0.0,0.0
+            M_corner[0,L-1],M_corner[L-1,0]=Cov_Matrix[1,0],Cov_Matrix[0,1]
+            S = np.linalg.svd(Cov_Matrix+M_corner,compute_uv=False)
             return np.array(sorted(-S+0.5,reverse=True))
         else:
             Cov_Matrix = cls.Toeplitz_matrix(Fourier_P,L)
-            S = np.linalg.svd(Cov_matrix,compute_uv=False)
+            S = np.linalg.svd(Cov_Matrix,compute_uv=False)
             return np.array(sorted(-S+0.5,reverse=True))
 
 
