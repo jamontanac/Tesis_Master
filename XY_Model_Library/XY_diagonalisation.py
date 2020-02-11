@@ -108,26 +108,25 @@ class Sampling_Random_State:
         Fourier_minous,Fourier_plus=cls.Get_Bands_Matrix(Ground=Ground)
         return (cls.Toeplitz_matrix(Fourier_plus,L)+cls.Hankel_matrix(Fourier_minous,L))
     @classmethod
-    def Covariance_matrix_from_sub_sample(cls,Fourier_minous:np.ndarray,Fourier_plus:np.ndarray,L:np.int64,Circulant:bool=False)-> np.ndarray:
-        if Circulant:
-            Cov_matrix=(cls.Toeplitz_matrix(Fourier_plus,L)+cls.Hankel_matrix(Fourier_minous,L))
-            M_corner=np.zeros((L,L))
-            Cov_matrix[0,L-1],Cov_matrix[L-1,0] = 0.0,0.0
-            M_corner[0,L-1],M_corner[L-1,0]=Cov_matrix[1,0],Cov_matrix[0,1]
-            return M_corner + Cov_Matrix
+    def Covariance_matrix_from_sub_sample(cls,Fourier_plus:np.ndarray,L:np.int64,Fourier_minous:np.ndarray=None,Circulant:bool=False)-> np.ndarray:
+        if Fourier_minous==None:
+            if Circulant:
+                Cov_matrix=(cls.Toeplitz_matrix(Fourier_plus,L))
+                M_corner=np.zeros((L,L))
+                Cov_matrix[0,L-1],Cov_matrix[L-1,0] = 0.0,0.0
+                M_corner[0,L-1],M_corner[L-1,0]=Cov_matrix[1,0],Cov_matrix[0,1]
+                return M_corner + Cov_Matrix
+            else:
+                return (cls.Toeplitz_matrix(Fourier_plus,L))
         else:
-            return (cls.Toeplitz_matrix(Fourier_plus,L)+cls.Hankel_matrix(Fourier_minous,L))
-
-    @classmethod
-    def Covariance_matrix_from_sub_sample_Toeplitz(cls,Fourier_plus:np.ndarray,L:np.int64,Circulant:bool=False)-> np.ndarray:
-        if Circulant:
-            Cov_matrix=(cls.Toeplitz_matrix(Fourier_plus=Fourier_plus,L=L))
-            M_corner=np.zeros((L,L))
-            Cov_matrix[0,L-1],Cov_matrix[L-1,0] = 0.0,0.0
-            M_corner[0,L-1],M_corner[L-1,0]=Cov_matrix[1,0],Cov_matrix[0,1]
-            return M_corner + Cov_Matrix
-        else:
-            return (cls.Toeplitz_matrix(Fourier_plus=Fourier_plus,L=L))
+            if Circulant:
+                Cov_matrix=(cls.Toeplitz_matrix(Fourier_plus,L)+cls.Hankel_matrix(Fourier_minous,L))
+                M_corner=np.zeros((L,L))
+                Cov_matrix[0,L-1],Cov_matrix[L-1,0] = 0.0,0.0
+                M_corner[0,L-1],M_corner[L-1,0]=Cov_matrix[1,0],Cov_matrix[0,1]
+                return M_corner + Cov_Matrix
+            else:
+                return (cls.Toeplitz_matrix(Fourier_plus,L)+cls.Hankel_matrix(Fourier_minous,L))
 
     @classmethod
     def get_band_of_matrix(cls,Matrix:np.ndarray,num_band:np.int64)-> np.ndarray:
@@ -162,10 +161,7 @@ class Computations_XY_model(Sampling_Random_State):
 
     @classmethod
     def Compute_svd_Cov_Matrix(cls,Fourier_M:np.ndarray = None,Fourier_P:np.ndarray = None,L:np.int64= 10,Circulant:bool = False,Complete:bool = True)->np.ndarray:
-        if Fourier_M ==None:
-            Cov_matrix=cls.Covariance_matrix_from_sub_sample_Toeplitz(Fourier_plus = Fourier_P,L=L,Circulant=Circulant)
-        else:
-            Cov_matrix=cls.Covariance_matrix_from_sub_sample(Fourier_minous= Fourier_M,Fourier_plus = Fourier_P,L=L,Circulant=Circulant)
+        Cov_matrix=cls.Covariance_matrix_from_sub_sample(Fourier_minous= Fourier_M,Fourier_plus = Fourier_P,L=L,Circulant=Circulant)
         return np.linalg.svd(Cov_matrix,compute_uv=Complete)
 
 
@@ -176,7 +172,7 @@ class Computations_XY_model(Sampling_Random_State):
         to be passed as a parameters. by default we compute the entropy for a size of 2 up to 100 and therfore we return
         an array.
         """
-        S = [np.sum(cls.Binary_entropy(0.5-cls.Compute_svd_Cov_Matrix(Fourier_M=Fourier_M,Fourier_P=Fourier_P,L=L,Circulant=Circulant,Complete = False)) for i in range(2,n_size,step)]
+        S = [np.sum(cls.Binary_entropy(0.5-cls.Compute_svd_Cov_Matrix(Fourier_M=Fourier_M,Fourier_P=Fourier_P,L=L,Circulant=Circulant,Complete = False))) for i in range(2,n_size,step)]
         return np.array(S)
 
 
