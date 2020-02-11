@@ -159,6 +159,16 @@ class Computations_XY_model(Sampling_Random_State):
         # N corresponds to the size of the system
         f=np.exp(cls.beta*(cls.Omega(((2.*np.pi)/np.float64(Size)) * n)-cls.mu)) +1
         return 1/f
+
+    @classmethod
+    def Compute_svd_Cov_Matrix(cls,Fourier_M:np.ndarray = None,Fourier_P:np.ndarray = None,L:np.int64= 10,Circulant:bool = False,Complete:bool = True)->np.ndarray:
+        if Fourier_M ==None:
+            Cov_matrix=cls.Covariance_matrix_from_sub_sample_Toeplitz(Fourier_plus = Fourier_P,L=L,Circulant=Circulant)
+        else:
+            Cov_matrix=cls.Covariance_matrix_from_sub_sample(Fourier_minous= Fourier_M,Fourier_plus = Fourier_P,L=L,Circulant=Circulant)
+        return np.linalg.svd(Cov_matrix,compute_uv=Complete)
+
+
     @classmethod
     def Compute_Entropy_State(cls,Fourier_M:np.ndarray,Fourier_P:np.ndarray,n_size:np.int64=100,step:np.int64=2,Circulant:bool=False)->np.ndarray:
         """
@@ -166,12 +176,8 @@ class Computations_XY_model(Sampling_Random_State):
         to be passed as a parameters. by default we compute the entropy for a size of 2 up to 100 and therfore we return
         an array.
         """
-        if Fourier_M == None:
-            S = [np.sum(cls.Binary_entropy(0.5-np.linalg.svd(cls.Covariance_matrix_from_sub_sample_Toeplitz(Fourier_plus=Fourier_P, L=i,Circulant=Circulant),compute_uv=False))) for i in range(2,n_size,step)]
-        else:
-            S = [np.sum(cls.Binary_entropy(0.5-np.linalg.svd(cls.Covariance_matrix_from_sub_sample(Fourier_minous=Fourier_M, Fourier_plus=Fourier_P, L=i,Circulant=Circulant),compute_uv=False))) for i in range(2,n_size,step)]
+        S = [np.sum(cls.Binary_entropy(0.5-cls.Compute_svd_Cov_Matrix(Fourier_M=Fourier_M,Fourier_P=Fourier_P,L=L,Circulant=Circulant,Complete = False)) for i in range(2,n_size,step)]
         return np.array(S)
-
 
 
     @classmethod
@@ -180,27 +186,21 @@ class Computations_XY_model(Sampling_Random_State):
         This function returns the  density matrix from a random state, this is why we need to pass the Fourier plus and minous
         to this function, this does not compute the fourier transform, only the density matrix associated with it.
         """
-        if Fourier_M == None:
-            O_1, S, O_2 = np.linalg.svd(cls.Covariance_matrix_from_sub_sample_Toeplitz( Fourier_plus=Fourier_P, L=L,Circulant=Circulant))
-        else:
-            O_1, S, O_2 = np.linalg.svd(cls.Covariance_matrix_from_sub_sample( Fourier_minous=Fourier_M,Fourier_plus=Fourier_P, L=L,Circulant=Circulant))
+        O_1, S, O_2 = cls.Compute_svd_Cov_Matrix(Fourier_M=Fourier_M,Fourier_P=Fourier_P,L=L,Circulant=Circulant,Complete = True)
         S = -S +0.5
         x= np.log(1-S) - np.log(S)
         M = -(O_1@np.diag(x)@O_2)/cls.beta
         return M
 
 
-
     @classmethod
     def Compute_Spectrum_Random_Distribution_Associated(cls,Fourier_M:np.ndarray,Fourier_P:np.ndarray,L:np.int64,Circulant:bool=False)->np.ndarray:
-        if Fourier_M ==None:
-            S = np.linalg.svd(cls.Covariance_matrix_from_sub_sample(Fourier_minous=Fourier_M,Fourier_plus= Fourier_P,L=L,Circulant=Circulant),compute_uv=False)
-        else:
-            S = np.linalg.svd(cls.Covariance_matrix_from_sub_sample(Fourier_minous=Fourier_M,Fourier_plus= Fourier_P,L=L,Circulant=Circulant),compute_uv=False)
+        S = cls.Compute_svd_Cov_Matrix(Fourier_M=Fourier_M,Fourier_P=Fourier_P,L=L,Circulant=Circulant,Complete = False)#np.linalg.svd(cls.Covariance_matrix_from_sub_sample_Toeplitz(Fourier_plus= Fourier_P,L=L,Circulant=Circulant),compute_uv=False)
         n=np.arange(-(L-1)/2,(L-1)/2 +1)
         S=sorted(-S+0.5,reverse=True)
         Fermi = sorted(cls.Sample_Fermi_dirac(n=n,Size=L),reverse=True)
         return np.array(S),np.array(Fermi)
+
     @classmethod
     def Compute_Fourier_Transforms(cls,Ground = False,Save=False,Route = None,Cluster = False):
         if Cluster:
@@ -240,46 +240,13 @@ class Computations_XY_model(Sampling_Random_State):
         Data[:,1] = b.real
         return Data
 
-    @classmethod
-    def Compute_Spectrum_Random_State_Circulant(cls,Fourier_M:np.ndarray,Fourier_P:np.ndarray,L:np.int64)->np.ndarray:
-        """
-        This function computes something similar to the function  Compute_Spectrum_Random_Distribution_Associated,
-        but the only difference is that this one completes the
-        """
-        Cov_matrix=cls.Covariance_matrix_from_sub_sample_Circulant(Fourier_minous= Fourier_M,Fourier_plus = Fourier_P,L=L)
-        S = np.linalg.svd(Cov_matrix,compute_uv=False)
-        return np.array(sorted(-S+0.5,reverse=True))
-
-    @classmethod
-    def Compute_Spectrum_Random_State_Toeplitz(cls,Fourier_P:np.ndarray,L:np.int64,Circulant:bool=False):
-        if Circulant:
-            Cov_Matrix = cls.Toeplitz_matrix(Fourier_P,L)
-            M_corner=np.zeros((L,L))
-            Cov_Matrix[0,L-1],Cov_Matrix[L-1,0] = 0.0,0.0
-            M_corner[0,L-1],M_corner[L-1,0]=Cov_Matrix[1,0],Cov_Matrix[0,1]
-            S = np.linalg.svd(Cov_Matrix+M_corner,compute_uv=False)
-            return np.array(sorted(-S+0.5,reverse=True))
-        else:
-            Cov_Matrix = cls.Toeplitz_matrix(Fourier_P,L)
-            S = np.linalg.svd(Cov_Matrix,compute_uv=False)
-            return np.array(sorted(-S+0.5,reverse=True))
 
 
-    @classmethod
-    def Compute_svd_Cov_Matrix(cls,Fourier_M:np.ndarray,Fourier_P:np.ndarray,L:np.int64,Circulant:bool = False)->np.ndarray:
-        if Circulant:
-            Cov_matrix=cls.Covariance_matrix_from_sub_sample(Fourier_minous= Fourier_M,Fourier_plus = Fourier_P,L=L)
-            return np.linalg.svd(Cov_matrix)
 
-        else:
-            Cov_matrix=cls.Covariance_matrix_from_sub_sample(Fourier_minous= Fourier_M,Fourier_plus = Fourier_P,L=L)
-            M_corner=np.zeros((L,L))
-            Cov_matrix[0,L-1],Cov_matrix[L-1,0] = 0.0,0.0
-            M_corner[0,L-1],M_corner[L-1,0]=Cov_matrix[1,0],Cov_matrix[0,1]
-            return np.linalg.svd(Cov_matrix+M_corner)
+
     @classmethod
     def Compute_Participation_Function(cls,Fourier_M:np.ndarray,Fourier_P:np.ndarray,L:np.int64,Circulant:bool = False)->np.ndarray:
-        O_1,S,O_2 = cls.Compute_svd_Cov_Matrix(Fourier_M=Fourier_M,Fourier_P=Fourier_P,L=L,Circulant=Circulant)
+        O_1,S,O_2 = cls.Compute_svd_Cov_Matrix(Fourier_M=Fourier_M,Fourier_P=Fourier_P,L=L,Circulant=Circulant,Complete = True)
         return (O_1**2 + O_2**2)*0.5
 
 
@@ -288,8 +255,8 @@ class Plot_XY_Computations(Computations_XY_model):
     def Plot_Modes(cls,Fourier_M:np.ndarray,Fourier_P:np.ndarray,L:np.int64,Circulant:bool = False,Save:bool = False,title:str = "Normal modes",Both:bool=False)->np.ndarray:
         fig,axes = plt.subplots(nrows=L, ncols=2, figsize=(15,int(2*L)), tight_layout=True)
         if Both:
-            O_1,S,O_2 =cls.Compute_svd_Cov_Matrix(Fourier_M=Fourier_M, Fourier_P=Fourier_P, L=L,Circulant=True)
-            O_1_toe,S_toe,O_2_toe =cls.Compute_svd_Cov_Matrix(Fourier_M=Fourier_M, Fourier_P=Fourier_P, L=L,Circulant=False)
+            O_1,S,O_2 =cls.Compute_svd_Cov_Matrix(Fourier_M=Fourier_M,Fourier_P=Fourier_P,L=L,Circulant=True,Complete = True)
+            O_1_toe,S_toe,O_2_toe =cls.Compute_svd_Cov_Matrix(Fourier_M=Fourier_M,Fourier_P=Fourier_P,L=L,Circulant=False,Complete = True)#cls.Compute_svd_Cov_Matrix(Fourier_M=Fourier_M, Fourier_P=Fourier_P, L=L,Circulant=False)
             for i in range(L):
                 axes[i,0].set_title(r"Mode number {} of $O_1$".format(i+1))
                 axes[i,0].plot(O_1[:,i],color="navy",label="Circulant")
@@ -305,7 +272,7 @@ class Plot_XY_Computations(Computations_XY_model):
             else:
                 return fig, axes
         else:
-            O_1,S,O_2 =cls.Compute_svd_Cov_Matrix(Fourier_M=Fourier_M, Fourier_P=Fourier_P, L=L,Circulant=Circulant)
+            O_1,S,O_2 =cls.Compute_svd_Cov_Matrix(Fourier_M=Fourier_M,Fourier_P=Fourier_P,L=L,Circulant=Circulant,Complete = True)
             for i in range(L):
                 axes[i,0].set_title(r"Mode number {} of $O_1$".format(i+1))
                 axes[i,0].plot(O_1[:,i],color="navy")
@@ -322,8 +289,8 @@ class Plot_XY_Computations(Computations_XY_model):
     def Plot_Participation_Function(cls,Fourier_M:np.ndarray,Fourier_P:np.ndarray,L:np.int64,Circulant = False,Save:bool = False,title:str = "Participation Function",Both:bool=False)->np.ndarray:
         fig,axes = plt.subplots(nrows=L, ncols=2, figsize=(15,int(2*L)), tight_layout=True)
         if Both:
-            P=cls.Compute_Participation_Function(Fourier_M=Fourier_M,Fourier_P=Fourier_P,L=L,Circulant = True)
-            P_toe=cls.Compute_Participation_Function(Fourier_M=Fourier_M,Fourier_P=Fourier_P,L=L,Circulant = False)
+            P=cls.Compute_svd_Cov_Matrix(Fourier_M=Fourier_M,Fourier_P=Fourier_P,L=L,Circulant=True,Complete = True)
+            P_toe=cls.Compute_svd_Cov_Matrix(Fourier_M=Fourier_M,Fourier_P=Fourier_P,L=L,Circulant=False,Complete = True)
             for i in range(L):
                 axes[i,0].set_title(r"Participation Function Column {}".format(i+1))
                 axes[i,0].plot(P[:,i],color="navy",label="Circulant")
@@ -340,7 +307,7 @@ class Plot_XY_Computations(Computations_XY_model):
                 return fig, axes
 
         else:
-            P=cls.Compute_Participation_Function(Fourier_M=Fourier_M,Fourier_P=Fourier_P,L=L,Circulant = Circulant)
+            P=cls.Compute_svd_Cov_Matrix(Fourier_M=Fourier_M,Fourier_P=Fourier_P,L=L,Circulant=Circulant,Complete = True)
             for i in range(L):
                 axes[i,0].set_title(r"Participation Function Column {}".format(i+1))
                 axes[i,0].plot(P[:,i],color="navy")
