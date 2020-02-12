@@ -1,6 +1,5 @@
 import numpy as np
 from scipy.linalg import circulant,toeplitz, hankel, expm
-import warnings
 import pickle
 import matplotlib.pylab as plt
 from multiprocessing import Pool
@@ -8,7 +7,8 @@ from functools import partial
 try:
     import pyfftw
 except ImportError:
-    warnings.warn("I couldn't find the package pyfftw, please check the location of it and re run it. Our suggestion is to install it to use the functions that have been optimized")
+    pass
+    #warnings.warn("I couldn't find the package pyfftw, please check the location of it and re run it. Our suggestion is to install it to use the functions that have been optimized")
 
 
 
@@ -73,18 +73,18 @@ class Sampling_Random_State:
         Mminous, Mplus = cls.Sample_State(Ground=Ground)
         x=np.arange(-(cls.N_size-1)/2,(cls.N_size-1)/2+ 1)
         if Cluster:
+            M_plus=np.fft.ifftshift(Mplus)
+            M_minous=np.fft.ifftshift(Mminous)
+            Fourier_minous=np.fft.fft(M_minous)
+            Fourier_plus=np.fft.fft(M_plus)
+
+        else:
             M_plus=pyfftw.empty_aligned(cls.N_size, dtype='complex128')
             M_plus[:]=np.fft.ifftshift(Mplus)
             M_minous=pyfftw.empty_aligned(cls.N_size, dtype='complex128')
             M_minous[:]=np.fft.ifftshift(Mminous)
             Fourier_minous=pyfftw.interfaces.numpy_fft.fft(M_minous)
             Fourier_plus=pyfftw.interfaces.numpy_fft.fft(M_plus)
-        else:
-            M_plus=pyfftw.empty_aligned(cls.N_size, dtype='complex128')
-            M_plus[:]=np.fft.ifftshift(Mplus)
-            M_minous[:]=np.fft.ifftshift(Mminous)
-            Fourier_minous=np.fft.fft(M_minous)
-            Fourier_plus=np.fft.fft(M_plus)
         return Fourier_minous/cls.N_size, Fourier_plus/cls.N_size
 
 
@@ -233,14 +233,10 @@ class Computations_XY_model(Sampling_Random_State):
 
 
 
-
-
-
-
     @classmethod
     def Compute_Participation_Function(cls,Fourier_M:np.ndarray,Fourier_P:np.ndarray,L:np.int64,Circulant:bool = False)->np.ndarray:
         O_1,S,O_2 = cls.Compute_svd_Cov_Matrix(Fourier_M=Fourier_M,Fourier_P=Fourier_P,L=L,Circulant=Circulant,Complete = True)
-        return (O_1**2 + O_2**2)*0.5
+        return (O_1**2 + O_2.T**2)*0.5
 
 
 class Plot_XY_Computations(Computations_XY_model):
