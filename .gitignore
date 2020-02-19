@@ -1,5 +1,8 @@
 *.ipynb_checkpoints
 *.out
+*.log
+*.aux
+*.toc
 *.x
 *.DS_Store
 *checkpoint.ipynb
