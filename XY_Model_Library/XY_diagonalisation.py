@@ -4,6 +4,7 @@ import pickle
 import matplotlib.pylab as plt
 from multiprocessing import Pool
 from functools import partial
+import time
 try:
     import pyfftw
 except ImportError:
@@ -20,6 +21,7 @@ class Sampling_Random_State:
     Lambda=0.5
     num_data = 200
     mu = 0.0
+    
     #### ------------------------------------------------------------
 
     @classmethod
@@ -50,7 +52,7 @@ class Sampling_Random_State:
     @classmethod
     def Sample_number_sin_cos(cls,Ground:bool = False)-> list:
         x=np.arange(0,(cls.N_size-1)/2+ 1)
-        beta = np.min(cls.Omega(np.linspace(-np.pi,np.pi,int(1000))))
+        beta = np.min(cls.Omega(np.linspace(-np.pi,np.pi,np.int64(1000))))
         if Ground:
             m_cos=[-0.5 for i in x]
             m_sin=[-0.5 for i in x]
@@ -58,6 +60,23 @@ class Sampling_Random_State:
             m_cos=[-0.5 if np.random.random()>cls.Fermi_dirac(n=i,beta=beta) else 0.5 for i in x]
             m_sin=[-0.5 if np.random.random()>cls.Fermi_dirac(n=i,beta=beta) else 0.5 for i in x]
         return m_sin,m_cos
+    @classmethod
+    def Sample_numbers(cls,number:np.int64,rank:np.int64 = 0,Ground:bool=False)->np.ndarray:
+        np.random.seed(rank*cls.num_data+number)
+        beta = np.min(cls.Omega(np.linspace(-np.pi,np.pi,np.int64(1000))))
+        x=np.arange(0,(cls.N_size-1)/2+ 1)
+        if Ground:
+            m_cos=[-0.5 for i in x]
+            m_sin=[-0.5 for i in x]
+        else:
+            m_cos=[-0.5 if np.random.random()>cls.Fermi_dirac(n=i,beta=beta) else 0.5 for i in x]
+            m_sin=[-0.5 if np.random.random()>cls.Fermi_dirac(n=i,beta=beta) else 0.5 for i in x]
+        
+        n = np.zeros(cls.N_size)
+        n[::2] =np.array(m_cos)+0.5
+        n[1::2] = np.array(m_sin[:-1])+0.5
+        return n
+        
     @classmethod
     def Sample_State(cls,Ground:bool =False)-> np.ndarray:
         m_sin,m_cos = cls.Sample_number_sin_cos(Ground=Ground)
@@ -215,19 +234,21 @@ class Computations_XY_model(Sampling_Random_State):
 
 
     @classmethod
-    def Simple_Fourier_Transform(cls,num:np.int64,Ground:bool = False,Cluster:bool = False) ->np.ndarray:
+    def Simple_Fourier_Transform(cls,num:np.int64,rank:np.int64 = 0,Ground:bool = False,Cluster:bool = False) ->np.ndarray:
         """
         This was done specially to use the pool function to use a multiple thread programing
         """
+        np.random.seed(rank*cls.num_data+num)
         Data = np.zeros((cls.N_size,2))
         a,b = cls.Get_Bands_Matrix(Ground=Ground,Cluster=Cluster)
         Data[:,0] = a.real
         Data[:,1] = b.real
         return Data
+    
     @classmethod
-    def Fourier_Parallel_Transform(cls,Ground = False,Threads:np.int64 = 3, Cluster:bool = False) ->np.ndarray:
+    def Fourier_Parallel_Transform(cls,Ground = False,Threads:np.int64 = 3,rank:np.int64=0 , Cluster:bool = False) ->np.ndarray:
         with Pool(Threads) as p:
-            Fourier_Function = partial(cls.Simple_Fourier_Transform,Ground=Ground,Cluster=Cluster)
+            Fourier_Function = partial(cls.Simple_Fourier_Transform,Ground=Ground,Cluster=Cluster,rank=rank)
             Fourier_Transforms = np.array(p.map(Fourier_Function,range(cls.num_data)))
         return Fourier_Transforms
 
