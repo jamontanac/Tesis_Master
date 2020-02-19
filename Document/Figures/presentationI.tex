@@ -1,0 +1,38 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{braket}
+\usetikzlibrary{patterns}
+\usetikzlibrary{shapes,snakes}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}%
+\begin{document}
+\tikzstyle{int0}=[circle,draw, fill=violet!30, minimum size=4em]
+\begin{tikzpicture}[node distance=2cm,auto]
+
+\draw[red,ultra thick] (-2,0) --(1.5,0) node [right] {$\ket{g}$};
+\draw[blue,ultra thick] (-2,2)--(1.5,2)node [right] {$\ket{e}$};
+\draw [purple](0,1) circle(2.5cm);
+\draw[ultra thick ,<-](0.5,0)--(0.5,2);
+\draw[ultra thick ,<-](0.5,2)--(0.5,0);
+\node[scale=1.5,color=blue]  at (1,1)   {$\omega_{a}$};
+\filldraw[fill=yellow!50!white,draw=black] (1,2)circle(0.15cm);
+\node[scale=1.5,color=blue!100!black!50!red!100!] at (5.9,1) {$\omega_c$};
+\begin{scope}[decoration={snake,amplitude=.8mm,
+        segment length=3mm,post length=.5mm}]
+\draw[-latex,decorate,red!80!black] (-1.0,0.8) -- (-4.0,3.5) node [pos=1,right,scale=1.5]{$\gamma$};% node [right] {$\gamma$};
+\end{scope}
+      \draw[thick,domain=-6:6,smooth,samples at={-8.01,-8.0,...,8.01},variable=\x,blue!100!black!50!red!100!] plot ({\x},{3*sin(10*pi*\x+90)+2.0});
+       \draw[thick,domain=-6:6,smooth,samples at={-8.01,-8.0,...,8.01},variable=\x,blue!100!black!50!red!100!] plot ({\x},{-3*sin(10*pi*\x+90)-0.0});
+\draw [thick](-8,-3.5) --++(90:8.5cm);
+    \fill[pattern=north west lines,pattern color=blue!90!red!30!] (-8,-3.5) rectangle (-8.5,5); 
+    \draw (8,-3.5) --++(90:8.5cm);
+    \fill[pattern=north west lines,pattern color=blue!90!red!30!] (8,-3.5) rectangle (8.5,5); 
+
+
+\end{tikzpicture}
+\end{document}

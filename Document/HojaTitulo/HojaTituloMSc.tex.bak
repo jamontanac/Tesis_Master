@@ -1,0 +1,85 @@
+%\newpage
+%\setcounter{page}{1}
+\begin{center}
+\begin{figure}
+\centering%
+\epsfig{file=HojaTitulo/EscudoUN.png,scale=.3}%
+\end{figure}
+\thispagestyle{empty} \vspace*{0.0cm} \textbf{\huge
+Propagador de la Función de Wigner:} \\ \textbf{\Large Un estudio Comparativo}\\[4.0cm]
+\Large\textbf{Jose Mauricio Sevilla Moreno}\\[6.0cm]
+\small Universidad Nacional de Colombia\\
+Facultad de Ciencias, Departamento de Fisica\\
+Bogotá, Colombia\\
+2017\\
+\end{center}
+
+\newpage{\pagestyle{empty}\cleardoublepage}
+
+\newpage
+\begin{center}
+\thispagestyle{empty} \vspace*{0cm} \textbf{\huge
+Propagador de la Función de Wigner:} \\ \textbf{\Large Un estudio Comparativo}\\[3.0cm]
+\Large\textbf{José Mauricio Sevilla Moreno}\\[3.0cm]
+\small Trabajo de grado presentado como requisito parcial para optar al
+t\'{\i}tulo de:\\
+\textbf{Físico}\\[2.5cm]
+Director:\\
+Carlos Leonardo Viviescas Ramírez\\[2.0cm]
+%L\'{\i}nea de Investigaci\'{o}n:\\
+%Nombrar la l\'{\i}nea de investigaci\'{o}n en la que enmarca la tesis  o trabajo de investigaci\'{o}n\\
+Grupo de Investigación:\\
+Caos y Complejidad\\[2.5cm]
+Universidad Nacional de Colombia\\
+Facultad de Ciencias, Departamento de Física\\
+Bogotá, Colombia\\
+2017\\
+\end{center}
+
+\newpage{\pagestyle{empty}\cleardoublepage}
+
+\newpage
+%\thispagestyle{empty} \textbf{}\normalsize
+%\\\\\\%
+%\textbf{(Dedicatoria o un lema)}
+\quad\\[5.0cm]
+
+\begin{flushright}
+\begin{minipage}{8cm}
+    \noindent
+        \small
+ %       Su uso es opcional y cada autor podr\'{a} determinar la distribuci\'{o}n del texto en la p\'{a}gina, se sugiere esta presentaci\'{o}n. En ella el autor dedica su trabajo en forma especial a personas y/o entidades.\\[1.0cm]\\
+ %       Por ejemplo:\\[1.0cm]
+        A mis padres\\[1.0cm]\\
+ %       o\\[1.0cm]
+ %       La preocupaci\'{o}n por el hombre y su destino siempre debe ser el
+  %      inter\'{e}s primordial de todo esfuerzo t\'{e}cnico. Nunca olvides esto
+   %     entre tus diagramas y ecuaciones.\\\\
+    %    Albert Einstein\\
+\end{minipage}
+\end{flushright}
+
+%\newpage{\pagestyle{empty}\cleardoublepage}
+%\newpage{}
+
+%\thispagestyle{empty} \textbf{}\normalsize
+%\\\\\\%
+%\textbf{\LARGE Acknowledgments}
+%\addcontentsline{toc}{chapter}{\numberline{}Acknowledgments}\\\\
+%Esta secci\'{o}n es opcional, en ella el autor agradece a las personas o instituciones que colaboraron en la realizaci\'{o}n de la tesis  o trabajo de investigaci\'{o}n. Si se incluye esta secci\'{o}n, deben aparecer los nombres completos, los cargos y su aporte al documento.\\
+
+%\newpage{\pagestyle{empty}\cleardoublepage}
+\newpage{\pagestyle{empty}\cleardoublepage}
+\newpage{}
+
+
+%\textbf{\LARGE Abstract}
+\addcontentsline{toc}{chapter}{\numberline{}Resumen}
+
+%\textbf{\small Keywords: }\\[2.0cm]
+
+\textbf{\LARGE Resumen}\\\\
+La mecánica cuántica en el espacio de fase de Wigner permite una comparación directa entre la mecánica clásica y cuántica, en este trabajo se muestran los elementos básicos de ésta representación, junto con la manera de implementar la evolución temporal de estados numéricamente, partiendo de el mismo estado inicial y evolucionando con la ecuación de Moyal para la mecánica cuántica y con la de Liouville para la clásica. Esto se hizo para oscilador armónico, potencial de Morse y un doble pozo de potencial.\\
+\textbf{\small Palabras Clave: Espacio de fase, Función de Wigner, Ecuación de  Liouville}.\\
+\newpage{\pagestyle{empty}\cleardoublepage}
+\newpage{}

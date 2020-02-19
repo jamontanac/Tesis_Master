@@ -1,0 +1,37 @@
+\input{EncabezadoTesisMSc}
+
+%\includeonly{Kap1/Kap1,Kap2/Kap2}
+\begin{document}
+\pagenumbering{roman}
+\include{HojaTitulo/HojaTituloMSc}
+%\include{Declaracion}
+\newcommand{\code}[1]{\texttt{\textcolor{violet}{#1}}}
+\newcommand{\col}[1]{\textcolor{violet}{#1}}
+\renewcommand{\tablename}{\textbf{Table}}
+\renewcommand{\figurename}{\textbf{Figure}}
+\renewcommand{\contentsname}{Content}
+\renewcommand{\chaptername}{Chapter}
+\renewcommand{\appendixname}{Appendix}
+\renewcommand{\bibname}{Bibliography}
+\newcommand{\coloreq}[1]{\begin{empheq}[box=\colorbox{violet!20}]{align}#1\end{empheq}}
+\newcommand{\coloreqq}[1]{\begin{empheq}[box=\colorbox{Violet!20}]{align*}#1\end{empheq}}
+
+%\renewcommand{\listtablename}{Lista de Tablas}
+%\renewcommand{\listfigurename}{Lista de Figuras}
+%\newcommand{\clearemptydoublepage}{\newpage{\pagestyle{empty}\cleardoublepage}}
+\tableofcontents
+\newpage{\pagestyle{empty}\cleardoublepage}
+%\include{Tab_Simbolos/TabSimbolosMSc}
+%\include{Resumen}\newcommand{\clearemptydoublepage}{\newpage{\pagestyle{empty}\cleardoublepage}}
+\pagenumbering{arabic}
+\include{Chapters/Chap1}
+%\include{Chapters/Chap2}
+%\include{Chapters/Chap3}
+%\include{Kap4/Kap4}
+%\include{Kap5/Kap5}
+%\include{Appendices/Appendix}
+\nocite{*}
+\addcontentsline{toc}{chapter}{\numberline{}Bibliography}
+\bibliographystyle{unsrt}%din_es
+\bibliography{BibliMSc.bib}
+\end{document}

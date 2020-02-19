@@ -1,0 +1,17 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\begin{document}
+
+\begin{tikzpicture}
+      \draw[->] (0,0) -- (3,0) node[right,scale=0.65] {$t'$};
+      \draw[->] (0,0) -- (0,3);
+      \node[above,scale=0.5,rotate=90] at (0,1.5) {$\mathbb{S}_{\alpha\beta}(t-t')$};
+      \draw[scale=0.5,domain=0:5,smooth,variable=\x,blue!100!black!50!red!100!] plot ({\x},{((0.35/2)/((\x-2.5)*(\x-2.5)+(0.35*0.35/4))});
+      \draw[line width=0.05mm,dashed,blue!100!black!50!red!100!] (1.249,3) -- (1.249,0) node[below,scale=0.4,black] {$t$};
+      \draw[<->,line width=0.1 mm,blue!100!black!50!red!100!]  (1.25,0.25)--(1.53,0.25) ;
+      \node[scale=0.35,black] at (1.41,0.15) {$\tau_{corr}$};
+\end{tikzpicture}
+
+\end{document}
