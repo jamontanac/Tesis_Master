@@ -1,348 +1,52 @@
 \begin{thebibliography}{10}
 
-\bibitem{Decoherence}
-Schlosshauer~. M.
-\newblock {\em Decoherence And The Quantum-To-Classical Transition}.
-\newblock The Frontiers Collection. Springer Berlin Heidelberg New York, 2008.
+\bibitem{botero_bcs-like_2004}
+Alonso Botero and Benni Reznik.
+\newblock {BCS}-like modewise entanglement of fermion gaussian states.
+\newblock 331(1):39 -- 44.
 
-\bibitem{von-neumann}
-J.~von Neumann.
-\newblock {\em Mathematical Foundations of Quantum Mechanics}.
-\newblock Princeton University Press, 1955.
+\bibitem{fradkin_field_1997}
+Eduardo Fradkin.
+\newblock {\em Field Theories Of Condensed Matter Systems Vol\#82 On-demand
+  Printing Of \#52253}.
+\newblock {CRC} Press, 1 edition edition.
 
-\bibitem{Heisenberg}
-W.~Heisenberg.
-\newblock {\em The physical principles of Quantum mechanics}.
-\newblock University of Chicago, 1930.
+\bibitem{berezin_method_1966}
+F.~A. Berezin.
+\newblock {\em The method of second quantization}.
+\newblock Number v. 24 in Pure and applied physics. Academic Press.
 
-\bibitem{MITopenquantumsystems}
-MIT open courseware.
-\newblock Quantum theory of radiation, interaction, open quantum systems.
-\newblock {\em MIT lectures}, (3):61--78, 2012.
+\bibitem{bogoljubov_new_1958}
+N.~N. Bogoljubov.
+\newblock On a new method in the theory of superconductivity.
+\newblock 7(6):794--805.
 
-\bibitem{lowtemperaturesanomalies}
-F.~Haake and R.Reibold.
-\newblock Strong damping and low-temperature anomalies for the harmonic
-  oscilator.
-\newblock {\em Phys. Rev}, 32, Oct 1985.
+\bibitem{bravyi_classical_2005}
+Sergey Bravyi.
+\newblock Classical capacity of fermionic product channels.
+\newblock version: 1.
 
-\bibitem{breuer}
-H.P-Brewuer and F.~Petruccione.
-\newblock {\em The Theory of open quantum systems}.
-\newblock Oxford University Press, Oxford, 2002.
+\bibitem{molinari_notes_2017}
+Luca~Guido Molinari.
+\newblock Notes on wick's theorem in many-body theory.
 
-\bibitem{REDfield}
-A.~G. Redfield.
-\newblock On a theory of relaxation processes.
-\newblock 1(43):19--31, Jan 1957.
+\bibitem{leijnse_introduction_2012}
+Martin Leijnse and Karsten Flensberg.
+\newblock Introduction to topological superconductivity and majorana fermions.
+\newblock 27(12):124003.
 
-\bibitem{Lindblad}
-G.~Lindblad.
-\newblock On the generators of quantum dynamical semigroups.
-\newblock {\em Comm. Math. Phys.}, 48(2):119--130, 1976.
+\bibitem{westwanski_general_1973}
+B.~Westwanski and A.~Pawlikowski.
+\newblock On a general statistical wick theorem.
+\newblock 43(2):201--202.
 
-\bibitem{Wiseman}
-Howard~M. Wiseman and Gerard~J. Milburn.
-\newblock {\em Quantum Measurement and Control}.
-\newblock Cambridge University Press. Cambridge University Press, New York,
-  2010.
+\bibitem{cheong_many-body_2003}
+Siew-Ann Cheong and Christopher~L. Henley.
+\newblock Many-body density matrices for free fermions.
 
-\bibitem{Wisemantrajectories}
-H~M Wiseman.
-\newblock Quantum trajectories and quantum measurement theory.
-\newblock {\em Quantum and Semiclassical Optics: Journal of the European
-  Optical Society Part B}, 8(1):205, 1996.
-
-\bibitem{Carmichaelquantum}
-H.~J Carmichael.
-\newblock {\em An Open Systems Approach to Quantum Optics}.
-\newblock Springer Berlin Heidelberg, Berlin, Heidelberg.
-
-\bibitem{PhysRevLett.70.2273}
-H.~J. Carmichael.
-\newblock Quantum trajectory theory for cascaded open systems.
-\newblock {\em Phys. Rev. Lett.}, 70:2273--2276, Apr 1993.
-
-\bibitem{PhysRevLett.75.45}
-P.~Kochan, H.~J. Carmichael, P.~R. Morrow, and M.~G. Raizen.
-\newblock Mutual coherence and interference in resonance fluorescence.
-\newblock {\em Phys. Rev. Lett.}, 75:45--48, Jul 1995.
-
-\bibitem{PhysRevA.46.R6801}
-L.~Tian and H.~J. Carmichael.
-\newblock Quantum trajectory simulations of two-state behavior in an optical
-  cavity containing one atom.
-\newblock {\em Phys. Rev. A}, 46:R6801--R6804, Dec 1992.
-
-\bibitem{Carmichael1994}
-H.~J. Carmichael.
-\newblock {\em Decoherence: Is Dissipation All It Takes?}, pages 219--223.
-\newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 1994.
-
-\bibitem{PratimKumar}
-PPratim~Kumar Chattaraj.
-\newblock {\em Atoms, Molecules, and clusters structure, reactivity and
-  dynamics}.
-\newblock CRC Press, 2011.
-
-\bibitem{jurgen}
-J{\"u}rgen Audretsch and Michael Mensky.
-\newblock {\em Continuous fuzzy measurements and visualization of a quantum
-  transition}, pages 1--14.
-\newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 1999.
-
-\bibitem{PhysRevLett.74.4827}
-J.~K. Breslin, G.~J. Milburn, and H.~M. Wiseman.
-\newblock Optimal quantum trajectories for continuous measurement.
-\newblock {\em Phys. Rev. Lett.}, 74:4827--4830, Jun 1995.
-
-\bibitem{Wiseman2002}
-H.~M. Wiseman and J.~A. Vaccaro.
-\newblock {\em Maximally Robust Unravelings of Quantum Master Equations with
-  Applications to the Atom Laser}, pages 201--206.
-\newblock Springer US, Boston, MA, 2002.
-
-\bibitem{0305-4470-30-21-026}
-M~Rigo, F~Mota-Furtado, and P~F O'Mahony.
-\newblock Continuous stochastic schr\"odinger equations and localization.
-\newblock {\em Journal of Physics A: Mathematical and General}, 30(21):7557,
-  1997.
-
-\bibitem{articlediosi}
-Lajos Diósi.
-\newblock Stochastic pure state representation for open quantum systems.
-\newblock 114:451--454, 03 1986.
-
-\bibitem{Bohr1913-BOHOTC}
-Niels Bohr.
-\newblock On the constitution of atoms and molecules, part i.
-\newblock {\em Philosophical Magazine}, 26:1--25, 1913.
-
-\bibitem{POVM1}
-Mohan Sarovar.
-\newblock Lecture 10: Generalized measurement, partial trace, and distance in
-  state space.
-\newblock October 2014.
-
-\bibitem{POVM2}
-A.Peres.
-\newblock Quantum theory: Concepts and methods.
-\newblock 57.
-
-\bibitem{StochasticNumerics}
-Michael V.~Tretyakov Grigori Noah~Milstein.
-\newblock Scientific Computation. Springer-Verlag Berlin Heidelberg, 2004.
-
-\bibitem{StochasticMethods}
-Crispin Gardiner.
-\newblock {\em A Handbook for the Natural and Social Sciences}, volume~13 of
-  {\em Springer Series in Synergetics}.
-\newblock Springer-Verlag Berlin Heidelberg, 2009.
-
-\bibitem{gardiner2004handbook}
-C.~W. Gardiner.
-\newblock {\em Handbook of stochastic methods for physics, chemistry and the
-  natural sciences}, volume~13 of {\em Springer Series in Synergetics}.
-\newblock Springer-Verlag, Berlin, third edition, 2004.
-
-\bibitem{articlediosi2}
-Lajos Diosi.
-\newblock Stochastic pure state representation for open quantum systems.
-\newblock 114:451--454, 03 1986.
-
-\bibitem{WISEMAN200191}
-H.M. Wiseman and L.~Diosi.
-\newblock Complete parameterization, and invariance, of diffusive quantum
-  trajectories for markovian open systems.
-\newblock {\em Chemical Physics}, 268(1):91 -- 104, 2001.
-
-\bibitem{PhysRevLett.75.4587}
-H.~M. Wiseman.
-\newblock Adaptive phase measurements of optical modes: Going beyond the
-  marginal $q$ distribution.
-\newblock {\em Phys. Rev. Lett.}, 75:4587--4590, Dec 1995.
-
-\bibitem{chang}
-Juliana Goates-Boerlo.
-\newblock Chemistry, third edition (chang, raymond).
-\newblock {\em Journal of Chemical Education}, 66(3):A102, 1989.
-
-\bibitem{PhysRevLett.78.2690}
-C.~Jarzynski.
-\newblock Nonequilibrium equality for free energy differences.
-\newblock {\em Phys. Rev. Lett.}, 78:2690--2693, Apr 1997.
-
-\bibitem{Gamow1940GAMMTI}
-George Gamow.
-\newblock {\em Mr. Tompkins in Wonderland}.
-\newblock Cambridge: Eng., The University Press, 1940.
-
-\bibitem{Gernot}
-G.~Schaller.
-\newblock {\em Open Quantum Systems Far from Equilibrium}, volume 881.
-\newblock Springer, Berlin, 2014.
-
-\bibitem{5392446}
-R.~Landauer.
-\newblock Irreversibility and heat generation in the computing process.
-\newblock {\em IBM Journal of Research and Development}, 5(3):183--191, July
-  1961.
-
-\bibitem{PhysRevB.84.245448}
-Dmitri~V. Averin, Mikko M\"ott\"onen, and Jukka~P. Pekola.
-\newblock Maxwell's demon based on a single-electron pump.
-\newblock {\em Phys. Rev. B}, 84:245448, Dec 2011.
-
-\bibitem{cite-key}
-Antoine B{\'e}rut, Artak Arakelyan, Artyom Petrosyan, Sergio Ciliberto, Raoul
-  Dillenschneider, and Eric Lutz.
-\newblock Experimental verification of landauer's principle linking information
-  and thermodynamics.
-\newblock {\em Nature}, 483:187 EP --, 03 2012.
-
-\bibitem{PhysRevLett.109.180601}
-O.-P. Saira, Y.~Yoon, T.~Tanttu, M.~M\"ott\"onen, D.~V. Averin, and J.~P.
-  Pekola.
-\newblock Test of the jarzynski and crooks fluctuation relations in an
-  electronic system.
-\newblock {\em Phys. Rev. Lett.}, 109:180601, Oct 2012.
-
-\bibitem{PhysRevLett.104.090602}
-Takahiro Sagawa and Masahito Ueda.
-\newblock Generalized jarzynski equality under nonequilibrium feedback control.
-\newblock {\em Phys. Rev. Lett.}, 104:090602, Mar 2010.
-
-\bibitem{Morikuni2011}
-Yohei Morikuni and Hal Tasaki.
-\newblock Quantum jarzynski-sagawa-ueda relations.
-\newblock {\em Journal of Statistical Physics}, 143(1):1--10, Apr 2011.
-
-\bibitem{0953-8984-18-21-S12}
-Simon~C Benjamin, Arzhang Ardavan, G~Andrew~D Briggs, David~A Britz, Daniel
-  Gunlycke, John Jefferson, Mark A~G Jones, David~F Leigh, Brendon~W Lovett,
-  Andrei~N Khlobystov, S~A Lyon, John J~L Morton, Kyriakos Porfyrakis, Mark~R
-  Sambrook, and Alexei~M Tyryshkin.
-\newblock Towards a fullerene-based quantum computer.
-\newblock {\em Journal of Physics: Condensed Matter}, 18(21):S867, 2006.
-
-\bibitem{cite-key2}
-Robert Biele, C{\'e}sar~A. Rodr{\'\i}guez-Rosario, Thomas Frauenheim, and Angel
-  Rubio.
-\newblock Controlling heat and particle currents in nanodevices by quantum
-  observation.
-\newblock {\em npj Quantum Materials}, 2(1):38, 2017.
-
-\bibitem{PhysRevE.75.050102}
-Peter Talkner, Eric Lutz, and Peter H\"anggi.
-\newblock Fluctuation theorems: Work is not an observable.
-\newblock {\em Phys. Rev. E}, 75:050102, May 2007.
-
-\bibitem{2540650509c442d0b14e917fdf7a4ca7}
-{Jose Joaquin} Alonso, Eric Lutz, and Alessandro Romito.
-\newblock Thermodynamics of weakly measured quantum systems.
-\newblock {\em Physical Review Letters}, 116(8), 2 2016.
-
-\bibitem{experiment1}
-K.~W. Murch, S.~J. Weber, C.~Macklin, and I.~Siddiqi.
-\newblock Observing single quantum trajectories of a superconducting quantum
-  bit.
-\newblock {\em Nature}, 502:211 EP --, 10 2013.
-
-\bibitem{experiment2}
-S.~J. Weber, A.~Chantasri, J.~Dressel, A.~N. Jordan, K.~W. Murch, and
-  I.~Siddiqi.
-\newblock Mapping the optimal route between two quantum states.
-\newblock {\em Nature}, 511:570 EP --, 07 2014.
-
-\bibitem{PhysRevB.56.15215}
-S.~A. Gurvitz.
-\newblock Measurements with a noninvasive detector and dephasing mechanism.
-\newblock {\em Phys. Rev. B}, 56:15215--15223, Dec 1997.
-
-\bibitem{PhysRevB.63.115403}
-Alexander~N. Korotkov.
-\newblock Selective quantum evolution of a qubit state due to continuous
-  measurement.
-\newblock {\em Phys. Rev. B}, 63:115403, Feb 2001.
-
-\bibitem{Alexander}
-Alexander Korotkov.
-\newblock Quantum bayesian approach to circuit qed measurement.
-\newblock page~11, Nov 2011.
-
-\bibitem{Kloeden1992}
-Peter~E Kloeden and Eckhard Platen.
-\newblock {\em {Numerical Solution of Stochastic Differential Equations}},
-  volume~23.
-\newblock 1992.
-
-\bibitem{Kraus}
-Mark~M. Wilde.
-\newblock Proof of the choi-kraus theorem.
-\newblock 2013.
-
-\bibitem{0305-4470-26-9-019}
-N~Gisin and I~C Percival.
-\newblock The quantum state diffusion picture of physical processes.
-\newblock {\em Journal of Physics A: Mathematical and General}, 26(9):2245,
-  1993.
-
-\bibitem{Noise}
-C.~W. Gardiner and P.~Zoller.
-\newblock {\em Quantum Noise: A Handbook of Markovian and non-Markovian quantum
-  stochastic methods with applications to quantum optics}.
-\newblock Springer, Berlin, 2004.
-
-\bibitem{Carmichael1999}
-H.~J. Carmichael.
-\newblock {\em Quantum jumps revisited: An overview of quantum trajectory
-  theory}, pages 15--36.
-\newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 1999.
-
-\bibitem{articleAlonso2}
-P~G.~Di~Stefano, J~J.~Alonso, E~Lutz, Giuseppe Falci, and M~Paternostro.
-\newblock Non-equilibrium thermodynamics of continuously measured quantum
-  systems: a circuit-qed implementation.
-\newblock 04 2017.
-
-\bibitem{1063-7869-59-2-121}
-Yu~M Romanovsky and V~P Trifonenkov.
-\newblock Energetics and stochastic dynamics of intraneuron transport.
-\newblock {\em Physics-Uspekhi}, 59(2):121, 2016.
-
-\bibitem{Stochaticenergetics}
-Ken Sekimoto.
-\newblock volume 799 of {\em Lecture Notes in Physics}.
-\newblock Springer-Verlag Berlin Heidelberg, 2010.
-
-\bibitem{articleAlonso3}
-Mahdi Naghiloo, D~Tan, P~M.~Harrington, J~J.~Alonso, E~Lutz, Alessandro Romito,
-  and Kater Murch.
-\newblock Thermodynamics along individual trajectories of a quantum bit.
-\newblock 03 2017.
-
-\bibitem{1742-5468-2009-02-P02025}
-Peter Talkner, Michele Campisi, and Peter H\"anggi.
-\newblock Fluctuation theorems in driven open quantum systems.
-\newblock {\em Journal of Statistical Mechanics: Theory and Experiment},
-  2009(02):P02025, 2009.
-
-\bibitem{1367-2630-18-11-113042}
-Christopher~W Wachtler, Philipp Strasberg, and Tobias Brandes.
-\newblock Stochastic thermodynamics based on incomplete information:
-  generalized jarzynski equality with measurement errors with or without
-  feedback.
-\newblock {\em New Journal of Physics}, 18(11):113042, 2016.
-
-\bibitem{article}
-Cyril Elouard, David A.~Herrera-Marta, Maxime Clusel, and A~Auffasves.
-\newblock The role of quantum measurement in stochastic thermodynamics.
-\newblock 3, 07 2016.
-
-\bibitem{PhysRevA.89.023827}
-Anders Bolund and Klaus M\o{}lmer.
-\newblock Stochastic excitation during the decay of a two-level emitter subject
-  to homodyne and heterodyne detection.
-\newblock {\em Phys. Rev. A}, 89:023827, Feb 2014.
+\bibitem{peschel_calculation_2003}
+Ingo Peschel.
+\newblock Calculation of reduced density matrices from correlation functions.
+\newblock 36(14):L205--L208.
 
 \end{thebibliography}

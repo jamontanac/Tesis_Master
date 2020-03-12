@@ -1,74 +1,73 @@
-This is BibTeX, Version 0.99d (TeX Live 2015)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: Documento.aux
 A level-1 auxiliary file: HojaTitulo/HojaTituloMSc.aux
 A level-1 auxiliary file: Chapters/Chap1.aux
 A level-1 auxiliary file: Chapters/Chap2.aux
-A level-1 auxiliary file: Chapters/Chap3.aux
-A level-1 auxiliary file: Appendices/Appendix.aux
 The style file: unsrt.bst
-Database file #1: BibliMSc.bib.bib
-Warning--there's a number but no volume in MITopenquantumsystems
-Warning--empty journal in REDfield
-Warning--empty year in Carmichaelquantum
-Warning--can't use both author and editor fields in Carmichael1994
-Warning--can't use both author and editor fields in PratimKumar
-Warning--can't use both author and editor fields in jurgen
-Warning--can't use both author and editor fields in Wiseman2002
-Warning--empty journal in articlediosi
-Warning--empty journal in POVM1
-Warning--empty journal in POVM2
-Warning--empty year in POVM2
-Warning--empty title in StochasticNumerics
-Warning--empty journal in articlediosi2
-Warning--empty journal in Alexander
-Warning--can't use both volume and number fields in Kloeden1992
-Warning--empty publisher in Kloeden1992
-Warning--empty journal in Kraus
-Warning--can't use both author and editor fields in Carmichael1999
-Warning--empty journal in articleAlonso2
-Warning--empty title in Stochaticenergetics
-Warning--empty journal in articleAlonso3
-Warning--empty journal in article
-You've used 62 entries,
+Database file #1: BibliMSc.bib
+Illegal end of database file---line 154 of file BibliMSc.bib
+ : 
+ : 
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--empty journal in botero_bcs-like_2004
+Warning--empty year in botero_bcs-like_2004
+Warning--empty year in fradkin_field_1997
+Warning--empty year in berezin_method_1966
+Warning--empty journal in bogoljubov_new_1958
+Warning--empty year in bogoljubov_new_1958
+Warning--empty journal in bravyi_classical_2005
+Warning--empty year in bravyi_classical_2005
+Warning--empty journal in molinari_notes_2017
+Warning--empty year in molinari_notes_2017
+Warning--empty journal in leijnse_introduction_2012
+Warning--empty year in leijnse_introduction_2012
+Warning--empty journal in westwanski_general_1973
+Warning--empty year in westwanski_general_1973
+Warning--empty journal in cheong_many-body_2003
+Warning--empty year in cheong_many-body_2003
+Warning--empty journal in peschel_calculation_2003
+Warning--empty year in peschel_calculation_2003
+You've used 10 entries,
             1791 wiz_defined-function locations,
-            857 strings with 13496 characters,
-and the built_in function-call counts, 13033 in all, are:
-= -- 1130
-> -- 516
-< -- 10
-+ -- 203
-- -- 141
-* -- 902
-:= -- 2082
-add.period$ -- 188
-call.type$ -- 62
-change.case$ -- 44
+            497 strings with 4697 characters,
+and the built_in function-call counts, 1904 in all, are:
+= -- 161
+> -- 56
+< -- 1
++ -- 24
+- -- 14
+* -- 140
+:= -- 296
+add.period$ -- 29
+call.type$ -- 10
+change.case$ -- 9
 chr.to.int$ -- 0
-cite$ -- 84
-duplicate$ -- 611
-empty$ -- 1325
-format.name$ -- 141
-if$ -- 2885
+cite$ -- 28
+duplicate$ -- 89
+empty$ -- 202
+format.name$ -- 14
+if$ -- 400
 int.to.chr$ -- 0
-int.to.str$ -- 62
-missing$ -- 81
-newline$ -- 312
-num.names$ -- 62
-pop$ -- 191
+int.to.str$ -- 10
+missing$ -- 12
+newline$ -- 51
+num.names$ -- 10
+pop$ -- 50
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 232
+skip$ -- 30
 stack$ -- 0
-substring$ -- 790
-swap$ -- 99
-text.length$ -- 10
+substring$ -- 124
+swap$ -- 3
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 22
-while$ -- 119
-width$ -- 64
-write$ -- 664
-(There were 22 warnings)
+warning$ -- 18
+while$ -- 19
+width$ -- 12
+write$ -- 90
+(There was 1 error message)
