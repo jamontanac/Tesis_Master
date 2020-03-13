@@ -32,7 +32,7 @@ and
  }.
 \\
 Many relevant physics models are diagonalizable via a Bogoliubov-Valantin transformations, some examples are the Hubbard model, BCS theory of superconductivity in the mean field or Hartree-Fock approximation, and certain solvable spin-chain models (After a Jordan-Wigner transformation) \cite{fradkin_field_1997}. As we will later explain, an important feature about the class of Hamiltonians described by \eqref{CH2:QuadraticHamiltonian}, if not the most important for the purpose of this project,  is that not only the ground state (quasi-particle vacuum)  but all eigenstates describing a excitation  in a set of quasi-particles, belong to the class of so-called Fermionic Gaussian states\cite{botero_bcs-like_2004}. What is important about these class of states is that are fully characterized by second order correlations, because all the higher moments factorize. This is known as Wick's theorem\cite{bravyi_classical_2005, molinari_notes_2017}, being this the motivation to formulate an equivalent and convenient characterization of second order correlations, which is defined in terms of Majorana fermions and is known as Fermionic covariance matrix.
-\subsection*{Majorana Fermions}
+\section*{Majorana Fermions}
 Majorara fermions are fermions such that they are their own antiparticle. In the frame of condensed matter Majorana Fermions (quasi-particles) can be interpreted as a superposition of a electron state and a hole \cite{leijnse_introduction_2012}.
 \\
 The formalism of Majorana fermions or Majorana modes of the system (with $N$ modes) can be introduce with the operators
@@ -46,7 +46,7 @@ In which case its canonical anti-commutation relations (CAR) take the form
 \label{CH2:CAR_majorana}
 \end{equation}
 
-The anti-commutation relations is seen to be a consequence of an $\mathbb{R}^{2N}$ Clifford algebra\footnote{By inspection of \eqref{CH2:CAR_majorana} we see that  any linear transformation of the form $\tilde{\gamma}_{\alpha} = O_{\alpha\beta}\gamma_{\beta}$ where $O\in SO(2N)$, the special group of orthogonal group in $2N$  dimensions}. Transformation in between Fermionic and Majorana operators is achieved by matrix of the block form
+The anti-commutation relations is seen to be a consequence of an $\mathbb{R}^{2N}$ Clifford algebra\footnote{By inspection of \eqref{CH2:CAR_majorana} we see that  any linear transformation of the form $\tilde{\gamma}_{\alpha} = O_{\alpha\beta}\gamma_{\beta}$ where $O\in SO(2N)$, the special orthogonal group in $2N$  dimensions}. Transformation in between Fermionic and Majorana operators is achieved by matrix of the block form
 \begin{equation}
 \Omega=\left(\begin{array}{cc}
 \mathbb{I} & \mathbb{I} \\
@@ -57,7 +57,7 @@ i \mathbb{I} & -i \mathbb{I}
 and then the map from Fermionic ($\vec{\hat{a}}^{T} = (\hat{a}_1,\ldots,\hat{a}_1^{\dagger},\ldots)$) and Majorana ($\vec{\hat{c}}^{T} = (\hat{c}_1,\ldots,\hat{c}_1^{\dagger},\ldots)$) operators is written as $\Omega\vec{\hat{a}}=\vec{\hat{c}}$.
 \\
 By changing from Fermionic operators to Majorana operators is possible, and convenient, to define de Fermionic covariance matrix which fully characterise Gaussians states\footnote{In comparison to its boson counterpart the fermion Gaussian states have the property that correlation functions for the creation/annihilation operators are completely determined by the two-point functions according to Wick’s theorem \cite{westwanski_general_1973}, and moreover,  since this property is extensible to correlation function pertaining to a reduced subset of the modes, it follows that any partial (reduced) density matrix obtained from $\rho$ remains Gaussian.}.
-\subsection*{Fermionic Covariance matrix }
+\section*{Fermionic Covariance matrix }
 A system of $N$ fermion modes, described by a set of creation and annihilation operators $\hat{a}^{\dagger}, \hat{a}$  and satisfying the  canonical anti-commutations relations in \eqref{CH2:Anticommutation}, is Gaussian if for such system any state $\rho$ can be written as  \cite{cheong_many-body_2003}
 
 \begin{equation}
@@ -81,12 +81,13 @@ O G O^{T}=\bigoplus_{i=1}^{N}\left(\begin{array}{cc}
 \label{CH2:MatrixG_Williamson}
 \end{equation}
 by a special orthogonal matrix $O\in SO(2N)$ where the $\beta_{j}$ are called the Williamson eigenvalues of the matrix $G$. 
-From equation \eqref{CH2:rho_gaussiano_exp} it is clear that Gaussian states have an interpretation as thermal (Gibbs) states corresponding to a Hamiltonian
+From equation \eqref{CH2:rho_gaussiano_exp} it is clear that Gaussian states have an interpretation as thermal (Gibbs) states corresponding to a Hamiltonian of the form
 \begin{equation}
 \hat{H}=\frac{i}{4} \hat{c}^{T}G\hat{c}= \frac{i}{4} \sum_{k>l}G_{kl}\left[\hat{c}_{k},\hat{c}_{l}\right].
-
+\label{CH2:Hamiltonian_majorana}
 \end{equation}
-The form of \eqref{CH2:MatrixG_Williamson} shows that every Gaussian state has a normal mode decomposition in terms of $N$ single mode ``thermal states'' of the form \eqref{CH2:rho_gaussiano_no_exp} ($\sim \text{exp}(-\beta \hat{a}^{\dagger}\hat{a})$)\cite{kraus_pairing_2009}. Therefore, we conclude that the state is fully determined by the expectation values of quadratic operators $(\hat{a}_i^{(\dagger)}\hat{a}_j^{(\dagger)}$ and  $\hat{a}^{\dagger}_i\hat{a}_j)$. So if we collect these expectation values in a real and skew-symmetric covariance matrix $\Gamma$ which is defined via
+
+and \eqref{CH2:MatrixG_Williamson} shows that every Gaussian state has a normal mode decomposition in terms of $N$ single mode ``thermal states'' of the form \eqref{CH2:rho_gaussiano_no_exp} ($\sim \text{exp}(-\beta \hat{a}^{\dagger}\hat{a})$)\cite{kraus_pairing_2009}. From this is clear, that the state can be fully determined by the expectation values of quadratic operators $(\hat{a}_i^{(\dagger)}\hat{a}_j^{(\dagger)}$ and  $\hat{a}^{\dagger}_i\hat{a}_j)$. So collecting these expectation values in a real and skew-symmetric covariance matrix $\Gamma$ which is defined via
 \begin{equation}
 \Gamma_{k l}=\frac{i}{2} \operatorname{tr}\left(\rho\left[c_{k}, c_{l}\right]\right).
 \label{CH2:Cov_matrix_elements}
@@ -100,7 +101,16 @@ Since $\Gamma$ is also a anti-symmetric matrix, it can be brought into a block d
 \label{CH2:Williamson_Cov_fermionic_matrix}
 \end{equation}
 with $\lambda_i\geq 0$ the Williamson eigenvalues.\\
-In terms of the creation/annihilation operators obtained from the transformed $\tilde{c}=O\hat{c}$, the Gaussian state $rho$ takes the form \eqref{CH2:rho_gaussiano_exp} with $\tilde{\Gamma}$ as its Fermionic covariance matrix. It is easy to see that the relation between $G$ and $\Gamma$ is given by $\lambda_{i} = \tanh{\left(\beta_{i}/2\right)}$, for $i=1,2,\ldots,N$\cite{kraus_pairing_2009}.
+In terms of the creation/annihilation operators obtained from the transformed $\tilde{c}=O\hat{c}$, the Gaussian state $rho$ takes the form \eqref{CH2:rho_gaussiano_exp} with $\tilde{\Gamma}$ as its Fermionic covariance matrix. It is easy to see that the relation between $G$ and $\Gamma$ is given by $\lambda_{i} = \tanh{\left(\beta_{i}/2\right)}$, for $i=1,2,\ldots,N$\cite{kraus_pairing_2009}. 
+\newline
+The equivalence between the special orthogonal group in $2N$ dimensions ($SO(2N)$) and the Fermionic Gaussian states, drives to interesting an interesting  property about states describing multi-particles excitations. If $\ket{\textit{vacuum}}$ is the ground state of some Hamiltonian, with annihilation operators $\hat{a}_{i}$ in a given quasi-particle basis, then $\hat{a}_{i}^{\dagger}\ket{\textit{vacuum}} = \hat{c}_{2i}\ket{\textit{vacuum}}$. Meaning that any multi-particle state of this kind is obtained from some transformation (that preserves the canonical anti-commutation relations) of the ground state $\ket{\textit{vacuum}}$, remains Gaussian. In other words, Gaussian states are preserved under any unitary transformation that preserves anti-commutation relations.
+\newline 
+The fact that all eigenstates of the Hamiltonian in \eqref{CH2:QuadraticHamiltonian} are Gaussian as well as the fact that this property is extensible to a reduced subset of the modes, is quite important since a big part of this work is focused on the study of the Fermionic covariance matrix of the $XY$ model.
+\section{Grassman Approach}
+
+
+
+
 
 
 
