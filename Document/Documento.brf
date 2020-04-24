@@ -1,12 +1,62 @@
-\backcite {botero_bcs-like_2004}{{2}{2}{section*.3}}
-\backcite {fradkin_field_1997}{{2}{2}{equation.2.0.1}}
-\backcite {berezin_method_1966,bogoljubov_new_1958}{{2}{2}{equation.2.0.2}}
-\backcite {fradkin_field_1997}{{3}{2}{equation.2.0.3}}
-\backcite {botero_bcs-like_2004}{{3}{2}{equation.2.0.3}}
-\backcite {bravyi_classical_2005, molinari_notes_2017}{{3}{2}{equation.2.0.3}}
-\backcite {leijnse_introduction_2012}{{3}{2}{section*.4}}
-\backcite {cheong_many-body_2003}{{4}{2}{section*.5}}
-\backcite {kraus_pairing_2009}{{4}{2}{equation.2.0.10}}
-\backcite {westwanski_general_1973}{{4}{3}{Hfootnote.3}}
-\backcite {kraus_pairing_2009}{{5}{2}{equation.2.0.12}}
-\backcite {*}{{6}{2.1}{section.2.1}}
+\backcite {boltzmann_uber_1866}{{iv}{(document)}{Doc-Start}}
+\backcite {gemmer_quantum_2004, goldstein_canonical_2006, popescu_entanglement_2006}{{1}{1.1}{section.1.1}}
+\backcite {landau_statistical_2013}{{1}{1.1}{section.1.1}}
+\backcite {popescu_entanglement_2006, popescu_foundations_2005}{{1}{1.1}{section.1.1}}
+\backcite {goldstein_canonical_2006}{{1}{2}{Hfootnote.2}}
+\backcite {popescu_entanglement_2006, popescu_foundations_2005}{{1}{2}{Hfootnote.2}}
+\backcite {linden_quantum_2009}{{2}{1.1}{section.1.1}}
+\backcite {linden_quantum_2009}{{2}{1.1}{section.1.1}}
+\backcite {uffink_handbook_2007}{{2}{1.2}{section.1.2}}
+\backcite {uffink_handbook_2007}{{2}{4}{Hfootnote.4}}
+\backcite {boltzmann_uber_1866}{{3}{1.2}{section.1.2}}
+\backcite {boltzmann_zur_1871}{{3}{1.2}{equation.1.2.1}}
+\backcite {boltzmann_einige_1871}{{3}{1.2}{equation.1.2.1}}
+\backcite {gibbs_elementary_1902}{{3}{1.2.1}{subsection.1.2.1}}
+\backcite {boltzmann_uber_1866}{{3}{7}{Hfootnote.7}}
+\backcite {ehrenfest_conceptual_1959}{{5}{1.2.2}{equation.1.2.6}}
+\backcite {ehrenfest_conceptual_1959}{{5}{1.2.2}{equation.1.2.6}}
+\backcite {oliveira_ergodic_2007, engelhardt_simple_2015, gallavotti_statistical_1999,goldstein_boltzmanns_2001,uffink_handbook_2007}{{5}{10}{Hfootnote.10}}
+\backcite {huang_statistical_1987}{{6}{1.2.3}{subsection.1.2.3}}
+\backcite {huang_statistical_1987}{{7}{1.2.4}{equation.1.2.11}}
+\backcite {schrodinger_discussion_1935}{{9}{1.3.1}{subsection.1.3.1}}
+\backcite {ekert_basic_2000, nielsen_quantum_2000, edwin_optimal_1979}{{9}{1.3.1}{subsection.1.3.1}}
+\backcite {von_neumann_mathematical_1955}{{9}{1.3.1}{equation.1.3.25}}
+\backcite {mackay_information_2003}{{10}{1.3.1}{figure.caption.3}}
+\backcite {shannon_mathematical_1948}{{10}{1.3.1}{figure.caption.3}}
+\backcite {gemmer_distribution_2003,page_average_1993}{{11}{1.3.1}{equation.1.3.29}}
+\backcite {popescu_entanglement_2006,popescu_foundations_2005}{{11}{1.3.2}{equation.1.3.30}}
+\backcite {plenio_introduction_2006}{{11}{16}{Hfootnote.16}}
+\backcite {popescu_entanglement_2006,popescu_foundations_2005}{{12}{1.3.2}{equation.1.3.32}}
+\backcite {popescu_entanglement_2006,popescu_foundations_2005}{{12}{19}{Hfootnote.19}}
+\backcite {facchi_quantum_2017}{{13}{1.3.3}{equation.1.3.35}}
+\backcite {popescu_entanglement_2006,popescu_foundations_2005}{{14}{1.3.3}{equation.1.3.36}}
+\backcite {linden_quantum_2009}{{15}{1.3.3}{equation.1.3.40}}
+\backcite {linden_quantum_2009}{{16}{1.4}{section.1.4}}
+\backcite {linden_quantum_2009}{{16}{1.4}{section.1.4}}
+\backcite {linden_quantum_2009}{{17}{1.4}{equation.1.4.43}}
+\backcite {linden_quantum_2009}{{18}{1.4}{equation.1.4.49}}
+\backcite {fuchs_cryptographic_1999}{{18}{1.4}{equation.1.4.49}}
+\backcite {camilo_strong_2019}{{19}{1.4}{equation.1.4.53}}
+\backcite {linden_quantum_2009}{{19}{1.4}{equation.1.4.55}}
+\backcite {linden_quantum_2009}{{19}{26}{Hfootnote.26}}
+\backcite {botero_bcs-like_2004}{{22}{2.1}{section.2.1}}
+\backcite {fradkin_field_1997}{{22}{2.1}{equation.2.1.1}}
+\backcite {berezin_method_1966,bogoljubov_new_1958}{{23}{2.1}{equation.2.1.2}}
+\backcite {fradkin_field_1997}{{23}{2.1}{equation.2.1.3}}
+\backcite {botero_bcs-like_2004}{{23}{2.1}{equation.2.1.3}}
+\backcite {bravyi_classical_2005, molinari_notes_2017}{{23}{2.1}{equation.2.1.3}}
+\backcite {leijnse_introduction_2012}{{23}{2.2}{section.2.2}}
+\backcite {cheong_many-body_2003}{{24}{2.3}{section.2.3}}
+\backcite {westwanski_general_1973}{{24}{3}{Hfootnote.30}}
+\backcite {kraus_pairing_2009}{{25}{2.3}{equation.2.3.10}}
+\backcite {kraus_pairing_2009}{{25}{2.3}{equation.2.3.12}}
+\backcite {QuantumOptics_wolfgang}{{25}{2.4}{section.2.4}}
+\backcite {noauthor_density_2007}{{26}{2.4}{section.2.4}}
+\backcite {knill_scheme_2001}{{26}{2.4}{section.2.4}}
+\backcite {bravyi_lagrangian_2004}{{26}{2.4}{section.2.4}}
+\backcite {knill_fermionic_2001}{{26}{2.4}{section.2.4}}
+\backcite {francesco_conformal_1997}{{27}{2.4.1}{equation.2.4.13}}
+\backcite {bravyi_lagrangian_2004}{{27}{2.4.2}{equation.2.4.18}}
+\backcite {bravyi_lagrangian_2004}{{28}{2.4.3}{subsection.2.4.3}}
+\backcite {bravyi_lagrangian_2004}{{29}{2.4.4}{equation.2.4.28}}
+\backcite {*}{{31}{2.4.4}{equation.2.4.35}}
