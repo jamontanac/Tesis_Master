@@ -21,7 +21,8 @@ class Sampling_Random_State:
     Lambda=0.5
     num_data = 200
     mu = 0.0
-    
+
+
     #### ------------------------------------------------------------
 
     @classmethod
@@ -36,8 +37,10 @@ class Sampling_Random_State:
     @classmethod
     def Phi(cls,theta:np.float64)-> np.float64:
         return np.arctan2(cls.Beta(theta),cls.Alpha(theta))
-
-
+    @classmethod
+    def compute_beta(cls):
+        beta = np.min(cls.Omega(np.linspace(-np.pi,np.pi,int(1000))))
+        return beta
 
     @classmethod
     def Fermi_dirac(cls,n:np.int64,beta:np.float64) -> np.float64:
@@ -52,7 +55,7 @@ class Sampling_Random_State:
     @classmethod
     def Sample_number_sin_cos(cls,Ground:bool = False)-> list:
         x=np.arange(0,(cls.N_size-1)/2+ 1)
-        beta = np.min(cls.Omega(np.linspace(-np.pi,np.pi,np.int64(1000))))
+        beta = cls.compute_beta()
         if Ground:
             m_cos=[-0.5 for i in x]
             m_sin=[-0.5 for i in x]
@@ -63,7 +66,7 @@ class Sampling_Random_State:
     @classmethod
     def Sample_numbers(cls,number:np.int64,rank:np.int64 = 0,Ground:bool=False)->np.ndarray:
         np.random.seed(rank*cls.num_data+number)
-        beta = np.min(cls.Omega(np.linspace(-np.pi,np.pi,np.int64(1000))))
+        beta = cls.compute_beta()
         x=np.arange(0,(cls.N_size-1)/2+ 1)
         if Ground:
             m_cos=[-0.5 for i in x]
@@ -71,12 +74,12 @@ class Sampling_Random_State:
         else:
             m_cos=[-0.5 if np.random.random()>cls.Fermi_dirac(n=i,beta=beta) else 0.5 for i in x]
             m_sin=[-0.5 if np.random.random()>cls.Fermi_dirac(n=i,beta=beta) else 0.5 for i in x]
-        
+
         n = np.zeros(cls.N_size)
         n[::2] =np.array(m_cos)+0.5
         n[1::2] = np.array(m_sin[:-1])+0.5
         return n
-        
+
     @classmethod
     def Sample_State(cls,Ground:bool =False)-> np.ndarray:
         m_sin,m_cos = cls.Sample_number_sin_cos(Ground=Ground)
@@ -164,8 +167,6 @@ class Sampling_Random_State:
 
 class Computations_XY_model(Sampling_Random_State):
 
-    beta = np.min(Sampling_Random_State.Omega(np.linspace(-np.pi,np.pi,int(1000))))
-
     @classmethod
     def Sample_Fermi_dirac(cls,n:np.int64,Size:np.int64) -> np.float64:
         # beta is the inverse thermic energy associated in the system (beta)
@@ -173,7 +174,8 @@ class Computations_XY_model(Sampling_Random_State):
         # n is the position of the particle
         # f=np.exp(T*(Omega(Gamma,Lambda,2.0*(np.pi/N)*n)-mu)) +1
         # N corresponds to the size of the system
-        f=np.exp(cls.beta*(cls.Omega(((2.*np.pi)/np.float64(Size)) * n)-cls.mu)) +1
+        beta=cls.compute_beta()
+        f=np.exp(beta*(cls.Omega(((2.*np.pi)/np.float64(Size)) * n)-cls.mu)) +1
         return 1/f
 
     @classmethod
@@ -202,7 +204,8 @@ class Computations_XY_model(Sampling_Random_State):
         O_1, S, O_2 = cls.Compute_svd_Cov_Matrix(Fourier_M=Fourier_M,Fourier_P=Fourier_P,L=L,Circulant=Circulant,Complete = True)
         S = -S +0.5
         x= np.log(1-S) - np.log(S)
-        M = -(O_1@np.diag(x)@O_2)/cls.beta
+        beta=cls.compute_beta()
+        M = -(O_1@np.diag(x)@O_2)/beta
         return M
 
 
@@ -244,7 +247,7 @@ class Computations_XY_model(Sampling_Random_State):
         Data[:,0] = a.real
         Data[:,1] = b.real
         return Data
-    
+
     @classmethod
     def Fourier_Parallel_Transform(cls,Ground = False,Threads:np.int64 = 3,rank:np.int64=0 , Cluster:bool = False) ->np.ndarray:
         with Pool(Threads) as p:
