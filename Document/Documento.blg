@@ -4,6 +4,7 @@ The top-level auxiliary file: Documento.aux
 A level-1 auxiliary file: HojaTitulo/HojaTituloMSc.aux
 A level-1 auxiliary file: Chapters/Chap1.aux
 A level-1 auxiliary file: Chapters/Chap2.aux
+A level-1 auxiliary file: Chapters/Chap3.aux
 The style file: unsrt.bst
 Database file #1: BibliMSc.bib
 Warning--empty year in boltzmann_uber_1866
@@ -84,7 +85,7 @@ Warning--empty journal in peschel_calculation_2003
 Warning--empty year in peschel_calculation_2003
 You've used 47 entries,
             1791 wiz_defined-function locations,
-            675 strings with 10315 characters,
+            676 strings with 10333 characters,
 and the built_in function-call counts, 9757 in all, are:
 = -- 831
 > -- 336
