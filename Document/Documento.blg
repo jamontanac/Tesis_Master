@@ -59,10 +59,6 @@ Warning--empty year in fradkin_field_1997
 Warning--empty year in berezin_method_1966
 Warning--empty journal in bogoljubov_new_1958
 Warning--empty year in bogoljubov_new_1958
-Warning--empty journal in bravyi_classical_2005
-Warning--empty year in bravyi_classical_2005
-Warning--empty journal in molinari_notes_2017
-Warning--empty year in molinari_notes_2017
 Warning--empty journal in leijnse_introduction_2012
 Warning--empty year in leijnse_introduction_2012
 Warning--empty journal in westwanski_general_1973
@@ -71,57 +67,65 @@ Warning--empty journal in cheong_many-body_2003
 Warning--empty year in cheong_many-body_2003
 Warning--empty journal in kraus_pairing_2009
 Warning--empty year in kraus_pairing_2009
-Warning--empty author and editor in QuantumOptics_wolfgang
-Warning--empty author in noauthor_density_2007
-Warning--empty year in noauthor_density_2007
 Warning--empty journal in knill_scheme_2001
 Warning--empty year in knill_scheme_2001
-Warning--empty journal in bravyi_lagrangian_2004
-Warning--empty year in bravyi_lagrangian_2004
+Warning--empty journal in terhal_classical_2002
+Warning--empty year in terhal_classical_2002
 Warning--empty journal in knill_fermionic_2001
 Warning--empty year in knill_fermionic_2001
-Warning--empty year in francesco_conformal_1997
+Warning--empty author in noauthor_density_2007
+Warning--empty year in noauthor_density_2007
+Warning--empty journal in soper_construction_1978
+Warning--empty year in soper_construction_1978
+Warning--empty journal in bravyi_classical_2005
+Warning--empty year in bravyi_classical_2005
+Warning--empty journal in bravyi_lagrangian_2004
+Warning--empty year in bravyi_lagrangian_2004
+Warning--empty journal in molinari_notes_2017
+Warning--empty year in molinari_notes_2017
 Warning--empty journal in peschel_calculation_2003
 Warning--empty year in peschel_calculation_2003
-You've used 47 entries,
+Warning--empty author and editor in QuantumOptics_wolfgang
+Warning--empty year in francesco_conformal_1997
+You've used 49 entries,
             1791 wiz_defined-function locations,
-            676 strings with 10333 characters,
-and the built_in function-call counts, 9757 in all, are:
-= -- 831
-> -- 336
+            686 strings with 10683 characters,
+and the built_in function-call counts, 10117 in all, are:
+= -- 860
+> -- 348
 < -- 7
-+ -- 135
-- -- 88
-* -- 693
-:= -- 1457
-add.period$ -- 149
-call.type$ -- 47
-change.case$ -- 35
++ -- 140
+- -- 91
+* -- 718
+:= -- 1515
+add.period$ -- 156
+call.type$ -- 49
+change.case$ -- 37
 chr.to.int$ -- 0
-cite$ -- 123
-duplicate$ -- 479
-empty$ -- 1024
-format.name$ -- 88
-if$ -- 2133
+cite$ -- 129
+duplicate$ -- 496
+empty$ -- 1061
+format.name$ -- 91
+if$ -- 2208
 int.to.chr$ -- 0
-int.to.str$ -- 47
-missing$ -- 62
-newline$ -- 240
-num.names$ -- 47
-pop$ -- 252
+int.to.str$ -- 49
+missing$ -- 64
+newline$ -- 251
+num.names$ -- 49
+pop$ -- 259
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 178
+skip$ -- 186
 stack$ -- 0
-substring$ -- 581
+substring$ -- 599
 swap$ -- 55
 text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 76
-while$ -- 91
-width$ -- 49
-write$ -- 446
-(There were 76 warnings)
+warning$ -- 80
+while$ -- 94
+width$ -- 51
+write$ -- 466
+(There were 80 warnings)

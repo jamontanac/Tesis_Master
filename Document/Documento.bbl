@@ -196,15 +196,6 @@ N.~N. Bogoljubov.
 \newblock On a new method in the theory of superconductivity.
 \newblock 7(6):794--805.
 
-\bibitem{bravyi_classical_2005}
-Sergey Bravyi.
-\newblock Classical capacity of fermionic product channels.
-\newblock version: 1.
-
-\bibitem{molinari_notes_2017}
-Luca~Guido Molinari.
-\newblock Notes on wick's theorem in many-body theory.
-
 \bibitem{leijnse_introduction_2012}
 Martin Leijnse and Karsten Flensberg.
 \newblock Introduction to topological superconductivity and majorana fermions.
@@ -224,9 +215,20 @@ Christina~V. Kraus, Michael~M. Wolf, J.~Ignacio Cirac, and Geza Giedke.
 \newblock Pairing in fermionic systems: A quantum information perspective.
 \newblock 79(1):012306.
 
-\bibitem{QuantumOptics_wolfgang}
-{\em Field States}, chapter~11, pages 291--319.
-\newblock John Wiley \& Sons, Ltd, 2005.
+\bibitem{knill_scheme_2001}
+E.~Knill, R.~Laflamme, and G.~J. Milburn.
+\newblock A scheme for efficient quantum computation with linear optics.
+\newblock 409(6816):46--52.
+\newblock Number: 6816 Publisher: Nature Publishing Group.
+
+\bibitem{terhal_classical_2002}
+Barbara~M. Terhal and David~P. {DiVincenzo}.
+\newblock Classical simulation of noninteracting-fermion quantum circuits.
+\newblock 65(3):032325.
+
+\bibitem{knill_fermionic_2001}
+E.~Knill.
+\newblock Fermionic linear optics and matchgates.
 
 \bibitem{noauthor_density_2007}
 Density operators for fermions.
@@ -235,28 +237,39 @@ Density operators for fermions.
 \newblock Section: 16 \_eprint:
   https://onlinelibrary.wiley.com/doi/pdf/10.1002/9783527610075.ch16.
 
-\bibitem{knill_scheme_2001}
-E.~Knill, R.~Laflamme, and G.~J. Milburn.
-\newblock A scheme for efficient quantum computation with linear optics.
-\newblock 409(6816):46--52.
-\newblock Number: 6816 Publisher: Nature Publishing Group.
+\bibitem{soper_construction_1978}
+D.~E. Soper.
+\newblock Construction of the functional-integral representation for fermion
+  green's functions.
+\newblock 18:12.
+\newblock Institution: Institute of Theoretical Science, University of Oregon,
+  Eugene, Oregon 97403.
+
+\bibitem{bravyi_classical_2005}
+Sergey Bravyi.
+\newblock Classical capacity of fermionic product channels.
+\newblock version: 1.
 
 \bibitem{bravyi_lagrangian_2004}
 Sergey Bravyi.
 \newblock Lagrangian representation for fermionic linear optics.
 
-\bibitem{knill_fermionic_2001}
-E.~Knill.
-\newblock Fermionic linear optics and matchgates.
-
-\bibitem{francesco_conformal_1997}
-Philippe Francesco, Pierre Mathieu, and David Sénéchal.
-\newblock {\em Conformal Field Theory}.
-\newblock Graduate Texts in Contemporary Physics. Springer-Verlag.
+\bibitem{molinari_notes_2017}
+Luca~Guido Molinari.
+\newblock Notes on wick's theorem in many-body theory.
 
 \bibitem{peschel_calculation_2003}
 Ingo Peschel.
 \newblock Calculation of reduced density matrices from correlation functions.
 \newblock 36(14):L205--L208.
+
+\bibitem{QuantumOptics_wolfgang}
+{\em Field States}, chapter~11, pages 291--319.
+\newblock John Wiley \& Sons, Ltd, 2005.
+
+\bibitem{francesco_conformal_1997}
+Philippe Francesco, Pierre Mathieu, and David Sénéchal.
+\newblock {\em Conformal Field Theory}.
+\newblock Graduate Texts in Contemporary Physics. Springer-Verlag.
 
 \end{thebibliography}
