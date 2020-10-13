@@ -81,51 +81,82 @@ Warning--empty journal in bravyi_classical_2005
 Warning--empty year in bravyi_classical_2005
 Warning--empty journal in bravyi_lagrangian_2004
 Warning--empty year in bravyi_lagrangian_2004
+Warning--can't use both author and editor fields in jaynes_probability_2003
+Warning--empty publisher in jaynes_probability_2003
+Warning--empty year in jaynes_probability_2003
+Warning--empty journal in barg_random_2002
+Warning--empty year in barg_random_2002
+Warning--empty journal in gallager_low-density_1962
+Warning--empty year in gallager_low-density_1962
+Warning--empty publisher in gallager_information_1968
+Warning--empty year in gallager_information_1968
+Warning--empty journal in gallager_random_2006
+Warning--empty year in gallager_random_2006
+Warning--empty journal in lieb_two_1961
+Warning--empty year in lieb_two_1961
+Warning--empty journal in katsura_statistical_1962
+Warning--empty year in katsura_statistical_1962
+Warning--empty journal in barouch_statistical_1971
+Warning--empty year in barouch_statistical_1971
+Warning--empty journal in barouch_statistical_1970
+Warning--empty year in barouch_statistical_1970
+Warning--empty journal in reyes-lega_aspects_2016
+Warning--empty year in reyes-lega_aspects_2016
+Warning--empty journal in latorre_ground_2004
+Warning--empty year in latorre_ground_2004
 Warning--empty journal in molinari_notes_2017
 Warning--empty year in molinari_notes_2017
 Warning--empty journal in peschel_calculation_2003
 Warning--empty year in peschel_calculation_2003
 Warning--empty author and editor in QuantumOptics_wolfgang
 Warning--empty year in francesco_conformal_1997
-You've used 49 entries,
+Warning--empty journal in merhav_error_2017
+Warning--empty year in merhav_error_2017
+Warning--empty journal in domb_random_2016
+Warning--empty year in domb_random_2016
+Warning--empty journal in chung_density-matrix_2001
+Warning--empty year in chung_density-matrix_2001
+Warning--empty journal in niu_majorana_2012
+Warning--empty year in niu_majorana_2012
+You've used 64 entries,
             1791 wiz_defined-function locations,
-            686 strings with 10683 characters,
-and the built_in function-call counts, 10117 in all, are:
-= -- 860
-> -- 348
-< -- 7
-+ -- 140
-- -- 91
-* -- 718
-:= -- 1515
-add.period$ -- 156
-call.type$ -- 49
-change.case$ -- 37
+            749 strings with 12429 characters,
+and the built_in function-call counts, 13380 in all, are:
+= -- 1134
+> -- 464
+< -- 8
++ -- 186
+- -- 122
+* -- 989
+:= -- 2002
+add.period$ -- 199
+call.type$ -- 64
+change.case$ -- 50
 chr.to.int$ -- 0
-cite$ -- 129
-duplicate$ -- 496
-empty$ -- 1061
-format.name$ -- 91
-if$ -- 2208
+cite$ -- 175
+duplicate$ -- 636
+empty$ -- 1393
+format.name$ -- 122
+if$ -- 2891
 int.to.chr$ -- 0
-int.to.str$ -- 49
-missing$ -- 64
-newline$ -- 251
-num.names$ -- 49
-pop$ -- 259
+int.to.str$ -- 64
+missing$ -- 81
+newline$ -- 324
+num.names$ -- 64
+pop$ -- 332
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 186
+skip$ -- 238
 stack$ -- 0
-substring$ -- 599
-swap$ -- 55
-text.length$ -- 7
+substring$ -- 866
+swap$ -- 63
+text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 80
-while$ -- 94
-width$ -- 51
-write$ -- 466
-(There were 80 warnings)
+warning$ -- 111
+while$ -- 130
+width$ -- 66
+write$ -- 597
+(There were 111 warnings)

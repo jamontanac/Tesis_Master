@@ -254,6 +254,61 @@ Sergey Bravyi.
 Sergey Bravyi.
 \newblock Lagrangian representation for fermionic linear optics.
 
+\bibitem{jaynes_probability_2003}
+E.~T. Jaynes.
+\newblock {\em Probability Theory: The Logic of Science}.
+
+\bibitem{barg_random_2002}
+A.~Barg and G.D. Forney.
+\newblock Random codes: minimum distances and error exponents.
+\newblock 48(9):2568--2573.
+\newblock Conference Name: {IEEE} Transactions on Information Theory.
+
+\bibitem{gallager_low-density_1962}
+R.~Gallager.
+\newblock Low-density parity-check codes.
+
+\bibitem{gallager_information_1968}
+Robert~G. Gallager.
+\newblock {\em Information Theory and Reliable Communication}.
+
+\bibitem{gallager_random_2006}
+R.~Gallager.
+\newblock The random coding bound is tight for the average code (corresp.).
+\newblock 19(2):244--246.
+
+\bibitem{lieb_two_1961}
+Elliott Lieb, Theodore Schultz, and Daniel Mattis.
+\newblock Two soluble models of an antiferromagnetic chain.
+\newblock 16(3):407--466.
+
+\bibitem{katsura_statistical_1962}
+Shigetoshi Katsura.
+\newblock Statistical mechanics of the anisotropic linear heisenberg model.
+\newblock 127(5):1508--1518.
+
+\bibitem{barouch_statistical_1971}
+Eytan Barouch and Barry~M. {McCoy}.
+\newblock Statistical mechanics of the \${XY}\$ model. {II}. spin-correlation
+  functions.
+\newblock 3(2):786--804.
+
+\bibitem{barouch_statistical_1970}
+Eytan Barouch, Barry~M. {McCoy}, and Max Dresden.
+\newblock Statistical mechanics of the \${\textbackslash}mathrm\{{XY}\}\$
+  model. i.
+\newblock 2(3):1075--1092.
+
+\bibitem{reyes-lega_aspects_2016}
+A.~F. Reyes-Lega.
+\newblock Some aspects of operator algebras in quantum physics.
+\newblock pages 1--74.
+
+\bibitem{latorre_ground_2004}
+J.~I. Latorre, E.~Rico, and G.~Vidal.
+\newblock Ground state entanglement in quantum spin chains.
+\newblock 4(1):48--92.
+
 \bibitem{molinari_notes_2017}
 Luca~Guido Molinari.
 \newblock Notes on wick's theorem in many-body theory.
@@ -271,5 +326,28 @@ Ingo Peschel.
 Philippe Francesco, Pierre Mathieu, and David Sénéchal.
 \newblock {\em Conformal Field Theory}.
 \newblock Graduate Texts in Contemporary Physics. Springer-Verlag.
+
+\bibitem{merhav_error_2017}
+Neri Merhav.
+\newblock Error exponents of typical random codes.
+
+\bibitem{domb_random_2016}
+Yuval Domb, Ram Zamir, and Meir Feder.
+\newblock The random coding bound is tight for the average linear code or
+  lattice.
+\newblock 62(1):121--130.
+\newblock Conference Name: {IEEE} Transactions on Information Theory.
+
+\bibitem{chung_density-matrix_2001}
+Ming-Chiang Chung and Ingo Peschel.
+\newblock Density-matrix spectra of solvable fermionic systems.
+\newblock 64(6):064412.
+
+\bibitem{niu_majorana_2012}
+Yuezhen Niu, Suk~Bum Chung, Chen-Hsuan Hsu, Ipsita Mandal, S.~Raghu, and Sudip
+  Chakravarty.
+\newblock Majorana zero modes in a quantum ising chain with longer-ranged
+  interactions.
+\newblock 85(3):035110.
 
 \end{thebibliography}
