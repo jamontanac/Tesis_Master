@@ -77,6 +77,7 @@ H_{X Y}=\sum_{-(N-1) / 2}^{(N-1) / 2} \tilde{\Lambda}_{k} \tilde{d}_{k}^{\dagger
 with 
 \begin{equation}
 \tilde{\Lambda}_{k}:=\sqrt{\left(\lambda-\cos \phi_{k}\right)^{2}+\left(\gamma \sin \phi_{k}\right)^{2}}
+\label{CH3:Spectrum_XY_model}
 \end{equation}
 where the latter expression allow us to identify the critical regions of the model.
 \subsection{Fermionic Covariance Matrix for the XY model}
@@ -245,8 +246,79 @@ Now having all the tools we need we can apply what we discussed in section $2$. 
 
 \subsection{Error exponent}
 
-First we recall the fact that in order to sample states at a given temperature we make use of a very well known technique, named Gibbs sampling. This technique 
+First we recall the fact that in order to sample states at a given temperature we make use of a very well known technique, named Gibbs sampling. This technique is a special case of a Markov chain Monte Carlo algorithm. Is is well known for obtaining sequences of observations which are approximated from a specified multivariate probability distribution, It is a very useful tool for simulations in Markov processes for which the transition from which transition matrix cannot be formulated explicitly because the state space is too large\cite{robert_multi-stage_2004,gilks_markov_1996,noauthor_gibbs_nodate}. Our goal is then to sample over excited states $\ket{\vec{n}}$, where the occupations $n_q$ will be sampled independently according to the Boltzmann distribution
+\begin{equation}
+p(\vec{n} \mid \beta)=\prod_{q=0}^{N-1} p\left(n_{q} \mid \beta\right), \quad p\left(n_{q} \mid \beta\right)=\frac{e^{-\beta \epsilon\left(\theta_{q}\right) n_{q}}}{\sum_{n_{q}} e^{-\beta \epsilon\left(\theta_{q}\right) n_{q}}},
+\label{CH3:Gibbs_Sampling}
+\end{equation}
+where we explicitly put the dependence of the energy with certain angle in \eqref{CH3:Gibbs_Sampling} having in mind the case of the $XY$ model\footnote{However, the $XY$ model is not the only model in which the energy can be parametrized in terms of an angle, in general it has been shown that every one-dimentional translationally invariant closed chain of free Fermions/Bosons will have this property \cite{eisert_area_2010,fradkin_field_1997,katsura_statistical_1962,latorre_ground_2004,lieb_two_1961}.}. The goal of using this technique  that the size of the Hilbert space is is to find the probability distribution with a given temperature $\beta$. It is well known that in the Fermionic case, the average number of excitations in the mode at angle $\theta$ is given by
+\begin{equation}
+f\left(\theta_{q} \mid \beta\right) \equiv\left\langle n_{q}\right\rangle_{\beta}=\frac{1}{e^{\beta \epsilon\left(\theta_{q}\right)} + 1},
+\end{equation}
+while the variance in the number of excitations is given by
 
+\begin{equation}
+v\left(\theta_{q} \mid \beta\right) \equiv\left\langle n_{q}^{2}\right\rangle_{\beta}-\left\langle n_{q}\right\rangle_{\beta}^{2}=\frac{1}{e^{\beta \epsilon\left(\theta_{q}\right)} + 1}=f\left(\theta_{q}\right)\left(1 - f\left(\theta_{q}\right)\right).
+\end{equation}
+With this method of sampling, the mean energy is 
+\begin{equation}
+\langle E\rangle_{\beta}=\sum_{q} f_{q}\left(\theta_{q} \mid \beta\right) \epsilon_{q}\left(\theta_{q}\right)=N \oint_{N} \frac{d \theta}{2 \pi} f(\theta \mid \beta) \epsilon(\theta),
+\end{equation}
+where $\oint$ denote the Riemann sum approximation to the respective integral with $N$ subdivisions. As we mentioned before we are interested in the limit $N\to\infty$, we will replace the sums by its correspondent integral. Similarly we can compute the energy variance of the sampled states 
+\begin{equation}
+\left\langle\Delta E^{2}\right\rangle_{\beta}=\sum_{q} v_{q}\left(\theta_{q} \mid \beta\right) \epsilon_{q}^{2}\left(\theta_{q}\right)=N \oint_{N} \frac{d \theta}{2 \pi} v(\theta \mid \beta) \epsilon^{2}(\theta).
+\end{equation}
+Thus Gibbs sampling provides an even sampling of states within $\Delta E$ of the energy $\langle E\rangle$, where $\Delta E/\langle E\rangle\sim O(N^{-1/2})$.\\
+Thinking back on the case of the $XY$ model, the ensemble defined by Gibbs sampling is nothing but the canonical ensemble defined on the full chain, with thermal density matrix
+\begin{equation}
+\rho_{T}(\beta, N)=\sum_{\vec{n}} p(\vec{n} \mid \beta)|\vec{n}\rangle\langle\vec{n}|=\frac{e^{-\beta H_{N}}}{Z(\beta, N)}, \quad \log Z(\beta, N)= N  \oint_{N} \frac{d \theta}{2 \pi}\log \left(1 \pm e^{-\beta \epsilon(\theta)}\right).
+\end{equation}
+This thermal state defines a reduced density matrix in the subchain of length $L$
+\begin{equation}
+\left.\rho(\beta, N)\right|_{L} \equiv \operatorname{Tr}_{N-L} \rho_{T}(\beta, N),
+\end{equation}
+which is expected to correspond to the local thermal state,
+\begin{equation}
+ \left.\rho(\beta, N)\right|_{L} \simeq \rho_{T}(\beta, L) \equiv \frac{e^{-\beta H_{L}}}{Z(\beta, L)},
+\end{equation}
+ for $L$ sufficiently larger in comparison to the correlation length, in which the boundary effects can be neglected. Since we know this states conserve Gaussianity under partial traces, the reduced state $\left.\rho(\beta, N)\right|_{L}$ will be also Gaussian, meaning that the state will be uniquely characterised by its covariance matrix. This arguments lead us to the conclusion that the Gibbs average of the reduced partial density matrices $\rho_L(\vec{n})$ satisfies
+ \begin{equation}
+ \left.\rho(\beta, N)\right|_{L}=\left\langle\rho_{L}(\vec{n})\right\rangle_{\beta}.
+ \end{equation}
+The latter series of arguments where need to understand why this method of sampling is appropriate for our purpose. Even more, it provide us an expression to the probability of having and excitation (a $1$) or not ($0$). Having said that, we move gears to the computing the probability of having an error over two independent sequences. We can write this probability in terms of our energy as and a given $\theta_k$
+\begin{equation}
+n(\theta_k)=\frac{1}{1+e^{\beta(\Omega(\theta_k)-\Omega^*)}},
+\end{equation}
+where $\Omega(\theta_k)$ is given by equation \eqref{CH3:Spectrum_XY_model}, and $\Omega^*$ correspond to the minimum of energy\footnote{It is not hard to check that the minimum of energy happens at $\theta^*=\pm \operatorname{acos}\left(-\frac{\lambda}{1-\gamma^2}\right)$ with value
+\[\sqrt{\frac{\gamma^2(\gamma^2-1+\lambda^2)}{(\gamma^2-1)}}\]}. Then the probability of two sequences not having an error in the position $k$ will be given by
+\begin{equation}
+1-p(\theta_k) = n(\theta_k)^2 + (1-n(\theta_k))^2 = \frac{1}{1+\operatorname{sech}\left(\beta(\Omega(\theta_k)-\Omega^*)\right)},
+\end{equation}
+and then the probability of having an error will be given by
+\begin{equation}
+p(\theta_k) = n(\theta_k)^2 + (1-n(\theta_k))^2 = \frac{1}{1+\cosh\left(\beta(\Omega(\theta_k)-\Omega^*)\right)},
+\end{equation}
+So the expected value of the number of errors $X=\sum_{k}X(\theta_k)$ is given by
 
-
-
+\begin{equation}
+\mu = \sum p(\theta_k) \stackrel{N\to \infty}{=}\frac{N}{2\pi}\oint d\theta \frac{1}{1+\cosh{(\beta(\Omega(\theta)-\Omega^*)})}.
+   \label{CH3:average_of_errors}
+\end{equation}
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width = 0.9\textwidth]{Figures/beta_1.png}
+    \caption{Probability distributions of errors as a function of the position in the chain. this plot correspond to a value of $\beta=1$.}
+    \label{beta1}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width = 0.9\textwidth]{Figures/beta_80.png}
+    \caption{Probability distributions of errors as a function of the position in the chain. this plot correspond to a value of $\beta=80$.}
+    \label{beta80}
+\end{subfigure}
+\caption{An illustration of how the function $p(\theta_k)$ behaves as a function of the angle $\theta$. As we can see in both figures there are regions of the chain in which the probability of having an error is smaller.}
+       \label{fig:three graphs}
+\end{figure}

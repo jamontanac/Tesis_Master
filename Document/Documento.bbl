@@ -7,276 +7,6 @@ Ludwig Boltzmann.
 \newblock Staatsdruckerei.
 \newblock Google-Books-{ID}: 8Hc5AAAAcAAJ.
 
-\bibitem{gemmer_quantum_2004}
-J.~Gemmer, M.~Michel, and G.~Mahler.
-\newblock {\em Quantum Thermodynamics: Emergence of Thermodynamic Behavior
-  Within Composite Quantum Systems}, volume 657 of {\em Lecture Notes in
-  Physics}.
-\newblock Springer Berlin Heidelberg.
-
-\bibitem{goldstein_canonical_2006}
-Sheldon Goldstein, Joel~L. Lebowitz, Roderich Tumulka, and Nino Zanghì.
-\newblock Canonical typicality.
-\newblock 96(5):050403.
-
-\bibitem{popescu_entanglement_2006}
-Sandu Popescu, Anthony~J. Short, and Andreas Winter.
-\newblock Entanglement and the foundations of statistical mechanics.
-\newblock 2(11):754--758.
-
-\bibitem{landau_statistical_2013}
-L.~D. Landau and E.~M. Lifshitz.
-\newblock {\em Statistical Physics: Volume 5}.
-\newblock Butterworth-Heinemann, 3 edition edition.
-
-\bibitem{popescu_foundations_2005}
-Sandu Popescu, Anthony~J. Short, and Andreas Winter.
-\newblock The foundations of statistical mechanics from entanglement:
-  Individual states vs. averages.
-
-\bibitem{linden_quantum_2009}
-Noah Linden, Sandu Popescu, Anthony~J. Short, and Andreas Winter.
-\newblock Quantum mechanical evolution towards thermal equilibrium.
-\newblock 79(6):061103.
-
-\bibitem{uffink_handbook_2007}
-J.~Uffink.
-\newblock {\em Handbook for Philsophy of Physics 924-1074}.
-\newblock Elsevier, Amsterdam.
-
-\bibitem{boltzmann_zur_1871}
-Ludwig Boltzmann.
-\newblock Zur priorität der auffindung der beziehung zwischen dem zweiten
-  hauptsatze der mechanischen wärmetheorie und dem principe der kleinsten
-  wirkung.
-\newblock 219(6):211--230.
-\newblock \_eprint:
-  https://onlinelibrary.wiley.com/doi/pdf/10.1002/andp.18712190606.
-
-\bibitem{boltzmann_einige_1871}
-Ludwig~Eduard Boltzmann.
-\newblock {\em Einige allgemeine sätze über Wärmegleichgewicht}.
-\newblock K. Akad. der Wissensch.
-
-\bibitem{gibbs_elementary_1902}
-Josiah~Willard Gibbs.
-\newblock {\em Elementary Principles in Statistical Mechanics: Developed with
-  Especial Reference to the Rational Foundation of Thermodynamics}.
-\newblock C. Scribner's Sons.
-
-\bibitem{ehrenfest_conceptual_1959}
-Paul Ehrenfest.
-\newblock {\em The conceptual foundations of the statistical approach in
-  mechanics, by Paul and Tatiana Ehrenfest. Translated by Michael J.
-  Moravcsik}.
-\newblock Ithaca, N.Y., Cornell University Press [1959].
-
-\bibitem{oliveira_ergodic_2007}
-César R.~de Oliveira and Thiago Werlang.
-\newblock Ergodic hypothesis in classical statistical mechanics.
-\newblock 29(2):189--201.
-\newblock Publisher: Sociedade Brasileira de Física.
-
-\bibitem{engelhardt_simple_2015}
-Larry Engelhardt, Marie Lopez~del Puerto, and Norman Chonacky.
-\newblock Simple and synergistic ways to understand the boltzmann distribution
-  function.
-\newblock 83(9):787--793.
-\newblock Publisher: American Association of Physics Teachers.
-
-\bibitem{gallavotti_statistical_1999}
-Giovanni Gallavotti.
-\newblock {\em Statistical Mechanics: A Short Treatise}.
-\newblock Theoretical and Mathematical Physics. Springer-Verlag.
-
-\bibitem{goldstein_boltzmanns_2001}
-Sheldon Goldstein.
-\newblock Boltzmann’s approach to statistical mechanics.
-\newblock In Jean Bricmont, Giancarlo Ghirardi, Detlef Dürr, Francesco
-  Petruccione, Maria~Carla Galavotti, and Nino Zanghi, editors, {\em Chance in
-  Physics: Foundations and Perspectives}, Lecture Notes in Physics, pages
-  39--54. Springer.
-
-\bibitem{huang_statistical_1987}
-Kerson Huang.
-\newblock {\em Statistical Mechanics, 2nd Edition}.
-\newblock John Wiley \& Sons, 2 edition edition.
-
-\bibitem{schrodinger_discussion_1935}
-E.~Schrödinger.
-\newblock Discussion of probability relations between separated systems.
-\newblock 31(4):555--563.
-\newblock Publisher: Cambridge University Press.
-
-\bibitem{ekert_basic_2000}
-Artur Ekert, Patrick Hayden, and Hitoshi Inamori.
-\newblock Basic concepts in quantum computation.
-\newblock version: 1.
-
-\bibitem{nielsen_quantum_2000}
-Michael~A. Nielsen and Isaac~L. Chuang.
-\newblock {\em Quantum Computation and Quantum Information}.
-\newblock Cambridge University Press.
-\newblock Google-Books-{ID}: 65FqEKQOfP8C.
-
-\bibitem{edwin_optimal_1979}
-K.~W. Edwin and R.~J. Taud.
-\newblock Optimal operating system composition using integer programming and
-  statistic reserve determination.
-\newblock In {\em Electrical Load-Curve Coverage}, pages 13--30. Pergamon.
-
-\bibitem{von_neumann_mathematical_1955}
-John Von~Neumann.
-\newblock {\em Mathematical foundations of quantum mechanics}.
-\newblock Princeton, N.J. : Princeton University Press.
-
-\bibitem{mackay_information_2003}
-David J.~C. {MacKay}.
-\newblock {\em Information Theory, Inference and Learning Algorithms}.
-\newblock Cambridge University Press, 1 edition edition.
-
-\bibitem{shannon_mathematical_1948}
-C.~E. Shannon.
-\newblock A mathematical theory of communication.
-\newblock 27(3):379--423.
-\newblock \_eprint:
-  https://onlinelibrary.wiley.com/doi/pdf/10.1002/j.1538-7305.1948.tb01338.x.
-
-\bibitem{plenio_introduction_2006}
-Martin~B. Plenio and S.~Virmani.
-\newblock An introduction to entanglement measures.
-
-\bibitem{gemmer_distribution_2003}
-J.~Gemmer and G.~Mahler.
-\newblock Distribution of local entropy in the hilbert space of bi-partite
-  quantum systems: origin of jaynes' principle.
-\newblock 31(2):249--257.
-
-\bibitem{page_average_1993}
-Don~N. Page.
-\newblock Average entropy of a subsystem.
-\newblock 71(9):1291--1294.
-
-\bibitem{facchi_quantum_2017}
-Paolo Facchi and Giancarlo Garnero.
-\newblock Quantum thermodynamics and canonical typicality.
-\newblock 14(8):1740001.
-
-\bibitem{fuchs_cryptographic_1999}
-C.A. Fuchs and J.~van~de Graaf.
-\newblock Cryptographic distinguishability measures for quantum-mechanical
-  states.
-\newblock 45(4):1216--1227.
-\newblock Conference Name: {IEEE} Transactions on Information Theory.
-
-\bibitem{camilo_strong_2019}
-Giancarlo Camilo, Gabriel~T. Landi, and Sebas Eliëns.
-\newblock On the strong subadditivity of the r{\textbackslash}'enyi entropies
-  for bosonic and fermionic gaussian states.
-\newblock 99(4):045155.
-
-\bibitem{botero_bcs-like_2004}
-Alonso Botero and Benni Reznik.
-\newblock {BCS}-like modewise entanglement of fermion gaussian states.
-\newblock 331(1):39 -- 44.
-
-\bibitem{fradkin_field_1997}
-Eduardo Fradkin.
-\newblock {\em Field Theories Of Condensed Matter Systems Vol\#82 On-demand
-  Printing Of \#52253}.
-\newblock {CRC} Press, 1 edition edition.
-
-\bibitem{berezin_method_1966}
-F.~A. Berezin.
-\newblock {\em The method of second quantization}.
-\newblock Number v. 24 in Pure and applied physics. Academic Press.
-
-\bibitem{bogoljubov_new_1958}
-N.~N. Bogoljubov.
-\newblock On a new method in the theory of superconductivity.
-\newblock 7(6):794--805.
-
-\bibitem{leijnse_introduction_2012}
-Martin Leijnse and Karsten Flensberg.
-\newblock Introduction to topological superconductivity and majorana fermions.
-\newblock 27(12):124003.
-
-\bibitem{westwanski_general_1973}
-B.~Westwanski and A.~Pawlikowski.
-\newblock On a general statistical wick theorem.
-\newblock 43(2):201--202.
-
-\bibitem{cheong_many-body_2003}
-Siew-Ann Cheong and Christopher~L. Henley.
-\newblock Many-body density matrices for free fermions.
-
-\bibitem{kraus_pairing_2009}
-Christina~V. Kraus, Michael~M. Wolf, J.~Ignacio Cirac, and Geza Giedke.
-\newblock Pairing in fermionic systems: A quantum information perspective.
-\newblock 79(1):012306.
-
-\bibitem{knill_scheme_2001}
-E.~Knill, R.~Laflamme, and G.~J. Milburn.
-\newblock A scheme for efficient quantum computation with linear optics.
-\newblock 409(6816):46--52.
-\newblock Number: 6816 Publisher: Nature Publishing Group.
-
-\bibitem{terhal_classical_2002}
-Barbara~M. Terhal and David~P. {DiVincenzo}.
-\newblock Classical simulation of noninteracting-fermion quantum circuits.
-\newblock 65(3):032325.
-
-\bibitem{knill_fermionic_2001}
-E.~Knill.
-\newblock Fermionic linear optics and matchgates.
-
-\bibitem{noauthor_density_2007}
-Density operators for fermions.
-\newblock In {\em Quantum Theory of Optical Coherence}, pages 595--631. John
-  Wiley \& Sons, Ltd.
-\newblock Section: 16 \_eprint:
-  https://onlinelibrary.wiley.com/doi/pdf/10.1002/9783527610075.ch16.
-
-\bibitem{soper_construction_1978}
-D.~E. Soper.
-\newblock Construction of the functional-integral representation for fermion
-  green's functions.
-\newblock 18:12.
-\newblock Institution: Institute of Theoretical Science, University of Oregon,
-  Eugene, Oregon 97403.
-
-\bibitem{bravyi_classical_2005}
-Sergey Bravyi.
-\newblock Classical capacity of fermionic product channels.
-\newblock version: 1.
-
-\bibitem{bravyi_lagrangian_2004}
-Sergey Bravyi.
-\newblock Lagrangian representation for fermionic linear optics.
-
-\bibitem{jaynes_probability_2003}
-E.~T. Jaynes.
-\newblock {\em Probability Theory: The Logic of Science}.
-
-\bibitem{barg_random_2002}
-A.~Barg and G.D. Forney.
-\newblock Random codes: minimum distances and error exponents.
-\newblock 48(9):2568--2573.
-\newblock Conference Name: {IEEE} Transactions on Information Theory.
-
-\bibitem{gallager_low-density_1962}
-R.~Gallager.
-\newblock Low-density parity-check codes.
-
-\bibitem{gallager_information_1968}
-Robert~G. Gallager.
-\newblock {\em Information Theory and Reliable Communication}.
-
-\bibitem{gallager_random_2006}
-R.~Gallager.
-\newblock The random coding bound is tight for the average code (corresp.).
-\newblock 19(2):244--246.
-
 \bibitem{lieb_two_1961}
 Elliott Lieb, Theodore Schultz, and Daniel Mattis.
 \newblock Two soluble models of an antiferromagnetic chain.
@@ -304,32 +34,315 @@ A.~F. Reyes-Lega.
 \newblock Some aspects of operator algebras in quantum physics.
 \newblock pages 1--74.
 
+\bibitem{botero_bcs-like_2004}
+Alonso Botero and Benni Reznik.
+\newblock {BCS}-like modewise entanglement of fermion gaussian states.
+\newblock 331(1):39 -- 44.
+
 \bibitem{latorre_ground_2004}
 J.~I. Latorre, E.~Rico, and G.~Vidal.
 \newblock Ground state entanglement in quantum spin chains.
 \newblock 4(1):48--92.
 
+\bibitem{robert_multi-stage_2004}
+Christian~P. Robert and George Casella.
+\newblock The multi-stage gibbs sampler.
+\newblock In Christian~P. Robert and George Casella, editors, {\em Monte Carlo
+  Statistical Methods}, Springer Texts in Statistics, pages 371--424. Springer.
+
+\bibitem{gilks_markov_1996}
+Markov chain monte carlo in practice.
+
+\bibitem{noauthor_gibbs_nodate}
+Gibbs sampler - an overview {\textbar} {ScienceDirect} topics.
+
+\bibitem{eisert_area_2010}
+J.~Eisert, M.~Cramer, and M.~B. Plenio.
+\newblock Area laws for the entanglement entropy - a review.
+\newblock 82(1):277--306.
+\newblock version: 4.
+
+\bibitem{fradkin_field_1997}
+Eduardo Fradkin.
+\newblock {\em Field Theories Of Condensed Matter Systems Vol\#82 On-demand
+  Printing Of \#52253}.
+\newblock {CRC} Press, 1 edition edition.
+
+\bibitem{popescu_foundations_2005}
+Sandu Popescu, Anthony~J. Short, and Andreas Winter.
+\newblock The foundations of statistical mechanics from entanglement:
+  Individual states vs. averages.
+
+\bibitem{popescu_entanglement_2006}
+Sandu Popescu, Anthony~J. Short, and Andreas Winter.
+\newblock Entanglement and the foundations of statistical mechanics.
+\newblock 2(11):754--758.
+
+\bibitem{goldstein_canonical_2006}
+Sheldon Goldstein, Joel~L. Lebowitz, Roderich Tumulka, and Nino Zanghì.
+\newblock Canonical typicality.
+\newblock 96(5):050403.
+
+\bibitem{gemmer_quantum_2004}
+J.~Gemmer, M.~Michel, and G.~Mahler.
+\newblock {\em Quantum Thermodynamics: Emergence of Thermodynamic Behavior
+  Within Composite Quantum Systems}, volume 657 of {\em Lecture Notes in
+  Physics}.
+\newblock Springer Berlin Heidelberg.
+
+\bibitem{uffink_handbook_2007}
+J.~Uffink.
+\newblock {\em Handbook for Philsophy of Physics 924-1074}.
+\newblock Elsevier, Amsterdam.
+
+\bibitem{landau_statistical_2013}
+L.~D. Landau and E.~M. Lifshitz.
+\newblock {\em Statistical Physics: Volume 5}.
+\newblock Butterworth-Heinemann, 3 edition edition.
+
+\bibitem{linden_quantum_2009}
+Noah Linden, Sandu Popescu, Anthony~J. Short, and Andreas Winter.
+\newblock Quantum mechanical evolution towards thermal equilibrium.
+\newblock 79(6):061103.
+
+\bibitem{boltzmann_zur_1871}
+Ludwig Boltzmann.
+\newblock Zur priorität der auffindung der beziehung zwischen dem zweiten
+  hauptsatze der mechanischen wärmetheorie und dem principe der kleinsten
+  wirkung.
+\newblock 219(6):211--230.
+\newblock \_eprint:
+  https://onlinelibrary.wiley.com/doi/pdf/10.1002/andp.18712190606.
+
+\bibitem{boltzmann_einige_1871}
+Ludwig~Eduard Boltzmann.
+\newblock {\em Einige allgemeine sätze über Wärmegleichgewicht}.
+\newblock K. Akad. der Wissensch.
+
+\bibitem{gibbs_elementary_1902}
+Josiah~Willard Gibbs.
+\newblock {\em Elementary Principles in Statistical Mechanics: Developed with
+  Especial Reference to the Rational Foundation of Thermodynamics}.
+\newblock C. Scribner's Sons.
+
+\bibitem{oliveira_ergodic_2007}
+César R.~de Oliveira and Thiago Werlang.
+\newblock Ergodic hypothesis in classical statistical mechanics.
+\newblock 29(2):189--201.
+\newblock Publisher: Sociedade Brasileira de Física.
+
+\bibitem{engelhardt_simple_2015}
+Larry Engelhardt, Marie Lopez~del Puerto, and Norman Chonacky.
+\newblock Simple and synergistic ways to understand the boltzmann distribution
+  function.
+\newblock 83(9):787--793.
+\newblock Publisher: American Association of Physics Teachers.
+
+\bibitem{gallavotti_statistical_1999}
+Giovanni Gallavotti.
+\newblock {\em Statistical Mechanics: A Short Treatise}.
+\newblock Theoretical and Mathematical Physics. Springer-Verlag.
+
+\bibitem{ehrenfest_conceptual_1959}
+Paul Ehrenfest.
+\newblock {\em The conceptual foundations of the statistical approach in
+  mechanics, by Paul and Tatiana Ehrenfest. Translated by Michael J.
+  Moravcsik}.
+\newblock Ithaca, N.Y., Cornell University Press [1959].
+
+\bibitem{goldstein_boltzmanns_2001}
+Sheldon Goldstein.
+\newblock Boltzmann’s approach to statistical mechanics.
+\newblock In Jean Bricmont, Giancarlo Ghirardi, Detlef Dürr, Francesco
+  Petruccione, Maria~Carla Galavotti, and Nino Zanghi, editors, {\em Chance in
+  Physics: Foundations and Perspectives}, Lecture Notes in Physics, pages
+  39--54. Springer.
+
+\bibitem{huang_statistical_1987}
+Kerson Huang.
+\newblock {\em Statistical Mechanics, 2nd Edition}.
+\newblock John Wiley \& Sons, 2 edition edition.
+
+\bibitem{schrodinger_discussion_1935}
+E.~Schrödinger.
+\newblock Discussion of probability relations between separated systems.
+\newblock 31(4):555--563.
+\newblock Publisher: Cambridge University Press.
+
+\bibitem{nielsen_quantum_2000}
+Michael~A. Nielsen and Isaac~L. Chuang.
+\newblock {\em Quantum Computation and Quantum Information}.
+\newblock Cambridge University Press.
+\newblock Google-Books-{ID}: 65FqEKQOfP8C.
+
+\bibitem{edwin_optimal_1979}
+K.~W. Edwin and R.~J. Taud.
+\newblock Optimal operating system composition using integer programming and
+  statistic reserve determination.
+\newblock In {\em Electrical Load-Curve Coverage}, pages 13--30. Pergamon.
+
+\bibitem{ekert_basic_2000}
+Artur Ekert, Patrick Hayden, and Hitoshi Inamori.
+\newblock Basic concepts in quantum computation.
+\newblock version: 1.
+
+\bibitem{von_neumann_mathematical_1955}
+John Von~Neumann.
+\newblock {\em Mathematical foundations of quantum mechanics}.
+\newblock Princeton, N.J. : Princeton University Press.
+
+\bibitem{shannon_mathematical_1948}
+C.~E. Shannon.
+\newblock A mathematical theory of communication.
+\newblock 27(3):379--423.
+\newblock \_eprint:
+  https://onlinelibrary.wiley.com/doi/pdf/10.1002/j.1538-7305.1948.tb01338.x.
+
+\bibitem{mackay_information_2003}
+David J.~C. {MacKay}.
+\newblock {\em Information Theory, Inference and Learning Algorithms}.
+\newblock Cambridge University Press, 1 edition edition.
+
+\bibitem{plenio_introduction_2006}
+Martin~B. Plenio and S.~Virmani.
+\newblock An introduction to entanglement measures.
+
+\bibitem{page_average_1993}
+Don~N. Page.
+\newblock Average entropy of a subsystem.
+\newblock 71(9):1291--1294.
+
+\bibitem{gemmer_distribution_2003}
+J.~Gemmer and G.~Mahler.
+\newblock Distribution of local entropy in the hilbert space of bi-partite
+  quantum systems: origin of jaynes' principle.
+\newblock 31(2):249--257.
+
+\bibitem{facchi_quantum_2017}
+Paolo Facchi and Giancarlo Garnero.
+\newblock Quantum thermodynamics and canonical typicality.
+\newblock 14(8):1740001.
+
+\bibitem{fuchs_cryptographic_1999}
+C.A. Fuchs and J.~van~de Graaf.
+\newblock Cryptographic distinguishability measures for quantum-mechanical
+  states.
+\newblock 45(4):1216--1227.
+\newblock Conference Name: {IEEE} Transactions on Information Theory.
+
+\bibitem{camilo_strong_2019}
+Giancarlo Camilo, Gabriel~T. Landi, and Sebas Eliëns.
+\newblock On the strong subadditivity of the r{\textbackslash}'enyi entropies
+  for bosonic and fermionic gaussian states.
+\newblock 99(4):045155.
+
+\bibitem{berezin_method_1966}
+F.~A. Berezin.
+\newblock {\em The method of second quantization}.
+\newblock Number v. 24 in Pure and applied physics. Academic Press.
+
+\bibitem{bogoljubov_new_1958}
+N.~N. Bogoljubov.
+\newblock On a new method in the theory of superconductivity.
+\newblock 7(6):794--805.
+
 \bibitem{molinari_notes_2017}
 Luca~Guido Molinari.
 \newblock Notes on wick's theorem in many-body theory.
+
+\bibitem{bravyi_classical_2005}
+Sergey Bravyi.
+\newblock Classical capacity of fermionic product channels.
+\newblock version: 1.
+
+\bibitem{leijnse_introduction_2012}
+Martin Leijnse and Karsten Flensberg.
+\newblock Introduction to topological superconductivity and majorana fermions.
+\newblock 27(12):124003.
+
+\bibitem{westwanski_general_1973}
+B.~Westwanski and A.~Pawlikowski.
+\newblock On a general statistical wick theorem.
+\newblock 43(2):201--202.
 
 \bibitem{peschel_calculation_2003}
 Ingo Peschel.
 \newblock Calculation of reduced density matrices from correlation functions.
 \newblock 36(14):L205--L208.
 
+\bibitem{cheong_many-body_2003}
+Siew-Ann Cheong and Christopher~L. Henley.
+\newblock Many-body density matrices for free fermions.
+
+\bibitem{kraus_pairing_2009}
+Christina~V. Kraus, Michael~M. Wolf, J.~Ignacio Cirac, and Geza Giedke.
+\newblock Pairing in fermionic systems: A quantum information perspective.
+\newblock 79(1):012306.
+
 \bibitem{QuantumOptics_wolfgang}
 {\em Field States}, chapter~11, pages 291--319.
 \newblock John Wiley \& Sons, Ltd, 2005.
+
+\bibitem{noauthor_density_2007}
+Density operators for fermions.
+\newblock In {\em Quantum Theory of Optical Coherence}, pages 595--631. John
+  Wiley \& Sons, Ltd.
+\newblock Section: 16 \_eprint:
+  https://onlinelibrary.wiley.com/doi/pdf/10.1002/9783527610075.ch16.
+
+\bibitem{bravyi_lagrangian_2004}
+Sergey Bravyi.
+\newblock Lagrangian representation for fermionic linear optics.
+
+\bibitem{knill_scheme_2001}
+E.~Knill, R.~Laflamme, and G.~J. Milburn.
+\newblock A scheme for efficient quantum computation with linear optics.
+\newblock 409(6816):46--52.
+\newblock Number: 6816 Publisher: Nature Publishing Group.
 
 \bibitem{francesco_conformal_1997}
 Philippe Francesco, Pierre Mathieu, and David Sénéchal.
 \newblock {\em Conformal Field Theory}.
 \newblock Graduate Texts in Contemporary Physics. Springer-Verlag.
 
+\bibitem{terhal_classical_2002}
+Barbara~M. Terhal and David~P. {DiVincenzo}.
+\newblock Classical simulation of noninteracting-fermion quantum circuits.
+\newblock 65(3):032325.
+
+\bibitem{soper_construction_1978}
+D.~E. Soper.
+\newblock Construction of the functional-integral representation for fermion
+  green's functions.
+\newblock 18:12.
+\newblock Institution: Institute of Theoretical Science, University of Oregon,
+  Eugene, Oregon 97403.
+
+\bibitem{knill_fermionic_2001}
+E.~Knill.
+\newblock Fermionic linear optics and matchgates.
+
+\bibitem{gallager_information_1968}
+Robert~G. Gallager.
+\newblock {\em Information Theory and Reliable Communication}.
+
+\bibitem{jaynes_probability_2003}
+E.~T. Jaynes.
+\newblock {\em Probability Theory: The Logic of Science}.
+
 \bibitem{merhav_error_2017}
 Neri Merhav.
 \newblock Error exponents of typical random codes.
+
+\bibitem{barg_random_2002}
+A.~Barg and G.D. Forney.
+\newblock Random codes: minimum distances and error exponents.
+\newblock 48(9):2568--2573.
+\newblock Conference Name: {IEEE} Transactions on Information Theory.
+
+\bibitem{gallager_low-density_1962}
+R.~Gallager.
+\newblock Low-density parity-check codes.
 
 \bibitem{domb_random_2016}
 Yuval Domb, Ram Zamir, and Meir Feder.
@@ -337,6 +350,11 @@ Yuval Domb, Ram Zamir, and Meir Feder.
   lattice.
 \newblock 62(1):121--130.
 \newblock Conference Name: {IEEE} Transactions on Information Theory.
+
+\bibitem{gallager_random_2006}
+R.~Gallager.
+\newblock The random coding bound is tight for the average code (corresp.).
+\newblock 19(2):244--246.
 
 \bibitem{chung_density-matrix_2001}
 Ming-Chiang Chung and Ingo Peschel.
