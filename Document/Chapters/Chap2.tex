@@ -1,10 +1,10 @@
 \chapter{ Fermionic States, its characterisation and the connection with Coding theory.}
 Up to this point we provided a detailed explanation of how in quantum mechanical description, reaching equilibrium emerges as a consequence of the structure of quantum mechanics. Even more, we stated that in the case we deal with states which its eigenenergies are close to each other, typicality will also provide us an answer of how this kind of states will reach equilibrium. As we would like to illustrate this phenomena occur, we focus our study in the fermionic case. In this Chapter we are Going to provide a background to understand how fermionic states are usually treated and why we choose to work with them. More specifically, we provide the overview of solvable fermionic systems, its connection to Majorana fermions and Gaussian states, the formalism of Grassmann for anticommuting variables, and the link between all the formalism for fermions and coding theory.\\
 \section{Overview}
-In many areas of physics one has to has to deal with solving quantum many body problems, which is often a computationally difficult if not impossible task. However, the cases which can be annalitically solved are very well known, and some some assumptions have to be taken into account. In spite of this considerations it has been found that a wide class of complicated Hamiltonians with many-body interactions can be often be mapped onto Hamiltonians that are quadratic in annihilation and creation operators and have the generic form \cite{botero_bcs-like_2004}
+In many areas of physics one has to deal with solving quantum many body problems, which is often a computationally difficult if not impossible task. However, the cases which can be annalitically solved are very well known, and some assumptions have to be taken into account. In spite of this considerations it has been found that a wide class of complicated Hamiltonians with many-body interactions can be often be mapped onto Hamiltonians that are quadratic in annihilation and creation operators and have the generic form \cite{botero_bcs-like_2004}
 
 \begin{equation}
-\hat{H}=\sum_{i j} C_{i j} \hat{a}_{i}^{\dagger} \hat{a}_{j}+\sum_{i j}\left(A_{i j} \hat{a}_{i}^{\dagger}\hat{a}_{j}^{\dagger}+\mathrm{h.c.}\right)
+\hat{H}=\sum_{i j} C_{i j} \hat{a}_{i}^{\dagger} \hat{a}_{j}+\sum_{i j}\left(A_{i j} \hat{a}_{i}^{\dagger}\hat{a}_{j}^{\dagger}+\mathrm{h.c.}\right),
 \label{CH2:QuadraticHamiltonian}
 \end{equation}
 
@@ -31,7 +31,7 @@ and
 \[\left\{\hat{q}_{k}, \hat{q}_{l}\right\}=\left\{\hat{q}_{k}^{\dagger}, \hat{q}_{l}^{\dagger}\right\}=0, \quad\left\{\hat{q}_{k}, \hat{q}_{l}^{\dagger}\right\}=\delta_{k l}.\]
  }.
 \\
-Many relevant physics models are diagonalizable via a Bogoliubov-Valantin transformations, some examples are the Hubbard model, BCS theory of superconductivity in the mean field or Hartree-Fock approximation, and certain solvable spin-chain models (After a Jordan-Wigner transformation) \cite{fradkin_field_1997}. As we will later explain, an important feature about the class of Hamiltonians described by \eqref{CH2:QuadraticHamiltonian}, if not the most important for the purpose of this project,  is that not only the ground state (quasi-particle vacuum)  but all eigenstates describing a excitation  in a set of quasi-particles, belong to the class of so-called Fermionic Gaussian states\cite{botero_bcs-like_2004}. What is important about this class of states is that are fully characterized by second order correlations, because all the higher moments factorize. This result is very well known and is known as Wick theorem.
+Many relevant physics models are diagonalizable via a Bogoliubov-Valantin transformations, some examples are the Hubbard model, BCS theory of superconductivity in the mean field or Hartree-Fock approximation, and certain solvable spin-chain models (After a Jordan-Wigner transformation) \cite{fradkin_field_1997}. As we will later explain, an important feature about the class of Hamiltonians described by \eqref{CH2:QuadraticHamiltonian}, if not the most important for the purpose of this project,  is that not only the ground state (quasi-particle vacuum)  but all eigenstates describing a excitation  in a set of quasi-particles, belong to the class of so-called Fermionic Gaussian states\cite{botero_bcs-like_2004}. What is important about this class of states is that are fully characterized by second order correlations, because all the higher moments factorize. This result is very well known and as Wick theorem \cite{westwanski_general_1973,molinari_notes_2017}.
 \section{Majorana Fermions}
 Majorara fermions are fermions such that they are their own antiparticle. In the frame of condensed matter Majorana Fermions (quasi-particles) can be interpreted as a superposition of a electron state and a hole \cite{leijnse_introduction_2012}.
 \\
@@ -57,6 +57,7 @@ i \mathbb{I} & -i \mathbb{I}
 and then the map from Fermionic ($\vec{\hat{a}}^{T} = (\hat{a}_1,\ldots,\hat{a}_1^{\dagger},\ldots)$) and Majorana ($\vec{\hat{c}}^{T} = (\hat{c}_1,\ldots,\hat{c}_1^{\dagger},\ldots)$) operators is written as $\Omega\vec{\hat{a}}=\vec{\hat{c}}$.
 \\
 By changing from Fermionic operators to Majorana operators is possible, and convenient, to define de Fermionic covariance matrix which as we mentioned before, fully characterise Gaussians states\footnote{In comparison to its boson counterpart the fermion Gaussian states have the property that correlation functions for the creation/annihilation operators are completely determined by the two-point functions according to Wick’s theorem \cite{westwanski_general_1973}, and moreover,  since this property is extensible to correlation function pertaining to a reduced subset of the modes, it follows that any partial (reduced) density matrix obtained from $\rho$ remains Gaussian.}.
+
 \section{Fermionic Covariance matrix }
 A system of $N$ fermion modes, described by a set of creation and annihilation operators $\hat{a}^{\dagger}, \hat{a}$  and satisfying the  canonical anti-commutations relations in \eqref{CH2:Anticommutation}, is Gaussian if for such system any state $\rho$ can be written as  \cite{cheong_many-body_2003}
 
@@ -83,7 +84,7 @@ O G O^{T}=\bigoplus_{i=1}^{N}\left(\begin{array}{cc}
 by a special orthogonal matrix $O\in SO(2N)$ where the $\beta_{j}$ are called the Williamson eigenvalues of the matrix $G$. 
 From equation \eqref{CH2:rho_gaussiano_exp} it is clear that Gaussian states have an interpretation as thermal (Gibbs) states corresponding to a Hamiltonian of the form
 \begin{equation}
-\hat{H}=\frac{i}{4} \hat{c}^{T}G\hat{c}= \frac{i}{4} \sum_{k>l}G_{kl}\left[\hat{c}_{k},\hat{c}_{l}\right].
+\hat{H}=\frac{i}{4} \hat{c}^{T}G\hat{c}= \frac{i}{4} \sum_{k>l}G_{kl}\left[\hat{c}_{k},\hat{c}_{l}\right]
 \label{CH2:Hamiltonian_majorana}
 \end{equation}
 
@@ -110,15 +111,9 @@ Up to this point we have talked about some generalities about the quadratic Hami
 \section{Grassmann Approach}
 Fermions are one kind of fundamental particles which can be used to represent quantum information, being one posibility to do quantum computation. From Knill, Laflamme and Milburn\cite{knill_scheme_2001} work, we know that it is possible to provide an universal set of operations for quantum computation by just using passive linear objects. Right after this discovery, Terhal, DiVincenzo\cite{terhal_classical_2002} and knill\cite{knill_fermionic_2001} provided a description of the computational capability for Fermionic linear optics (FLO)\footnote{Whenever we are referring to this term, it basically has in consideration a system consisting of non-interacting electrons in a controllable external potential and a detector that measures projectively occupation numbers of single-electron modes.}. These results show that FLO is not a promising way to do quantum computation, since it can be efficiently simulated by classical means, on the other hand, this provides a very interesting tool to study general properties quantum channels for quantum communication.\\
 When working with fermions one could think, weather or not is possible to use the same formalisms than the ones used when working with bosons\footnote{By this we mean that it could be also written in its correspond operators of annihilation and creation $\hat{a}^{\dagger}$,$\hat{a}$\cite{noauthor_density_2007}}, and as expected many features between them are shared. More specifically, in the case of FLO, it shares most of the features with a limited version of photon linear optics, where mostly Gaussian states appears\cite{knill_scheme_2001}\footnote{the main reason for this is that a set of states that can be achieved by FLO operations starting from the Fock vacuum is a set of Fermionic Gaussian states, just as the case of its bosonic counterpart.}.\\
-It is worth mentioning that some of the results mentioned in here are quite general and can be used even beyond the scope of our work.
-
-
-
+It is worth mentioning that some of the results in here are quite general and can be used even beyond the scope of our work.
 
 %In Quantum Optics the most common states we work with, are the so-called coherent states,  these states are of great importance since these states turned out to be a proper basis for describing all states of electromagnetic field, are also well known for its intrinsic property that the particle number of such states is indefinite, while the phase is determined exactly\cite{QuantumOptics_wolfgang}, therefore these states can be seen as the counter part of the Fock states\footnote{States that belong to the Fock space have the property that their particle number is well defined but not its phase.}\\When working with fermions one could think if weather or not is possible to use the same formalisms than the ones used when working with bosons\footnote{With its operators of annihilation and creation $\hat{a}^{\dagger}$,$\hat{a}$}\cite{noauthor_density_2007}. The study of Fermionic system is know as Fermionic Linear Optics (FLO). FLO shares many features with a limited version of photon linear optics, where mostly Gaussian states appears\cite{knill_scheme_2001}. The main reason for this is that non-interacting fermion, as well as bosons, are described byin the Lagrangian representation  by Gaussian integrals over anti-commutating (commutating) variables\cite{bravyi_lagrangian_2004}. The states achievable with FLO belong to a closure of a low dimensional Lie group\footnote{Growing only quadratically with the number of modes}. The elements of this Lie group are known as  Gaussian operators \cite{knill_fermionic_2001}, which are the states we mentioned in the latter section and we defined as operators that can be represented as an exponential of another operator which is quadratic in the creation/annihilation operators\footnote{Even though this definition is not valid in cases when the operator does not have full rank, the definition we use here fits for the purpose of this work}.\\
-
-
-
 
 \subsection{Fermionic Linear Optics}
 In order provide a more specific description of FLO, we start by defining $N$ abstract Fermionic modes which can be defined by creation $\hat{a}_j$ and annihilation $\hat{a}_j^{\dagger}$, $j=1,\ldots,N$, satisfying \eqref{CH2:Anticommutation}. As mentioned above, any state of the system can be generated from the vacuum state $\ket{\textit{vacuum}}$ of the Fock basis, which we define as
@@ -129,7 +124,7 @@ In order provide a more specific description of FLO, we start by defining $N$ ab
 with $N_i\in \{0,1\}$. We have then that any sequence $\{N_i\}$ can be understood as a Fermionic state which comes from a superposition of the Fock basis.\\
 When working with FLO, quadratic Hamiltonians govern the dynamics, in which terms associated with individual energy modes, tunneling and bulk dynamics are included. The structure of these Hamiltonians is what allow us conveniently work with operators which generate the \textit{Clifford} algebra ($\mathcal{C}_{2N}$), described in \eqref{CH2:CAR_majorana}. So we will have that any arbitrary operator $X\in \mathcal{C}_{2N}$ will be written as a polynomial in the operators $\{\hat{c}_a\}$ as
 \begin{equation}
-X=\alpha \hat{I}+\sum_{p=1}^{2 n} \sum_{1 \leq a_{1}<\cdots<a_{p} \leq 2 n} \alpha_{a_{1}, \ldots, a_{p}} \hat{c}_{a_{1}} \cdots \hat{c}_{a_{p}}
+X=\alpha \hat{I}+\sum_{p=1}^{2 n} \sum_{1 \leq a_{1}<\cdots<a_{p} \leq 2 n} \alpha_{a_{1}, \ldots, a_{p}} \hat{c}_{a_{1}} \cdots \hat{c}_{a_{p}},
 \label{CH2:operators_in_clifford}
 \end{equation}
 
@@ -147,7 +142,7 @@ We may think that when working with fermions could be the same as working with b
 
 
 \subsection{Grassmann Calculus}
-There are a lot of results from the earlier seventies which describe techniques to study systems with infinite number of fermionic modes modes \cite{soper_construction_1978}, nonetheless, the formalism we are going to present here is a specific case where  a finite number of modes is considered, and consist in a customization of the Lagrangian representation for infinite number of Fermionic modes, presented in \cite{bravyi_classical_2005}. 
+There are a lot of results from the earlier seventies which describe techniques to study systems with infinite number of fermionic modes \cite{soper_construction_1978}, nonetheless, the formalism we are going to present here is a specific case where  a finite number of modes is considered, and consist in a customization of the Lagrangian representation for infinite number of Fermionic modes, presented in \cite{bravyi_classical_2005}. 
 Consider $\theta_{1},\ldots,\theta_N$ span a N-dimensional complex linear space $\mathbb{C}^{N}$. From the anti-commutation relation we get that for $\theta_{1},\ldots,\theta_N$,
 \begin{equation}
 \theta_{a}^{2}=0 \quad \text { and } \quad \theta_{a} \theta_{b}+\theta_{b} \theta_{a}=0,
@@ -172,10 +167,10 @@ and Liebniz's rule
 \end{equation}
 The equality \eqref{CH2:Grassmann_diferential_liebniz} implies that 
 \begin{equation}
-\left\{\frac{\partial}{\partial \theta_{a}}, \frac{\partial}{\partial \theta_{b}}\right\}=0
+\left\{\frac{\partial}{\partial \theta_{a}}, \frac{\partial}{\partial \theta_{b}}\right\}=0.
 \label{CH2:Grassmann_partial_derivative_anticommutation}
 \end{equation}
-Since a derivative $\frac{\partial}{\partial\theta_{a}}f(\theta)$ does not depend upon variable $\theta_{a}$, it is sometimes convenient to think about differentiation as a linear operator mapping $\mathcal{G}_{n}$ into $\mathcal{G}_{n-1}$. Such operator is called integration and is denoted as\cite{bravyi_lagrangian_2004} \footnote{Here we will use a compact notation \[\int \mathrm{D} \theta \equiv \int d \theta_{n} \cdots \int d \theta_{2} \int d \theta_{1},\] and the order is chosen such that \[\int D\theta\ \theta_1\cdots\theta_n = 1\]
+Since a derivative $\frac{\partial}{\partial\theta_{a}}f(\theta)$ does not depend upon variable $\theta_{a}$, it is sometimes convenient to think about differentiation as a linear operator mapping $\mathcal{G}_{n}$ into $\mathcal{G}_{n-1}$. Such operator is called integration and is denoted as\cite{bravyi_lagrangian_2004} \footnote{Here we will use a compact notation \[\int \mathrm{D} \theta \equiv \int d \theta_{n} \cdots \int d \theta_{2} \int d \theta_{1},\] and the order is chosen such that \[\int D\theta\ \theta_1\cdots\theta_n = 1\].
 }
 \begin{equation}
 \int d \theta_{a} \equiv \frac{\partial}{\partial \theta_{a}}: \mathcal{G}_{n} \rightarrow \mathcal{G}_{n-1}.
@@ -208,7 +203,7 @@ In these formulas $\operatorname{Pf}(N)$ is the Pfaffian of a complex antisymmet
 \end{equation}
 \subsection{Gaussian States}
 
-For this part we are going to introduce in a formal way the states we have been talking about in at the beginning of this chapter. Informally we can say that any Gaussian operator can be represented as an exponent of another operator which is quadratic in creation/annihilation operators. When considering an operator $X\in\mathcal{C}_{2N}$ It is natural to assign a polynomial $\omega(X,\theta)\in \mathcal{G}_{2N}$ of $2N$ Grassmann variables defined by.
+For this part we are going to introduce in a formal way the states we have been talking about in at the beginning of this chapter. Informally we can say that any Gaussian operator can be represented as an exponent of another operator which is quadratic in creation/annihilation operators. When considering an operator $X\in\mathcal{C}_{2N}$ It is natural to assign a polynomial $\omega(X,\theta)\in \mathcal{G}_{2N}$ of $2N$ Grassmann variables defined by
 %Here we introduce the Grassmann version of the covariance matrix approach showed in \cite{bravyi_lagrangian_2004}. It turns out that the connection between these two approaches is the map assigning the Grassmann variable to each Majorana operator.
 %\newline
 %Consider $X$ to be a linear operator on the Clifford algebra $\mathcal{C}_{2n}$ that is generated by Majorana operators given in \eqref{CH2:majorana}fulfilling the CAR in \eqref{CH2:CAR_majorana}. One can naturally assign a polynomial in Grassmann variables via
@@ -469,7 +464,7 @@ Note that the Plotkin Bound implies that a code with relative distance $\delta\g
 \end{definition}
 
 \begin{definition}
-For any q-ary code with relative distance $0 \leq \delta \leq 1-\frac{1}{q}$
+For any q-ary code with relative distance $0 \leq \delta \leq 1-\frac{1}{q}$,
 \begin{equation}
 R \leq 1-\left(\frac{q}{q-1}\right) \delta+o(1).
 \label{CH2:Plotkin_bound}
@@ -545,7 +540,7 @@ which implies that
 but as mentioned before, the volume of the Hamming ball is translation invariant,
 
 \begin{equation}
-\sum_{\mathbf{c} \in C} \operatorname{Vol}_{q}(d-1, n) \geq q^{n}
+\sum_{\mathbf{c} \in C} \operatorname{Vol}_{q}(d-1, n) \geq q^{n}.
 \label{CH2:Gilbert_Varshamov_5}
 \end{equation}
 
@@ -555,7 +550,7 @@ Since $\sum_{\mathbf{c} \in C} V o l_{q}(d-1, n)=V o l_{q}(d-1, n) \cdot|C|$
 \begin{aligned}
 |C| & \geq \frac{q^{n}}{\operatorname{Vol}_{q}(d-1, n)} \\
 & \geq \frac{q^{n}}{q^{n H_{q}(\delta)}} \\
-&=q^{n\left(1-H_{q}(\delta)\right)}
+&=q^{n\left(1-H_{q}(\delta)\right)}.
 \end{aligned}
 \label{CH2:Gilbert_Varshamov_final}
 \end{equation}
@@ -571,13 +566,13 @@ E_{\mathrm{sp}}(R), & R_{\text {crit }} \leq R \leq C
 \end{equation}
 where $R_0$,  $R_{\text {crit }}$ and $E_{\mathrm{sp}}(R)$, are known as cutoff rate, critical rate and the sphere-packing exponent respectively. In \cite{gallager_random_2006} Gallager has shown that the random coding exponent is the true error exponent for the RCE   on any discrete memoryless channel. Here we will show the main results provided in \cite{barg_random_2002} and we will provide the ideas to derive these results, as we will show later this ideas of error exponents will be quite helpful to understand how it is possible to make a connection between minimum distance codes and typical Fermionic  states.
 \subsubsection{Random Binary Codes}
-Consider a binary code $C$ of length $N$ and rate $R$ bits per symbol is a set of $M=2^{NR}$.for the case of RCE one compute the probability that by taking a random codeword $\mathbf{x}_i$ of length $N$ it would have Hamming distance $d=N\delta$ from an arbitrary binary $N-$tuple $\mathbf{b}$ and see that it will be independent of $\mathbf{b}$ and equals to
+Consider a binary code $C$ of length $N$ and rate $R$ bits per symbol is a set of $M=2^{NR}$. For the case of RCE one compute the probability that by taking a random codeword $\mathbf{x}_i$ of length $N$ it would have Hamming distance $d=N\delta$ from an arbitrary binary $N-$tuple $\mathbf{b}$ and see that it will be independent of $\mathbf{b}$ and equals to
 \begin{equation}
 \text{Pr}\{d_H(\mathbf{x}_i,\mathbf{b})=d\}={N\choose d} \tilde{p}^d (1-\tilde{p})^{N-d},
 \end{equation}
 where $\tilde{p}$ corresponds to the probability of having a one. Under this RCE, two distances $d_H(\mathbf{x}_i,\mathbf{x}_j)$ and $d_H(\mathbf{x}_{i'},\mathbf{x}_{j'})$ are independent random variables. So if we consider the number of unordered pairs of codewords $(\mathbf{x}_i,\mathbf{x}_j)$ with $i\neq j$ in $C$ at a distance $d$ apart
 \begin{equation}
-S_{\mathcal{C}}(d)=\sum_{i=0}^{M-1} \sum_{j=0}^{i-1} \Phi\left\{d_{H}\left(\boldsymbol{x}_{i}, \boldsymbol{x}_{j}\right)=d\right\}
+S_{\mathcal{C}}(d)=\sum_{i=0}^{M-1} \sum_{j=0}^{i-1} \Phi\left\{d_{H}\left(\boldsymbol{x}_{i}, \boldsymbol{x}_{j}\right)=d\right\},
 \end{equation}
 where $\Phi\left\{d_{H}\left(\boldsymbol{x}_{i}, \boldsymbol{x}_{j}\right)=d\right\}$ is equal to 1 if the condition $d_H(\mathbf{x}_i,\mathbf{x}_j)$ is satisfied and $0$ otherwise. For the case of RCE on a BSC $S_{\mathcal{C}}(d)$ is a sum of ${M\choose 2}$ pairwise independent, identically distributed random variables, so we have
 
@@ -591,7 +586,7 @@ Therefore we are ready to state the following theorem
 \begin{theorem}[Minimum distance in RCE]
 For $0\leq R< 1/2$ and any $\varepsilon>0$, the probability that a code length $N$ and rate $R$ from the RCE has relative minimum distance less than $\delta_{GV}(2R)-\varepsilon$ goes to zero exponentially as $N\to \infty$. For $0\leq R < 1$, if $d=N\delta$ is such that
 \begin{equation}
-\delta_{GV}(2R)+\varepsilon \leq \delta \leq 1- \delta{GV}(2R) - \varepsilon
+\delta_{GV}(2R)+\varepsilon \leq \delta \leq 1- \delta{GV}(2R) - \varepsilon,
 \end{equation}
 then the probability that the number of codeword pairs at a distance d satisfies $S_{\mathcal{C}}(d) \doteq 2^{N(2 R-1+\mathcal{H}(\delta))}$ goes to one as $N\to \infty$.
 \end{theorem}
@@ -609,21 +604,21 @@ M \\
 \end{array}\right) \alpha\right\} \leq \frac{\mathrm{E} \Phi}{\left(\begin{array}{c}
 M \\
 2
-\end{array}\right) \alpha^{2}}
+\end{array}\right) \alpha^{2}},
 \end{equation}
 by choosing $\alpha \doteq 2^{-N(1-\mathcal{H}(\delta)+\Delta)}<\mathrm{E} \Phi$ for any $\Delta>0$, we have
 \begin{equation}
 \operatorname{Pr}\left\{\left|S_{\mathcal{C}}(d)-\mathrm{E} S_{\mathcal{C}}(d)\right|>\left(\begin{array}{c}
 M \\
 2
-\end{array}\right) \alpha\right\}\leq \frac{2 \mathrm{E} \Phi}{M(M-1) \alpha^{2}} \doteq 2^{-N(2 R-1+\mathcal{H}(\delta)-2 \Delta)}
+\end{array}\right) \alpha\right\}\leq \frac{2 \mathrm{E} \Phi}{M(M-1) \alpha^{2}} \doteq 2^{-N(2 R-1+\mathcal{H}(\delta)-2 \Delta)}.
 \end{equation}
 The exponent on the right-hand side can be made positive by choosing $\Delta$ small enough. This establishes the fact that $S_{\mathcal{C}}(d)\doteq 2^{N(2 R-1+\mathcal{H}(\delta))}$ for the chosen value of $d$ with probability tending to one as $N\to\infty$.
 \end{proof}
 \subsubsection{Random Linear Codes}
 A binary linear code $C$ of length $N$ and rate $K/N$ is a set of $M=2^K$ binary $N$-tuples that is generated by $K$ $N-$tuples $\mathbf{g}_j$, $1\leq k \leq K$. This is
 \begin{equation}
-\mathbf{x}(u)=\Sigma_k \mathbf{u}_k \mathbf{g}_j
+\mathbf{x}(u)=\Sigma_k \mathbf{u}_k \mathbf{g}_j,
 \end{equation}
 where $\mathbf{u}$ is an arbitrary binary $K-$tuple. Here we will be considering the case in which each of the $2^{NK}$ matrices are chosen with equal probability. For the case of linear codes, the distribution of distance $\{d_H(\mathbf{x}_i,\mathbf{x}_j),i\neq j\}$ from any given codeword $\mathbf{x}_i$ is independent of $i$. The average distance distribution of a linear code $C$ therefore reduces to
 \begin{equation}
@@ -632,20 +627,20 @@ where $\mathbf{u}$ is an arbitrary binary $K-$tuple. Here we will be considering
 \end{equation}
 where $\mathbf{x}_i$ is an arbitrary codeword. Typically, $\mathbf{x}_i$ is taken as the all zero codeword $\mathbf{0}=\mathbf{x(0)}$. If $(\mathbf{u}_j,\mathbf{u}_k)$ is any pair distinct non-zero $K-$tuples, then the corresponding codewords $(\mathbf{x}(\mathbf{u}_j),\mathbf{x}(\mathbf{u}_k))$ are a pair of independent random binary $N-$tuples. It follows that two distinct distances $d_H(\mathbf{x}_i,\mathbf{x}_j)$ and $d_H(\mathbf{x}_i,\mathbf{x}_k)$ from a given codeword $\mathbf{x}_i$ are pairwise-independent and distributed as in the RCE. In particular 
 \begin{equation}
-\operatorname{Pr}\left\{d_{H}\left(\boldsymbol{x}_{i}, \boldsymbol{x}_{j}\right)=N \delta\right\} \doteq 2^{-N(1-\mathcal{H}(\delta))}
+\operatorname{Pr}\left\{d_{H}\left(\boldsymbol{x}_{i}, \boldsymbol{x}_{j}\right)=N \delta\right\} \doteq 2^{-N(1-\mathcal{H}(\delta))},
 \end{equation}
 for any $d=N\delta$, the quantity $\mathcal{N}_{\mathcal{C}}(d)$ in \eqref{CH2:RLC_number of codewords} is a sum of $M-1\doteq 2^{NR}$ pairwise-independent, identically distributed random variables with mean $E\Phi\doteq 2^{-N(1-mathcal{H}(\delta))}$. Its mean value is therefore equal to
 
 \begin{equation}
-\mathcal{N}_{\mathrm{LCE}}(d) \doteq 2^{N(R-1+\mathcal{H}(\delta))}
+\mathcal{N}_{\mathrm{LCE}}(d) \doteq 2^{N(R-1+\mathcal{H}(\delta))}.
 \end{equation}
 Therefore we say that the relative minimum distance of a code chosen at random from the LCE will be, with probability $1-2^{-\Omega(N)}$, approximately equal to the $GV$ relative distance $\delta_{GV}(R)$.\\
 In summary, the typical minimum distance in the LCE is better than that in the RCE because the minimum of only $M-1$ pairwise-independent distances, whereas in the RCE it is the minimum of ${M\choose 2}$ pairwise independent distances.\\
 Up to this point one may be wonder how all this theory of correcting errors and minimum distance codes are connected to our problem. In following section we are going to show how this connection emerge as a natural consequence of the structure in the Clifford algebra and therefore provide an explanation of what we named as ``Super-Orthogonality''.
 \section{Mechanism behind typicality as a correction error method.}
-As we mentioned in the first chapter, we are interested in study the behaviour of states which are close in energy. First we will show why it is possible to study ``Ultra Orthogonality'' for Fermionic states in two possibilities. The first one is in terms of minimum distance codes and we will see that ``Ultra Orthogonality'' turns out to be an exact result. For the second part we deduce its correspondent exponent error. For the last part we will tackle the problem when we can not work over a minimum distance and we will show how ``Ultra orthogonality'' can be acting over this specific case. Even though for this case we were not able to generalised this to every Fermionic system, we will discuss why this result should holds in general.\\
+As we mentioned in the first chapter, we are interested in study the behaviour of states which are close in energy. First we will show why it is possible to study ``Ultra Orthogonality'' for Fermionic states in two possibilities. The first one is in terms of minimum distance codes and we will see that ``Ultra Orthogonality'' turns out to be an exact result. For the second part, we deduce its correspondent exponent error. For the last part, we will tackle the problem when we can not work over a minimum distance and we will show how ``Ultra orthogonality'' can be acting over this specific case. Even though for this case we were not able to generalised this to every Fermionic system, we will discuss why this result should holds in general.\\
 \subsection{``Ultra Orthogonality'' on Fermions}
-To start this part we want to recapitulate couple of things. First, as we showed in equation \eqref{CH1:expansion_5}, when we take the partial trace the remaining cross terms we will be interested of our interested. When we discuss the property of Ultra Orthogonality, we stated that the cross terms of $\operatorname{Tr}_{E}\ket{E_n}\bra{E_m}$ should be the ones that had to be near to zero to thermalisation to occurs for the specific case we discussed in chapter $1$. Here we are going to formalise all these ideas.\\
+To start this part we want to recapitulate a couple of things. First, as we showed in equation \eqref{CH1:expansion_5}, when we take the partial trace the remaining cross terms  will be of our interest. When we discuss the property of Ultra Orthogonality, we stated that the cross terms of $\operatorname{Tr}_{E}\ket{E_n}\bra{E_m}$ should be the ones that had to be near to zero, in order for thermalisation to occur on the specific case we discussed in chapter $1$. Here we are going to formalise all these ideas.\\
 We can start by choosing an arbitrary state such that it can be decomposed in its vectors of the Fock basis as\footnote{Note that we can use the Fock basis since it is naturally the basis in which we diagonalise our Hamiltonian, therefore it is an energy basis as well.}
 \begin{equation}
 \ket{\psi} = \sum_{\vec{n}}\psi(\vec{n})\ket{\vec{n}}.
@@ -655,7 +650,7 @@ Therefore we are interested in studying the terms of the form\footnote{Here we d
 \hat{X}_{ij} \doteq \operatorname{Tr}_{E}\left(\ket{\vec{n}_i}\bra{\vec{n}_j}\right) \equiv \operatorname{Tr}_{N/L}\left(\ket{\vec{n}_i}\bra{\vec{n}_j}\right).
 \end{equation}
 What Ultra orthogonality tell us is that this term has to zero or in the worst scenario something of the order of 
-fluctuations. Since we are working on the very special case of Quadratic Hamiltonian describing Fermionic systems, we recall the fact that the operators are generated by the Majorana operators, and form the so called Clifford algebra, described in section 2.2. We also saw that these operators can be mapped to the Grassman variables, which allow us to compute things like observables. Taking into account that we started with an space in which we had to deal with $N$ Pauli operator and we changed to a new space in which we work with $2N$ spinless operators and the fact that the most general  function we can built over the Grassman algebra is polynomial of the Grassmann variables. Thus we construct a function of the Grassman variables which takes two binary sequences ($\vec{x},\vec{y}$), $x_i,y_i \in \{0,1\}$, lets call it $\gamma(\vec{x},\vec{y}$. the reason for defining this function is that we are going to describe the system in the space of size $L$ with its correspondent operators, meaning that these sequences can not be arbitrary, they must have to be sequences such that after its first $L$ elements, they must have only zeros. To illustrate this consider the following example, let $\vec{x}=(0100\ldots 0)$, $\vec{y}=(1100\ldots 0)$, here $L=3$, so our function will be described by\footnote{Here we have changed the original notation given in \eqref{CH2:majorana} and change it by 
+fluctuations. Since we are working on the very special case of Quadratic Hamiltonian describing Fermionic systems, we recall the fact that the operators are generated by the Majorana operators, and form the so called Clifford algebra, described in section 2.2. We also saw that these operators can be mapped to the Grassman variables, which allow us to compute things like observables. Taking into account that we started with an space in which we had to deal with $N$ Pauli operator and we changed to a new space in which we work with $2N$ spinless operators and the fact that the most general  function we can built over the Grassman algebra is polynomial of the Grassmann variables. Thus we construct a function of the Grassman variables which takes two binary sequences ($\vec{x},\vec{y}$), $x_i,y_i \in \{0,1\}$, lets call it $\gamma(\vec{x},\vec{y})$. the reason for defining this function is that we are going to describe the system in the space of size $L$ with its correspondent operators, meaning that these sequences can not be arbitrary, they must have to be sequences such that after its first $L$ elements, they must have only zeros. To illustrate this consider the following example, let $\vec{x}=(0100\ldots 0)$, $\vec{y}=(1100\ldots 0)$, here $L=3$, so our function will be described by\footnote{Here we have changed the original notation given in \eqref{CH2:majorana} and change it by 
 \begin{equation}
 \hat{c}_{2j-1}\rightarrow \gamma_{j} , \qquad \hat{c}_{2j}\rightarrow \gamma_{N+j},
 \end{equation}
@@ -673,10 +668,10 @@ where this function has the property that
 \gamma(\vec{x},\vec{y})\gamma(\vec{x}',\vec{y}') = e^{i\phi(\vec{x},\vec{y},\vec{x}',\vec{y}')} \gamma(\vec{x}+\vec{x}',\vec{y}+\vec{y}').
 \label{CH2:my_relation_delta}
 \end{equation}
- The phase appear as a consequence of the anti-commutation relation and$\phi(\vec{x},\vec{y},\vec{x}',\vec{y}')$ is a function that would depend on the weight of the sequences $\vec{x},\vec{y},\vec{x}'$and $\vec{y}'$.\\
-This provide a set of operators that live in the space of size $L$, and that will allow us to expand our operator $\hat{X}_{ij}$.\footnote{For illustrate these ideas we first suppose we have the operators in order. However, we will generalise it later.}
+ The phase appear as a consequence of the anti-commutation relation and $\phi(\vec{x},\vec{y},\vec{x}',\vec{y}')$ is a function that would depend on the weight of the sequences $\vec{x},\vec{y},\vec{x}'$and $\vec{y}'$.\\
+This provide a set of operators that live in the space of size $L$, and that will allow us to expand our operator $\hat{X}_{ij}$,\footnote{For illustrate these ideas we first suppose we have the operators in order. However, we will generalise it later.}
 \begin{equation}
-\hat{X}_{ij} = \sum_{\vec{x},\vec{y}} f(\vec{x},\vec{y})\gamma(\vec{x},\vec{y}),.
+\hat{X}_{ij} = \sum_{\vec{x},\vec{y}} f(\vec{x},\vec{y})\gamma(\vec{x},\vec{y}).
 \end{equation}
 Our task will then be to find the coefficient $f(\vec{x},\vec{y})$, this can be achieve by multiplying on both sides by $\gamma(\vec{x'},\vec{y'})$ and taking the trace over $L$
 \begin{equation}
@@ -687,7 +682,7 @@ The right hand side of this equation can be combined with equation \eqref{CH2:my
 f(\vec{x}',\vec{y}') = \frac{1}{2^L}\operatorname{Tr_L}\left(\hat{X}_{ij}\gamma^{\dagger}(\vec{x}',\vec{y}')\right)=\frac{1}{2^L} \bra{\vec{n}_j}\gamma^{\dagger}(\vec{x}',\vec{y}')\ket{\vec{n}_i}.
 \label{CH2:my_relation_coefficients}
 \end{equation}
-Thus we first have to know how the operators $\gamma$ acts over the states $\ket{\vec{n}_i}$, for this we recall the fact that the Hamiltonians are diagonalised via an orthogonal transformation which links what we call the spacial modes and the normal modes.
+Thus we first have to know how the operators $\gamma$ acts over the states $\ket{\vec{n}_i}$, for this we recall the fact that the Hamiltonians are diagonalised via an orthogonal transformation which links what we call the spacial modes and the normal modes
 \begin{equation}
 \overbrace{\gamma_{i_1}\gamma_{i_2}\ldots\gamma_{i_k}}^{\text{Spacial modes}}= O_{i_1\alpha_1}O_{i_2\alpha_2}\ldots O_{i_k\alpha_k} \underbrace{\gamma_{\alpha_1}\gamma_{\alpha_2}\ldots\gamma_{\alpha_k}}_{\text{Normal modes}}.
 \end{equation}
@@ -706,14 +701,14 @@ whereas the coefficients $f(\vec{x},\vec{y})$ will be given by
 f(\vec{x},\vec{y}) = \frac{1}{2^L}\sum_{\vec{x}',\vec{y}'} \mathcal{U}_{\vec{x}\vec{x}'} \mathcal{V}_{\vec{y}\vec{y}'} \underbrace{\bra{\vec{n}_j}\gamma(\vec{x},\vec{y})\ket{\vec{n}_i}}_{\propto \delta_{\vec{n}_i+\vec{n}_j},\vec{x}+\vec{y}}.
 \label{CH2:my_Relation_coeffitients_final}
 \end{equation}
-In equation \eqref{CH2:my_relation_coeficients_2} the term with the delta can be change by $\delta_{\vec{n}_i+\vec{n_j},\vec{x}+\vec{y}}$, an the reason to do so is because we are working with arithmetic $\mod 2$ and we can see that the term $\vec{n}_i+\vec{n}_j$ is nothing but the vector of differences, which means that the only values different than zero in this vector are when $n_{i_k}\neq n_{j_k}$. This result is extremely important because it tell us that when ever we work with states like $\hat{X}_{ij}$, if the vector of differences have more ones than the vector of differences $\vec{x}+\vec{y}$. Note that the vector of difference given by $\vec{x}+\vec{y}$ can have at most $L$ errors, which means that whenever the number of ones in the difference vector defined by the states $\vec{n}_i+\vec{n}_j$ exceeds $L$ the state $\hat{X}_{ij}$ will be immediately zero. This turns out to be an astonishing result and bring even more questions, like how likely is to have more than $L$ errors when $N\gg L$?, what happen when we have less errors is this quantity still small enough as we expected?. These questions will be tackled in a moment but something to stress is the fact that it is the branch point of our study. We will be first addressing the first question and afterwards we will talk about the second one.
+In equation \eqref{CH2:my_relation_coeficients_2} the term with the delta can be change by $\delta_{\vec{n}_i+\vec{n_j},\vec{x}+\vec{y}}$, an the reason to do so is because we are working with arithmetic mod $2$ and we can see that the term $\vec{n}_i+\vec{n}_j$ is nothing but the vector of differences, which means that the only values different than zero in this vector are when $n_{i_k}\neq n_{j_k}$. This result is extremely important because it tell us that when ever we work with states like $\hat{X}_{ij}$, if the vector of differences have more ones than the vector of differences $\vec{x}+\vec{y}$. Note that the vector of difference given by $\vec{x}+\vec{y}$ can have at most $L$ errors, which means that whenever the number of ones in the difference vector defined by the states $\vec{n}_i+\vec{n}_j$ exceeds $L$ the state $\hat{X}_{ij}$ will be immediately zero. This turns out to be an astonishing result and bring even more questions, like how likely is to have more than $L$ errors when $N\gg L$?, what happen when we have less errors is this quantity still small enough as we expected?. These questions will be tackled in a moment but something to stress is the fact that it is the branch point of our study. We will be first addressing the first question and afterwards we will talk about the second one.
 \subsection{Codes of minimum distance constrained to an energy value}
 Lets recapitulate a little more what we have done in the latter chapter. We define two binary sequences of excitations $\vec{n}_i$, $\vec{n}_j$, and the vector of differences $\vec{e}_{ij}=\vec{n}_i$+$\vec{n}_j$, we will denote the distance between these two binary sequences by
 \begin{equation}
 \begin{aligned}
 d&=W(\vec{e}_{ij})\rightarrow \text{Weight of }\vec{e}_{ij} \\
 &=d_{H}(\vec{n}_i, \vec{n}_j) \rightarrow \text{Hamming distance.}
-\end{aligned},
+\end{aligned}
 \end{equation}
 we show that there is a specific distance $d>L$ at which the state $\hat{X}_{ij}=\operatorname{Tr}_{N/L}\left(\bra{\vec{n}_i}\ket{\vec{n}_j}\right)$ is equal to zero $\hat{X}_{ij}$. This might sound quite familiar since it is connected to minimum distance codes and to see this more clearly consider a set of binary codewords
 \begin{equation}
@@ -737,16 +732,16 @@ Thus, the states belonging to $ \mathcal{H}_{\mathcal{C}}$ are like frozen state
 \end{equation}
 One of the most important question one can ask is what is the biggest code with relative distance $\ell$ constrained with certain value of energy?. So if we denote by
 \begin{equation}
-S(\ell) = \bigcup_{\mathcal{C}, \delta>\ell}\mathcal{H}_{\mathcal{C}} 
+S(\ell) = \bigcup_{\mathcal{C}, \delta>\ell}\mathcal{H}_{\mathcal{C}},
 \end{equation} 
 we would like to know how big indeed is this set and even more we would like to know its error exponent. For answering these questions we first define this problems in terms of random variables. Let $X_i(\theta_k)$ be a random probability that takes the value $1$ with probability $p(\theta_k)$ and the value $0$ with probability $1-p(\theta_k)$, and let $X=\sum_{i}X_i(\theta_k)$ be the sum of these random variables, or equivalently the number of errors. Then we ask ourselves about the probability of having certain number of errors. Particularly we ask the probability of having a quantity of error greater of equal than a certain quantity. To address this question we can make use of the Chernoff inequality\footnote{In this part we do not specify what distribution is the one we are choosing, one might guess that it is related to the Fermi-Dirac distribution, but our result will be in terms of the this general distribution $p(\theta_k)$. In the next chapter we will provide an expression for the case of the $XY$ model.} 
 \begin{equation}
 \begin{aligned}
 P(e^{S X}\geq e^{S d})&\leq \min_{S}\left\langle e^{S X}\right\rangle e^{-S d}\\
-P(e^{-S X}\geq e^{-S d})&\leq \min_{S}\left\langle e^{-S X}\right\rangle e^{S d}
-\end{aligned}.
+P(e^{-S X}\geq e^{-S d})&\leq \min_{S}\left\langle e^{-S X}\right\rangle e^{S d}.
+\end{aligned}
 \end{equation}
-We then compute the expected value $\left\langle e^{S X}\right\rangle$ taking into account that we are working with independent variables.
+We then compute the expected value $\left\langle e^{S X}\right\rangle$ taking into account that we are working with independent variables
 \begin{equation}
 \left\langle e^{S X}\right\rangle = \prod_{k}  E(e^{S X(\theta_k})) = \prod_k \left(1+p(\theta_k)(e^S -1)\right) = e^{\sum_{k}\log(1+p(\theta_k)(e^S -1))}\equiv e^{-Nr(\delta)},
 \end{equation}
@@ -759,7 +754,7 @@ Since we are interested in the case when $N\to \infty$, the error exponent can b
 r(\delta)\stackrel{N\to \infty}{\equiv}\min_{S}\oint \frac{d\theta}{2\pi}\log\left(1+p(\theta)(e^S -1)\right) -S\delta,
 \label{CH2:Error_exponent}
 \end{equation}
-which even though can not be analytically solved, it can be be numerically solved by deriving and obtaining
+which even though can not be analytically solved, it can be numerically solved by deriving and obtaining
 \begin{equation}
 \delta = \oint \frac{d\theta}{2\pi} \frac{p(\theta)e^{S}}{1-p(\theta) + p(\theta)e^S}.
 \end{equation}
@@ -777,17 +772,17 @@ With the latter equation we answer the two questions asked at the end of the las
 \begin{equation}
 \begin{aligned}
 ||\hat{X}_{ij}||^{2}&=\operatorname{Tr}\left(\hat{X}_{ij} \hat{X}^{\dagger}_{ij}\right) = \frac{1}{2^L}\sum_{\vec{x},\vec{y}}|f(\vec{x},\vec{y})|^2\\
-&=\frac{1}{2^L}\underset{\vec{x}'',\vec{y}''}{\sum_{\vec{x},\vec{y}}}\left(	\mathcal{U}_{\vec{x}\vec{x}'} \mathcal{U}_{\vec{x}\vec{x}''}\right) \left(	\mathcal{V}_{\vec{y}\vec{y}'} \mathcal{V}_{\vec{y}\vec{y}''}\right) e^{\phi(\vec{x},\vec{y}')\phi(\vec{x}'',\vec{y}'')}\delta_{\vec{n}_i+\vec{n}_j,\vec{x}'+\vec{y}'}\delta_{\vec{n}_i+\vec{n}_j,\vec{x}''+\vec{y}''}
-\end{aligned}.
+&=\frac{1}{2^L}\underset{\vec{x}'',\vec{y}''}{\sum_{\vec{x},\vec{y}}}\left(	\mathcal{U}_{\vec{x}\vec{x}'} \mathcal{U}_{\vec{x}\vec{x}''}\right) \left(	\mathcal{V}_{\vec{y}\vec{y}'} \mathcal{V}_{\vec{y}\vec{y}''}\right) e^{\phi(\vec{x},\vec{y}')\phi(\vec{x}'',\vec{y}'')}\delta_{\vec{n}_i+\vec{n}_j,\vec{x}'+\vec{y}'}\delta_{\vec{n}_i+\vec{n}_j,\vec{x}''+\vec{y}''}.
+\end{aligned}
 \label{CH2:Norm_x_i_j_operator}
 \end{equation}
-Our purpose will then be to bound the terms $\sum_{\vec{x}}\left(	\mathcal{U}_{\vec{x}\vec{x}'} \mathcal{U}_{\vec{x}\vec{x}''}\right)$, the reason to this is because if we can bound these terms by some quantity, this bound will also holds for the part containing the $\vec{y}$'s, thus for the rest of this work we will working with this quantity instead of working with \eqref{CH2:Norm_x_i_j_operator}. First, notice thatthe expression in \eqref{CH2:my_Relation_coeffitients_final} will not be too useful to us, since we are more interested in changing basis, for example we will be constantly changing from the spacial modes to the normal modes, so, by writing in this way the products of the operators we are not taking into account the geometric meaning of these terms. In the expansion of an operator, the resulting terms from $\gamma(\vec{x},\vec{y})$ have to be interpreted as $p-$forms, meaning that this will correspond to a volume generated by some vectors. So if we want to take into account the fact that volumes change over basis, we should have to understand that the products of the operators in $\gamma(\vec{x},\vec{y})$ should transform in a particular way to take this into account. It is not trivial, but is simple to check that the way this products should change in order to transform as Grassmann variables and take into account the change on the volumes over transformation is via the antisymmetrizing operator. So when we see the products such as $\gamma_{1}\gamma_{2}\gamma_{3}$ we have to understand it as $\frac{1}{3!}\gamma_{[1}\gamma_2\gamma_{3]}$. Generalising these ideas we consider a general $p-$form, lets say $\gamma(\vec{\alpha})$
+Our purpose will then be to bound the terms $\sum_{\vec{x}}\left(	\mathcal{U}_{\vec{x}\vec{x}'} \mathcal{U}_{\vec{x}\vec{x}''}\right)$, the reason to this is because if we can bound these terms by some quantity, this bound will also holds for the part containing the $\vec{y}$'s, thus for the rest of this work we will working with this quantity instead of working with \eqref{CH2:Norm_x_i_j_operator}. First, notice that the expression in \eqref{CH2:my_Relation_coeffitients_final} will not be too useful to us, since we are more interested in changing basis, for example we will be constantly changing from the spacial modes to the normal modes, so, by writing in this way the products of the operators we are not taking into account the geometric meaning of these terms. In the expansion of an operator, the resulting terms from $\gamma(\vec{x},\vec{y})$ have to be interpreted as $p-$forms, meaning that this will correspond to a volume generated by some vectors. So if we want to take into account the fact that volumes change over basis, we should have to understand that the products of the operators in $\gamma(\vec{x},\vec{y})$ should transform in a particular way to take this into account. It is not trivial, but is simple to check that the way this products should change in order to transform as Grassmann variables and take into account the change on the volumes over transformation is via the antisymmetrizing operator. So when we see the products such as $\gamma_{1}\gamma_{2}\gamma_{3}$ we have to understand it as $\frac{1}{3!}\gamma_{[1}\gamma_2\gamma_{3]}$. Generalising these ideas we consider a general $p-$form, lets say $\gamma(\vec{\alpha})$
 \begin{equation}
 \gamma(\vec{\alpha}) =_{[}\gamma_{\alpha_1}\gamma_{\alpha_2}\gamma_{\alpha_2}\ldots\gamma_{\alpha_p]},
 \end{equation}
 if each of these elements transform as $\gamma_{\alpha_i} = O_{\alpha_i j} \tilde{\gamma}_{j}$. The $p-$ form will transform as
 \begin{equation}
-\gamma(\vec{\alpha}) = \operatorname{det}\left(O\big|_{\vec{alpha},\vec{\beta}}\right)\gamma_{\vec{\beta}},
+\gamma(\vec{\alpha}) = \operatorname{det}\left(O\big|_{\vec{\alpha},\vec{\beta}}\right)\gamma_{\vec{\beta}},
 \label{CH2:transformations_of_operators}
 \end{equation}
 where the term $\operatorname{det}\left(O\big|_{\vec{alpha},\vec{\beta}}\right)$ refers to the minor of the matrix $O$. Turning back to our main problem look that the term of $\sum_{\vec{x}}\left(	\mathcal{U}_{\vec{x}\vec{x}'} \mathcal{U}_{\vec{x}\vec{x}''}\right)$ can be written in terms of this determinants as

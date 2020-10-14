@@ -290,14 +290,13 @@ The latter series of arguments where need to understand why this method of sampl
 n(\theta_k)=\frac{1}{1+e^{\beta(\Omega(\theta_k)-\Omega^*)}},
 \end{equation}
 where $\Omega(\theta_k)$ is given by equation \eqref{CH3:Spectrum_XY_model}, and $\Omega^*$ correspond to the minimum of energy\footnote{It is not hard to check that the minimum of energy happens at $\theta^*=\pm \operatorname{acos}\left(-\frac{\lambda}{1-\gamma^2}\right)$ with value
-\[\sqrt{\frac{\gamma^2(\gamma^2-1+\lambda^2)}{(\gamma^2-1)}}.\]}. Then the probability of two sequences not having an error in the position $k$ will be given by
+\[\sqrt{\frac{\gamma^2(\gamma^2-1+\lambda^2)}{(\gamma^2-1)}}\]}. Then the probability of two sequences not having an error in the position $k$ will be given by
 \begin{equation}
 1-p(\theta_k) = n(\theta_k)^2 + (1-n(\theta_k))^2 = \frac{1}{1+\operatorname{sech}\left(\beta(\Omega(\theta_k)-\Omega^*)\right)},
 \end{equation}
 and then the probability of having an error will be given by
 \begin{equation}
-p(\theta_k) = \frac{1}{1+\cosh\left(\beta(\Omega(\theta_k)-\Omega^*)\right)},
-\label{CH3:Probability_of_error_in_site_k}
+p(\theta_k) = n(\theta_k)^2 + (1-n(\theta_k))^2 = \frac{1}{1+\cosh\left(\beta(\Omega(\theta_k)-\Omega^*)\right)},
 \end{equation}
 So the expected value of the number of errors $X=\sum_{k}X(\theta_k)$ is given by
 
@@ -305,9 +304,7 @@ So the expected value of the number of errors $X=\sum_{k}X(\theta_k)$ is given b
 \mu = \sum p(\theta_k) \stackrel{N\to \infty}{=}\frac{N}{2\pi}\oint d\theta \frac{1}{1+\cosh{(\beta(\Omega(\theta)-\Omega^*)})}.
    \label{CH3:average_of_errors}
 \end{equation}
-In Figure \ref{CH3:examples_of_probability_distribution_errors}, we show the behaviour of the probability distribution as a function of the angle. 
-
-
+In Figure \ref{CH3:examples_of_probability_distribution_errors}, we showthe behaviour of the probability distribution as a function of the angle. 
 \begin{figure}[H]
 \centering
 \begin{subfigure}[b]{0.47\textwidth}
@@ -323,111 +320,7 @@ In Figure \ref{CH3:examples_of_probability_distribution_errors}, we show the beh
     \caption{Probability distributions of errors as a function of the position in the chain. this plot correspond to a value of $\beta=80$.}
     \label{beta80}
 \end{subfigure}
-\caption{An illustration of how the probability distribution $p(\theta_k)$ behaves as a function of the angle $\theta$. As we can see in both figures there are regions of the chain in which the probability of having an error is smaller.}
+\caption{An illustration of how the function $p(\theta_k)$ behaves as a function of the angle $\theta$. As we can see in both figures there are regions of the chain in which the probability of having an error is smaller.}
        \label{CH3:examples_of_probability_distribution_errors}
 \end{figure}
 
-As we would like to study a little deeper the behaviour of the expected value as a function of the temperature we could take the obtain some expressions for some limit cases.
-We can expand \eqref{CH3:average_of_errors} when $\beta\to 0$.
-
-\begin{equation*}
-    \mu \approx \frac{N}{2\pi}\left(\frac{2\pi}{2}-\beta^2\int_{-\pi}^{\pi}\frac{(\Omega(\theta)-\Omega^{*})^2}{8}d\theta\right)
-\end{equation*}
-\begin{equation}
-    =\frac{N}{2}-\frac{N\beta^2}{16}\int_{-\pi}^{\pi}(\Omega(\theta)-\Omega^{*})^2d\theta,
-    \label{CH3:beta_to_0}
-\end{equation}
-which means that in the limit of $\beta\to 0$ (High temperatures), the expected value $\mu$ will tend to $N/2$. From other side, if we look at the case when $\beta\to \infty$, the integral \eqref{CH3:average_of_errors} can be approximated as
-\begin{equation}
-    \mu \to \frac{N}{2\pi}\oint e^{-\beta(\Omega(\theta)-\Omega^{*})}d\theta\to 0,
-    \label{CH3:beta_to_infty}
-\end{equation}
-
-which is agreement with the fact that at zero temperature, the possible sequences are those which have no excitations, and therefore will have only zeros.\\
-We can now compute the error exponent associated with this model by just replacing the probability in \eqref{CH3:Probability_of_error_in_site_k} into the expression found in \eqref{CH2:Error_exponent}, to obtain
-\begin{equation}
-r(\delta) = \min_{S}\oint \frac{d\theta}{2\pi}\log\left(1+\frac{1}{1+\cosh\left(\beta(\Omega(\theta)-\Omega^*)\right)}(e^S-1)\right)-S\delta.
-\label{CH3:Error_exponent_for_xy_model}
-\end{equation}
-Even though we are not able to find an exact solution to this, we can do a numerical exercise and see how this behaves as a function of the temperature. In figure \ref{CH3:Results_Exponent_error_XY_model} our results are shown.
-
-\begin{figure}[H]
-\centering
-\begin{subfigure}[b]{0.63\textwidth}
-    \centering
-    \includegraphics[width = \textwidth]{Figures/Error_Exponents.pdf}
-    \caption{Error exponent function for the $XY$ model, in the figure the behaviour as a function of $\beta$ is shown. The equation\eqref{CH3:Error_exponent_for_xy_model} is solved for values of $\beta$ running from $0.01$ to $200$}
-    \label{error_exponent}
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.35\textwidth}
-    \centering
-    \includegraphics[width = \textwidth]{Figures/Error_Exponents_zoom.pdf}
-    \caption{Zoom on the region of lower $\beta$'s. The equation\eqref{CH3:Error_exponent_for_xy_model} is solved for values of $\beta$ running from $0.01$ to $1$}
-    \label{error_exponent_zoom}
-\end{subfigure}
-\caption{Plot of the solution of equation \eqref{CH3:Error_exponent_for_xy_model}, the behaviour of $r(\delta)$ is shown as a function of $\beta$.}
-       \label{CH3:Results_Exponent_error_XY_model}
-\end{figure}
-
-Now we go back the problem we left behind and start analysing the case when the number of errors is less than $L$.
-\subsection{Finding Bounds for $\hat{X}_{ij}$}
-
-In Chapter two we discussed that if we are able to show that the operator $\hat{X}_{ij}$ in norm is small, we could assert that Super Orthogonality will hold. First we want to find a bound to this quantity in terms of the transformations $\mathcal{U}$ and $\mathcal{V}$. As a first approach we could reorder our sequences and divide them in two, one part of length $d$ which will have all the errors and the rest $N-d$ . Note that if we do so, for the region of the errors, one can check that if we have in the $\vec{x}'$ a $0$ then in the sequence $\vec{y}'$ there must be a $1$ in the same position, and for the region of the $N-d$ we need that whenever we have a $0$ in the $\vec{x}'$ sequence, there must be a $0$ in the $\vec{y}'$. Indeed it holds also for $\vec{x}''$ and $\vec{y}''$, which in general provides a relation with the weights of each pair of sequences. In figure \ref{CH3:illustration_relation_with_weights}, there is a graphical description to illustrate this situation.
-\begin{figure}
-\centering
-\includegraphics[width = \textwidth]{Figures/Esquema-pformas.png}
-\caption{Graphical description of the situation in which we we order the modes such that the first $d$ elements correspond to the errors and the rest $N-d$ to the coincidences. This picture illustrate the relation between the weights of the sequences.}
-       \label{CH3:illustration_relation_with_weights}
-\end{figure}
-
-
-
-%Lets reorder our sequence in two, first we take the first $d$ elements in which we have the errors and the rest $N-d$ we leave it aside. we analyse then what values the sequences $\vec{x}'$, $\vec{x}''$, $\vec{y}'$ and $\vec{x}''$ could take. For the case of $\vec{x}'$ and $\vec{y}'$ in the region of errors, these sequences have to be in a way such that if the $i$ element of the $\vec{x}'$ sequence is a $0$, the element $i$ of  $\vec{y}'$ must be a $1$, and for the region of the rest $N-d$ if we have either $0$ or $1$ in the $i$-th position is has to be the same value in both sequences. More specifically what this tell us is that the weights of these sequences have a relation between its weights.
-
-%The way we have structured our problem is such that we have divided our transformations $O$ in some part $O_x$ and another $O_y$, which implies that the weight can be interpreted as the degree of the $p-$form, for our very case ($XY$ model) 
-%El grado de las $p$ formas debe ser igual para x' y x'' pues es por medio de estas transformaciones que vamos de x' a x'' esto implica enotnces que los pesos deben ser iguales
-
-
-
-Como discutimos la anterior vez, queremos probar que incluso en el caso en el que tuviéramos dos secuencias para las cuales el numero de errores fuera menor a $L$, el producto cruzado debe de ser de igual forma pequeño. Entonces para esto podemos estudiar 
-\begin{equation}
-    ||X_{12}||_{2}^2=\operatorname{Tr}X_{12}X_{12}^{\dagger}
-\end{equation}
-Como lo se discutió en la ultima sesión, esta norma puede ser escrita como:
-\begin{equation}
-    ||X_{12}||_{2}^2 = \frac{1}{2^{L}}\sum_{\vec{x},\vec{y}}(O_{\vec{x}\vec{x}'}O_{\vec{x}\vec{x}''})(V_{\vec{y}\vec{y}'}V_{\vec{y}\vec{y}''}),
-    \label{HS_norm}
-\end{equation}
-no obstante, veíamos que al interpretar estas secuencias $\vec{x}$ como $p-$formas, se tenía que la si se quería que esto transformara como una $p-$forma y que además los operadores transformaran como variables de Grassmann, es necesario que estas transformaciones se efectuaran por medio de un determinante, con esto teníamos entonces que
-\begin{equation*}
-\underbrace{\sum_{\vec{x}}}_{\text{Suma sobre p-formas}}(O_{\vec{x}\vec{x}'}O_{\vec{x}\vec{x}''}) = \operatorname{det}\left[\left.(O^{T}\Pi_L O )\right\vert_{\vec{x}',\vec{x}''}\right],
-\end{equation*}
-en donde $\Pi_L$ es el proyector al espacio $L$ de la cadena y $|_{\vec{a},\vec{b}}$ representan el menor sobre  $\vec{a}$, $\vec{b}$. Como primera aproximación se efectuó un análisis de que tan grande es este determinante en términos de los grados de las $p-$formas, o como se conoce en teoría de información, el peso de la secuencia. Con esto llegábamos entonces a plantear una posible cota en términos de la cota de Haddamard para el determinante. As
-í se tenía entonces que
-\begin{equation}
-    ||X_{12}||_{2}^2 \leq \frac{1}{2^L}\sum_{w_1,w_2} {d\choose w_1}^2 {n-d\choose w_2}^2 \left[\frac{2}{N}(w_1+w_2)\right]^{w_1+w_2}
-    \left[\frac{2}{N}(d-w_1+w_2)\right]^{d-w_1+w_2},
-\end{equation}
-con,
-\begin{equation}
-\begin{array}{c}
-0 \leq w_{1} \leq d \\
-0 \leq w_{2}\leq N-d \\
-0 \leq w_{1}+w_{2}\leq L\\
-0 \leq d-w_{1}+w_{2} \leq L,
-\end{array}
-\label{region}
-\end{equation}
-y $d$ el numero de errores. Si suponemos que esto sigue una ley de grandes desviaciones, tenemos entonces que
-\begin{equation}
-    ||X_{12}||_{2}^2\leq e^{Nf(w_1,w_2,L,d,N))},
-\end{equation}
-y 
-\begin{equation}
-\begin{split}
-    f(w_1,w_2,L,d,N) = 2\frac{d}{N}H_{2}\left(\frac{w_1}{2}\right) &+ 2 \left(1-\frac{d}{N}\right)H_{2}\left(\frac{w_2}{N-d}\right)+\frac{w_1+w_2}{N}\log_2\left(2\frac{w_1+w_2}{N}\right)\\
-    & + \frac{d-w_1+w_2}{N}\log_2\left(2\frac{d-w_1+w_2}{N}\right)-\frac{L}{N}
-\end{split}
-\end{equation}
-Desafortunadamente como se muestra en las figuras \ref{Region_2D} y \ref{Region_3D} el comportamiento de $f$ sobre la región descrita en \eqref{region} hace que no sea posible asegurar que existirá una cota pequeña para distintos valores de $N,L,d$
