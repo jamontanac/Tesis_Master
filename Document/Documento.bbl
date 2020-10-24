@@ -331,6 +331,29 @@ J.~Eisert, M.~Cramer, and M.~B. Plenio.
 \newblock 82(1):277--306.
 \newblock version: 4.
 
+\bibitem{bottcher_introduction_1999}
+Albrecht Böttcher and Bernd Silbermann.
+\newblock {\em Introduction to Large Truncated Toeplitz Matrices}.
+\newblock Universitext. Springer-Verlag.
+
+\bibitem{bump_lie_2013}
+Daniel Bump.
+\newblock {\em Lie Groups}.
+
+\bibitem{noauthor_fisher-hartwig_nodate}
+The fisher-hartwig conjecture and toeplitz eigenvalues - {ScienceDirect}.
+
+\bibitem{szego_grenzwertsatz_1915}
+G.~Szegö.
+\newblock Ein grenzwertsatz über die toeplitzschen determinanten einer reellen
+  positiven funktion.
+\newblock 76(4):490--503.
+
+\bibitem{bump_toeplitz_2002}
+Daniel Bump and Persi Diaconis.
+\newblock Toeplitz minors.
+\newblock 97:252--271.
+
 \bibitem{peschel_calculation_2003}
 Ingo Peschel.
 \newblock Calculation of reduced density matrices from correlation functions.

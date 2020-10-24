@@ -373,43 +373,31 @@ Even though we are not able to find an exact solution to this, we can do a numer
 Now we go back the problem we left behind and start analysing the case when the number of errors is less than $L$.
 \subsection{Finding Bounds for $\hat{X}_{ij}$}
 
-In Chapter two we discussed that if we are able to show that the operator $\hat{X}_{ij}$ in norm is small, we could assert that Super Orthogonality will hold. First we want to find a bound to this quantity in terms of the transformations $\mathcal{U}$ and $\mathcal{V}$. As a first approach we could reorder our sequences and divide them in two, one part of length $d$ which will have all the errors and the rest $N-d$ . Note that if we do so, for the region of the errors, one can check that if we have in the $\vec{x}'$ a $0$ then in the sequence $\vec{y}'$ there must be a $1$ in the same position, and for the region of the $N-d$ we need that whenever we have a $0$ in the $\vec{x}'$ sequence, there must be a $0$ in the $\vec{y}'$. Indeed it holds also for $\vec{x}''$ and $\vec{y}''$, which in general provides a relation with the weights of each pair of sequences. In figure \ref{CH3:illustration_relation_with_weights}, there is a graphical description to illustrate this situation.
+In Chapter two we discussed that if we are able to show that the operator $\hat{X}_{ij}$ in norm is small, we could assert that Super Orthogonality will hold. First we want to find a bound to this quantity in terms of the transformations $\mathcal{U}$ and $\mathcal{V}$. As a first approach we could reorder our sequences and divide them in two, one part of length $d$ which will have all the errors and the rest $N-d$ . Note that if we do so, for the region of the errors, one can check that if we have in the $\vec{x}'$ a $0$ then in the sequence $\vec{y}'$ there must be a $1$ in the same position, and for the region of the $N-d$ we need that whenever we have a $0$ in the $\vec{x}'$ sequence, there must be a $0$ in the $\vec{y}'$. Indeed it holds also for $\vec{x}''$ and $\vec{y}''$, which in general provides a relation with the weights of each pair of sequences. In figure \ref{CH3:illustration_relation_with_weights}, there is a graphical description to illustrate this situation.\\
+
 \begin{figure}
 \centering
 \includegraphics[width = \textwidth]{Figures/Esquema-pformas.png}
 \caption{Graphical description of the situation in which we we order the modes such that the first $d$ elements correspond to the errors and the rest $N-d$ to the coincidences. This picture illustrate the relation between the weights of the sequences.}
        \label{CH3:illustration_relation_with_weights}
 \end{figure}
-
-
-
-%Lets reorder our sequence in two, first we take the first $d$ elements in which we have the errors and the rest $N-d$ we leave it aside. we analyse then what values the sequences $\vec{x}'$, $\vec{x}''$, $\vec{y}'$ and $\vec{x}''$ could take. For the case of $\vec{x}'$ and $\vec{y}'$ in the region of errors, these sequences have to be in a way such that if the $i$ element of the $\vec{x}'$ sequence is a $0$, the element $i$ of  $\vec{y}'$ must be a $1$, and for the region of the rest $N-d$ if we have either $0$ or $1$ in the $i$-th position is has to be the same value in both sequences. More specifically what this tell us is that the weights of these sequences have a relation between its weights.
-
-%The way we have structured our problem is such that we have divided our transformations $O$ in some part $O_x$ and another $O_y$, which implies that the weight can be interpreted as the degree of the $p-$form, for our very case ($XY$ model) 
-%El grado de las $p$ formas debe ser igual para x' y x'' pues es por medio de estas transformaciones que vamos de x' a x'' esto implica enotnces que los pesos deben ser iguales
-
-
-
-Como discutimos la anterior vez, queremos probar que incluso en el caso en el que tuviéramos dos secuencias para las cuales el numero de errores fuera menor a $L$, el producto cruzado debe de ser de igual forma pequeño. Entonces para esto podemos estudiar 
+Explicitly, if we mane $w_x', w_y' , w_x''$ and $w_y''$ to the total weight of the sequences $\vec{x}',\vec{y}',\vec{x}'',\vec{y}''$ respectively,
 \begin{equation}
-    ||X_{12}||_{2}^2=\operatorname{Tr}X_{12}X_{12}^{\dagger}
-\end{equation}
-Como lo se discutió en la ultima sesión, esta norma puede ser escrita como:
+\begin{aligned}
+w_x' &= w_1' + w_2',\\
+w_y' &= d-w_1' + w_2',\\
+w_x'' &= w_1'' + w_2'',\\
+w_y'' &= d-w_1'' + w_2''.
+\end{aligned}
+\label{CH3:Relations_with_the_Weights}
+\end{equation} 
+Nonetheless, from the way our problem is structured, we know that the transformations we are dealing with ($\mathcal{U}_{\vec{x}\vec{x}'}$ and $\mathcal{V}_{\vec{y}\vec{y}'}$) have an special structure which as we showed in section $3.1.5$ separates the modes of $x$ from the ones of $y$. This implies that the weight of the sequences have to, which is related to the degree of the $p-$form, has to be the same for $\vec{x}'$ and $\vec{x}''$, and therefore implying that
 \begin{equation}
-    ||X_{12}||_{2}^2 = \frac{1}{2^{L}}\sum_{\vec{x},\vec{y}}(O_{\vec{x}\vec{x}'}O_{\vec{x}\vec{x}''})(V_{\vec{y}\vec{y}'}V_{\vec{y}\vec{y}''}),
-    \label{HS_norm}
-\end{equation}
-no obstante, veíamos que al interpretar estas secuencias $\vec{x}$ como $p-$formas, se tenía que la si se quería que esto transformara como una $p-$forma y que además los operadores transformaran como variables de Grassmann, es necesario que estas transformaciones se efectuaran por medio de un determinante, con esto teníamos entonces que
-\begin{equation*}
-\underbrace{\sum_{\vec{x}}}_{\text{Suma sobre p-formas}}(O_{\vec{x}\vec{x}'}O_{\vec{x}\vec{x}''}) = \operatorname{det}\left[\left.(O^{T}\Pi_L O )\right\vert_{\vec{x}',\vec{x}''}\right],
-\end{equation*}
-en donde $\Pi_L$ es el proyector al espacio $L$ de la cadena y $|_{\vec{a},\vec{b}}$ representan el menor sobre  $\vec{a}$, $\vec{b}$. Como primera aproximación se efectuó un análisis de que tan grande es este determinante en términos de los grados de las $p-$formas, o como se conoce en teoría de información, el peso de la secuencia. Con esto llegábamos entonces a plantear una posible cota en términos de la cota de Haddamard para el determinante. As
-í se tenía entonces que
-\begin{equation}
-    ||X_{12}||_{2}^2 \leq \frac{1}{2^L}\sum_{w_1,w_2} {d\choose w_1}^2 {n-d\choose w_2}^2 \left[\frac{2}{N}(w_1+w_2)\right]^{w_1+w_2}
-    \left[\frac{2}{N}(d-w_1+w_2)\right]^{d-w_1+w_2},
-\end{equation}
-con,
+w_1' = w_1'' \equiv w_1, \qquad w_2' = w_2'' \equiv w_2
+\end{equation} 
+
+where $w_1$ and $w_2$ are restricted to the conditions. In figure \ref{} we illustrate the region we work with
+
 \begin{equation}
 \begin{array}{c}
 0 \leq w_{1} \leq d \\
@@ -417,17 +405,128 @@ con,
 0 \leq w_{1}+w_{2}\leq L\\
 0 \leq d-w_{1}+w_{2} \leq L,
 \end{array}
-\label{region}
+\label{CH3:region_to_bound}
 \end{equation}
-y $d$ el numero de errores. Si suponemos que esto sigue una ley de grandes desviaciones, tenemos entonces que
+
+
+Then, notice that $||\hat{X}_{ij}||$ would reads\footnote{Here we simply count the number of possible sequences that are restricted for the conditions mentioned before. Additionally to this, we use the Haddamard bound for bound the determinant. This bound establishes that if the entries of an $n$ by $n$ matrix $M$, are bounded by a quantity $B$,
+\[ 
+ \left|\det(M)\right|\leq B^{n}n^{n/2}.
+ \]
+ For our particular case notice that the transformations $\mathcal{U}$, $\mathcal{V}$ are bounded by $1/\sqrt{N}$}
+
 \begin{equation}
-    ||X_{12}||_{2}^2\leq e^{Nf(w_1,w_2,L,d,N))},
+    ||X_{ij}||_{2}^2 \leq \frac{1}{2^L}\sum_{w_1,w_2} {d\choose w_1}^2 {n-d\choose w_2}^2 \left[\frac{2}{N}(w_1+w_2)\right]^{w_1+w_2}
+    \left[\frac{2}{N}(d-w_1+w_2)\right]^{d-w_1+w_2}.
+    \label{CH3:norm_of_operator_x_i_j}
 \end{equation}
-y 
-\begin{equation}
+ In order to find a bound we suppose that equation \eqref{CH3:norm_of_operator_x_i_j} follows a law of large deviations, therefore we can assert that 
+ \begin{equation}
+    ||X_{ij}||_{2}^2\leq e^{Nf(w_1,w_2,L,d,N))},
+\end{equation}
+where $f(w_1,w_2,L,d,N)$ will be given by
+\begin{figure}
+\centering
+\includegraphics[width = 0.6 \textwidth]{Figures/Results_weights.pdf}
+\caption{Illustration of the the behaviour of the function $f$ in the region described in \eqref{CH3:region_to_bound},  for values of $N=100$, $d=39$ and $L=40$. As we can see most of the values are positive in the region.}
+       \label{CH3:illustration_function_region}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width = 0.6\textwidth]{Figures/Results_Weights_3d.pdf}
+\caption{Illustration in $3D$ of the the behaviour of the function $f$ in the region described in \eqref{CH3:region_to_bound},  for values of $N=100$, $d=39$ and $L=40$. In this plot we can see clearer that only a small part of the whole region is negative.}
+       \label{CH3:illustration_relation_with_weights_3D}
+\end{figure}
+ \begin{equation}
 \begin{split}
     f(w_1,w_2,L,d,N) = 2\frac{d}{N}H_{2}\left(\frac{w_1}{2}\right) &+ 2 \left(1-\frac{d}{N}\right)H_{2}\left(\frac{w_2}{N-d}\right)+\frac{w_1+w_2}{N}\log_2\left(2\frac{w_1+w_2}{N}\right)\\
-    & + \frac{d-w_1+w_2}{N}\log_2\left(2\frac{d-w_1+w_2}{N}\right)-\frac{L}{N}
+    & + \frac{d-w_1+w_2}{N}\log_2\left(2\frac{d-w_1+w_2}{N}\right)-\frac{L}{N}.
 \end{split}
 \end{equation}
-Desafortunadamente como se muestra en las figuras \ref{Region_2D} y \ref{Region_3D} el comportamiento de $f$ sobre la región descrita en \eqref{region} hace que no sea posible asegurar que existirá una cota pequeña para distintos valores de $N,L,d$
+Our goal is now study the behaviour of this function in the region described in \eqref{CH3:region_to_bound}, Notice that if the function is negative in the all the region, we can assure that the quantity $||\hat{X}_{ij}||$ will be bounded by a quantity which is exponentially small in $N$ (The size of the system). In figures \ref{CH3:illustration_function_region} and \ref{CH3:illustration_relation_with_weights_3D} we can see the behaviour of the function $f$ is such that over the region, it will be positive. This is, $||\hat{X}_{ij}||$ will be bounded by a quantity which is exponentially large, which is quite the opposite we wanted to proof. However, this approach was quite na\"ive and we never took into account the structure of the $XY$ model. As we will show briefly, to bound this quantity and proof what we want it is needed to consider the structure of the $XY$ model.\\
+First to convince us that this quantity is indeed quite small we first do a numerical experiment. We are going to compute and ensemble of determinants in \eqref{CH2:Equation_to_find_bound} for the case of the $XY$ model. To do so, we first generate the transformations $O$ as we described in section $3.1.5$, we take the projection to at the fist $L$ modes and by randomly generating the sequences $\vec{x}',\vec{x}''$ and computing the determinant of the correspondent minor. The results for a particular value of $L$ and $N$ are shown in figure \ref{CH3:Determinant of minors}.
+
+\begin{figure}
+\centering
+\includegraphics[width = 0.7\textwidth]{Figures/Determinant_minors.png}
+\caption{Histogram of the $\log$ of the absolute value of the determinant in \eqref{CH2:Equation_to_find_bound} for the case of the $XY$ model. The parameters here were $N=200$ and $L=50$.}
+       \label{CH3:Determinant of minors}
+\end{figure}
+
+Even more, if we change $L$ for a given $N$, we could build a surface with the histograms at different length $L$. This is shown in figure 
+
+
+
+\begin{figure}
+\centering
+\includegraphics[width = 0.7\textwidth]{Figures/Determinant_minors_surface.pdf}
+\caption{Surface form by the histograms of the $\log$ of the absolute value of the determinant in \eqref{CH2:Equation_to_find_bound} for the case of the $XY$ model. Here the dependence with the size of the subsystem $L$.  The parameters here were $N=200$ and varying from $L=7$ to $90$.}
+       \label{CH3:Determinant of minors_surface}
+\end{figure}
+Having seen these results we then have an insight that indeed $||\hat{X}_{ij}||$ must be quite small. To understand why this is happening, we will find an expression for $O^{T}\Pi_L O$. Notice that the rows in our transformations for the $XY$ are cosine functions, which in terms of the angle $\theta_k$ reads,
+\begin{equation}
+    u^{k}(x) = \sqrt{\frac{2}{N}}\cos{\theta_k x}.
+\end{equation}
+Since our interest is to find the an explicit form for the sum of the product of two of these functions, we have than that
+
+\begin{equation}
+\sum_{\vec{x}}O_{\vec{x},\vec{x}'}O_{\vec{x},\vec{x}''} \equiv A\rightarrow\quad  A_{i,j}=\sum_{x=-\frac{L-1}{2}}^{\frac{L-1}{2}}u^{i}(x)u^{j}(x).
+\end{equation}
+with a little of algebra and a property of the sum of cosines\footnote{The exact relation used to proof this is given by  \[\cos\theta_i x\cos\theta_j x = \frac{1}{2}\left(\cos(x(\theta_j-\theta_k))+\cos(x(\theta_j+\theta_k))\right)\]} we can show that
+\begin{equation}
+   A_{i,j} =\frac{1}{N}D_{L}(\theta_{j}-\theta_{i}),
+\end{equation}
+where $D_{L}(\theta_{j}-\theta_{i})$ is the Dirichlet kernel given by
+\begin{equation}
+D_L(x)= \frac{\sin\left(x\frac{L}{2}\right)}{\sin\left(\frac{x}{2}\right)}.
+\end{equation}
+So in terms of the sequences $\vec{x}',\vec{x}''$, the matrix $O^{T}\Pi_L O$ can be written as
+\begin{equation}
+    O^{T}\Pi_L O\vert_{\vec{x}',\vec{x}''} = \frac{1}{N}D_{L}\left(\frac{2\pi}{N}(\vec{x}'-\vec{x}'')\right).
+    \label{CH3:Dirichlet_for_projection_of_transformation_O}
+\end{equation}
+
+Therefore in order to bound the determinant of the minor we could do two things. One is that we could try to find one bound by force, but this technique was proved previously to do not work really well. Or the other is to exploit the fact that the matrix $O^{T}\Pi_L O$ belongs to a particular kind of matrices named Toeplitz matrices. As we show in figure \ref{Matrices_comparison}, this kind of matrix is known to have fixed values over the diagonals, being one kind of sparse matrix.
+
+\begin{figure}[H]
+    \begin{subfigure}[b]{0.48\textwidth}
+    \centering
+  % include first image
+  \includegraphics[width=\textwidth]{Figures/Matrix.png}  
+  \caption{Plot of the matrix $O^{T}\Pi_L O$, with $N=8000$ and $L=30$}
+  \label{Matriz_dirichlet}
+    \end{subfigure}
+  \hfill 
+\begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/Matrix_approx.png}
+        \caption{Matrix found by using equation \eqref{CH3:Dirichlet_for_projection_of_transformation_O}, which relate the elements of the matrix and Dirichlet kernel $\frac{1}{N} D_L\left(\frac{2\pi}{N}(\vec{x}'-\vec{x}'')\right)$, with $N=8000$ and $L=30$}
+        \label{Matriz_dirichlet_approx}
+    \end{subfigure}%
+    \caption{Comparison between the two matrices, this illustrates first, the fact that indeed the matrix $O^{T}\Pi_L O$ is a Toeplitz matrix and second, that for the case of the $XY$ model the matrix $O^{T}\Pi_L O$ can be written in terms of the Dirichlet kernel.}
+    \label{Matrices_comparison}
+\end{figure}
+
+This kind of matrices have been a subject of great study this is because this kind of matrices appear in many physical systems \cite{bottcher_introduction_1999,bump_lie_2013,noauthor_fisher-hartwig_nodate}. It turns out that the computation of this kind of determinants has already been studied and indeed, it this computation is a case of use of the Frobenius-Schur duality theorem\cite{bump_lie_2013}. Particularly, it is possible to use a generalisation of Szeg\"o theorem\cite{szego_grenzwertsatz_1915} provided by Bump and Diaconis \cite{bump_toeplitz_2002}. In this theorem, as in the case of Szeg\"o theorem, it is possible to find an asymptotic expression for the determinant of Toeplitz minors. Astonishingly, the character of the symmetric group ($U(N)$) emerges in this expression.\\
+Let $\lambda$ and $\mu$ be partitions of length $\leq N$\cite{bump_lie_2013},
+\begin{equation}
+D^{\lambda,\mu}_{n-1}(f) = \operatorname{det} (d_{\lambda_i-\mu_j-i+j}) ,
+\label{CH3:determinante_szego}
+\end{equation}
+where $d_i$ are the elements of the Toeplitz matrix. It is not hard to check that indeed the expression in \eqref{CH3:determinante_szego} is the minor in a large Toeplitz matrix\cite{bump_lie_2013}.
+\begin{theorem}[Heine, Szegö, Bump, Diaconis]
+Let $f\in L^{1}(\mathbb{T}$ be given, with $f(t)=\sum_{n=-\infty}^{\infty}d_nt^n$, the symbol of the Toeplitz matrix. Let $\lambda$ and $\mu$ be partitions of length $\leq N$. Define a function $\Phi_{n,f}(g)$ on $U(n)$ by $\Phi_{n,f}(g)=\prod_{i=1}^{n} f(t_i)$, where $t_i$ are the eigenvalues of $g\in U(n)$. Then
+\begin{equation}
+D_{n-1}^{\lambda, \mu}(f)=\int_{\mathrm{U}(n)} \Phi_{n, f}(g) \overline{\chi_{\lambda}(g)} \chi_{\mu}(g) \mathrm{d} g,
+\end{equation}
+with $\chi_{i}$ the character of $U(n)$\cite{bump_toeplitz_2002,bump_lie_2013}.
+\end{theorem}
+Note that if $\lambda$ and $\mu$ are trivial, the last expression will become \textit{Heine-Szeg\"o} identity.
+With the latter theorem we have then an analytical expression to compute determinant of the Toeplitz minor and find the exact value of \eqref{CH2:Equation_to_find_bound} for the case of the $XY$ model.
+
+
+
+
+
+

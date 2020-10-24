@@ -2,6 +2,7 @@ This is BibTeX, Version 0.99d (TeX Live 2018)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: Documento.aux
 A level-1 auxiliary file: HojaTitulo/HojaTituloMSc.aux
+A level-1 auxiliary file: Chapters/Introduction.aux
 A level-1 auxiliary file: Chapters/Chap1.aux
 A level-1 auxiliary file: Chapters/Chap2.aux
 A level-1 auxiliary file: Chapters/Chap3.aux
@@ -11,6 +12,8 @@ Warning--entry type for "gilks_markov_1996" isn't style-file defined
 --line 1049 of file BibliMSc.bib
 Warning--entry type for "noauthor_gibbs_nodate" isn't style-file defined
 --line 1059 of file BibliMSc.bib
+Warning--entry type for "noauthor_fisher-hartwig_nodate" isn't style-file defined
+--line 1091 of file BibliMSc.bib
 Warning--empty year in boltzmann_uber_1866
 Warning--empty year in gemmer_quantum_2004
 Warning--empty journal in goldstein_canonical_2006
@@ -113,6 +116,13 @@ Warning--empty year in latorre_ground_2004
 Warning--empty year in robert_multi-stage_2004
 Warning--empty journal in eisert_area_2010
 Warning--empty year in eisert_area_2010
+Warning--empty year in bottcher_introduction_1999
+Warning--empty publisher in bump_lie_2013
+Warning--empty year in bump_lie_2013
+Warning--empty journal in szego_grenzwertsatz_1915
+Warning--empty year in szego_grenzwertsatz_1915
+Warning--empty journal in bump_toeplitz_2002
+Warning--empty year in bump_toeplitz_2002
 Warning--empty journal in peschel_calculation_2003
 Warning--empty year in peschel_calculation_2003
 Warning--empty author and editor in QuantumOptics_wolfgang
@@ -125,45 +135,45 @@ Warning--empty journal in chung_density-matrix_2001
 Warning--empty year in chung_density-matrix_2001
 Warning--empty journal in niu_majorana_2012
 Warning--empty year in niu_majorana_2012
-You've used 68 entries,
+You've used 73 entries,
             1791 wiz_defined-function locations,
-            766 strings with 12907 characters,
-and the built_in function-call counts, 14240 in all, are:
-= -- 1210
-> -- 493
+            786 strings with 13404 characters,
+and the built_in function-call counts, 15106 in all, are:
+= -- 1283
+> -- 518
 < -- 9
-+ -- 197
-- -- 129
-* -- 1039
-:= -- 2111
-add.period$ -- 209
-call.type$ -- 68
-change.case$ -- 54
++ -- 208
+- -- 135
+* -- 1092
+:= -- 2232
+add.period$ -- 222
+call.type$ -- 73
+change.case$ -- 57
 chr.to.int$ -- 0
-cite$ -- 182
-duplicate$ -- 677
-empty$ -- 1492
-format.name$ -- 129
-if$ -- 3095
+cite$ -- 194
+duplicate$ -- 720
+empty$ -- 1595
+format.name$ -- 135
+if$ -- 3288
 int.to.chr$ -- 0
-int.to.str$ -- 68
-missing$ -- 83
-newline$ -- 341
-num.names$ -- 68
-pop$ -- 352
+int.to.str$ -- 73
+missing$ -- 89
+newline$ -- 363
+num.names$ -- 72
+pop$ -- 381
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 274
+skip$ -- 294
 stack$ -- 0
-substring$ -- 923
-swap$ -- 75
+substring$ -- 973
+swap$ -- 78
 text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 114
-while$ -- 138
-width$ -- 70
-write$ -- 630
-(There were 116 warnings)
+warning$ -- 121
+while$ -- 146
+width$ -- 75
+write$ -- 670
+(There were 124 warnings)
