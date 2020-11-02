@@ -7,6 +7,28 @@ Ludwig Boltzmann.
 \newblock Staatsdruckerei.
 \newblock Google-Books-{ID}: 8Hc5AAAAcAAJ.
 
+\bibitem{popescu_foundations_2005}
+Sandu Popescu, Anthony~J. Short, and Andreas Winter.
+\newblock The foundations of statistical mechanics from entanglement:
+  Individual states vs. averages.
+
+\bibitem{horodecki_partial_2005}
+Michał Horodecki, Jonathan Oppenheim, and Andreas Winter.
+\newblock Partial quantum information.
+\newblock 436(7051):673--676.
+
+\bibitem{milman_asymptotic_2009}
+Vitali~D. Milman and Gideon Schechtman.
+\newblock {\em Asymptotic Theory of Finite Dimensional Normed Spaces:
+  Isoperimetric Inequalities in Riemannian Manifolds}.
+\newblock Springer.
+\newblock Google-Books-{ID}: q\_RqCQAAQBAJ.
+
+\bibitem{ledoux_concentration_2005}
+Michel Ledoux.
+\newblock {\em The Concentration of Measure Phenomenon}.
+\newblock American Mathematical Society.
+
 \bibitem{gemmer_quantum_2004}
 J.~Gemmer, M.~Michel, and G.~Mahler.
 \newblock {\em Quantum Thermodynamics: Emergence of Thermodynamic Behavior
@@ -19,6 +41,22 @@ Sheldon Goldstein, Joel~L. Lebowitz, Roderich Tumulka, and Nino Zanghì.
 \newblock Canonical typicality.
 \newblock 96(5):050403.
 
+\bibitem{linden_quantum_2009}
+Noah Linden, Sandu Popescu, Anthony~J. Short, and Andreas Winter.
+\newblock Quantum mechanical evolution towards thermal equilibrium.
+\newblock 79(6):061103.
+
+\bibitem{linden_speed_2010}
+Noah Linden, Sandu Popescu, Anthony~J. Short, and Andreas Winter.
+\newblock On the speed of fluctuations around thermodynamic equilibrium.
+\newblock 12(5):055021.
+
+\bibitem{malabarba_quantum_2014}
+Artur S.~L. Malabarba, Luis~Pedro García-Pintos, Noah Linden, Terence~C.
+  Farrelly, and Anthony~J. Short.
+\newblock Quantum systems equilibrate rapidly for most observables.
+\newblock 90(1):012121.
+
 \bibitem{popescu_entanglement_2006}
 Sandu Popescu, Anthony~J. Short, and Andreas Winter.
 \newblock Entanglement and the foundations of statistical mechanics.
@@ -28,16 +66,6 @@ Sandu Popescu, Anthony~J. Short, and Andreas Winter.
 L.~D. Landau and E.~M. Lifshitz.
 \newblock {\em Statistical Physics: Volume 5}.
 \newblock Butterworth-Heinemann, 3 edition edition.
-
-\bibitem{popescu_foundations_2005}
-Sandu Popescu, Anthony~J. Short, and Andreas Winter.
-\newblock The foundations of statistical mechanics from entanglement:
-  Individual states vs. averages.
-
-\bibitem{linden_quantum_2009}
-Noah Linden, Sandu Popescu, Anthony~J. Short, and Andreas Winter.
-\newblock Quantum mechanical evolution towards thermal equilibrium.
-\newblock 79(6):061103.
 
 \bibitem{uffink_handbook_2007}
 J.~Uffink.
@@ -353,6 +381,12 @@ G.~Szegö.
 Daniel Bump and Persi Diaconis.
 \newblock Toeplitz minors.
 \newblock 97:252--271.
+
+\bibitem{lloyd_quantum_2012}
+Seth Lloyd.
+\newblock Quantum information {ProcessingQuantum} information processing.
+\newblock In Robert~A. Meyers, editor, {\em Computational Complexity: Theory,
+  Techniques, and Applications}, pages 2496--2533. Springer.
 
 \bibitem{peschel_calculation_2003}
 Ingo Peschel.

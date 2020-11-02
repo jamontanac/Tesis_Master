@@ -1,30 +1,38 @@
-This is BibTeX, Version 0.99d (TeX Live 2018)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+This is BibTeX, Version 0.99d (TeX Live 2020)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Documento.aux
 A level-1 auxiliary file: HojaTitulo/HojaTituloMSc.aux
-A level-1 auxiliary file: Chapters/Introduction.aux
-A level-1 auxiliary file: Chapters/Chap1.aux
-A level-1 auxiliary file: Chapters/Chap2.aux
-A level-1 auxiliary file: Chapters/Chap3.aux
+A level-1 auxiliary file: ChaptersV2/Introduction.aux
+A level-1 auxiliary file: ChaptersV2/Chap1.aux
+A level-1 auxiliary file: ChaptersV2/Chap2.aux
+A level-1 auxiliary file: ChaptersV2/Chap3.aux
 The style file: unsrt.bst
 Database file #1: BibliMSc.bib
 Warning--entry type for "gilks_markov_1996" isn't style-file defined
---line 1049 of file BibliMSc.bib
+--line 1146 of file BibliMSc.bib
 Warning--entry type for "noauthor_gibbs_nodate" isn't style-file defined
---line 1059 of file BibliMSc.bib
+--line 1156 of file BibliMSc.bib
 Warning--entry type for "noauthor_fisher-hartwig_nodate" isn't style-file defined
---line 1091 of file BibliMSc.bib
+--line 1188 of file BibliMSc.bib
 Warning--empty year in boltzmann_uber_1866
+Warning--empty journal in popescu_foundations_2005
+Warning--empty year in popescu_foundations_2005
+Warning--empty journal in horodecki_partial_2005
+Warning--empty year in horodecki_partial_2005
+Warning--empty year in milman_asymptotic_2009
+Warning--empty year in ledoux_concentration_2005
 Warning--empty year in gemmer_quantum_2004
 Warning--empty journal in goldstein_canonical_2006
 Warning--empty year in goldstein_canonical_2006
+Warning--empty journal in linden_quantum_2009
+Warning--empty year in linden_quantum_2009
+Warning--empty journal in linden_speed_2010
+Warning--empty year in linden_speed_2010
+Warning--empty journal in malabarba_quantum_2014
+Warning--empty year in malabarba_quantum_2014
 Warning--empty journal in popescu_entanglement_2006
 Warning--empty year in popescu_entanglement_2006
 Warning--empty year in landau_statistical_2013
-Warning--empty journal in popescu_foundations_2005
-Warning--empty year in popescu_foundations_2005
-Warning--empty journal in linden_quantum_2009
-Warning--empty year in linden_quantum_2009
 Warning--empty year in uffink_handbook_2007
 Warning--empty journal in boltzmann_zur_1871
 Warning--empty year in boltzmann_zur_1871
@@ -123,6 +131,7 @@ Warning--empty journal in szego_grenzwertsatz_1915
 Warning--empty year in szego_grenzwertsatz_1915
 Warning--empty journal in bump_toeplitz_2002
 Warning--empty year in bump_toeplitz_2002
+Warning--empty year in lloyd_quantum_2012
 Warning--empty journal in peschel_calculation_2003
 Warning--empty year in peschel_calculation_2003
 Warning--empty author and editor in QuantumOptics_wolfgang
@@ -135,45 +144,45 @@ Warning--empty journal in chung_density-matrix_2001
 Warning--empty year in chung_density-matrix_2001
 Warning--empty journal in niu_majorana_2012
 Warning--empty year in niu_majorana_2012
-You've used 73 entries,
+You've used 79 entries,
             1791 wiz_defined-function locations,
-            786 strings with 13404 characters,
-and the built_in function-call counts, 15106 in all, are:
-= -- 1283
-> -- 518
-< -- 9
-+ -- 208
-- -- 135
-* -- 1092
-:= -- 2232
-add.period$ -- 222
-call.type$ -- 73
-change.case$ -- 57
+            814 strings with 14311 characters,
+and the built_in function-call counts, 16599 in all, are:
+= -- 1408
+> -- 580
+< -- 10
++ -- 231
+- -- 152
+* -- 1201
+:= -- 2453
+add.period$ -- 242
+call.type$ -- 79
+change.case$ -- 61
 chr.to.int$ -- 0
-cite$ -- 194
-duplicate$ -- 720
-empty$ -- 1595
-format.name$ -- 135
-if$ -- 3288
+cite$ -- 209
+duplicate$ -- 791
+empty$ -- 1745
+format.name$ -- 152
+if$ -- 3619
 int.to.chr$ -- 0
-int.to.str$ -- 73
-missing$ -- 89
-newline$ -- 363
-num.names$ -- 72
-pop$ -- 381
+int.to.str$ -- 79
+missing$ -- 97
+newline$ -- 394
+num.names$ -- 80
+pop$ -- 415
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 294
+skip$ -- 325
 stack$ -- 0
-substring$ -- 973
-swap$ -- 78
-text.length$ -- 9
+substring$ -- 1074
+swap$ -- 92
+text.length$ -- 10
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 121
-while$ -- 146
-width$ -- 75
-write$ -- 670
-(There were 124 warnings)
+warning$ -- 130
+while$ -- 160
+width$ -- 81
+write$ -- 728
+(There were 133 warnings)
