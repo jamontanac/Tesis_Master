@@ -6,6 +6,7 @@ A level-1 auxiliary file: ChaptersV2/Introduction.aux
 A level-1 auxiliary file: ChaptersV2/Chap1.aux
 A level-1 auxiliary file: ChaptersV2/Chap2.aux
 A level-1 auxiliary file: ChaptersV2/Chap3.aux
+A level-1 auxiliary file: ChaptersV2/Conclusions_perspectives.aux
 The style file: unsrt.bst
 Database file #1: BibliMSc.bib
 Warning--entry type for "gilks_markov_1996" isn't style-file defined
@@ -14,7 +15,6 @@ Warning--entry type for "noauthor_gibbs_nodate" isn't style-file defined
 --line 1156 of file BibliMSc.bib
 Warning--entry type for "noauthor_fisher-hartwig_nodate" isn't style-file defined
 --line 1188 of file BibliMSc.bib
-Warning--empty year in boltzmann_uber_1866
 Warning--empty journal in popescu_foundations_2005
 Warning--empty year in popescu_foundations_2005
 Warning--empty journal in horodecki_partial_2005
@@ -34,6 +34,7 @@ Warning--empty journal in popescu_entanglement_2006
 Warning--empty year in popescu_entanglement_2006
 Warning--empty year in landau_statistical_2013
 Warning--empty year in uffink_handbook_2007
+Warning--empty year in boltzmann_uber_1866
 Warning--empty journal in boltzmann_zur_1871
 Warning--empty year in boltzmann_zur_1871
 Warning--empty year in boltzmann_einige_1871
@@ -109,28 +110,6 @@ Warning--empty publisher in gallager_information_1968
 Warning--empty year in gallager_information_1968
 Warning--empty journal in gallager_random_2006
 Warning--empty year in gallager_random_2006
-Warning--empty journal in lieb_two_1961
-Warning--empty year in lieb_two_1961
-Warning--empty journal in katsura_statistical_1962
-Warning--empty year in katsura_statistical_1962
-Warning--empty journal in barouch_statistical_1971
-Warning--empty year in barouch_statistical_1971
-Warning--empty journal in barouch_statistical_1970
-Warning--empty year in barouch_statistical_1970
-Warning--empty journal in reyes-lega_aspects_2016
-Warning--empty year in reyes-lega_aspects_2016
-Warning--empty journal in latorre_ground_2004
-Warning--empty year in latorre_ground_2004
-Warning--empty year in robert_multi-stage_2004
-Warning--empty journal in eisert_area_2010
-Warning--empty year in eisert_area_2010
-Warning--empty year in bottcher_introduction_1999
-Warning--empty publisher in bump_lie_2013
-Warning--empty year in bump_lie_2013
-Warning--empty journal in szego_grenzwertsatz_1915
-Warning--empty year in szego_grenzwertsatz_1915
-Warning--empty journal in bump_toeplitz_2002
-Warning--empty year in bump_toeplitz_2002
 Warning--empty year in lloyd_quantum_2012
 Warning--empty journal in peschel_calculation_2003
 Warning--empty year in peschel_calculation_2003
@@ -140,13 +119,35 @@ Warning--empty journal in merhav_error_2017
 Warning--empty year in merhav_error_2017
 Warning--empty journal in domb_random_2016
 Warning--empty year in domb_random_2016
+Warning--empty journal in lieb_two_1961
+Warning--empty year in lieb_two_1961
+Warning--empty journal in latorre_ground_2004
+Warning--empty year in latorre_ground_2004
+Warning--empty journal in katsura_statistical_1962
+Warning--empty year in katsura_statistical_1962
+Warning--empty journal in barouch_statistical_1971
+Warning--empty year in barouch_statistical_1971
+Warning--empty journal in barouch_statistical_1970
+Warning--empty year in barouch_statistical_1970
 Warning--empty journal in chung_density-matrix_2001
 Warning--empty year in chung_density-matrix_2001
 Warning--empty journal in niu_majorana_2012
 Warning--empty year in niu_majorana_2012
+Warning--empty journal in reyes-lega_aspects_2016
+Warning--empty year in reyes-lega_aspects_2016
+Warning--empty year in robert_multi-stage_2004
+Warning--empty journal in eisert_area_2010
+Warning--empty year in eisert_area_2010
+Warning--empty year in bottcher_introduction_1999
+Warning--empty publisher in bump_lie_2013
+Warning--empty year in bump_lie_2013
+Warning--empty journal in bump_toeplitz_2002
+Warning--empty year in bump_toeplitz_2002
+Warning--empty journal in szego_grenzwertsatz_1915
+Warning--empty year in szego_grenzwertsatz_1915
 You've used 79 entries,
             1791 wiz_defined-function locations,
-            814 strings with 14311 characters,
+            815 strings with 14350 characters,
 and the built_in function-call counts, 16599 in all, are:
 = -- 1408
 > -- 580

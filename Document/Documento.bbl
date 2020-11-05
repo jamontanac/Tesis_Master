@@ -1,12 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{boltzmann_uber_1866}
-Ludwig Boltzmann.
-\newblock {\em Über die mechanische Bedeutung des zweiten Hauptsatzes der
-  Wärmetheorie: (vorgelegt in der Sitzung am 8. Februar 1866)}.
-\newblock Staatsdruckerei.
-\newblock Google-Books-{ID}: 8Hc5AAAAcAAJ.
-
 \bibitem{popescu_foundations_2005}
 Sandu Popescu, Anthony~J. Short, and Andreas Winter.
 \newblock The foundations of statistical mechanics from entanglement:
@@ -71,6 +64,13 @@ L.~D. Landau and E.~M. Lifshitz.
 J.~Uffink.
 \newblock {\em Handbook for Philsophy of Physics 924-1074}.
 \newblock Elsevier, Amsterdam.
+
+\bibitem{boltzmann_uber_1866}
+Ludwig Boltzmann.
+\newblock {\em Über die mechanische Bedeutung des zweiten Hauptsatzes der
+  Wärmetheorie: (vorgelegt in der Sitzung am 8. Februar 1866)}.
+\newblock Staatsdruckerei.
+\newblock Google-Books-{ID}: 8Hc5AAAAcAAJ.
 
 \bibitem{boltzmann_zur_1871}
 Ludwig Boltzmann.
@@ -309,79 +309,6 @@ R.~Gallager.
 \newblock The random coding bound is tight for the average code (corresp.).
 \newblock 19(2):244--246.
 
-\bibitem{lieb_two_1961}
-Elliott Lieb, Theodore Schultz, and Daniel Mattis.
-\newblock Two soluble models of an antiferromagnetic chain.
-\newblock 16(3):407--466.
-
-\bibitem{katsura_statistical_1962}
-Shigetoshi Katsura.
-\newblock Statistical mechanics of the anisotropic linear heisenberg model.
-\newblock 127(5):1508--1518.
-
-\bibitem{barouch_statistical_1971}
-Eytan Barouch and Barry~M. {McCoy}.
-\newblock Statistical mechanics of the \${XY}\$ model. {II}. spin-correlation
-  functions.
-\newblock 3(2):786--804.
-
-\bibitem{barouch_statistical_1970}
-Eytan Barouch, Barry~M. {McCoy}, and Max Dresden.
-\newblock Statistical mechanics of the \${\textbackslash}mathrm\{{XY}\}\$
-  model. i.
-\newblock 2(3):1075--1092.
-
-\bibitem{reyes-lega_aspects_2016}
-A.~F. Reyes-Lega.
-\newblock Some aspects of operator algebras in quantum physics.
-\newblock pages 1--74.
-
-\bibitem{latorre_ground_2004}
-J.~I. Latorre, E.~Rico, and G.~Vidal.
-\newblock Ground state entanglement in quantum spin chains.
-\newblock 4(1):48--92.
-
-\bibitem{robert_multi-stage_2004}
-Christian~P. Robert and George Casella.
-\newblock The multi-stage gibbs sampler.
-\newblock In Christian~P. Robert and George Casella, editors, {\em Monte Carlo
-  Statistical Methods}, Springer Texts in Statistics, pages 371--424. Springer.
-
-\bibitem{gilks_markov_1996}
-Markov chain monte carlo in practice.
-
-\bibitem{noauthor_gibbs_nodate}
-Gibbs sampler - an overview {\textbar} {ScienceDirect} topics.
-
-\bibitem{eisert_area_2010}
-J.~Eisert, M.~Cramer, and M.~B. Plenio.
-\newblock Area laws for the entanglement entropy - a review.
-\newblock 82(1):277--306.
-\newblock version: 4.
-
-\bibitem{bottcher_introduction_1999}
-Albrecht Böttcher and Bernd Silbermann.
-\newblock {\em Introduction to Large Truncated Toeplitz Matrices}.
-\newblock Universitext. Springer-Verlag.
-
-\bibitem{bump_lie_2013}
-Daniel Bump.
-\newblock {\em Lie Groups}.
-
-\bibitem{noauthor_fisher-hartwig_nodate}
-The fisher-hartwig conjecture and toeplitz eigenvalues - {ScienceDirect}.
-
-\bibitem{szego_grenzwertsatz_1915}
-G.~Szegö.
-\newblock Ein grenzwertsatz über die toeplitzschen determinanten einer reellen
-  positiven funktion.
-\newblock 76(4):490--503.
-
-\bibitem{bump_toeplitz_2002}
-Daniel Bump and Persi Diaconis.
-\newblock Toeplitz minors.
-\newblock 97:252--271.
-
 \bibitem{lloyd_quantum_2012}
 Seth Lloyd.
 \newblock Quantum information {ProcessingQuantum} information processing.
@@ -413,6 +340,33 @@ Yuval Domb, Ram Zamir, and Meir Feder.
 \newblock 62(1):121--130.
 \newblock Conference Name: {IEEE} Transactions on Information Theory.
 
+\bibitem{lieb_two_1961}
+Elliott Lieb, Theodore Schultz, and Daniel Mattis.
+\newblock Two soluble models of an antiferromagnetic chain.
+\newblock 16(3):407--466.
+
+\bibitem{latorre_ground_2004}
+J.~I. Latorre, E.~Rico, and G.~Vidal.
+\newblock Ground state entanglement in quantum spin chains.
+\newblock 4(1):48--92.
+
+\bibitem{katsura_statistical_1962}
+Shigetoshi Katsura.
+\newblock Statistical mechanics of the anisotropic linear heisenberg model.
+\newblock 127(5):1508--1518.
+
+\bibitem{barouch_statistical_1971}
+Eytan Barouch and Barry~M. {McCoy}.
+\newblock Statistical mechanics of the \${XY}\$ model. {II}. spin-correlation
+  functions.
+\newblock 3(2):786--804.
+
+\bibitem{barouch_statistical_1970}
+Eytan Barouch, Barry~M. {McCoy}, and Max Dresden.
+\newblock Statistical mechanics of the \${\textbackslash}mathrm\{{XY}\}\$
+  model. i.
+\newblock 2(3):1075--1092.
+
 \bibitem{chung_density-matrix_2001}
 Ming-Chiang Chung and Ingo Peschel.
 \newblock Density-matrix spectra of solvable fermionic systems.
@@ -424,5 +378,51 @@ Yuezhen Niu, Suk~Bum Chung, Chen-Hsuan Hsu, Ipsita Mandal, S.~Raghu, and Sudip
 \newblock Majorana zero modes in a quantum ising chain with longer-ranged
   interactions.
 \newblock 85(3):035110.
+
+\bibitem{reyes-lega_aspects_2016}
+A.~F. Reyes-Lega.
+\newblock Some aspects of operator algebras in quantum physics.
+\newblock pages 1--74.
+
+\bibitem{robert_multi-stage_2004}
+Christian~P. Robert and George Casella.
+\newblock The multi-stage gibbs sampler.
+\newblock In Christian~P. Robert and George Casella, editors, {\em Monte Carlo
+  Statistical Methods}, Springer Texts in Statistics, pages 371--424. Springer.
+
+\bibitem{gilks_markov_1996}
+Markov chain monte carlo in practice.
+
+\bibitem{noauthor_gibbs_nodate}
+Gibbs sampler - an overview {\textbar} {ScienceDirect} topics.
+
+\bibitem{eisert_area_2010}
+J.~Eisert, M.~Cramer, and M.~B. Plenio.
+\newblock Area laws for the entanglement entropy - a review.
+\newblock 82(1):277--306.
+\newblock version: 4.
+
+\bibitem{noauthor_fisher-hartwig_nodate}
+The fisher-hartwig conjecture and toeplitz eigenvalues - {ScienceDirect}.
+
+\bibitem{bottcher_introduction_1999}
+Albrecht Böttcher and Bernd Silbermann.
+\newblock {\em Introduction to Large Truncated Toeplitz Matrices}.
+\newblock Universitext. Springer-Verlag.
+
+\bibitem{bump_lie_2013}
+Daniel Bump.
+\newblock {\em Lie Groups}.
+
+\bibitem{bump_toeplitz_2002}
+Daniel Bump and Persi Diaconis.
+\newblock Toeplitz minors.
+\newblock 97:252--271.
+
+\bibitem{szego_grenzwertsatz_1915}
+G.~Szegö.
+\newblock Ein grenzwertsatz über die toeplitzschen determinanten einer reellen
+  positiven funktion.
+\newblock 76(4):490--503.
 
 \end{thebibliography}
