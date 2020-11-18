@@ -5,10 +5,54 @@ Sandu Popescu, Anthony~J. Short, and Andreas Winter.
 \newblock The foundations of statistical mechanics from entanglement:
   Individual states vs. averages.
 
+\bibitem{ma_statistical_1985}
+Shang-Keng Ma.
+\newblock {\em Statistical Mechanics}.
+\newblock Wspc, illustrated edition edition.
+
+\bibitem{farquhar_ergodic_1965}
+Ian~Ewen Farquhar.
+\newblock {\em Ergodic Theory in Statistical Mechanics}.
+\newblock John Wiley \& Sons Inc, 1st ed. edition edition.
+
+\bibitem{jancel_foundations_2013}
+R.~Jancel.
+\newblock {\em Foundations of Classical and Quantum Statistical Mechanics:
+  International Series of Monographs in Natural Philosophy}.
+\newblock Pergamon.
+
 \bibitem{horodecki_partial_2005}
 Michał Horodecki, Jonathan Oppenheim, and Andreas Winter.
 \newblock Partial quantum information.
 \newblock 436(7051):673--676.
+
+\bibitem{deutsch_thermodynamic_2010}
+J.~M. Deutsch.
+\newblock Thermodynamic entropy of a many-body energy eigenstate.
+\newblock 12(7):075021.
+
+\bibitem{singh_foundations_2013}
+Navinder Singh.
+\newblock On the foundations of statistical mechanics: a brief review.
+\newblock 27(6):1330003.
+\newblock Publisher: World Scientific Publishing Co.
+
+\bibitem{popescu_entanglement_2006}
+Sandu Popescu, Anthony~J. Short, and Andreas Winter.
+\newblock Entanglement and the foundations of statistical mechanics.
+\newblock 2(11):754--758.
+
+\bibitem{goldstein_canonical_2006}
+Sheldon Goldstein, Joel~L. Lebowitz, Roderich Tumulka, and Nino Zanghì.
+\newblock Canonical typicality.
+\newblock 96(5):050403.
+
+\bibitem{gemmer_quantum_2004}
+J.~Gemmer, M.~Michel, and G.~Mahler.
+\newblock {\em Quantum Thermodynamics: Emergence of Thermodynamic Behavior
+  Within Composite Quantum Systems}, volume 657 of {\em Lecture Notes in
+  Physics}.
+\newblock Springer Berlin Heidelberg.
 
 \bibitem{milman_asymptotic_2009}
 Vitali~D. Milman and Gideon Schechtman.
@@ -22,17 +66,16 @@ Michel Ledoux.
 \newblock {\em The Concentration of Measure Phenomenon}.
 \newblock American Mathematical Society.
 
-\bibitem{gemmer_quantum_2004}
-J.~Gemmer, M.~Michel, and G.~Mahler.
-\newblock {\em Quantum Thermodynamics: Emergence of Thermodynamic Behavior
-  Within Composite Quantum Systems}, volume 657 of {\em Lecture Notes in
-  Physics}.
-\newblock Springer Berlin Heidelberg.
+\bibitem{tasaki_quantum_1998}
+Hal Tasaki.
+\newblock From quantum dynamics to the canonical distribution: General picture
+  and a rigorous example.
+\newblock 80(7):1373--1376.
 
-\bibitem{goldstein_canonical_2006}
-Sheldon Goldstein, Joel~L. Lebowitz, Roderich Tumulka, and Nino Zanghì.
-\newblock Canonical typicality.
-\newblock 96(5):050403.
+\bibitem{gemmer_thermalization_2006}
+Jochen Gemmer and Mathias Michel.
+\newblock Thermalization of quantum systems by finite baths.
+\newblock 73(1):1--7.
 
 \bibitem{linden_quantum_2009}
 Noah Linden, Sandu Popescu, Anthony~J. Short, and Andreas Winter.
@@ -50,10 +93,31 @@ Artur S.~L. Malabarba, Luis~Pedro García-Pintos, Noah Linden, Terence~C.
 \newblock Quantum systems equilibrate rapidly for most observables.
 \newblock 90(1):012121.
 
-\bibitem{popescu_entanglement_2006}
-Sandu Popescu, Anthony~J. Short, and Andreas Winter.
-\newblock Entanglement and the foundations of statistical mechanics.
-\newblock 2(11):754--758.
+\bibitem{srednicki_chaos_1994}
+Mark Srednicki.
+\newblock Chaos and quantum thermalization.
+\newblock 50(2):888--901.
+
+\bibitem{deutsch_quantum_1991}
+J.~M. Deutsch.
+\newblock Quantum statistical mechanics in a closed system.
+\newblock 43:2046--2049.
+
+\bibitem{rigol_alternatives_2012}
+Marcos Rigol and Mark Srednicki.
+\newblock Alternatives to eigenstate thermalization.
+\newblock 108(11).
+
+\bibitem{reyes-lega_aspects_2016}
+A.~F. Reyes-Lega.
+\newblock Some aspects of operator algebras in quantum physics.
+\newblock pages 1--74.
+
+\bibitem{barg_random_2002}
+A.~Barg and G.D. Forney.
+\newblock Random codes: minimum distances and error exponents.
+\newblock 48(9):2568--2573.
+\newblock Conference Name: {IEEE} Transactions on Information Theory.
 
 \bibitem{landau_statistical_2013}
 L.~D. Landau and E.~M. Lifshitz.
@@ -247,12 +311,6 @@ Christina~V. Kraus, Michael~M. Wolf, J.~Ignacio Cirac, and Geza Giedke.
 \newblock Pairing in fermionic systems: A quantum information perspective.
 \newblock 79(1):012306.
 
-\bibitem{knill_scheme_2001}
-E.~Knill, R.~Laflamme, and G.~J. Milburn.
-\newblock A scheme for efficient quantum computation with linear optics.
-\newblock 409(6816):46--52.
-\newblock Number: 6816 Publisher: Nature Publishing Group.
-
 \bibitem{terhal_classical_2002}
 Barbara~M. Terhal and David~P. {DiVincenzo}.
 \newblock Classical simulation of noninteracting-fermion quantum circuits.
@@ -290,12 +348,6 @@ Sergey Bravyi.
 E.~T. Jaynes.
 \newblock {\em Probability Theory: The Logic of Science}.
 
-\bibitem{barg_random_2002}
-A.~Barg and G.D. Forney.
-\newblock Random codes: minimum distances and error exponents.
-\newblock 48(9):2568--2573.
-\newblock Conference Name: {IEEE} Transactions on Information Theory.
-
 \bibitem{gallager_low-density_1962}
 R.~Gallager.
 \newblock Low-density parity-check codes.
@@ -308,6 +360,30 @@ Robert~G. Gallager.
 R.~Gallager.
 \newblock The random coding bound is tight for the average code (corresp.).
 \newblock 19(2):244--246.
+
+\bibitem{knill_efficient_2000}
+E.~Knill, R.~Laflamme, and G.~Milburn.
+\newblock Efficient linear optics quantum computation.
+
+\bibitem{knill_fermionic_2001-1}
+E.~Knill.
+\newblock Fermionic linear optics and matchgates.
+
+\bibitem{knill_scheme_2001-2}
+E.~Knill, R.~Laflamme, and G.~J. Milburn.
+\newblock A scheme for efficient quantum computation with linear optics.
+\newblock 409(6816):46--52.
+\newblock Number: 6816 Publisher: Nature Publishing Group.
+
+\bibitem{deutsch_eigenstate_2018}
+Joshua~M. Deutsch.
+\newblock Eigenstate thermalization hypothesis.
+\newblock 81(8):082001.
+
+\bibitem{deutsch_microscopic_2013}
+J.~M. Deutsch, Haibin Li, and Auditya Sharma.
+\newblock Microscopic origin of thermodynamic entropy in isolated systems.
+\newblock 87(4):042135.
 
 \bibitem{lloyd_quantum_2012}
 Seth Lloyd.
@@ -378,11 +454,6 @@ Yuezhen Niu, Suk~Bum Chung, Chen-Hsuan Hsu, Ipsita Mandal, S.~Raghu, and Sudip
 \newblock Majorana zero modes in a quantum ising chain with longer-ranged
   interactions.
 \newblock 85(3):035110.
-
-\bibitem{reyes-lega_aspects_2016}
-A.~F. Reyes-Lega.
-\newblock Some aspects of operator algebras in quantum physics.
-\newblock pages 1--74.
 
 \bibitem{robert_multi-stage_2004}
 Christian~P. Robert and George Casella.

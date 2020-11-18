@@ -2,36 +2,58 @@ This is BibTeX, Version 0.99d (TeX Live 2020)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Documento.aux
 A level-1 auxiliary file: HojaTitulo/HojaTituloMSc.aux
-A level-1 auxiliary file: ChaptersV2/Introduction.aux
-A level-1 auxiliary file: ChaptersV2/Chap1.aux
-A level-1 auxiliary file: ChaptersV2/Chap2.aux
-A level-1 auxiliary file: ChaptersV2/Chap3.aux
-A level-1 auxiliary file: ChaptersV2/Conclusions_perspectives.aux
+A level-1 auxiliary file: ChaptersV3/Introduction.aux
+A level-1 auxiliary file: ChaptersV3/Chap1.aux
+A level-1 auxiliary file: ChaptersV3/Chap2.aux
+A level-1 auxiliary file: ChaptersV3/Chap3.aux
+A level-1 auxiliary file: ChaptersV3/Conclusions_perspectives.aux
 The style file: unsrt.bst
 Database file #1: BibliMSc.bib
 Warning--entry type for "gilks_markov_1996" isn't style-file defined
---line 1146 of file BibliMSc.bib
+--line 1384 of file BibliMSc.bib
 Warning--entry type for "noauthor_gibbs_nodate" isn't style-file defined
---line 1156 of file BibliMSc.bib
+--line 1394 of file BibliMSc.bib
 Warning--entry type for "noauthor_fisher-hartwig_nodate" isn't style-file defined
---line 1188 of file BibliMSc.bib
+--line 1426 of file BibliMSc.bib
+Warning--I didn't find a database entry for "knill_scheme_2001"
 Warning--empty journal in popescu_foundations_2005
 Warning--empty year in popescu_foundations_2005
+Warning--empty year in ma_statistical_1985
+Warning--empty year in farquhar_ergodic_1965
+Warning--empty year in jancel_foundations_2013
 Warning--empty journal in horodecki_partial_2005
 Warning--empty year in horodecki_partial_2005
-Warning--empty year in milman_asymptotic_2009
-Warning--empty year in ledoux_concentration_2005
-Warning--empty year in gemmer_quantum_2004
+Warning--empty journal in deutsch_thermodynamic_2010
+Warning--empty year in deutsch_thermodynamic_2010
+Warning--empty journal in singh_foundations_2013
+Warning--empty year in singh_foundations_2013
+Warning--empty journal in popescu_entanglement_2006
+Warning--empty year in popescu_entanglement_2006
 Warning--empty journal in goldstein_canonical_2006
 Warning--empty year in goldstein_canonical_2006
+Warning--empty year in gemmer_quantum_2004
+Warning--empty year in milman_asymptotic_2009
+Warning--empty year in ledoux_concentration_2005
+Warning--empty journal in tasaki_quantum_1998
+Warning--empty year in tasaki_quantum_1998
+Warning--empty journal in gemmer_thermalization_2006
+Warning--empty year in gemmer_thermalization_2006
 Warning--empty journal in linden_quantum_2009
 Warning--empty year in linden_quantum_2009
 Warning--empty journal in linden_speed_2010
 Warning--empty year in linden_speed_2010
 Warning--empty journal in malabarba_quantum_2014
 Warning--empty year in malabarba_quantum_2014
-Warning--empty journal in popescu_entanglement_2006
-Warning--empty year in popescu_entanglement_2006
+Warning--empty journal in srednicki_chaos_1994
+Warning--empty year in srednicki_chaos_1994
+Warning--empty journal in deutsch_quantum_1991
+Warning--empty year in deutsch_quantum_1991
+Warning--empty journal in rigol_alternatives_2012
+Warning--empty year in rigol_alternatives_2012
+Warning--empty journal in reyes-lega_aspects_2016
+Warning--empty year in reyes-lega_aspects_2016
+Warning--empty journal in barg_random_2002
+Warning--empty year in barg_random_2002
 Warning--empty year in landau_statistical_2013
 Warning--empty year in uffink_handbook_2007
 Warning--empty year in boltzmann_uber_1866
@@ -85,8 +107,6 @@ Warning--empty journal in cheong_many-body_2003
 Warning--empty year in cheong_many-body_2003
 Warning--empty journal in kraus_pairing_2009
 Warning--empty year in kraus_pairing_2009
-Warning--empty journal in knill_scheme_2001
-Warning--empty year in knill_scheme_2001
 Warning--empty journal in terhal_classical_2002
 Warning--empty year in terhal_classical_2002
 Warning--empty journal in knill_fermionic_2001
@@ -102,14 +122,22 @@ Warning--empty year in bravyi_lagrangian_2004
 Warning--can't use both author and editor fields in jaynes_probability_2003
 Warning--empty publisher in jaynes_probability_2003
 Warning--empty year in jaynes_probability_2003
-Warning--empty journal in barg_random_2002
-Warning--empty year in barg_random_2002
 Warning--empty journal in gallager_low-density_1962
 Warning--empty year in gallager_low-density_1962
 Warning--empty publisher in gallager_information_1968
 Warning--empty year in gallager_information_1968
 Warning--empty journal in gallager_random_2006
 Warning--empty year in gallager_random_2006
+Warning--empty journal in knill_efficient_2000
+Warning--empty year in knill_efficient_2000
+Warning--empty journal in knill_fermionic_2001-1
+Warning--empty year in knill_fermionic_2001-1
+Warning--empty journal in knill_scheme_2001-2
+Warning--empty year in knill_scheme_2001-2
+Warning--empty journal in deutsch_eigenstate_2018
+Warning--empty year in deutsch_eigenstate_2018
+Warning--empty journal in deutsch_microscopic_2013
+Warning--empty year in deutsch_microscopic_2013
 Warning--empty year in lloyd_quantum_2012
 Warning--empty journal in peschel_calculation_2003
 Warning--empty year in peschel_calculation_2003
@@ -133,8 +161,6 @@ Warning--empty journal in chung_density-matrix_2001
 Warning--empty year in chung_density-matrix_2001
 Warning--empty journal in niu_majorana_2012
 Warning--empty year in niu_majorana_2012
-Warning--empty journal in reyes-lega_aspects_2016
-Warning--empty year in reyes-lega_aspects_2016
 Warning--empty year in robert_multi-stage_2004
 Warning--empty journal in eisert_area_2010
 Warning--empty year in eisert_area_2010
@@ -145,45 +171,45 @@ Warning--empty journal in bump_toeplitz_2002
 Warning--empty year in bump_toeplitz_2002
 Warning--empty journal in szego_grenzwertsatz_1915
 Warning--empty year in szego_grenzwertsatz_1915
-You've used 79 entries,
+You've used 93 entries,
             1791 wiz_defined-function locations,
-            815 strings with 14350 characters,
-and the built_in function-call counts, 16599 in all, are:
-= -- 1408
-> -- 580
+            874 strings with 15814 characters,
+and the built_in function-call counts, 19241 in all, are:
+= -- 1626
+> -- 658
 < -- 10
-+ -- 231
-- -- 152
-* -- 1201
-:= -- 2453
-add.period$ -- 242
-call.type$ -- 79
-change.case$ -- 61
++ -- 265
+- -- 172
+* -- 1397
+:= -- 2855
+add.period$ -- 283
+call.type$ -- 93
+change.case$ -- 74
 chr.to.int$ -- 0
-cite$ -- 209
-duplicate$ -- 791
-empty$ -- 1745
-format.name$ -- 152
-if$ -- 3619
+cite$ -- 248
+duplicate$ -- 917
+empty$ -- 2033
+format.name$ -- 172
+if$ -- 4178
 int.to.chr$ -- 0
-int.to.str$ -- 79
-missing$ -- 97
-newline$ -- 394
-num.names$ -- 80
-pop$ -- 415
+int.to.str$ -- 93
+missing$ -- 114
+newline$ -- 463
+num.names$ -- 94
+pop$ -- 484
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 325
+skip$ -- 367
 stack$ -- 0
-substring$ -- 1074
-swap$ -- 92
+substring$ -- 1249
+swap$ -- 95
 text.length$ -- 10
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 130
-while$ -- 160
-width$ -- 81
-write$ -- 728
-(There were 133 warnings)
+warning$ -- 155
+while$ -- 186
+width$ -- 95
+write$ -- 854
+(There were 159 warnings)
