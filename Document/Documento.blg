@@ -7,209 +7,88 @@ A level-1 auxiliary file: ChaptersV3/Chap1.aux
 A level-1 auxiliary file: ChaptersV3/Chap2.aux
 A level-1 auxiliary file: ChaptersV3/Chap3.aux
 A level-1 auxiliary file: ChaptersV3/Conclusions_perspectives.aux
-The style file: unsrt.bst
+The style file: aip.bst
 Database file #1: BibliMSc.bib
 Warning--entry type for "gilks_markov_1996" isn't style-file defined
---line 1384 of file BibliMSc.bib
+--line 1396 of file BibliMSc.bib
 Warning--entry type for "noauthor_gibbs_nodate" isn't style-file defined
---line 1394 of file BibliMSc.bib
+--line 1406 of file BibliMSc.bib
 Warning--entry type for "noauthor_fisher-hartwig_nodate" isn't style-file defined
---line 1426 of file BibliMSc.bib
-Warning--I didn't find a database entry for "knill_scheme_2001"
-Warning--empty journal in popescu_foundations_2005
-Warning--empty year in popescu_foundations_2005
+--line 1438 of file BibliMSc.bib
 Warning--empty year in ma_statistical_1985
 Warning--empty year in farquhar_ergodic_1965
 Warning--empty year in jancel_foundations_2013
-Warning--empty journal in horodecki_partial_2005
-Warning--empty year in horodecki_partial_2005
-Warning--empty journal in deutsch_thermodynamic_2010
-Warning--empty year in deutsch_thermodynamic_2010
-Warning--empty journal in singh_foundations_2013
-Warning--empty year in singh_foundations_2013
-Warning--empty journal in popescu_entanglement_2006
-Warning--empty year in popescu_entanglement_2006
-Warning--empty journal in goldstein_canonical_2006
-Warning--empty year in goldstein_canonical_2006
 Warning--empty year in gemmer_quantum_2004
 Warning--empty year in milman_asymptotic_2009
 Warning--empty year in ledoux_concentration_2005
-Warning--empty journal in tasaki_quantum_1998
-Warning--empty year in tasaki_quantum_1998
-Warning--empty journal in gemmer_thermalization_2006
-Warning--empty year in gemmer_thermalization_2006
-Warning--empty journal in linden_quantum_2009
-Warning--empty year in linden_quantum_2009
-Warning--empty journal in linden_speed_2010
-Warning--empty year in linden_speed_2010
-Warning--empty journal in malabarba_quantum_2014
-Warning--empty year in malabarba_quantum_2014
-Warning--empty journal in srednicki_chaos_1994
-Warning--empty year in srednicki_chaos_1994
-Warning--empty journal in deutsch_quantum_1991
-Warning--empty year in deutsch_quantum_1991
-Warning--empty journal in rigol_alternatives_2012
-Warning--empty year in rigol_alternatives_2012
-Warning--empty journal in reyes-lega_aspects_2016
-Warning--empty year in reyes-lega_aspects_2016
-Warning--empty journal in barg_random_2002
-Warning--empty year in barg_random_2002
+Warning--empty year in boltzmann_uber_1866
 Warning--empty year in landau_statistical_2013
 Warning--empty year in uffink_handbook_2007
-Warning--empty year in boltzmann_uber_1866
-Warning--empty journal in boltzmann_zur_1871
-Warning--empty year in boltzmann_zur_1871
 Warning--empty year in boltzmann_einige_1871
 Warning--empty year in gibbs_elementary_1902
 Warning--empty year in ehrenfest_conceptual_1959
-Warning--empty journal in oliveira_ergodic_2007
-Warning--empty year in oliveira_ergodic_2007
-Warning--empty journal in engelhardt_simple_2015
-Warning--empty year in engelhardt_simple_2015
 Warning--empty year in gallavotti_statistical_1999
 Warning--empty year in goldstein_boltzmanns_2001
 Warning--empty year in huang_statistical_1987
-Warning--empty journal in schrodinger_discussion_1935
-Warning--empty year in schrodinger_discussion_1935
-Warning--empty journal in ekert_basic_2000
-Warning--empty year in ekert_basic_2000
 Warning--empty year in nielsen_quantum_2000
 Warning--empty year in edwin_optimal_1979
 Warning--empty year in von_neumann_mathematical_1955
 Warning--empty year in mackay_information_2003
-Warning--empty journal in shannon_mathematical_1948
-Warning--empty year in shannon_mathematical_1948
-Warning--empty journal in plenio_introduction_2006
-Warning--empty year in plenio_introduction_2006
-Warning--empty journal in gemmer_distribution_2003
-Warning--empty year in gemmer_distribution_2003
-Warning--empty journal in page_average_1993
-Warning--empty year in page_average_1993
-Warning--empty journal in facchi_quantum_2017
-Warning--empty year in facchi_quantum_2017
-Warning--empty journal in fuchs_cryptographic_1999
-Warning--empty year in fuchs_cryptographic_1999
-Warning--empty journal in camilo_strong_2019
-Warning--empty year in camilo_strong_2019
-Warning--empty journal in botero_bcs-like_2004
-Warning--empty year in botero_bcs-like_2004
-Warning--empty year in fradkin_field_1997
-Warning--empty year in berezin_method_1966
-Warning--empty journal in bogoljubov_new_1958
-Warning--empty year in bogoljubov_new_1958
-Warning--empty journal in westwanski_general_1973
-Warning--empty year in westwanski_general_1973
-Warning--empty journal in molinari_notes_2017
-Warning--empty year in molinari_notes_2017
-Warning--empty journal in leijnse_introduction_2012
-Warning--empty year in leijnse_introduction_2012
-Warning--empty journal in cheong_many-body_2003
-Warning--empty year in cheong_many-body_2003
-Warning--empty journal in kraus_pairing_2009
-Warning--empty year in kraus_pairing_2009
-Warning--empty journal in terhal_classical_2002
-Warning--empty year in terhal_classical_2002
-Warning--empty journal in knill_fermionic_2001
-Warning--empty year in knill_fermionic_2001
 Warning--empty author in noauthor_density_2007
 Warning--empty year in noauthor_density_2007
-Warning--empty journal in soper_construction_1978
-Warning--empty year in soper_construction_1978
-Warning--empty journal in bravyi_classical_2005
-Warning--empty year in bravyi_classical_2005
-Warning--empty journal in bravyi_lagrangian_2004
-Warning--empty year in bravyi_lagrangian_2004
+Warning--empty year in fradkin_field_1997
+Warning--empty year in berezin_method_1966
 Warning--can't use both author and editor fields in jaynes_probability_2003
 Warning--empty publisher in jaynes_probability_2003
 Warning--empty year in jaynes_probability_2003
-Warning--empty journal in gallager_low-density_1962
-Warning--empty year in gallager_low-density_1962
 Warning--empty publisher in gallager_information_1968
 Warning--empty year in gallager_information_1968
-Warning--empty journal in gallager_random_2006
-Warning--empty year in gallager_random_2006
-Warning--empty journal in knill_efficient_2000
-Warning--empty year in knill_efficient_2000
-Warning--empty journal in knill_fermionic_2001-1
-Warning--empty year in knill_fermionic_2001-1
-Warning--empty journal in knill_scheme_2001-2
-Warning--empty year in knill_scheme_2001-2
-Warning--empty journal in deutsch_eigenstate_2018
-Warning--empty year in deutsch_eigenstate_2018
-Warning--empty journal in deutsch_microscopic_2013
-Warning--empty year in deutsch_microscopic_2013
 Warning--empty year in lloyd_quantum_2012
-Warning--empty journal in peschel_calculation_2003
-Warning--empty year in peschel_calculation_2003
 Warning--empty author and editor in QuantumOptics_wolfgang
 Warning--empty year in francesco_conformal_1997
-Warning--empty journal in merhav_error_2017
-Warning--empty year in merhav_error_2017
-Warning--empty journal in domb_random_2016
-Warning--empty year in domb_random_2016
-Warning--empty journal in lieb_two_1961
-Warning--empty year in lieb_two_1961
-Warning--empty journal in latorre_ground_2004
-Warning--empty year in latorre_ground_2004
-Warning--empty journal in katsura_statistical_1962
-Warning--empty year in katsura_statistical_1962
-Warning--empty journal in barouch_statistical_1971
-Warning--empty year in barouch_statistical_1971
-Warning--empty journal in barouch_statistical_1970
-Warning--empty year in barouch_statistical_1970
-Warning--empty journal in chung_density-matrix_2001
-Warning--empty year in chung_density-matrix_2001
-Warning--empty journal in niu_majorana_2012
-Warning--empty year in niu_majorana_2012
 Warning--empty year in robert_multi-stage_2004
-Warning--empty journal in eisert_area_2010
-Warning--empty year in eisert_area_2010
 Warning--empty year in bottcher_introduction_1999
 Warning--empty publisher in bump_lie_2013
 Warning--empty year in bump_lie_2013
-Warning--empty journal in bump_toeplitz_2002
-Warning--empty year in bump_toeplitz_2002
-Warning--empty journal in szego_grenzwertsatz_1915
-Warning--empty year in szego_grenzwertsatz_1915
-You've used 93 entries,
-            1791 wiz_defined-function locations,
-            874 strings with 15814 characters,
-and the built_in function-call counts, 19241 in all, are:
-= -- 1626
-> -- 658
+You've used 94 entries,
+            1868 wiz_defined-function locations,
+            993 strings with 16748 characters,
+and the built_in function-call counts, 16815 in all, are:
+= -- 1275
+> -- 819
 < -- 10
-+ -- 265
-- -- 172
-* -- 1397
-:= -- 2855
-add.period$ -- 283
-call.type$ -- 93
-change.case$ -- 74
++ -- 261
+- -- 165
+* -- 1064
+:= -- 2398
+add.period$ -- 94
+call.type$ -- 94
+change.case$ -- 14
 chr.to.int$ -- 0
-cite$ -- 248
-duplicate$ -- 917
-empty$ -- 2033
-format.name$ -- 172
-if$ -- 4178
+cite$ -- 129
+duplicate$ -- 799
+empty$ -- 1596
+format.name$ -- 257
+if$ -- 3892
 int.to.chr$ -- 0
-int.to.str$ -- 93
-missing$ -- 114
-newline$ -- 463
-num.names$ -- 94
-pop$ -- 484
+int.to.str$ -- 94
+missing$ -- 115
+newline$ -- 406
+num.names$ -- 92
+pop$ -- 461
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 367
+skip$ -- 758
 stack$ -- 0
-substring$ -- 1249
-swap$ -- 95
+substring$ -- 787
+swap$ -- 199
 text.length$ -- 10
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 155
-while$ -- 186
-width$ -- 95
-write$ -- 854
-(There were 159 warnings)
+warning$ -- 35
+while$ -- 155
+width$ -- 96
+write$ -- 739
+(There were 38 warnings)
