@@ -2,93 +2,103 @@ This is BibTeX, Version 0.99d (TeX Live 2020)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Documento.aux
 A level-1 auxiliary file: HojaTitulo/HojaTituloMSc.aux
-A level-1 auxiliary file: ChaptersV3/Introduction.aux
-A level-1 auxiliary file: ChaptersV3/Chap1.aux
-A level-1 auxiliary file: ChaptersV3/Chap2.aux
-A level-1 auxiliary file: ChaptersV3/Chap3.aux
-A level-1 auxiliary file: ChaptersV3/Conclusions_perspectives.aux
+A level-1 auxiliary file: ChaptersV4/Introduction.aux
+A level-1 auxiliary file: ChaptersV4/Chap1.aux
+A level-1 auxiliary file: ChaptersV4/Chap2.aux
+A level-1 auxiliary file: ChaptersV4/Chap3.aux
+A level-1 auxiliary file: ChaptersV4/Conclusions_perspectives.aux
 The style file: aip.bst
 Database file #1: BibliMSc.bib
 Warning--entry type for "gilks_markov_1996" isn't style-file defined
---line 1396 of file BibliMSc.bib
+--line 1669 of file BibliMSc.bib
 Warning--entry type for "noauthor_gibbs_nodate" isn't style-file defined
---line 1406 of file BibliMSc.bib
+--line 1679 of file BibliMSc.bib
 Warning--entry type for "noauthor_fisher-hartwig_nodate" isn't style-file defined
---line 1438 of file BibliMSc.bib
+--line 1711 of file BibliMSc.bib
+Warning--empty publisher in popescu_foundations_2005
+Warning--empty year in popescu_foundations_2005
+Warning--empty author in goldstein_approach_2010
 Warning--empty year in ma_statistical_1985
 Warning--empty year in farquhar_ergodic_1965
 Warning--empty year in jancel_foundations_2013
 Warning--empty year in gemmer_quantum_2004
 Warning--empty year in milman_asymptotic_2009
 Warning--empty year in ledoux_concentration_2005
-Warning--empty year in boltzmann_uber_1866
-Warning--empty year in landau_statistical_2013
-Warning--empty year in uffink_handbook_2007
-Warning--empty year in boltzmann_einige_1871
 Warning--empty year in gibbs_elementary_1902
+Warning--can't use both volume and number fields in boltzmann1871prioritat
 Warning--empty year in ehrenfest_conceptual_1959
-Warning--empty year in gallavotti_statistical_1999
 Warning--empty year in goldstein_boltzmanns_2001
-Warning--empty year in huang_statistical_1987
-Warning--empty year in nielsen_quantum_2000
-Warning--empty year in edwin_optimal_1979
+Warning--empty year in butterfield_symplectic_2007
+Warning--empty year in butterfield_representation_2007
 Warning--empty year in von_neumann_mathematical_1955
-Warning--empty year in mackay_information_2003
 Warning--empty author in noauthor_density_2007
 Warning--empty year in noauthor_density_2007
 Warning--empty year in fradkin_field_1997
 Warning--empty year in berezin_method_1966
+Warning--empty year in bashirov_chapter_2014
+Warning--empty year in mackay_information_2003
 Warning--can't use both author and editor fields in jaynes_probability_2003
 Warning--empty publisher in jaynes_probability_2003
 Warning--empty year in jaynes_probability_2003
 Warning--empty publisher in gallager_information_1968
 Warning--empty year in gallager_information_1968
+Warning--empty booktitle in knill_fermionic_2001
+Warning--empty publisher in knill_fermionic_2001
+Warning--empty year in knill_fermionic_2001
 Warning--empty year in lloyd_quantum_2012
+Warning--empty year in uffink_handbook_2007
+Warning--empty year in landau_statistical_2013
+Warning--empty year in boltzmann_uber_1866
+Warning--empty year in boltzmann_einige_1871
+Warning--empty year in gallavotti_statistical_1999
+Warning--empty year in huang_statistical_1987
+Warning--empty year in nielsen_quantum_2000
+Warning--empty year in edwin_optimal_1979
 Warning--empty author and editor in QuantumOptics_wolfgang
 Warning--empty year in francesco_conformal_1997
 Warning--empty year in robert_multi-stage_2004
 Warning--empty year in bottcher_introduction_1999
 Warning--empty publisher in bump_lie_2013
 Warning--empty year in bump_lie_2013
-You've used 94 entries,
+You've used 114 entries,
             1868 wiz_defined-function locations,
-            993 strings with 16748 characters,
-and the built_in function-call counts, 16815 in all, are:
-= -- 1275
-> -- 819
-< -- 10
-+ -- 261
-- -- 165
-* -- 1064
-:= -- 2398
-add.period$ -- 94
-call.type$ -- 94
-change.case$ -- 14
+            1192 strings with 20605 characters,
+and the built_in function-call counts, 21287 in all, are:
+= -- 1640
+> -- 995
+< -- 15
++ -- 316
+- -- 199
+* -- 1362
+:= -- 3007
+add.period$ -- 114
+call.type$ -- 114
+change.case$ -- 20
 chr.to.int$ -- 0
-cite$ -- 129
-duplicate$ -- 799
-empty$ -- 1596
-format.name$ -- 257
-if$ -- 3892
+cite$ -- 159
+duplicate$ -- 1029
+empty$ -- 2040
+format.name$ -- 314
+if$ -- 4952
 int.to.chr$ -- 0
-int.to.str$ -- 94
-missing$ -- 115
-newline$ -- 406
-num.names$ -- 92
-pop$ -- 461
+int.to.str$ -- 114
+missing$ -- 140
+newline$ -- 494
+num.names$ -- 115
+pop$ -- 564
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 758
+skip$ -- 958
 stack$ -- 0
-substring$ -- 787
-swap$ -- 199
-text.length$ -- 10
+substring$ -- 1064
+swap$ -- 272
+text.length$ -- 15
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 35
-while$ -- 155
-width$ -- 96
-write$ -- 739
-(There were 38 warnings)
+warning$ -- 45
+while$ -- 199
+width$ -- 117
+write$ -- 913
+(There were 48 warnings)

@@ -37,6 +37,7 @@ ENTRY
     type
     volume
     year
+    date
   }
   {}
   { label }

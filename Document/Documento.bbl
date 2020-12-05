@@ -1,7 +1,31 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{100}
 
 \bibitem{popescu_foundations_2005}
-S.~Popescu, A.~J. Short, and A.~Winter.
+S.~Popescu, A.~J. Short, and A.~Winter,
+\newblock {\em The foundations of statistical mechanics from entanglement:
+  Individual states vs. averages}.
+
+\bibitem{goldstein_canonical_2006}
+S.~Goldstein, J.~L. Lebowitz, R.~Tumulka, and N.~Zanghì,
+\newblock  {\bf 96}, 050403.
+
+\bibitem{gemmer_thermalization_2006}
+J.~Gemmer and M.~Michel,
+\newblock  {\bf 73}, 1.
+
+\bibitem{popescu_entanglement_2006}
+S.~Popescu, A.~J. Short, and A.~Winter,
+\newblock  {\bf 2}, 754.
+
+\bibitem{goldstein_approach_2010}
+ {\bf 81}, 011109.
+
+\bibitem{kaufman_quantum_2016}
+A.~M. Kaufman et~al.
+
+\bibitem{gogolin_equilibration_2016}
+C.~Gogolin and J.~Eisert,
+\newblock  {\bf 79}, 056001.
 
 \bibitem{ma_statistical_1985}
 S.-K. Ma,
@@ -32,14 +56,6 @@ N.~Singh,
 \newblock  {\bf 27}, 1330003,
 \newblock Publisher: World Scientific Publishing Co.
 
-\bibitem{popescu_entanglement_2006}
-S.~Popescu, A.~J. Short, and A.~Winter,
-\newblock  {\bf 2}, 754.
-
-\bibitem{goldstein_canonical_2006}
-S.~Goldstein, J.~L. Lebowitz, R.~Tumulka, and N.~Zanghì,
-\newblock  {\bf 96}, 050403.
-
 \bibitem{gemmer_quantum_2004}
 J.~Gemmer, M.~Michel, and G.~Mahler,
 \newblock {\em Quantum Thermodynamics: Emergence of Thermodynamic Behavior
@@ -62,10 +78,6 @@ M.~Ledoux,
 \bibitem{tasaki_quantum_1998}
 H.~Tasaki,
 \newblock  {\bf 80}, 1373.
-
-\bibitem{gemmer_thermalization_2006}
-J.~Gemmer and M.~Michel,
-\newblock  {\bf 73}, 1.
 
 \bibitem{linden_quantum_2009}
 N.~Linden, S.~Popescu, A.~J. Short, and A.~Winter,
@@ -101,61 +113,50 @@ A.~Barg and G.~Forney,
 \newblock  {\bf 48}, 2568,
 \newblock Conference Name: {IEEE} Transactions on Information Theory.
 
-\bibitem{boltzmann_uber_1866}
-L.~Boltzmann,
-\newblock {\em Über die mechanische Bedeutung des zweiten Hauptsatzes der
-  Wärmetheorie: (vorgelegt in der Sitzung am 8. Februar 1866)},
-\newblock Staatsdruckerei,
-\newblock Google-Books-{ID}: 8Hc5AAAAcAAJ.
-
-\bibitem{landau_statistical_2013}
-L.~D. Landau and E.~M. Lifshitz,
-\newblock {\em Statistical Physics: Volume 5},
-\newblock Butterworth-Heinemann, 3 edition edition.
-
-\bibitem{uffink_handbook_2007}
-J.~Uffink,
-\newblock {\em Handbook for Philsophy of Physics 924-1074},
-\newblock Elsevier, Amsterdam.
-
-\bibitem{boltzmann_zur_1871}
-L.~Boltzmann,
-\newblock  {\bf 219}, 211,
-\newblock \_eprint:
-  https://onlinelibrary.wiley.com/doi/pdf/10.1002/andp.18712190606.
-
-\bibitem{boltzmann_einige_1871}
-L.~E. Boltzmann,
-\newblock {\em Einige allgemeine sätze über Wärmegleichgewicht},
-\newblock K. Akad. der Wissensch.
-
 \bibitem{gibbs_elementary_1902}
 J.~W. Gibbs,
 \newblock {\em Elementary Principles in Statistical Mechanics: Developed with
   Especial Reference to the Rational Foundation of Thermodynamics},
 \newblock C. Scribner's Sons.
 
+\bibitem{boltzmann1871prioritat}
+L.~Boltzmann,
+\newblock {\em Zur Priorit{\"a}t der Auffindung der Beziehung zwischen dem
+  zweiten Hauptsatze der mechanischen W{\"a}rmetheorie und dem Principe der
+  kleinsten Wirkung}, volume 219,
+\newblock Wiley Online Library, 1871.
+
+\bibitem{lr_statistical_1963}
+{L.r.},
+\newblock  {\bf 48}, 697.
+
 \bibitem{ehrenfest_conceptual_1959}
-P.~Ehrenfest,
+P.~Ehrenfest and T.~Ehrenfest,
 \newblock {\em The conceptual foundations of the statistical approach in
   mechanics, by Paul and Tatiana Ehrenfest. Translated by Michael J.
   Moravcsik},
 \newblock Ithaca, N.Y., Cornell University Press [1959].
 
-\bibitem{oliveira_ergodic_2007}
-C.~R.~d. Oliveira and T.~Werlang,
-\newblock  {\bf 29}, 189,
-\newblock Publisher: Sociedade Brasileira de Física.
+\bibitem{garrido_boltzmann_2004}
+P.~L. Garrido, S.~Goldstein, and J.~L. Lebowitz,
+\newblock  {\bf 92}, 050602.
 
-\bibitem{engelhardt_simple_2015}
-L.~Engelhardt, M.~Lopez~del Puerto, and N.~Chonacky,
-\newblock  {\bf 83}, 787,
-\newblock Publisher: American Association of Physics Teachers.
+\bibitem{goldstein_boltzmann_2004}
+S.~Goldstein and J.~L. Lebowitz,
+\newblock  {\bf 193}, 53.
 
-\bibitem{gallavotti_statistical_1999}
-G.~Gallavotti,
-\newblock {\em Statistical Mechanics: A Short Treatise},
-\newblock Theoretical and Mathematical Physics, Springer-Verlag.
+\bibitem{boltzmann1866mechanische}
+L.~Boltzmann,
+\newblock {\em {\"U}ber die mechanische Bedeutung des zweiten Hauptsatzes der
+  W{\"a}rmetheorie:(vorgelegt in der Sitzung am 8. Februar 1866)},
+\newblock Staatsdruckerei, 1866.
+
+\bibitem{boltzmann1877beziehung}
+L.~Boltzmann,
+\newblock {\em {\"U}ber die Beziehung zwischen dem zweiten Hauptsatze des
+  mechanischen W{\"a}rmetheorie und der Wahrscheinlichkeitsrechnung, respective
+  den S{\"a}tzen {\"u}ber das W{\"a}rmegleichgewicht},
+\newblock Kk Hof-und Staatsdruckerei, 1877.
 
 \bibitem{goldstein_boltzmanns_2001}
 S.~Goldstein,
@@ -163,58 +164,48 @@ S.~Goldstein,
 \newblock in {\em Chance in Physics: Foundations and Perspectives}, edited by
   J.~Bricmont et~al., Lecture Notes in Physics, pages 39--54, Springer.
 
-\bibitem{huang_statistical_1987}
-K.~Huang,
-\newblock {\em Statistical Mechanics, 2nd Edition},
-\newblock John Wiley \& Sons, 2 edition edition.
+\bibitem{goldstein_gibbs_2020}
+S.~Goldstein, J.~L. Lebowitz, R.~Tumulka, and N.~Zanghi.
 
-\bibitem{schrodinger_discussion_1935}
-E.~Schrödinger,
-\newblock  {\bf 31}, 555,
-\newblock Publisher: Cambridge University Press.
+\bibitem{doi:10.1119/1.1971557}
+E.~T. Jaynes,
+\newblock American Journal of Physics {\bf 33}, 391 (1965).
 
-\bibitem{ekert_basic_2000}
-A.~Ekert, P.~Hayden, and H.~Inamori,
-\newblock version: 1.
+\bibitem{butterfield_symplectic_2007}
+J.~Butterfield,
+\newblock {ON} {SYMPLECTIC} {REDUCTION} {IN} {CLASSICAL} {MECHANICS},
+\newblock in {\em Philosophy of Physics}, edited by J.~Butterfield and
+  J.~Earman, Handbook of the Philosophy of Science, pages 1 -- 131,
+  North-Holland,
+\newblock {ISSN}: 18789846.
 
-\bibitem{nielsen_quantum_2000}
-M.~A. Nielsen and I.~L. Chuang,
-\newblock {\em Quantum Computation and Quantum Information},
-\newblock Cambridge University Press,
-\newblock Google-Books-{ID}: 65FqEKQOfP8C.
+\bibitem{butterfield_representation_2007}
+G.~Belot,
+\newblock {THE} {REPRESENTATION} {OF} {TIME} {AND} {CHANGE} {IN} {MECHANICS},
+\newblock in {\em Philosophy of Physics}, edited by J.~Butterfield and
+  J.~Earman, Handbook of the Philosophy of Science, pages 133 -- 227,
+  North-Holland,
+\newblock {ISSN}: 18789846.
 
-\bibitem{edwin_optimal_1979}
-K.~W. Edwin and R.~J. Taud,
-\newblock Optimal operating system composition using integer programming and
-  statistic reserve determination,
-\newblock in {\em Electrical Load-Curve Coverage}, pages 13--30, Pergamon.
+\bibitem{PhysRev.108.171}
+E.~T. Jaynes,
+\newblock Phys. Rev. {\bf 108}, 171 (1957).
 
 \bibitem{von_neumann_mathematical_1955}
 J.~Von~Neumann,
 \newblock {\em Mathematical foundations of quantum mechanics},
 \newblock Princeton, N.J. : Princeton University Press.
 
-\bibitem{mackay_information_2003}
-D.~J.~C. {MacKay},
-\newblock {\em Information Theory, Inference and Learning Algorithms},
-\newblock Cambridge University Press, 1 edition edition.
+\bibitem{mccrea_1939}
+W.~H. McCrea,
+\newblock The Mathematical Gazette {\bf 23}, 415–417 (1939).
 
-\bibitem{shannon_mathematical_1948}
-C.~E. Shannon,
-\newblock  {\bf 27}, 379,
-\newblock \_eprint:
-  https://onlinelibrary.wiley.com/doi/pdf/10.1002/j.1538-7305.1948.tb01338.x.
-
-\bibitem{plenio_introduction_2006}
-M.~B. Plenio and S.~Virmani.
-
-\bibitem{gemmer_distribution_2003}
-J.~Gemmer and G.~Mahler,
-\newblock  {\bf 31}, 249.
-
-\bibitem{page_average_1993}
-D.~N. Page,
-\newblock  {\bf 71}, 1291.
+\bibitem{TERHAAR1995216}
+D.~{ter Haar},
+\newblock Chapter 6 - the ensembles in quantum statistics,
+\newblock in {\em Elements of Statistical Mechanics (Third edition)}, edited by
+  D.~{ter Haar}, pages 216 -- 267, Butterworth-Heinemann, Oxford, third edition
+  edition, 1995.
 
 \bibitem{fuchs_cryptographic_1999}
 C.~Fuchs and J.~van~de Graaf,
@@ -280,17 +271,14 @@ E.~Fradkin,
   Printing Of \#52253},
 \newblock {CRC} Press, 1 edition edition.
 
-\bibitem{berezin_method_1966}
-F.~A. Berezin,
-\newblock {\em The method of second quantization},
-\newblock Number v. 24 in Pure and applied physics, Academic Press.
-
 \bibitem{bogoljubov_new_1958}
 N.~N. Bogoljubov,
 \newblock  {\bf 7}, 794.
 
-\bibitem{Michael_nielsen_2005}
-M.~A. Nielsen.
+\bibitem{berezin_method_1966}
+F.~A. Berezin,
+\newblock {\em The method of second quantization},
+\newblock Number v. 24 in Pure and applied physics, Academic Press.
 
 \bibitem{westwanski_general_1973}
 B.~Westwanski and A.~Pawlikowski,
@@ -302,6 +290,26 @@ S.-A. Cheong and C.~L. Henley.
 \bibitem{kraus_pairing_2009}
 C.~V. Kraus, M.~M. Wolf, J.~I. Cirac, and G.~Giedke,
 \newblock  {\bf 79}, 012306.
+
+\bibitem{Michael_nielsen_2005}
+M.~A. Nielsen.
+
+\bibitem{bashirov_chapter_2014}
+A.~Bashirov,
+\newblock Chapter 12 - fourier series and integrals,
+\newblock in {\em Mathematical Analysis Fundamentals}, edited by A.~Bashirov,
+  pages 307--345, Elsevier.
+
+\bibitem{shannon_mathematical_1948}
+C.~E. Shannon,
+\newblock  {\bf 27}, 379,
+\newblock \_eprint:
+  https://onlinelibrary.wiley.com/doi/pdf/10.1002/j.1538-7305.1948.tb01338.x.
+
+\bibitem{mackay_information_2003}
+D.~J.~C. {MacKay},
+\newblock {\em Information Theory, Inference and Learning Algorithms},
+\newblock Cambridge University Press, 1 edition edition.
 
 \bibitem{jaynes_probability_2003}
 E.~T. Jaynes,
@@ -319,7 +327,8 @@ R.~Gallager,
 \newblock  {\bf 19}, 244.
 
 \bibitem{knill_fermionic_2001}
-E.~Knill.
+E.~Knill,
+\newblock Fermionic linear optics and matchgates.
 
 \bibitem{terhal_classical_2002}
 B.~M. Terhal and D.~P. {DiVincenzo},
@@ -349,6 +358,98 @@ S.~Lloyd,
 \newblock Quantum information {ProcessingQuantum} information processing,
 \newblock in {\em Computational Complexity: Theory, Techniques, and
   Applications}, edited by R.~A. Meyers, pages 2496--2533, Springer.
+
+\bibitem{uffink_handbook_2007}
+J.~Uffink,
+\newblock {\em Handbook for Philsophy of Physics 924-1074},
+\newblock Elsevier, Amsterdam.
+
+\bibitem{landau_statistical_2013}
+L.~D. Landau and E.~M. Lifshitz,
+\newblock {\em Statistical Physics: Volume 5},
+\newblock Butterworth-Heinemann, 3 edition edition.
+
+\bibitem{koznjak_who_2015}
+B.~Kožnjak,
+\newblock  {\bf 51}, 42.
+
+\bibitem{maxwell1879boltzmann}
+J.~C. Maxwell,
+\newblock {\em On Boltzmann's theorem on the average distribution of energy in
+  a system of material points},
+\newblock Printed at the University Press, 1879.
+
+\bibitem{bierhalter_boltzmanns_1981}
+G.~Bierhalter,
+\newblock  {\bf 24}, 195.
+
+\bibitem{boltzmann_uber_1866}
+L.~Boltzmann,
+\newblock {\em Über die mechanische Bedeutung des zweiten Hauptsatzes der
+  Wärmetheorie: (vorgelegt in der Sitzung am 8. Februar 1866)},
+\newblock Staatsdruckerei,
+\newblock Google-Books-{ID}: 8Hc5AAAAcAAJ.
+
+\bibitem{boltzmann_einige_1871}
+L.~E. Boltzmann,
+\newblock {\em Einige allgemeine sätze über Wärmegleichgewicht},
+\newblock K. Akad. der Wissensch.
+
+\bibitem{oliveira_ergodic_2007}
+C.~R.~d. Oliveira and T.~Werlang,
+\newblock  {\bf 29}, 189,
+\newblock Publisher: Sociedade Brasileira de Física.
+
+\bibitem{engelhardt_simple_2015}
+L.~Engelhardt, M.~Lopez~del Puerto, and N.~Chonacky,
+\newblock  {\bf 83}, 787,
+\newblock Publisher: American Association of Physics Teachers.
+
+\bibitem{gallavotti_statistical_1999}
+G.~Gallavotti,
+\newblock {\em Statistical Mechanics: A Short Treatise},
+\newblock Theoretical and Mathematical Physics, Springer-Verlag.
+
+\bibitem{Jaynes1957InformationTA}
+E.~Jaynes,
+\newblock Physical Review {\bf 106}, 620 (1957).
+
+\bibitem{huang_statistical_1987}
+K.~Huang,
+\newblock {\em Statistical Mechanics, 2nd Edition},
+\newblock John Wiley \& Sons, 2 edition edition.
+
+\bibitem{schrodinger_discussion_1935}
+E.~Schrödinger,
+\newblock  {\bf 31}, 555,
+\newblock Publisher: Cambridge University Press.
+
+\bibitem{nielsen_quantum_2000}
+M.~A. Nielsen and I.~L. Chuang,
+\newblock {\em Quantum Computation and Quantum Information},
+\newblock Cambridge University Press,
+\newblock Google-Books-{ID}: 65FqEKQOfP8C.
+
+\bibitem{edwin_optimal_1979}
+K.~W. Edwin and R.~J. Taud,
+\newblock Optimal operating system composition using integer programming and
+  statistic reserve determination,
+\newblock in {\em Electrical Load-Curve Coverage}, pages 13--30, Pergamon.
+
+\bibitem{ekert_basic_2000}
+A.~Ekert, P.~Hayden, and H.~Inamori,
+\newblock version: 1.
+
+\bibitem{plenio_introduction_2006}
+M.~B. Plenio and S.~Virmani.
+
+\bibitem{page_average_1993}
+D.~N. Page,
+\newblock  {\bf 71}, 1291.
+
+\bibitem{gemmer_distribution_2003}
+J.~Gemmer and G.~Mahler,
+\newblock  {\bf 31}, 249.
 
 \bibitem{facchi_quantum_2017}
 P.~Facchi and G.~Garnero,
