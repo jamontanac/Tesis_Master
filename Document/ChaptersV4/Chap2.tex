@@ -342,7 +342,7 @@ We will now turn to study error correcting codes. We start by motivating the pro
 \end{figure}
 For the purpose of our work, the model of channel we will use, is the \textit{discrete probability channel}: a probabilistic channel $S$ is defined as a triple $(F,\Phi,\operatorname{Prob})$, where $F$ is a finite \textit{input alphabet}, $\Phi$ is a finite \textit{output alphabet}, and $\operatorname{Prob}$ is a conditional probability distribution
 \begin{equation}
-\operatorname{Prob}\{\mathbf{x}|\mathbf{y}\},
+\operatorname{Prob}\{\mathbf{y}\text{ received }|\mathbf{x}\text{ transmited}\},
 \end{equation}
 defined for every pair $(\mathbf{x},\mathbf{y})\in F^{m}\times\Phi^m$, where $m$ ranges over all positive integers and $F^m/\Phi^m$ denotes the set of all words of length $m$ over $F/\Phi$. It is important to clarify that we assume that the channel neither deletes nor inserts symbols; that is, the length of the output word $\mathbf{y}$ always equals the length of the input word $\mathbf{x}$.\\
 \indent The input channel encoder is an \textit{information word} $\mathbf{u}$ out of $M$ possible information words (see figure \ref{CH2:Channel_communication_2}). The channel encoder generates a \textit{codeword} $\mathbf{c}\in F^n$ that is input to the channel. The resulting output of the channel is a received word $\mathbf{y}\in\Phi^n$, which is fed into the channel decoder. the decoder, in turn, produces a \textit{decoded codeword} $\hat{\mathbf{c}}$ and a \textit{decoded information word} $\hat{\mathbf{u}}$, with the aim of having $\mathbf{c}=\hat{\mathbf{c}}$ and $\mathbf{u}=\hat{\mathbf{u}}$. this implies that the channel encoder needs to be such that the mapping $\mathbf{u}\mapsto \mathbf{c}$ is one to one.
@@ -356,6 +356,23 @@ If all information words have the same length over $F$, then this length is give
 In the case where the input alphabet $F$ has the same size as the output alphabet $\Phi$, it will be convenient to assume that $F=\Phi$ and that the elements of $F$ form a finite Abelian group. We then say that the channel is an \textit{additive channel}.\\
 \indent Given an additive channel, let $\mathbf{x}$ and $\mathbf{y}$ be input and output words, respectively, both in $F^m$. the \textit{error word} is defined as the difference $\mathbf{x}-\mathbf{y}$, where the subtraction is taken component by component. The action of the channel can be described as adding an error word $\mathbf{e}\in F^m$ to the input word $\mathbf{x}$ to produce the output word $\mathbf{y} = \mathbf{x}+\mathbf{e}$, as shown in figure \ref{algo_2}.\\
 \indent When $F$ is an Abelian group, it contains the zero (or unit) element. The \textit{error locations} are indexes of the nonzero entries in the error word $\mathbf{e}$. Those entries are referred to as the \textit{error values}.
+\subsection{Binary symmetric channel (BSC)}
+As an illustrative example, consider the input and output alphabets are $F=\Phi=\{0,1\}$, and for every two binary words $\mathbf{x}$, $\mathbf{y}$ for a given length $m$, 
+\begin{align}
+\operatorname{Prob}\{\mathbf{y}\text{ received }|\mathbf{x}&\text{ transmited}\} \nonumber \\
+&=\prod_{j=1}^{m} \operatorname{Prob}\{y_j\text{ received }|x_j\text{ transmited}\},
+\end{align}
+where for every $x,y\in F$,
+\begin{equation}
+\operatorname{Prob}\{y\text{ received }|x\text{ transmited}\} = \left\{
+    \begin{array}{ll}
+        1-p & \mbox{if } y=x \\
+        p & \mbox{if } y\neq x
+    \end{array}
+\right.
+\end{equation}
+The parameter $p$ is a real number $0\leq p\leq 1$ adn is called the \textit{crossover probability} of the channel.\\
+\indent the action of the BSC can be described as flipping each input bit with probability $p$, independently of the past or the future. The channel is called symmetric since the probability of the flip is the same regardless of weather the input is $0$ or $1$.
 \subsection{Block codes}
 An $(n,M)$ (\textit{block}) code over a finite alphabet $F$ is a nonepty subset $\mathfrak{C}$ of size $M$ of $F^n$. The parameter $n$ is called the \textit{code length} and $M$ is the \textit{code size}. The \textit{information length} or \textit{codeword length} of $\mathfrak{C}$ is defined by $k=\log_{|F|}M$, and the \textit{rate} is $R=k/n$. the range of the mapping defined by the channel encoder in figure \ref{CH2:Channel_communication_2} forms an (n,M) code, and this in which the term $(n,M)$ code will be used. The elements of a code are called \textit{codewords}.\\
 \indent In addition to the length and size of a code, we will be interested in quantifying how much the codewords in the code differ from each other. To do this, we will introduce the following definitions.
@@ -379,10 +396,7 @@ Turning back now to block codes, let $\mathfrak{C}$ be an $(n,M)$ code over $F$ 
 \begin{equation}
 d=\min_{\mathbf{c}_1,\mathbf{c}_2\in \mathfrak{C} : \mathbf{c}_1\neq \mathbf{c}_2} d(\mathbf{c}_1,\mathbf{c}_2).
 \end{equation}
-An $(n,M)$ with minimum distance $d$ is often called $(n,M,d)$ code. We will sometimes use the notation $d(\mathfrak{C}))$ for the minimum distance of a given code $C$.\\
-
-
-
+An $(n,M)$ with minimum distance $d$ is often called $(n,M,d)$ code. We will sometimes use the notation $d(\mathfrak{C}))$ for the minimum distance of a given code $C$.
 \subsection{Decoding}
 Let $\mathfrak{C}$ be an $(n,M,d)$ code over an alphabet $F$ and let $S$ be the channel defined by the triple $(F,\Phi,\operatorname{Prob})$. A decoder for the code $\mathfrak{C}$with respect to the channel $S$ is a function
 \begin{equation}
@@ -396,272 +410,204 @@ where
 \begin{equation}
 P_{\text{err}}(\mathbf{c}) = \sum_{\mathbf{y}:\mathcal{D}(\mathbf{y})\neq \mathbf{c}} \operatorname{Prob}\{\mathbf{y}\text{ received }|\mathbf{c}\text{ transmited}\}.
 \end{equation}
-Note that $P_{\text{err}}(\mathbf{c}$ is the probability that the code word $\mathbf{c}$ will be decoded erroneously, given that $\mathbf{c}$ was transmitted
-\subsubsection{Maximum-likelihood decoding}
-
-\indent Information theory is concerned with the theoretical limitations of reliable communication, meaning that is always asking. ``What is the best error-correcting performance we could achieve?''\\
-\indent Coding theory is concerned with the creation of practical encoding and decoding systems.
-
-
-
-
- Thus, encoding is the process of adding redundancy and decoding is the process of removing errors and the communication can only be done over the channel\cite{mackay_information_2003}. The most fundamental question one can ask is what will be the relation between the amount of redundancy and the errors that can be corrected, and in order to answer this question we will provide some useful definitions.
-
-\indent The relative distance of $C$, denoted $\delta(C)$, is the quantity $\frac{\Delta(C)}{N}$, where $N$ is the block length of $C$. Thus, any two code words of $C$ differ in at least a fraction $\delta(C)$.
-\begin{definition}[Notation]
- A q-ary code of block length $N$ and dimension $k$ will be referred to as an $[N,k]_q$ code. Further, if the code has minimum distance $d$, it will be referred to as an $[N,k,d]_q$ code. When the alphabet size $q$ is clear from the context, or not very relevant to the discussion, we omit the subscript.
-\end{definition}
-
-\indent Up to this point we have only described specific definitions for codes, codes with fixed block length and dimension. However, since we are interested in the asymptotic behaviour, it turns out to be more useful to study families of codes instead of an specific code.
-
-\begin{definition}[Family of Codes]
- Let $q\geq 2$. let $\{n_i\}_{i\geq 1}$ be and increasing sequence of block lengths and suppose there exists sequences $\{k_i\}_{i\geq 1}$ and $\{d_i\}_{i\geq 1}$ such that for all $i\geq 1$ there exist an $[n_i,k_i,d_i]_q$ code $C_i$. then the sequence $C=\{C_i\}_{i\geq1}$ is a family of codes. The asymptotic rate of C is defined as
+Note that $P_{\text{err}}(\mathbf{c}$ is the probability that the code word $\mathbf{c}$ will be decoded erroneously, given that $\mathbf{c}$ was transmitted.
+\subsubsection*{Maximum-likelihood decoding}
+We next consider particular strategies for codes and channels. Given an $(n,M,d)$ code $\mathfrak{C}$ over $F$ and a channel $S = (F,\Phi,\operatorname{Prob})$, a \textit{maximum-likelihood decoder} (MLD) for $\mathfrak{C}$ with respect to $S$ is the function $\mathcal{D}_{MLD}:\Phi^n\to \mathfrak{C}$ defined as follows: for every $\mathbf{y}\in \Phi^n$, the value  $\mathcal{D}_{MLD}$ equals the codeword $\mathbf{c}\in\mathfrak{C}$ that maximizes the probability
 \begin{equation}
-R(C)=\lim _{i \rightarrow \infty}\left\{\frac{k_{i}}{n_{i}}\right\},
-\label{CH2:Rate_of_family_code}
+\operatorname{Prob}\{\mathbf{y}\text{ received }|\mathbf{c}\text{ transmited}\},
 \end{equation}
-and the asymptotic relative distance of $C$ is defined as
+In the case of a tie between two (or more) codewords, we choose one of the tying codewords arbitrarily. Hence, $\mathcal{D}_{MLD}$ is well-defined for the code $\mathfrak{C}$ and the channel S.
+\subsubsection*{Decoder in repetition code}
+As an alternative to the MLD we will consider a \textit{majority vote decoder},  we consider $\mathfrak{C}$ to be the binary $(3,2,3)$ \textit{repetition code} and let $S$ be the BSC with crossover probability $p$.\\
+\indent The binary $(3,2,3)$ repetition code is the code $\{000,111\}$ over $F=\{0,1\}$, which has information length $\log_2 2=1$ and rate $1/3$.\\
+Define a decoder $\mathcal{D}:\{0,1\}^3\to \mathfrak{C}$ as follows:
 \begin{equation}
-\delta(C)=\lim _{i \rightarrow \infty}\left\{\frac{d_{i}}{n_{i}}\right\},
-\label{CH2:Relative_distance_of_family_code}
+\mathcal{D}(000)=\mathcal{D}(001)=\mathcal{D}(010)=\mathcal{D}(100) = 000,
 \end{equation}
-from now on whenever we talk about a code we will implicitly refer to an associated family of codes.
-\end{definition}
-\indent Our purposes of this work, we are going to focus on a particular class of codes, namely minimum distance codes. This special kind of codes came to our interest because they seem to appear naturally when study typical Fermionic states. We will then show some of the main results on this particular kind of codes to after show how this results could be extended to our particular case.\\
-
-\indent Codes of minimum distance $d$ are codes that have the property that for every pair $x,y$ of codewords we have that
+and
 \begin{equation}
-\Delta(x,y) \geq d,
+\mathcal{D}(011)=\mathcal{D}(101)=\mathcal{D}(110)=\mathcal{D}(111) = 111.
 \end{equation}
-and therefore, all relative distances $\delta$ satisfy by $n\delta=d$.\\
-
-\indent When working with this kind of codes one may wonder what is the best rate we can achieve. Particularly we are going to show three results, one positive and two negative results\footnote{Note that a negative result refer to an upper bound on the rate, meaning that the maximum achievable rate we could get can not exceed some value. Whereas a positive result refer to  lower bound on the rates we can achieve.}. Even though there are other known bounds, we will not talk about others but Gilbert-Varshamov, Hamming and Plotkin bounds, the reason for this is due to the fact that the other bound apply for large enough alphabets, so for binary codes we are not interested at all in these kind of bounds\cite{mackay_information_2003}.
-\begin{figure}
-\centering
-\includegraphics[width=0.7\textwidth]{Figures/Hamming_bound.png}
-\caption{An illustration of the Hamming bound for the case of $q=2$. Note any code above this bound could exist. The shaded region shows the codes that could exist.  }
-\end{figure}
-\subsection{Hamming Bound (Sphere packing bound)}
-\begin{definition}[Volume of Hamming ball]
-\indent Let $ q\geq2$ and $n \geq r \geq 1$ be integers. Then the volume of a Hamming ball of radius $r$ is given by
+This decoder is known as the vote majority decoder.\\
+\indent The probability $P_{\text{err}}$ equals the probability of having two or more errors
+\begin{align}
+P_{\text{err}} = P_{\text{err}}(000) = P_{\text{err}}(111) &= {3 \choose 2}p^2(1-p) + {3 \choose 3}p^3\nonumber\\
+&=3p^2-3p^3+p^3\nonumber\\
+&=3p^2-2p^3.
+\label{CH2:majority_vote}
+\end{align}
+Notice then that the error probability is dominated by the probability that two bits in a block of tree are flipped, which scales as $p^2$. Since our goal is to have decoders with small $P_{\text{err}}$, from equation \eqref{CH2:majority_vote} we conclude that $P_{\text{err}}$ is smaller than $p$ when $p<1/2$, which simply means that coding has improved the probability of error per message, compared to uncoded transmission. However, the price is reflected in the rate: three bits are transmitted for every bit implies a rate of $\log_2 M/n = 1/3$ .
+\subsubsection*{Nearest-codeword decoder}
+\indent We next consider a particular decoding strategy. A \textit{nearest-codeword decoder} for an $(n,M)$ code $\mathfrak{C}$ over $F$ is a function $F^n\to \mathfrak{C}$ whose value for every word $\mathbf{y}\in F^n$ is a closes codeword in $\mathfrak{C}$ to $\mathbf{y}$, where the term ``closest'' is with respect to the Hamming distance. A nearest-codeword decoder for $\mathfrak{C}$ is a decoder for $\mathfrak{C}$ with respect to any additive channel whose input and output alphabets are $F$.
+\subsubsection{Capacity of the binary symmetric channel}
+So far we have seen that coding allows to reduce the decoding error probability $P_{\text{err}}$, at the expense of transmitting at lower rates. As we will discuss, it is possible to achieve arbitrarily small values of $P_{\text{err}}$, while still transmitting at rates that are bounded away from $0$.\\
+\indent Define the \textit{binary entropy} function $\mathfrak{H}:[0,1]\to[0,1]$ by
 \begin{equation}
-\operatorname{Vol}_{q}(r, n)=\left|B_{q}(\mathbf{0}, r)\right|=\sum_{i=0}^{r}\left(\begin{array}{l}
-n \\
-i
-\end{array}\right)(q-1)^{i},
-\label{CH2:Hamming_ball}
+\mathfrak{H}(x) = -x\log_2 x-(1-x)\log_2 (1-x),
+\label{CH2:Binary entropy}
 \end{equation}
-where the choice of $\mathbf{0}$ as the center of the Hamming ball is chosen arbitrary, since the volume of the Hamming ball is independent of its center.
-\end{definition}
-\indent It is simple to show that
+where $\mathfrak{H}(0)=\mathfrak{H}(1)=0$.\\
+\indent Now let $S$ be the BSC with crossover probability $p$. The \textit{capacity} of $S$ is given by
 \begin{equation}
-\frac{k}{n} \leq 1-\frac{\log _{q} \operatorname{Vol}_{q}\left(\left\lfloor\frac{d-1}{2}\right\rfloor, n\right)}{n},
-\label{CH2:Hamming_bound_1}
+\operatorname{Cap}(S) = 1-\mathfrak{H}(p).
 \end{equation}
-where the volume in \eqref{CH2:Hamming_bound_1} correspond to the definition in\eqref{CH2:Hamming_ball}. With some algebra and using the Stirling asymptotic approximation one can show that
-\begin{equation}
-\operatorname{Vol}_{q}\left(\left\lfloor\frac{d-1}{2}\right\rfloor, n\right) \geq q^{H_{q}\left(\frac{\delta}{2}\right) n-o(n)},
-\end{equation}
-where the latter inequality immediately provide us an upper bound on the rate
-\begin{equation}
-R \leq 1-H_{q}\left(\frac{\delta}{2}\right)+o(1).
-\label{CH2:Hamming_bound_2}
-\end{equation}
-
-\indent The inequality in \eqref{CH2:Hamming_bound_2} is known as the Hamming Bound.
-
-\subsection{Plotkin Bound}
-\begin{definition}[Plotkin Bound]
-The following holds for any code $\mathcal{C}\subset [q]^n$ 
-\begin{itemize}
-\item If $d=\left(1-\frac{1}{q}\right) n,|\mathcal{C}| \leq 2 q n$.
-\item If $d>\left(1-\frac{1}{q}\right) n,|\mathcal{C}| \leq \frac{q d}{q d-(q-1) n}$.
-\end{itemize}
-Note that the Plotkin Bound implies that a code with relative distance $\delta\geq 1-1/q$, must necessarily have $R=0$.
-\end{definition}
-
-\begin{definition}
-For any q-ary code with relative distance $0 \leq \delta \leq 1-\frac{1}{q}$,
-\begin{equation}
-R \leq 1-\left(\frac{q}{q-1}\right) \delta+o(1).
-\label{CH2:Plotkin_bound}
-\end{equation}
-\end{definition}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.7\textwidth]{Figures/Hamming_plotkin_bound.png}
-\caption{An illustration of Plotkin and Hamming bounds for the case of $q=2$.  For this case the shaded region changes indicating us that there are not codes with $R>0$ when $\delta=1-1/q$ .}
-\end{figure}
-
-\indent To illustrate the proof of this bound we can consider the distance $d=n\delta$. So we can shorten the codewords and group them in a way such that they agree on the first $n-n'$ symbols, with $n^{\prime}=\left\lfloor\frac{q d}{q-1}\right\rfloor-1$. Then in particular for any $x\in [q]^{n-n'}$, define the prefix code
-\begin{equation}
-\mathcal{C}_{\mathbf{x}}=\left\{\left(c_{n-n^{\prime}+1}, \ldots c_{n}\right) \mid\left(c_{1} \ldots c_{N}\right) \in \mathcal{C},\left(c_{1} \ldots c_{n-n^{\prime}}\right)=\mathbf{x}\right\}.
-\end{equation}
-for all $x,\ \mathcal{C}_{x}$, has distance $d$ as $\mathcal{C}$ has distance $d$. Additionally, it has block length $n^{\prime}<\left(\frac{q}{q-1}\right) d$, and thus $d>\left(1-\frac{1}{q}\right) n^{\prime}$. From the Plotkin bound, this implies that
-\begin{equation}
-\left|\mathcal{C}_{\mathbf{x}}\right| \leq \frac{q d}{q d-(q-1) n^{\prime}} \leq q d,
-\end{equation}
-where the second inequality follows from the fact that $q d-(q-1) n^{\prime}$ is an integer.\\
-
-\indent Note that the definition of $\mathcal{C}_{x}$
-\begin{equation}
-|\mathcal{C}|=\sum_{\mathbf{x} \in[q]^{n-n^{\prime}}}\left|\mathcal{C}_{\mathbf{x}}\right|,
-\end{equation}
-tells us that 
+These definitions will allows us to present a special case of two fundamental results in information theory. These results state the the capacity of a channel is the largest rate at which information can be transmitted reliably through that channel
+\begin{theorem}[Shannon coding theorem for the BSC]
+Let s be the BSC with crossover probability $p$ and let $R$ be a real in the range $0\leq R \leq \operatorname{Cap}(S)$. there exist an infinite sequence of $(n_i,M_i)$ block codes over $F\{0,1\}$, $i=1,2,\ldots$, such that $(\log_2 M_i)/n_i\geq R$ and, for maximum-likelihood decoding for those codes (with respect to S), the decoding error probability $P_{\text{err}}$ approaches $0$ as $i\to \infty$.
+\end{theorem}
+\begin{theorem}[Shannon converse coding theorem for the BSC] Let $S$ be the BSC channel with crossover probability $p$ and let $R$ be a real greater than $\operatorname{Cap}(S)$. Consider any infinite sequence of $(n_i,M_i)$ block codes over $F=\{0,1\}, i = 1,2,\ldots$, such that $(\log_2 M_i)/n_i\geq R$ and $n_1< n_2<\cdots< n_i < \cdots$. Then, for any decoding scheme for those codes (with respect to S), the decoding error probability $P_{\text{err}}$ approaches $1$ as $i\to \infty$.
+\end{theorem}
+These theorems are know as the noisy-channel theorems for the special case of the BSC. A problem with announcing the theorems in this particular way is that are quite general results; meaning that the theorems only says that reliable communication with crossover probability $p$ and rate $R$ can be achieved by using code blocks with sufficiently large code length $n_i$\footnote{To see further details about the proof see \cite{mackay_information_2003}}. The theorem does not say how large $n$ needs to be to achieve given values of $R$ and $p$. Particularly, it is possible to show that $P_{\text{err}}$ in these theorems can be guaranteed to decrease exponentially with the code length $n_i$.\\
+\indent For a discrete memoryless channel, a length code $n$ and rate $R$, there exist a block code $(n,M)$ whose average probability of error satisfies:
 
 \begin{equation}
-\left.|\mathcal{C}| \leq \sum_{\mathbf{x} \in[q]^{n-n^{\prime}}} q d=q^{n-n^{\prime}} \cdot q d \leq q^{n-\frac{q}{q-1} d+o(n)}=q^{n\left(1-\delta \cdot \frac{q}{q-1}+o(1)\right)}\right.,
+P_{\text{err}}\leq \operatorname{exp}(-n E_{r}(R),)
 \end{equation}
+where $E_r(R)$ is known as the \textit{random-coding exponent} of the channel, a convex, decreasing, positive function of $R$ for $0\leq R\leq \operatorname{Cap}(S)$. the random-coding exponent is also known as the reliability function \cite{gallager_information_1968}. $E_r(R)$ approaches zero as $R\to  \operatorname{Cap}(S)$. As we will see the computation of the random-coding exponent is in general a challenging task on which much effort has been expended.
 
-so, this provides another upper bound to the rate given by
-\begin{equation}
-R \leq 1-\left(\frac{q}{q-1}\right) \delta+o(1)
-\label{CH2:Plotkin:bound_rate}
-\end{equation}
-\indent To close this section we will show the latter but positive result which provide us  lower bound on the code rates, Gilbert Varshamov bound.
-\subsection{Gilbert-Varshamov Bound}
-We now switch gears to provide a positive result. We will only provide the main ideas for the proof of this result an we will discuss why this result turn out to be one of the most important results.
-\begin{definition}[Gilbert-Varshamov Bound]
-Let $q\geq 2$. For every $0 \leq \delta<1-\frac{1}{q}$ and $0<\varepsilon \leq 1-H_{q}(\delta)$. There exists a code with rate $R \geq 1-H_{q}(\delta)-\varepsilon$ and relative distance $\delta$.
-\label{CH2:Definition_Gilbert_Varshamov}
-\end{definition}
 
-\begin{figure}
-\centering
-\includegraphics[width=0.7\textwidth]{Figures/Hamming_plotkin_Gilbert_bound.png}
-\caption{An illustration of 3 bounds Hamming, Plotkin and Gilbert-Varshamov for the case of $q=2$. The lower bound correspond to the Gilvert-Varshamov Bound whereas the other 2 are the upper bound for the rate.}
-\end{figure}
+\subsection{Levels of error handling}
+While the setting in previous sections was probabilistic, we will move to identify error words that are generated by an additive channel and are always recoverable, as long as the transmitted codewords are taken from a block code whose minimum distance is sufficiently large. The results we present here are combinatorial, meaning that they do not depend on the particular conditional probability of the channel.
+\subsubsection{Error correction}
+We consider channels $S=(F,\Phi,\operatorname{Prob})$ with $\Phi = F$.\\
+\indent Given an $(n,M,d)$ code $\mathfrak{C}$ over $F$, let $\mathbf{c}\in\mathfrak{C}$ be the transmitted codeword and $\mathbf{y}\in F^n$ be the received word. By \textit{error} we mean the event of changing an entry in the codeword $\mathbf{c}$. the number of errors equals $d(\mathbf{y},\mathbf{c}$, and the error locations are indexes of the entries in which $\mathbf{c}$ and $\mathbf{y}$ differ.\\
+\indent The task of error correction is recovering the error locations and the error values. In the next lemma we show that errors are always recoverable, as long as their number does not exceed a certain threshold, which depends on the code $\mathfrak{C}$.
+\begin{lemma}
+Let $\mathfrak{C}$ be an $(n,M,d)$ code over $F$. There is a decoder $\mathcal{D}: F^n \to \mathfrak{C}$ that recovers correctly every pattern up to $\lfloor(d-1)/2\rfloor$ errors for every channel $S=(F,F,\operatorname{Prob})$.
+\end{lemma}
+\begin{proof}
+Let $\mathcal{D}$ be a nearest-codeword decoder, namely, $\mathcal{D}(\mathbf{y})$ is a closes (with respect to the Hamming distance) codeword in $\mathfrak{C}$ to $\mathbf{y}$. Let $\mathbf{c}$ and $\mathbf{y}$ be the transmitted codeword and the received word, respectively, where $d(\mathbf{y}, \mathbf{c})\leq (d-1)/2$. Suppose to the contrary that $\mathbf{c}' = \mathcal{D}(\mathbf{y})\neq\mathbf{c}$. By the way $\mathcal{D}$ is defined,
+\begin{equation}
+d(\mathbf{y}, \mathbf{c}')\leq d(\mathbf{y}, \mathbf{c}) \leq (d-1)/2 . 
+\end{equation}
+So, by the triangle inequality,
+\begin{equation}
+d\leq d(\mathbf{c}, \mathbf{c}) \leq d(\mathbf{y}, \mathbf{c}) + d(\mathbf{y}, \mathbf{c}') \leq d-1, 
+\end{equation}
+which is a contradiction.
+\end{proof}
+\subsection{Random minimum distance codes and its error exponents}
+Now we will be concerned on binary random binary codes over the BSC with probability $p$, namely, let  $\mathfrak{C}$ be a random block code $(n,M\equiv 2^{nR})$ over $F= \{0,1\}$ and rate $R$. This is known as a random code ensemble (RCE) and is obtained by uniformly random choosing each of the $M$ bits in each of the $n$ codewords independently. Equivalently, each of the $2^{nM}$ possible binary codes of length $n$ and rate $R$ in the RCE is assigned probability $2^{-nM}$.\\
+\indent Since these codes are randomly chosen we can ask ourselves is these codes will have minimum distance and if so what is then the distribution of distances. To answer this, we first compute the probability that a given random codeword $\mathbf{x}_i$  of length $n$ will be at a Hamming distance $d=\delta n$, where $\delta=d/n$ is known as the relative distance, from an arbitrary binary $n$-tuple $\mathbf{y}$. this probability is independent of $\mathbf{y}$ and equals \cite{barg_random_2002}
+\begin{equation}
+\operatorname{Prob}(d(\mathbf{x}_i,\mathbf{y})=d) = {n \choose d}\left(\frac{1}{2} \right)^{d} \left( \frac{1}{2}\right)^{n-d} \equiv 2^{-n(1-\mathfrak{H}(\delta)},
+\end{equation}
+where $\mathfrak{H}(\delta)$ is the binary entropy defined in \eqref{CH2:Binary entropy}. Under this RCE, two Hamming distances $d(\mathbf{x}_i,\mathbf{x}_j)$, $d(\mathbf{x}_i',\mathbf{x}_j')$ are independent random variables unless $\{i,j\} = \{i',j'\}$ or $\{i,j\}= \{j',i'\}$.\\
+\indent Consider the number of unordered pairs of codewords $(\mathbf{x}_i,\mathbf{x}_j)$ with $i\neq j$ in $\mathfrak{C}$ at Hamming distance $d$ apart
+\begin{equation}
+\mathcal{S}_{\mathfrak{C}}(d) = \sum_{i=0}^{M-1}\sum_{j=0}^{i-1} \Theta\{d(\mathbf{x}_i,\mathbf{x}_j) = d\},
+\end{equation}
+where $\Theta\{d(\mathbf{x}_i,\mathbf{x}_j) = d\}$ is the indicator of the event in the brackets, that is, $\Theta\{d(\mathbf{x}_i,\mathbf{x}_j) = d\}$ is equal to $1$ if $d(\mathbf{x}_i,\mathbf{x}_j) = d$ and to $0$ otherwise. Then $\mathcal{S}_{\mathfrak{C}}(d)$ is a sum of ${M \choose 2}$ pairwise-independent, identically distributed random variables $\Theta\{d(\mathbf{x}_i,\mathbf{x}_j) = d\}$, each with mean
+\begin{equation}
+\mathbb{E}\Theta = \operatorname{Prob}\{d(\mathbf{x}_i,\mathbf{x}_j) = d\},
+\end{equation}
+where $\mathbb{E}$ refers to the expected value or simply the average of a random variable which is obtained by
+\begin{equation}
+\mathbb{E}(X) = \sum_{x\in X} \operatorname{Prob}(X=x) x,
+\end{equation}
+with $X$ a random variable.\\
+The variance of $\Theta\{d(\mathbf{x}_i,\mathbf{x}_j) = d\}$ is
+\begin{equation}
+\operatorname{Var}[\Theta] = \mathbb{E}\Theta^2 - (\mathbb{E}\Theta)^2 = \mathbb{E}\Theta - (\mathbb{E}\Theta)^2 <  \mathbb{E}\Theta,
+\end{equation}
+where we have used the fact that $\Theta^2 = \Theta$ since $\Theta$ is a $\{0,1\}$-valued function. We have then that in the case of the BSC, $\mathcal{S}_{\mathfrak{C}}(d)$ is a sum of ${M \choose 2}$ independent and identically distributed random variables.
+\begin{equation}
+\mathbb{E}\mathcal{S}_{\mathfrak{C}}(d) = {M\choose 2} \mathbb{E}\Theta = 2^{n(2R-1+\mathfrak{H}(\delta))},
+\end{equation}
+where we have used the fact that $M \sim 2^{nR}$, ${M \choose 2}=M(M-1)/2\sim M^2=2^{2nR}$. Since the variance of a sum of uncorrelated random variables is equal to the sum of their variances
+\begin{equation}
+\operatorname{Var}(\mathcal{S}_{\mathfrak{C}}(d)) = {M \choose 2} \operatorname{Var}\Theta < \mathbb{E} \mathcal{S}_{\mathfrak{C}}(d).
+\end{equation}
+As we mentioned before, we will be interested in study the minimum distance $d(\mathfrak{C})$ that this particular kind of codes have. To do this we first announce the next three lemmas that will let us introduce one of the main results in \cite{barg_random_2002} about the distribution of minimum distance in random codes.
 
-\indent To provide a sketch of about the proof we can consider a greedy approach. First we start with an empty code $\mathcal{C}$ and we keep adding vectors that are not in $\mathcal{C}$ and that have Hamming distance at least $d$ from all the existing codewords in $\mathcal{C}$. Notice that by doing so we can assure that we will never add a vector $c$ that will make that will make the distance of $\mathcal{C}$ fall below $d$. Indeed it is easy to see that after doing so, we have
-\begin{equation}
-\bigcup_{\mathbf{c} \in C} B(\mathbf{c}, d-1)=[q]^{n};
-\label{CH2:Gilbert_Varshamov_1}
-\end{equation}
-This is easily checked, since if it were not true, then there would exist a vector $\mathbf{v} \in[q]^{n} \backslash C$, such that $\Delta(\mathbf{v}, \mathbf{c}) \geq d$ and therefore $\mathbf{v}$ could be added. However, this would contradict the fact that we have finished the procedure. So
 
+\begin{lemma}[Markov inequality]
+let $X$ be a non-negative real random variable, and $\alpha >0$, then the probability that $X$ is at least $\alpha$ is at most the expectation of $X$ divided by $\alpha$,
 \begin{equation}
-\bigcup_{c \in C} B(\mathbf{c}, d-1) \mid=q^{n}.
-\label{CH2:Gilbert_Varshamov_2}
+\operatorname{Prob}(X\geq \alpha)\leq \frac{\mathbb{E}(X)}{\alpha}
 \end{equation}
-Also, It isn't hard to see that
-\begin{equation}
-\sum_{\mathbf{c} \in C}|B(\mathbf{c}, d-1)| \geq\left|\bigcup_{\mathbf{c} \in C} B(\mathbf{c}, d-1)\right|,
-\label{CH2:Gilbert_Varshamov_3}
-\end{equation}
-which implies that
-\begin{equation}
-\sum_{\mathbf{c} \in C}|B(\mathbf{c}, d-1)| \geq q^{n},
-\label{CH2:Gilbert_Varshamov_4}
-\end{equation}
-but as mentioned before, the volume of the Hamming ball is translation invariant,
+\end{lemma}
 
+\begin{lemma}[Chebyshev's inequality]
+let $X$ be real random variable with finite expected value $\mathbb{E}(X)=\mu$ and finite variance $\operatorname{Var}(X) = \sigma^2$, then for all $k >0$,
 \begin{equation}
-\sum_{\mathbf{c} \in C} \operatorname{Vol}_{q}(d-1, n) \geq q^{n}.
-\label{CH2:Gilbert_Varshamov_5}
+\operatorname{Prob}(|X-\mu|\geq k)\leq \frac{\sigma^2}{k^2}
 \end{equation}
-Since $\sum_{\mathbf{c} \in C} V o l_{q}(d-1, n)=V o l_{q}(d-1, n) \cdot|C|$ 
+\end{lemma}
 
+\begin{proof}
+Apply Markov's inequality with $\alpha \equiv k^2$ and take the random variable $X-\mu$
 \begin{equation}
-\begin{aligned}
-|C| & \geq \frac{q^{n}}{\operatorname{Vol}_{q}(d-1, n)} \\
-& \geq \frac{q^{n}}{q^{n H_{q}(\delta)}} \\
-&=q^{n\left(1-H_{q}(\delta)\right)}.
-\end{aligned}
-\label{CH2:Gilbert_Varshamov_final}
+\operatorname{Prob}\left((X-\mu)^2\geq k^2\right)\leq \frac{\mathbb{E}(X-\sigma)}{k^2} = \frac{\sigma^2}{k^2}
 \end{equation}
+\end{proof}
 
-Therefore concluding the proof. It is worth mentioning that this way of proceeding the code does not any special structure, but as one might think, this algorithm will take exponentially long time to finish. However, one may wonder if there is a special kind of code that also achieves this rate. Indeed is possible to show that \textit{random linear codes} lies, with high probability, on the Gilbert-Varshamov Bound. To pick a \textit{random linear code} we only need pick a random $k\times n $ matrix, in which each entry is chosen uniformly and independently at random according to its alphabet\cite{mackay_information_2003,jaynes_probability_2003}. Aside from these result providing some bounds on the rate of the minimum distance codes. We are interested in the performance of a special kind of random codes, more specifically binary codes over a binary-symmetric channel (BSC). Here, we derive the minimum distance, distance distribution and error exponent of a typical random code (TRC) from a random code ensemble (RCE), as well as the one correspondent to a typical linear code (TLC) from a linear code ensemble (LCE) \cite{barg_random_2002}. As mentioned by A Barg, and G. D. Forney, Jr \cite{barg_random_2002} most of the important results are expressed in terms of the Gilbert-Varshamov distance  $\delta_{GV}(R)$.
-\subsection{Error Exponents for Random Minimum Distance Codes}
-It is very well known that on a BSC with crossover probability $p$, the channel capacity is $C=1-H_2(p)$ \footnote{We will be using the notation $\mathcal{H}$ to refer to the binary entropy $\mathcal{H}\equiv H_2$ }. The coding error exponent $E_r(R)$ is positive for $0\leq R < C$ and given by \cite{gallager_low-density_1962,gallager_information_1968}.
+\begin{lemma}[Chernoff bound]
+let $X$ be real random variable with finite mean, for all $\alpha>0$ and $t>0$,
 \begin{equation}
-E_{r}(R)=\left\{\begin{array}{ll}
-R_{0}-R, & 0 \leq R \leq R_{\text {crit }} \\
-E_{\mathrm{sp}}(R), & R_{\text {crit }} \leq R \leq C
-\end{array}\right.,
+\operatorname{Prob}(X\geq \alpha)\leq \frac{\mathbb{E}(e^{t X})}{e^{t\alpha }}
 \end{equation}
-where $R_0$,  $R_{\text {crit }}$ and $E_{\mathrm{sp}}(R)$, are known as the cutoff rate, the critical rate and the sphere-packing exponent, respectively. Gallager has shown \cite{gallager_random_2006},that the random coding exponent is the true error exponent for the RCE   on any discrete memoryless channel. Here we will show the main results provided in \cite{barg_random_2002} and we will provide the ideas to derive these results, as we will show later this ideas of error exponents will be quite helpful to understand how it is possible to make a connection between minimum distance codes and typical Fermionic  states.
-\subsubsection{Random Binary Codes}
-Consider a binary code $C$ of length $n$ and rate $R$ bits per symbol is a set of $M=2^{NR}$. For the case of RCE one computes the probability that by taking a random codeword $\mathbf{x}_i$ of length $N$ it would have Hamming distance $d=N\delta$ from an arbitrary binary $N-$tuple $\mathbf{b}$ and see that it will be independent of $\mathbf{b}$ and equals to
+\end{lemma}
+\begin{proof}
+First, take the exponential at both sides of the expression $\operatorname{Prob}(X\geq \alpha)$,
 \begin{equation}
-\text{Pr}\{d_H(\mathbf{x}_i,\mathbf{b})=d\}={N\choose d} \tilde{p}^d (1-\tilde{p})^{N-d},
+\operatorname{Prob}(X\geq \alpha) = \operatorname{Prob}(e^{tX}\geq e^{t\alpha}),
 \end{equation}
-where $\tilde{p}$ corresponds to the probability of having a one. Under this RCE, two distances $d_H(\mathbf{x}_i,\mathbf{x}_j)$ and $d_H(\mathbf{x}_{i'},\mathbf{x}_{j'})$ are independent random variables. So if we consider the number of unordered pairs of codewords $(\mathbf{x}_i,\mathbf{x}_j)$ with $i\neq j$ in $C$ at a distance $d$ apart
+then we apply Markov's inequality and conclude that
 \begin{equation}
-S_{\mathcal{C}}(d)=\sum_{i=0}^{M-1} \sum_{j=0}^{i-1} \Phi\left\{d_{H}\left(\boldsymbol{x}_{i}, \boldsymbol{x}_{j}\right)=d\right\},
+\operatorname{Prob}(X\geq \alpha)= \operatorname{Prob}(e^{tX}\geq e^{t\alpha})\leq \frac{\mathbb{E}(e^{t X})}{e^{t\alpha }}
 \end{equation}
-where $\Phi\left\{d_{H}\left(\boldsymbol{x}_{i}, \boldsymbol{x}_{j}\right)=d\right\}$ is equal to 1 if the condition $d_H(\mathbf{x}_i,\mathbf{x}_j)$ is satisfied and $0$ otherwise. For the case of RCE on a BSC $S_{\mathcal{C}}(d)$ is a sum of ${M\choose 2}$ pairwise independent, identically distributed random variables, so we have
+\end{proof}
+In particular, we can optimize over $t$ to get
+ \begin{equation}
+\operatorname{Prob}(X\geq \alpha)\leq \min_{t>0} \frac{\mathbb{E}(e^{t X})}{e^{t\alpha }}.
+\end{equation}
+Now we are ready to state the the following theorem\cite{barg_random_2002}.
 
-\begin{equation}
-\mathrm{E} S_{\mathcal{C}}(d)=\left(\begin{array}{c}
-M \\
-2
-\end{array}\right) \mathrm{E} \Phi \doteq 2^{N(2 R-1+\mathcal{H}(\delta))}.
-\end{equation}
-\indent Therefore we are ready to state the following theorem
-\begin{theorem}[Minimum distance in RCE]
-For $0\leq R< 1/2$ and any $\varepsilon>0$, the probability that a code length $N$ and rate $R$ from the RCE has relative minimum distance less than $\delta_{GV}(2R)-\varepsilon$ goes to zero exponentially as $N\to \infty$. For $0\leq R < 1$, if $d=N\delta$ is such that
+\begin{theorem}[Distance distribution in RCE]
+For $0\leq R< 1/2$ and any $\varepsilon>0$, the probability that a code length $n$ and rate $R$ from the RCE has relative minimum distance less than $\delta_{GV}(2R)-\varepsilon$, with $\delta_{GV}(R) $ the solution to the equation $\mathfrak{H}(\delta) = 1-R$, goes to zero exponentially as $n\to \infty$. For $0\leq R < 1$, if $d=n\delta$ is such that
 \begin{equation}
 \delta_{GV}(2R)+\varepsilon \leq \delta \leq 1- \delta{GV}(2R) - \varepsilon,
 \end{equation}
-then the probability that the number of codeword pairs at a distance d satisfies $S_{\mathcal{C}}(d) \doteq 2^{N(2 R-1+\mathcal{H}(\delta))}$ goes to one as $N\to \infty$.
+then the probability that the number of codeword pairs at a distance d satisfies $\mathcal{S}_{\mathfrak{C}}(d) \doteq 2^{n(2 R-1+\mathfrak{H}(\delta))}$ goes to one as $n\to \infty$.
 \end{theorem}
 
 \begin{proof}
-For a given value of the code value of the code rate $R$ we can choose $d$ such that $d/N\to\delta \leq \delta_{\mathrm{GV}}(2 R)-\varepsilon$. Then
+For a given value of the code value of the code rate $R$ we can choose $d$ such that $d/n\to\delta \leq \delta_{\mathrm{GV}}(2 R)-\varepsilon$. Then
 \begin{equation}
-\operatorname{Pr}\left\{S_{\mathcal{C}}(d) \geq 1\right\} \leq \mathrm{E} S_{\mathcal{C}}(d) \doteq 2^{-N(1-\mathcal{H}(\delta)-2 R)} \rightarrow 0,
+\operatorname{Prob}\left\{\mathcal{S}_{\mathfrak{C}}(d) \geq 1\right\} \leq \mathbb{E} \mathcal{S}_{\mathfrak{C}}(d) \doteq 2^{-n(1-\mathfrak{H}(\delta)-2 R)} \rightarrow 0,
 \end{equation}
-which in other words tells us that with probability differing from $1$ by an exponentially falling quantity, there will be no pairs at distance $d$. Notwithstanding this result, if $\delta_{\mathrm{GV}}(2 R)+\varepsilon<\delta<1-\delta_{\mathrm{GV}}(2 R)-\varepsilon$, then $1-\mathcal{H}(\delta)<2R$ and the average of number of pairs $\mathrm{E} S_{\mathcal{C}}(d)$ at a distance $d$ is exponentially large. To see this, we can use the Chebyshev inequality, so for any $\delta>0$, we have 
+which in other words it tells us that with probability differing from $1$ by an exponentially falling quantity, there will be no pairs at distance $d$. Conversely, if $\delta_{\mathrm{GV}}(2 R)+\varepsilon<\delta<1-\delta_{\mathrm{GV}}(2 R)-\varepsilon$, then $1-\mathcal{H}(\delta)<2R$ and the average of number of pairs $\mathbb{E} \mathcal{S}_{\mathfrak{C}}(d))$ at a distance $d$ is exponentially large. To see this, we can use the Chebyshev's inequality, so for any $\delta>0$, we have 
 \begin{equation}
-\operatorname{Pr}\left\{\left|S_{\mathcal{C}}(d)-\mathrm{E} S_{\mathcal{C}}(d)\right| \geq\left(\begin{array}{c}
+\operatorname{Prob}\left\{\left|\mathcal{S}_{\mathfrak{C}}(d)-\mathbb{E} \mathcal{S}_{\mathfrak{C}}(d)\right| \geq\left(\begin{array}{c}
 M \\
 2
-\end{array}\right) \alpha\right\} \leq \frac{\mathrm{E} \Phi}{\left(\begin{array}{c}
+\end{array}\right) \alpha\right\} \leq \frac{\mathbb{E} \Theta}{\left(\begin{array}{c}
 M \\
 2
-\end{array}\right) \alpha^{2}};
+\end{array}\right) \alpha^{2}},
 \end{equation}
-by choosing $\alpha \doteq 2^{-N(1-\mathcal{H}(\delta)+\Delta)}<\mathrm{E} \Phi$ for any $\Delta>0$, we have
+by choosing $\alpha \doteq 2^{-n(1-\mathfrak{H}(\delta)+\Delta)}<\mathbb{E} \Theta$ for any $\Delta>0$, then we have
 \begin{equation}
-\operatorname{Pr}\left\{\left|S_{\mathcal{C}}(d)-\mathrm{E} S_{\mathcal{C}}(d)\right|>\left(\begin{array}{c}
+\operatorname{Prob}\left\{\left|\mathcal{S}_{\mathfrak{C}}(d)-\mathbb{E}\mathcal{S}_{\mathfrak{C}}(d)\right|>\left(\begin{array}{c}
 M \\
 2
-\end{array}\right) \alpha\right\}\leq \frac{2 \mathrm{E} \Phi}{M(M-1) \alpha^{2}} \doteq 2^{-N(2 R-1+\mathcal{H}(\delta)-2 \Delta)}.
+\end{array}\right) \alpha\right\}\leq \frac{2 \mathbb{E} \Theta}{M(M-1) \alpha^{2}} \doteq 2^{-n(2 R-1+\mathfrak{H}(\delta)-2 \Delta)}.
+\label{CH2:probability_result}
 \end{equation}
-The exponent on the right-hand side can be made positive by choosing $\Delta$ small enough. This establishes the fact that $S_{\mathcal{C}}(d)\doteq 2^{N(2 R-1+\mathcal{H}(\delta))}$ for the chosen value of $d$ with probability tending to one as $N\to\infty$.
+The exponent on the right-hand side can be made positive by choosing $\Delta$ small enough. This establishes the fact that $\mathcal{S}_{\mathfrak{C}}(d)\doteq 2^{n(2 R-1+\mathcal{H}(\delta))}$ for the chosen value of $d$ with probability tending to one as $n\to\infty$.
 \end{proof}
-\subsubsection{Random Linear Codes}
-A binary linear code $C$ of length $n$ and rate $K/n$ is a set of $M=2^K$ binary $n$-tuples that is generated by $K$ $n-$linerarly independent tuples $\mathbf{g}_j$, $1\leq k \leq K$. This is
+Alternative this result can be expressed as follows. With probability $1-2^{-\zeta(n)}$ as $n\to \infty$, the relative minimum distance of a code drawn from the RCE will be approximately $\delta{GV}_(2R)$ for $0\leq R \leq \frac{1}{2}$ and $0$ for $\frac{1}{2}\leq R\leq 1$.\\
+\indent Define the distance distribution the random code $\mathfrak{C}$ as
 \begin{equation}
-\mathbf{x}(u)=\Sigma_k \mathbf{u}_k \mathbf{g}_j,
+\mathcal{N}_{\mathfrak{C}}(d)  = \frac{2}{M} \mathcal{S}_{\mathfrak{C}}(d), \quad  (d=0,1,\ldots , n).
 \end{equation}
-where $\mathbf{u}$ is an arbitrary binary $K-$tuple. Here we will be considering the case in which each of the $2^{NK}$ matrices are chosen with equal probability. For the case of linear codes, the distance distribution $\{d_H(\mathbf{x}_i,\mathbf{x}_j),i\neq j\}$ from any given codeword $\mathbf{x}_i$ is independent of $i$. The average distance distribution of a linear code $C$ therefore reduces to
+Thus $\mathcal{N}_{\mathfrak{C}}(d)$ is the average over the $M$ codewords $\mathbf{x}_i$ of the number of other codewords $\mathbf{x}_j, j \neq i$, at Hamming distance $d$ from $\mathbf{x}_i$.
+\indent We therefore have shown that the complete average distance distribution over RCE is
 \begin{equation}
-\mathcal{N}_{\mathcal{C}}(d)=\sum_{j \neq i} \Phi\left\{d_{H}\left(\boldsymbol{x}_{i}, \boldsymbol{x}_{j}\right)=d\right\} \quad(d=1,2, \ldots, N),
-\label{CH2:RLC_number of codewords}
+\mathcal{N}_{RCE}(d)  = \frac{2}{M} \mathbb{E} \mathcal{S}_{\mathfrak{C}}(d) \doteq 2^{n(R-1+\mathfrak{H}(\delta))}.
 \end{equation}
-where $\mathbf{x}_i$ is an arbitrary codeword. Typically, $\mathbf{x}_i$ is taken as the all zero codeword $\mathbf{0}=\mathbf{x(0)}$. If $(\mathbf{u}_j,\mathbf{u}_k)$ is any pair distinct non-zero $K-$tuples, then the corresponding codewords $(\mathbf{x}(\mathbf{u}_j),\mathbf{x}(\mathbf{u}_k))$ are a pair of independent random binary $N-$tuples. It follows that two distinct distances $d_H(\mathbf{x}_i,\mathbf{x}_j)$ and $d_H(\mathbf{x}_i,\mathbf{x}_k)$ from a given codeword $\mathbf{x}_i$ are pairwise-independent and distributed as in the RCE. In particular 
-\begin{equation}
-\operatorname{Pr}\left\{d_{H}\left(\boldsymbol{x}_{i}, \boldsymbol{x}_{j}\right)=N \delta\right\} \doteq 2^{-N(1-\mathcal{H}(\delta))},
-\end{equation}
-for any $d=N\delta$, the quantity $\mathcal{N}_{\mathcal{C}}(d)$ in \eqref{CH2:RLC_number of codewords} is a sum of $M-1\doteq 2^{NR}$ pairwise-independent, identically distributed random variables with mean $E\Phi\doteq 2^{-N(1-mathcal{H}(\delta))}$. Its mean value is therefore equal to
-
-\begin{equation}
-\mathcal{N}_{\mathrm{LCE}}(d) \doteq 2^{N(R-1+\mathcal{H}(\delta))}.
-\end{equation}
-Therefore we say that the relative minimum distance of a code chosen at random from the LCE will be, with probability $1-2^{-\Omega(N)}$, approximately equal to the $GV$ relative distance $\delta_{GV}(R)$.\\
-
-\indent In summary, the typical minimum distance in the LCE is better than that in the RCE because the minimum of only $M-1$ pairwise-independent distances, whereas in the RCE it is the minimum of ${M\choose 2}$ pairwise independent distances.\\
-
-\indent Up to this point one may be wonder how all this theory of correcting errors and minimum distance codes are connected to our problem. In following section we are going to show how this connection emerges as a natural consequence of the structure in the Clifford algebra and therefore provide an explanation of what we named as ultra orthogonality.
+Since the probability in \eqref{CH2:probability_result} tends to zero exponentially and since there are only $N+1$ different values of distance $d$, theorem $2.5.7$ implies that for almost all codes in RCE $\mathcal{N}_{\mathfrak{C}}(d) \doteq \mathcal{N}_{RCE}(d)$ for all $d$ such that $\delta_{\mathrm{GV}}(2 R)+\varepsilon \leq \delta \leq 1-\delta_{\mathrm{GV}}(2 R)-\varepsilon$. However for $\delta \leq \delta_{\mathrm{GV}}(2 R)-\varepsilon$ or $\delta \geq 1-\delta_{\mathrm{GV}}(2 R)+\varepsilon$, the $\mathcal{N}_{RCE}(d)=0$.\\
 
 
-
-
-
-
-
-\indent We have presented details about some generalities in quadratic Hamiltonians, the equivalence between $1/2-$spin systems and fermions, and how fermionic systems described by \eqref{CH2:QuadraticHamiltonian} can be brought to its diagonal form, to be analytically solved. In the next chapter we will expound some historical background concerning  error correcting code theory, as well as some of the most relevant results in the bounds in minimum distance codes. Once we have explained all the tools of code theory that will be needed, we will show how is possible to connect the formalism we discussed in this chapter with code theory, and interpret Fermionic states as binary sequences of excitations, to prove that is possible to find exponentially large Hilbert spaces in which ultra-orthogonality will holds. 
-
-
+In the next chapter, we will develop the correspondent connection between the translational invariant chain of fermions and the error correcting theory, particularly we will use the last shown results in the distribution distance of random codes to explicitly show how is possible to treat excited states in fermionic chains as random codes that have a definite energy value. A similar result as the one in theorem $2.5.7$ will be shown to prove why there are exponentially large Hilbert subspaces that fulfil exactly the condition of ultra-orthogonality.

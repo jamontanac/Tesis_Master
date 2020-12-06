@@ -5,7 +5,7 @@
 \backcite {jancel_foundations_2013}{{1}{(document)}{Doc-Start}}
 \backcite {horodecki_partial_2005}{{1}{(document)}{Doc-Start}}
 \backcite {deutsch_thermodynamic_2010, singh_foundations_2013}{{1}{(document)}{Doc-Start}}
-\backcite {popescu_foundations_2005, popescu_entanglement_2006, goldstein_canonical_2006, gemmer_quantum_2004}{{1}{(document)}{Doc-Start}}
+\backcite {popescu_foundations_2005, popescu_entanglement_2006, goldstein_canonical_2006, gemmer_quantum_2004}{{2}{(document)}{Doc-Start}}
 \backcite {milman_asymptotic_2009, ledoux_concentration_2005}{{2}{(document)}{Doc-Start}}
 \backcite {popescu_foundations_2005}{{2}{(document)}{Doc-Start}}
 \backcite {gemmer_quantum_2004}{{2}{(document)}{Doc-Start}}
@@ -14,6 +14,7 @@
 \backcite {tasaki_quantum_1998,gemmer_thermalization_2006}{{2}{(document)}{Doc-Start}}
 \backcite {linden_quantum_2009}{{2}{(document)}{Doc-Start}}
 \backcite {linden_quantum_2009, linden_speed_2010, malabarba_quantum_2014}{{2}{(document)}{Doc-Start}}
+\backcite {linden_quantum_2009}{{2}{(document)}{Doc-Start}}
 \backcite {linden_quantum_2009}{{3}{(document)}{Doc-Start}}
 \backcite {linden_quantum_2009}{{3}{(document)}{Doc-Start}}
 \backcite {linden_quantum_2009}{{3}{(document)}{Doc-Start}}
@@ -38,23 +39,24 @@
 \backcite {gibbs_elementary_1902}{{11}{1.1.2}{subsection.1.1.2}}
 \backcite {goldstein_boltzmanns_2001, goldstein_gibbs_2020}{{11}{1.1.2}{equation.1.1.3}}
 \backcite {doi:10.1119/1.1971557}{{11}{1.1.2}{equation.1.1.4}}
-\backcite {goldstein_boltzmanns_2001, goldstein_gibbs_2020}{{11}{1.1.2}{equation.1.1.4}}
+\backcite {goldstein_boltzmanns_2001, goldstein_gibbs_2020}{{12}{1.1.2}{equation.1.1.4}}
 \backcite {gibbs_elementary_1902}{{12}{1.1.2}{equation.1.1.4}}
 \backcite {butterfield_symplectic_2007, butterfield_representation_2007}{{12}{1.1.2}{equation.1.1.4}}
 \backcite {gibbs_elementary_1902}{{12}{1.1.2}{equation.1.1.4}}
 \backcite {goldstein_gibbs_2020}{{12}{1.1.2}{equation.1.1.4}}
 \backcite {PhysRev.108.171}{{13}{1.2}{section.1.2}}
-\backcite {von_neumann_mathematical_1955}{{13}{1.2}{equation.1.2.8}}
+\backcite {von_neumann_mathematical_1955}{{14}{1.2}{equation.1.2.8}}
 \backcite {mccrea_1939, TERHAAR1995216, goldstein_gibbs_2020, goldstein_boltzmanns_2001}{{14}{1.2}{equation.1.2.8}}
 \backcite {popescu_foundations_2005, goldstein_canonical_2006, gemmer_thermalization_2006, popescu_entanglement_2006, goldstein_approach_2010, kaufman_quantum_2016, gogolin_equilibration_2016 }{{14}{1.2}{equation.1.2.8}}
+\backcite {goldstein_gibbs_2020}{{14}{1.2}{equation.1.2.8}}
 \backcite {popescu_entanglement_2006, popescu_foundations_2005}{{14}{1.3}{equation.1.3.9}}
 \backcite {popescu_entanglement_2006,popescu_foundations_2005}{{15}{1.3}{equation.1.3.12}}
-\backcite {popescu_entanglement_2006,popescu_foundations_2005}{{15}{1.3.1}{theorem.1.3.1}}
+\backcite {popescu_entanglement_2006,popescu_foundations_2005}{{16}{1.3.1}{theorem.1.3.1}}
 \backcite {popescu_entanglement_2006}{{16}{1.3}{equation.1.3.16}}
 \backcite {linden_quantum_2009}{{16}{1.3}{equation.1.3.17}}
 \backcite {linden_quantum_2009}{{17}{1.4}{section.1.4}}
 \backcite {linden_quantum_2009}{{17}{1.4}{section.1.4}}
-\backcite {linden_quantum_2009}{{17}{1.4}{definition.1.4.1}}
+\backcite {linden_quantum_2009}{{17}{1.4}{section.1.4}}
 \backcite {linden_quantum_2009}{{18}{1.4}{equation.1.4.20}}
 \backcite {linden_quantum_2009}{{19}{1.4}{equation.1.4.26}}
 \backcite {fuchs_cryptographic_1999}{{19}{1.4}{equation.1.4.26}}
@@ -79,12 +81,9 @@
 \backcite {latorre_ground_2004}{{29}{2.4.5}{equation.2.4.28}}
 \backcite {bashirov_chapter_2014}{{33}{2.4.6}{equation.2.4.50}}
 \backcite {shannon_mathematical_1948}{{35}{2.5}{figure.caption.5}}
-\backcite {mackay_information_2003}{{38}{2.5.3}{equation.2.5.60}}
-\backcite {mackay_information_2003}{{39}{2.5.3}{equation.2.5.63}}
-\backcite {mackay_information_2003,jaynes_probability_2003}{{43}{2.5.6}{equation.2.5.79}}
-\backcite {barg_random_2002}{{44}{2.5.6}{equation.2.5.79}}
-\backcite {barg_random_2002}{{44}{2.5.6}{equation.2.5.79}}
-\backcite {gallager_low-density_1962,gallager_information_1968}{{44}{2.5.7}{subsection.2.5.7}}
-\backcite {gallager_random_2006}{{44}{2.5.7}{equation.2.5.80}}
-\backcite {barg_random_2002}{{44}{2.5.7}{equation.2.5.80}}
-\backcite {*}{{58}{4}{chapter.4}}
+\backcite {gallager_information_1968}{{40}{2.5.4}{equation.2.5.69}}
+\backcite {mackay_information_2003}{{40}{2}{Hfootnote.3}}
+\backcite {barg_random_2002}{{42}{2.5.6}{subsection.2.5.6}}
+\backcite {barg_random_2002}{{43}{2.5.6}{equation.2.5.78}}
+\backcite {barg_random_2002}{{44}{2.5.6}{equation.2.5.85}}
+\backcite {*}{{56}{4}{chapter.4}}

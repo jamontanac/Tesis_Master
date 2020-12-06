@@ -311,20 +311,9 @@ D.~J.~C. {MacKay},
 \newblock {\em Information Theory, Inference and Learning Algorithms},
 \newblock Cambridge University Press, 1 edition edition.
 
-\bibitem{jaynes_probability_2003}
-E.~T. Jaynes,
-\newblock {\em Probability Theory: The Logic of Science}.
-
-\bibitem{gallager_low-density_1962}
-R.~Gallager.
-
 \bibitem{gallager_information_1968}
 R.~G. Gallager,
 \newblock {\em Information Theory and Reliable Communication}.
-
-\bibitem{gallager_random_2006}
-R.~Gallager,
-\newblock  {\bf 19}, 244.
 
 \bibitem{knill_fermionic_2001}
 E.~Knill,
@@ -478,13 +467,24 @@ D.~E. Soper,
 \newblock Institution: Institute of Theoretical Science, University of Oregon,
   Eugene, Oregon 97403.
 
+\bibitem{jaynes_probability_2003}
+E.~T. Jaynes,
+\newblock {\em Probability Theory: The Logic of Science}.
+
 \bibitem{merhav_error_2017}
 N.~Merhav.
+
+\bibitem{gallager_low-density_1962}
+R.~Gallager.
 
 \bibitem{domb_random_2016}
 Y.~Domb, R.~Zamir, and M.~Feder,
 \newblock  {\bf 62}, 121,
 \newblock Conference Name: {IEEE} Transactions on Information Theory.
+
+\bibitem{gallager_random_2006}
+R.~Gallager,
+\newblock  {\bf 19}, 244.
 
 \bibitem{robert_multi-stage_2004}
 C.~P. Robert and G.~Casella,
