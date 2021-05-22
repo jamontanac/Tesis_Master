@@ -1,22 +1,24 @@
 \chapter{ Theoretical background }
-At the end of the last chapter we announced that the problem we want to study in this document is that of ultra-orthogonality. Particularly, in the previous chapter, we showed how ultra-orthogonality is connected to the problem of equilibration as an instantaneous phenomenon. Since this problem is quite general, we focus our research to study to study the particular case in which ultra-orthogonality holds exactly for a particular kind of fermionic systems. For that reason, the purpose of this chapter is to provide the necessary theoretical background to study ultra-orthogonality for the aforementioned case.\\
+\noindent At the end of the last chapter we announced that the problem we want to study in this document is that of ultra-orthogonality. Particularly, in the previous chapter, we showed how ultra-orthogonality is connected to the problem of equilibration as an instantaneous phenomenon. Since this problem is quite general, we focus our research to study the particular case in which ultra-orthogonality holds exactly for a particular kind of fermionic systems. For that reason, the purpose of this chapter is to provide the necessary theoretical background to study ultra-orthogonality for the aforementioned case.\\
 
 \indent In this chapter we introduce the concepts of quasi-free fermionic models on a lattice and present Majorana fermions to define the fermionic covariance matrix. We show how this formalism can be used to develop some standard calculations on the diagonalisation of the Hamiltonian of the one-dimensional $XY$ model, and we will discuss how is possible to treat excited states as well as local reduced states in this model. Since part of this work is dedicated to show an explicit connection between a special case of fermionic systems and code theory, the second part of this chapter will be devoted to introduce some concepts of code theory that will allows us to make the explicit connection between code theory and fermionic system in the third chapter.
 
 \section{Fermionic quadratic Hamiltonian}
-In many areas of physics one has to deal with solving quantum many body problems. This is often a computationally difficult if not an impossible task. However, the cases that can be analytically solved are well-known, and have been a subject of study\cite{noauthor_density_2007,niu_majorana_2012,reyes-lega_aspects_2016,chung_density-matrix_2001,leijnse_introduction_2012, molinari_notes_2017,botero_bcs-like_2004, bravyi_lagrangian_2004, lieb_two_1961, latorre_ground_2004, katsura_statistical_1962, barouch_statistical_1971, barouch_statistical_1970}.\\
-\indent It has been found that a wide class of complicated Hamiltonians with many-body interactions can often be mapped onto Hamiltonians that are quadratic in annihilation and creation operators and have the generic form \cite{botero_bcs-like_2004}
+In many areas of quantum physics one has to deal with solving problems systems of many body. However, the cases that can be analytically solved are well-known, and have been a subject of study of many authors\cite{noauthor_density_2007,niu_majorana_2012,reyes-lega_aspects_2016,chung_density-matrix_2001,leijnse_introduction_2012, molinari_notes_2017,botero_bcs-like_2004, bravyi_lagrangian_2004, lieb_two_1961, latorre_ground_2004, katsura_statistical_1962, barouch_statistical_1971, barouch_statistical_1970}.\\
+
+\indent It has been found vast set of complicated Hamiltonians with many-body interactions can often be mapped onto Hamiltonians that are quadratic in annihilation and creation operators and have the generic form \cite{botero_bcs-like_2004}
 
 \begin{equation}
 \hat{H}=\sum_{i j} C_{i j} \hat{a}_{i}^{\dagger} \hat{a}_{j}+\sum_{i j}\left(A_{i j} \hat{a}_{i}^{\dagger}\hat{a}_{j}^{\dagger}+\mathrm{h.c.}\right),
 \label{CH2:QuadraticHamiltonian}
 \end{equation}
-where $i,j$ run from $1$ to $N$, the number of modes in the system and $\hat{a}_i$, $\hat{a}^{\dagger}_i$ are fermionic annihilation and creation operators that satisfy the canonical anti-commutation relations (CAR) \cite{fradkin_field_1997}
+
+where $i,j$ run from $1$ to $N$, the number of modes in the system and $\hat{a}_i$, $\hat{a}^{\dagger}_i$ are fermionic annihilation and creation operators that satisfy the Fermi-Dirac commutation commutation relation also named simply as the canonical anti-commutation relations (CAR) \cite{fradkin_field_1997, Mario_2018}
 \begin{equation}
 \left\{\hat{a}_{k}, \hat{a}_{l}\right\}=\left\{\hat{a}_{k}^{\dagger}, \hat{a}_{l}^{\dagger}\right\}=0, \quad\left\{\hat{a}_{k}, \hat{a}_{l}^{\dagger}\right\}=\delta_{k l}.
 \label{CH2:Anticommutation}
 \end{equation}
-A convenience when working with these kind of Hamiltonians is that they can be diagonalised via a so-called Bogoliubov - Valantin transformation \cite{bogoljubov_new_1958}, also known as a canonical transformation, which maps fermionic creation and annihilation operators to creation and annihilation operators of non-interacting quasi-particles \cite{berezin_method_1966, bogoljubov_new_1958}. Explicitly, the transformation looks like
+These kind of Hamiltonians have the property that can be diagonalised via a Bogoliubov - Valantin transformation \cite{bogoljubov_new_1958,Mario_2018}, also known as a canonical transformation, which maps fermionic creation and annihilation operators to creation and annihilation operators of non-interacting quasi-particles \cite{berezin_method_1966, bogoljubov_new_1958}. Explicitly, the transformation looks like
 \begin{equation}
 \begin{array}{c}
 \hat{a}_{i} \mapsto \alpha \hat{q}_{i}+\kappa_{i} \hat{q}_{i}^{\dagger}, \\
@@ -24,9 +26,9 @@ A convenience when working with these kind of Hamiltonians is that they can be d
 \end{array}
 \label{CH2:Bogoliuvov}
 \end{equation}
-where $\alpha_i , \kappa_i$ are complex numbers such that preserves the canonical anti-commutation relations given by \eqref{CH2:Anticommutation} for $\hat{q}$, $\hat{q}^{\dagger}$. This relation can also be expresses as a condition over $\gamma_i, \kappa_i$,
+where $\alpha_i , \kappa_i$ are complex numbers such that preserves the canonical anti-commutation relations given by \eqref{ CH2:Anticommutation} for $\hat{q}$, $\hat{q}^{\dagger}$. This relation can also be expresses as a condition over $\gamma_i, \kappa_i$,
 \begin{equation}
- \gamma_i ^2+ \kappa_i^2 = 1,
+ \bar{\alpha}_i ^2+ \kappa_i^2 = 1,
 \end{equation}
 and 
 \begin{equation}
@@ -34,7 +36,7 @@ and
 \end{equation}
 The Bogoliubov-Valantin is relevant in many physics models because this transformation diagonalise many Hamiltonians; some examples of this are the Hubbard model, the BCS theory of superconductivity in the mean field or Hartree-Fock approximation, and certain solvable spin-chain models (After a Jordan-Wigner transformation) \cite{katsura_statistical_1962, barouch_statistical_1971, barouch_statistical_1970,fradkin_field_1997}.\\
 
-\indent Hamiltonians with the generic form of \eqref{CH2:QuadraticHamiltonian} have the interesting property that not only the ground state but every eigenstate representing a certain number of excitations of quasi-particles, described by $\hat{a}$ and $\hat{a}^{\dagger}$, belong to the so-called class of fermionic Gaussian states, which is an interesting property, since it allows us to characterise them in terms of second order correlations, and the reason is because all the higher moments factorize as stated in Wick’s theorem \cite{westwanski_general_1973, molinari_notes_2017}. An equivalent but convenient characterization of second order correlations are defined in terms of Majorana fermions as we will see bellow .
+\indent Hamiltonians with the form of \eqref{CH2:QuadraticHamiltonian} have the interesting property that not only the ground state but every eigenstate representing a certain number of excitations of quasi-particles, described by $\hat{a}$ and $\hat{a}^{\dagger}$, belong to the so-called class of fermionic Gaussian states, which is an interesting property, since it allows us to characterise them in terms of second order correlations, and the reason is because all the higher moments factorize as stated in Wick’s theorem \cite{westwanski_general_1973, molinari_notes_2017, Mario_2018,}. An equivalent but convenient characterization of second order correlations are defined in terms of Majorana fermions as we will see bellow \footnote{Taken from chapter $3$ of \cite{Mario_2018}}.
 
 \section{Majorana Fermions}
 Majorana fermions are represented in terms of $2N$ hermitian operators 
@@ -56,7 +58,7 @@ As we mentioned before, Gaussian states are completely characterised by its seco
 \rho= \frac{1}{Z} \cdot \exp \left[-\frac{i}{4} \hat{\gamma}^{T} G \hat{\gamma}\right],
 \label{CH2:rho_gaussiano_exp}
 \end{equation}
-with $\hat{\gamma} = (\hat{\gamma}_1,\hat{\gamma}_2,\ldots,\hat{\gamma}_{2N})$, the vector of Majorana operators \eqref{CH2:majorana}, $Z$ a normalization constant and $G$ real anti-symmetric $2N\times 2N$ matrix. Since $G$ is a skew-symmetric matrix, it can always be brought to the block diagonal form 
+with $\hat{\gamma} = (\hat{\gamma}_1,\hat{\gamma}_2,\ldots,\hat{\gamma}_{2N})$, the vector of Majorana operators \eqref{CH2:majorana}, $Z$ a normalization constant and $G$ real skew-symmetric $2N\times 2N$ matrix. Since $G$ is a skew-symmetric matrix, it can always be brought to the block diagonal form 
 \begin{equation}
 O G O^{T}=\left(\begin{array}{cc}
 0 & -\tilde{B} \\
@@ -78,7 +80,7 @@ where $\left[\hat{\gamma}_{k}, \hat{\gamma}_{l}\right] := \hat{\gamma}_{k}\hat{\
 \end{array}\right),
 \label{CH2:Williamson_Cov_fermionic_matrix}
 \end{equation}
-where $\lambda_k = \operatorname{tanh}(\tilde{\beta}_k/2)$, for $k=1,2\ldots,N$ \cite{kraus_pairing_2009} which determines the connection between the matrix $G$ in \eqref{CH2:MatrixG_Williamson} and the FMC $\Gamma$. The Williamson eigenvalues are $\lambda_k=n_k -1/2$, with $n_k$ the fermion occupation number of the normal mode labelled by $k$. \\
+where $\lambda_k = \operatorname{tanh}(\tilde{\beta}_k/2)$, for $k=1,2\ldots,N$ \cite{kraus_pairing_2009}, which determines the connection between the matrix $G$ in \eqref{CH2:MatrixG_Williamson} and the FMC $\Gamma$. The Williamson eigenvalues are $\lambda_k=n_k -1/2$, with $n_k$ the fermion occupation number of the normal mode labelled by $k$. \\
 \indent The equivalence between the special orthogonal group in $2N$ dimensions ($SO(2N)$) and the Fermionic Gaussian states, leads to an interesting  property about states describing multi-particles excitations. If $\ket{0}$ is the ground state of some Hamiltonian, with annihilation operators $\hat{a}_{i}$ in a given quasi-particle basis, then $\hat{a}_{i}^{\dagger}\ket{0} = \hat{c}_{2i}\ket{0}$. Meaning that if any multi-particle state of this kind is obtained from the ground state $\ket{0}$ through some transformation, such that preserves the canonical anti-commutation relation, the state will remain Gaussian. In other words, Gaussian states are preserved under any unitary transformation that preserves anti-commutation relations.\\
 \indent The fact that all eigenstates of the Hamiltonian in \eqref{CH2:QuadraticHamiltonian} are Gaussian is an important property, because it means that excited states can also be treated with the Covariance matrix formalism, and since we will be interested in the case of the excited states, it will be a property that we will exploit.\\
 \indent As an example of the afore-mentioned concepts, we will consider the case of the one-dimensional $XY$ model and we will see how is possible to characterise this system through the Fermionic covariance matrix. 
@@ -352,7 +354,7 @@ For the purpose of our work, the model of channel we will use, is the \textit{di
 \end{equation}
 defined for every pair $(\mathbf{x},\mathbf{y})\in F^{m}\times\Phi^m$, where $m$ ranges over all positive integers and $F^m/\Phi^m$ denotes the set of all words of length $m$ over $F/\Phi$. It is important to clarify that we assume that the channel neither deletes nor inserts symbols; that is, the length of the output word $\mathbf{y}$ always equals the length of the input word $\mathbf{x}$.\\
 \indent The input channel encoder is an \textit{information word} $\mathbf{u}$ out of $M$ possible information words (see figure \ref{CH2:Channel_communication_2}). The channel encoder generates a \textit{codeword} $\mathbf{c}\in F^n$ that is input to the channel. The resulting output of the channel is a received word $\mathbf{y}\in\Phi^n$, which is fed into the channel decoder. the decoder, in turn, produces a \textit{decoded codeword} $\hat{\mathbf{c}}$ and a \textit{decoded information word} $\hat{\mathbf{u}}$, with the aim of having $\mathbf{c}=\hat{\mathbf{c}}$ and $\mathbf{u}=\hat{\mathbf{u}}$. this implies that the channel encoder needs to be such that the mapping $\mathbf{u}\mapsto \mathbf{c}$ is one to one.
-\begin{definition}[Rate]
+\begin{definition}[Rate \cite{roth_2006}]
 The \textit{rate} of the channel encoder is defined as 
 \begin{equation}
 R = \frac{\log_{|F|}M}{n}.
@@ -361,9 +363,9 @@ R = \frac{\log_{|F|}M}{n}.
 If all information words have the same length over $F$, then this length is given by the numerator, $\log_{|F|}M$, in the expression for $R$. Since the mapping of the encoder is one-to-one, we have that $R\leq 1$.\\
 In the case where the input alphabet $F$ has the same size as the output alphabet $\Phi$, it will be convenient to assume that $F=\Phi$ and that the elements of $F$ form a finite Abelian group. We then say that the channel is an \textit{additive channel}.\\
 \indent Given an additive channel, let $\mathbf{x}$ and $\mathbf{y}$ be input and output words, respectively, both in $F^m$. the \textit{error word} is defined as the difference $\mathbf{x}-\mathbf{y}$, where the subtraction is taken component by component. The action of the channel can be described as adding an error word $\mathbf{e}\in F^m$ to the input word $\mathbf{x}$ to produce the output word $\mathbf{y} = \mathbf{x}+\mathbf{e}$.\\
-\indent When $F$ is an Abelian group, it contains the zero (or unit) element. The \textit{error locations} are indexes of the nonzero entries in the error word $\mathbf{e}$. Those entries are referred to as the \textit{error values}.
+\indent When $F$ is an Abelian group, it contains the zero (or unit) element. The \textit{error locations} are indexes of the nonzero entries in the error word $\mathbf{e}$. Those entries are referred to as the \textit{error values}\cite{roth_2006}\footnote{Taken from \cite{roth_2006}}.
 \subsection{Binary symmetric channel (BSC)}
-As an illustrative example, consider the input and output alphabets are $F=\Phi=\{0,1\}$, and for every two binary words $\mathbf{x}$, $\mathbf{y}$ for a given length $m$, 
+We consider as an example of the previous definitions the input and output alphabets are $F=\Phi=\{0,1\}$, and for every two binary words $\mathbf{x}$, $\mathbf{y}$ for a given length $m$, 
 \begin{align}
 \operatorname{Prob}\{\mathbf{y}\text{ received }|\mathbf{x}&\text{ transmited}\} \nonumber \\
 &=\prod_{j=1}^{m} \operatorname{Prob}\{y_j\text{ received }|x_j\text{ transmited}\},
@@ -377,12 +379,12 @@ where for every $x,y\in F$,
     \end{array}
 \right.
 \end{equation}
-The parameter $p$ is a real number $0\leq p\leq 1$ adn is called the \textit{crossover probability} of the channel.\\
+The parameter $p$ is a real number $0\leq p\leq 1$  is called the \textit{crossover probability} of the channel.\\
 \indent the action of the BSC can be described as flipping each input bit with probability $p$, independently of the past or the future. The channel is called symmetric since the probability of the flip is the same regardless of weather the input is $0$ or $1$.
 \subsection{Block codes}
-An $(n,M)$ (\textit{block}) code over a finite alphabet $F$ is a nonepty subset $\mathfrak{C}$ of size $M$ of $F^n$. The parameter $n$ is called the \textit{code length} and $M$ is the \textit{code size}. The \textit{information length} or \textit{codeword length} of $\mathfrak{C}$ is defined by $k=\log_{|F|}M$, and the \textit{rate} is $R=k/n$. The range of the mapping defined by the channel encoder in figure \ref{CH2:Channel_communication_2} forms an (n,M) code, and this in which the term $(n,M)$ code will be used. The elements of a code are called \textit{codewords}.\\
+An $(n,M)$ (\textit{block}) code over a finite alphabet $F$ is a nonepty subset $\mathfrak{C}$ of size $M$ of $F^n$. The parameter $n$ is called the \textit{code length} and $M$ is the \textit{code size}\cite{roth_2006}. The \textit{information length} or \textit{codeword length} of $\mathfrak{C}$ is defined by $k=\log_{|F|}M$, and the \textit{rate} is $R=k/n$. The range of the mapping defined by the channel encoder in figure \ref{CH2:Channel_communication_2} forms an (n,M) code, and this in which the term $(n,M)$ code will be used. The elements of a code are called \textit{codewords}\cite{roth_2006}.\\
 \indent In addition to the length and size of a code, we will be interested in quantifying how much the codewords in the code differ from each other. To do this, we will introduce the following definitions.
-\begin{definition}[Hamming distance]
+\begin{definition}[Hamming distance \cite{roth_2006}]
 Let $F$ be an alphabet. The Hamming distance between two codewords $\mathbf{x},\mathbf{y}\in F^n$ is the number of coordinates on which $\mathbf{x}$ and $\mathbf{y}$ differ. the Hamming distance will be denoted by $d(\mathbf{x},\mathbf{y})$.
 \end{definition}
 \indent It is easy to verify that the Hamming distance satisfies the following properties of a metric for every three words $\mathbf{x},\mathbf{y},\mathbf{z}\in F^n$.
@@ -391,7 +393,7 @@ Let $F$ be an alphabet. The Hamming distance between two codewords $\mathbf{x},\
 \item Symmetry: $d(\mathbf{x},\mathbf{y})=d(\mathbf{y},\mathbf{x})$.
 \item The triangle inequality: $d(\mathbf{x},\mathbf{y}) \leq d(\mathbf{x},\mathbf{z})+ d(\mathbf{z},\mathbf{y})$.
 \end{enumerate}
-\begin{definition}[Hamming weight]
+\begin{definition}[Hamming weight \cite{roth_2006}]
 Let $F$ be an Abelian group. The Hamming weight of $\mathbf{e}\in F^n$ is the number of nonzero entries in $\mathbf{e}$. We denote the Hamming weight by $w(\mathbf{e})$.
 \end{definition}
 \indent Notice that for every two words $\mathbf{x}, \mathbf{y}\in F^n$,
@@ -418,7 +420,7 @@ P_{\text{err}}(\mathbf{c}) = \sum_{\mathbf{y}:\mathcal{D}(\mathbf{y})\neq \mathb
 \end{equation}
 Note that $P_{\text{err}}(\mathbf{c}$ is the probability that the code word $\mathbf{c}$ will be decoded erroneously, given that $\mathbf{c}$ was transmitted.
 \subsubsection*{Maximum-likelihood decoding}
-We next consider particular strategies for codes and channels. Given an $(n,M,d)$ code $\mathfrak{C}$ over $F$ and a channel $S = (F,\Phi,\operatorname{Prob})$, a \textit{maximum-likelihood decoder} (MLD) for $\mathfrak{C}$ with respect to $S$ is the function $\mathcal{D}_{MLD}:\Phi^n\to \mathfrak{C}$ defined as follows: for every $\mathbf{y}\in \Phi^n$, the value  $\mathcal{D}_{MLD}$ equals the codeword $\mathbf{c}\in\mathfrak{C}$ that maximizes the probability
+Consider particular strategies for codes and channels. Given an $(n,M,d)$ code $\mathfrak{C}$ over $F$ and a channel $S = (F,\Phi,\operatorname{Prob})$, a \textit{maximum-likelihood decoder} (MLD) for $\mathfrak{C}$ with respect to $S$ is the function $\mathcal{D}_{MLD}:\Phi^n\to \mathfrak{C}$ defined as follows: for every $\mathbf{y}\in \Phi^n$, the value  $\mathcal{D}_{MLD}$ equals the codeword $\mathbf{c}\in\mathfrak{C}$ that maximizes the probability
 \begin{equation}
 \operatorname{Prob}\{\mathbf{y}\text{ received }|\mathbf{c}\text{ transmited}\},
 \end{equation}
@@ -435,19 +437,19 @@ and
 \mathcal{D}(011)=\mathcal{D}(101)=\mathcal{D}(110)=\mathcal{D}(111) = 111.
 \end{equation}
 This decoder is known as the vote majority decoder.\\
-\indent The probability $P_{\text{err}}$ equals the probability of having two or more errors
+\indent The probability $P_{\text{err}}$ equals the probability of having two or more errors \cite{roth_2006}
 \begin{align}
 P_{\text{err}} = P_{\text{err}}(000) = P_{\text{err}}(111) &= {3 \choose 2}p^2(1-p) + {3 \choose 3}p^3\nonumber\\
 &=3p^2-3p^3+p^3\nonumber\\
 &=3p^2-2p^3.
 \label{CH2:majority_vote}
 \end{align}
-Notice then that the error probability is dominated by the probability that two bits in a block of tree are flipped, which scales as $p^2$. Since our goal is to have decoders with small $P_{\text{err}}$, from equation \eqref{CH2:majority_vote} we conclude that $P_{\text{err}}$ is smaller than $p$ when $p<1/2$, which simply means that coding has improved the probability of error per message, compared to uncoded transmission. However, the price is reflected in the rate: three bits are transmitted for every bit implies a rate of $\log_2 M/n = 1/3$ .
+Notice then that the error probability is dominated by the probability that two bits in a block of tree are flipped, which scales as $p^2$. Since our goal is to have decoders with small $P_{\text{err}}$, from equation \eqref{CH2:majority_vote} we conclude that $P_{\text{err}}$ is smaller than $p$ when $p<1/2$, which simply means that coding has improved the probability of error per message, compared to uncoded transmission. However, the price is reflected in the rate: three bits are transmitted for every bit implies a rate of $\log_2 M/n = 1/3$.
 \subsubsection*{Nearest-codeword decoder}
 \indent We next consider a particular decoding strategy. A \textit{nearest-codeword decoder} for an $(n,M)$ code $\mathfrak{C}$ over $F$ is a function $F^n\to \mathfrak{C}$ whose value for every word $\mathbf{y}\in F^n$ is a closes codeword in $\mathfrak{C}$ to $\mathbf{y}$, where the term ``closest'' is with respect to the Hamming distance. A nearest-codeword decoder for $\mathfrak{C}$ is a decoder for $\mathfrak{C}$ with respect to any additive channel whose input and output alphabets are $F$.
 \subsubsection{Capacity of the binary symmetric channel}
 So far we have seen that coding allows to reduce the decoding error probability $P_{\text{err}}$, at the expense of transmitting at lower rates. As we will discuss, it is possible to achieve arbitrarily small values of $P_{\text{err}}$, while still transmitting at rates that are bounded away from $0$.\\
-\indent Define the \textit{binary entropy} function $\mathfrak{H}:[0,1]\to[0,1]$ by
+\indent The \textit{binary entropy} function $\mathfrak{H}:[0,1]\to[0,1]$ is defined by
 \begin{equation}
 \mathfrak{H}(x) = -x\log_2 x-(1-x)\log_2 (1-x),
 \label{CH2:Binary entropy}
@@ -461,9 +463,9 @@ These definitions will allows us to present a special case of two fundamental re
 \begin{theorem}[Shannon coding theorem for the BSC]
 Let s be the BSC with crossover probability $p$ and let $R$ be a real in the range $0\leq R \leq \operatorname{Cap}(S)$. there exist an infinite sequence of $(n_i,M_i)$ block codes over $F\{0,1\}$, $i=1,2,\ldots$, such that $(\log_2 M_i)/n_i\geq R$ and, for maximum-likelihood decoding for those codes (with respect to S), the decoding error probability $P_{\text{err}}$ approaches $0$ as $i\to \infty$.
 \end{theorem}
-\begin{theorem}[Shannon converse coding theorem for the BSC] Let $S$ be the BSC channel with crossover probability $p$ and let $R$ be a real greater than $\operatorname{Cap}(S)$. Consider any infinite sequence of $(n_i,M_i)$ block codes over $F=\{0,1\}, i = 1,2,\ldots$, such that $(\log_2 M_i)/n_i\geq R$ and $n_1< n_2<\cdots< n_i < \cdots$. Then, for any decoding scheme for those codes (with respect to S), the decoding error probability $P_{\text{err}}$ approaches $1$ as $i\to \infty$.
+\begin{theorem}[Shannon converse coding theorem for the BSC \cite{roth_2006}] Let $S$ be the BSC channel with crossover probability $p$ and let $R$ be a real greater than $\operatorname{Cap}(S)$. Consider any infinite sequence of $(n_i,M_i)$ block codes over $F=\{0,1\}, i = 1,2,\ldots$, such that $(\log_2 M_i)/n_i\geq R$ and $n_1< n_2<\cdots< n_i < \cdots$. Then, for any decoding scheme for those codes (with respect to S), the decoding error probability $P_{\text{err}}$ approaches $1$ as $i\to \infty$.
 \end{theorem}
-These theorems are know as the noisy-channel theorems for the special case of the BSC. A problem with announcing the theorems in this particular way is that are quite general results; meaning that the theorems only says that reliable communication with crossover probability $p$ and rate $R$ can be achieved by using code blocks with sufficiently large code length $n_i$\footnote{To see further details about the proof see \cite{mackay_information_2003}}. The theorem does not say how large $n$ needs to be to achieve given values of $R$ and $p$. Particularly, it is possible to show that $P_{\text{err}}$ in these theorems can be guaranteed to decrease exponentially with the code length $n_i$.\\
+These theorems are know as the noisy-channel theorems for the special case of the BSC. A problem with announcing the theorems in this particular way is that are quite general results; meaning that the theorems only says that reliable communication with crossover probability $p$ and rate $R$ can be achieved by using code blocks with sufficiently large code length $n_i$\footnote{To see further details about the proof see \cite{mackay_information_2003, roth_2006} and \textbf{explicitly} taken from \cite{roth_2006}}. The theorem does not say how large $n$ needs to be to achieve given values of $R$ and $p$. Particularly, it is possible to show that $P_{\text{err}}$ in these theorems can be guaranteed to decrease exponentially with the code length $n_i$.\\
 \indent For a discrete memoryless channel, a length code $n$ and rate $R$, there exist a block code $(n,M)$ whose average probability of error satisfies:
 
 \begin{equation}
@@ -475,24 +477,7 @@ where $E_r(R)$ is known as the \textit{random-coding exponent} of the channel, a
 
 \subsection{Levels of error handling}
 While the setting in previous sections was probabilistic, we will move to identify error words that are generated by an additive channel and are always recoverable, as long as the transmitted codewords are taken from a block code whose minimum distance is sufficiently large. The results we present here are combinatorial, meaning that they do not depend on the particular conditional probability of the channel.
-\subsubsection{Error correction}
-We consider channels $S=(F,\Phi,\operatorname{Prob})$ with $\Phi = F$.\\
-\indent Given an $(n,M,d)$ code $\mathfrak{C}$ over $F$, let $\mathbf{c}\in\mathfrak{C}$ be the transmitted codeword and $\mathbf{y}\in F^n$ be the received word. By \textit{error} we mean the event of changing an entry in the codeword $\mathbf{c}$. The number of errors equals $d(\mathbf{y},\mathbf{c})$, and the error locations are indexes of the entries in which $\mathbf{c}$ and $\mathbf{y}$ differ.\\
-\indent The task of error correction is recovering the error locations and the error values. In the next lemma we show that errors are always recoverable, as long as their number does not exceed a certain threshold, which depends on the code $\mathfrak{C}$.
-\begin{lemma}
-Let $\mathfrak{C}$ be an $(n,M,d)$ code over $F$. There is a decoder $\mathcal{D}: F^n \to \mathfrak{C}$ that recovers correctly every pattern up to $\lfloor(d-1)/2\rfloor$ errors for every channel $S=(F,F,\operatorname{Prob})$.
-\end{lemma}
-\begin{proof}
-Let $\mathcal{D}$ be a nearest-codeword decoder, namely, $\mathcal{D}(\mathbf{y})$ is a closes (with respect to the Hamming distance) codeword in $\mathfrak{C}$ to $\mathbf{y}$. Let $\mathbf{c}$ and $\mathbf{y}$ be the transmitted codeword and the received word, respectively, where $d(\mathbf{y}, \mathbf{c})\leq (d-1)/2$. Suppose to the contrary that $\mathbf{c}' = \mathcal{D}(\mathbf{y})\neq\mathbf{c}$. By the way $\mathcal{D}$ is defined,
-\begin{equation}
-d(\mathbf{y}, \mathbf{c}')\leq d(\mathbf{y}, \mathbf{c}) \leq (d-1)/2 . 
-\end{equation}
-So, by the triangle inequality,
-\begin{equation}
-d\leq d(\mathbf{c}, \mathbf{c}) \leq d(\mathbf{y}, \mathbf{c}) + d(\mathbf{y}, \mathbf{c}') \leq d-1, 
-\end{equation}
-which is a contradiction.
-\end{proof}
+
 \subsection{Random minimum distance codes and its error exponents}
 Having in mind that for minimum distance codes it is possible to perfectly recover the message up to a number of error of $\lfloor(d-1)/2\rfloor$, we will study the case of random minimum distance codes over the memoryless binary channel with crossover probability $p=1/2$.\\
 \indent Let  $\mathfrak{C}$ be a random block code $(n,M\equiv 2^{nR})$ over $F= \{0,1\}$ and rate $R$. This is known as a random code ensemble (RCE) and is obtained by uniformly random choosing each of the $n$ bits in each of the $M$ codewords independently. Equivalently, each of the $2^{nM}$ possible binary codes of length $n$ and rate $R$ in the RCE is assigned probability $2^{-nM}$.\\
