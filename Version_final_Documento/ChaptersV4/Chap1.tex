@@ -1,0 +1,311 @@
+\chapter{Canonical typicality and its connection to thermodynamics}
+%\epigraph{\textit{one can prove that infinitely many more initial states evolve after a long time towards a more uniform distribution of states than to a less uniform one, and that even in that latter case, these states will become uniform after an even longer time}''}{ (L. Boltzmann 1866)\cite{boltzmann1866mechanische}}
+Fundamental questions concerning the foundations of quantum statistical mechanics have been discussed and remain a debatable subject\cite{singh_foundations_2013}. In these questions the role of probabilities, entropy, the relevance of time averages and ensemble averages to individual physical systems are discussed thoroughly \cite{gemmer_quantum_2004} to answer whether or not they are needed to formalise statistical mechanics. One of the most controversial issues is the validity of the postulate of equal a priori probability, postulate which can not be proven\cite{singh_foundations_2013} and has been used since 1902 by Gibbs \cite{gibbs_elementary_1902}, who introduces the emergence of lack of knowledge to formalise the ideas of classical statistical mechanics. Along this chapter, we will discuss some of the ideas based on typicality addressed by several authors \cite{gemmer_quantum_2004, goldstein_canonical_2006, popescu_entanglement_2006}, who have abandoned the unprovable aforementioned postulate and have replaced it with a new viewpoint, which is purely quantum, and which does not rely on any ignorance probabilities in the description of the state.\\
+\indent This chapter is divided in three parts: First, we are going to discuss the thermodynamic entropy. To do this, we are going to compare the Gibbs entropy as well as the Boltzmann entropy, and we are going to argue that the correct thermodynamic entropy corresponds to the Boltzmann entropy. Also the quantum extension of these ideas are going to be discussed for the case of the quantum Gibbs entropy. The second part of the chapter, will be dedicated to understand the role of entanglement in connection with Statistical mechanics. We introduce the concentration phenomenon of canonical typicality, from which thermalisation will emerge as a consequence of typicality \cite{popescu_entanglement_2006, popescu_foundations_2005}. Finally, we will study a dynamical point of view of thermalisation proposed by Linden et. al. \cite{linden_quantum_2009}, to show that equilibration emerge as a generic property of local quantum systems. This will lead us to the main subject of our work, the property we named ultra-orthogonality. We will look under what conditions ultra-orthogonality is expected to happen and we will explicitly mention the problem that we will tackle in this document.
+
+
+\section{The idea of thermodynamic entropy}
+Science is often presented as a collection of universally accepted knowledge and discoveries, in which disagreement among scientists is often downplayed.
+Specifically, in physics many questions have been a matter of disagreement, where not only questions related with new discoveries have played a main role in the discussions, but also questions concerning concepts that have been taken for granted in the books, such as the interpretation of the quantum mechanics. Particularly, when we look at the foundations of statistical mechanics, two different formulations of entropy are often presented in the literature. The first one, proposed by Boltzmann \cite{boltzmann1871prioritat}, which provides a definition of thermodynamic entropy for an individual system, and the other one, proposed by Gibbs \cite{gibbs_elementary_1902}, which gives an entropy definition of a probability distribution over the phase space.\\
+
+\indent It is stated that the Gibbs entropy gives the correct thermodynamic entropy \cite{lr_statistical_1963}, since it yields to the correct thermodynamic predictions, while Boltzmann $H-$theorem is correct only in the case of ideal gases. However, there is a school of thought which holds that Boltzmann expression is directly related to the entropy, and the Gibbs' one is simply erroneous and misleading \cite{ehrenfest_conceptual_1959}.\\
+\indent Is not new that statistical physics based on the Gibbs interpretation has provided high accurate results that has yielded to the correct thermodynamic predictions. Hence, the problem behind the discussions relating the foundations of statistical mechanics are not referring to its usefulness, but instead, with subtle differences in the the interpretations behind these theories.
+\subsection{ Boltzmann entropy}
+Let  $X=(\vec{q}_1,\ldots,\vec{q}_N;\vec{p}_1,\ldots,\vec{p}_N)$ be the \textit{microstate} of a classical system at a time $t$, consisting of a large number $N$ of identical particles forming a gas in a box $\Lambda$. The evolution of the system is then determined via Hamilton's equations of motion
+\begin{equation}
+\frac{\mathrm{d} \vec{q}_i}{ \mathrm{d} t} = \frac{\partial H}{\partial \vec{p}_i}, \qquad \frac{\mathrm{d} \vec{p}_i}{ \mathrm{d} t} = -\frac{\partial H}{\partial \vec{q}_i},
+\end{equation}
+with $H(\vec{q}_1,\ldots,\vec{q}_N;\vec{p}_1,\ldots,\vec{p}_N)$ the Hamiltonian function. Since the energy $E$ is a constant, the evolution of the system is then confined to a set of Hamiltonians $\Omega_{E}$ such that fulfil the restriction $\Omega_{E}=\left\{(\vec{q},\vec{p})\in \Omega(\Lambda) | H(\vec{q},\vec{p})=E\right\}$, where we represent by $\Omega(\Lambda)$ the set of all possible states in the phase space. Now consider the subset $\Gamma$ of $\Omega_E$ ($\Gamma \subset \Omega_E$), as the set of all phase points that ``look macroscopically similar'' to $X$. In other words, every phase point $X$ has an associated \textit{macrostate}  $\Gamma(X)$ consisting of phase points that are macroscopically similar to $X$.\\
+ \indent Thus, if we reticulate the one-particle phase space ($\vec{q},\vec{p}$-space) into macroscopically small but microscopically large cells $\Delta_{\alpha}$, over each cell we can specify the number $n_\alpha$ of particles on each cell. By doing so, we will end up looking at a histogram which is a deterministic function of the microstate of the system and that specifies a macrostate over time. Notice that the histogram we are building is not a probability distribution, in fact, it corresponds to an instantaneous occupation number which tells us how many particles are in certain state, hence, probabilities are not needed to interpret the macrostate. However, the value of the histogram remains unknown for us, because we have no clue what the initial conditions were, hence, this is the moment probability plays a crucial role in Boltzmann's description.\\
+ 
+\indent One of the Boltzmann's great achievement in  \cite{boltzmann1871prioritat}, was to arrive at an understanding of the meaning of the \textit{Boltzmann entropy} as a measure of the set of all phase points that look macroscopically like $X$ ($\Gamma(X)$). Explicitly he found that the quantity\footnote{Boltzmann used the notation $H$ to refer to the entropy, we do not use it to not confuse it with the Hamiltonian. }
+\begin{equation}
+S(X)= k_{B} \log |\Gamma(X)|,
+\label{CH1:Boltzmann_entropy}
+\end{equation}
+%Notice that different specifications yield different macrostates and the set of all such macrostates defines a partition of our phase space $\Omega_E$ into macrostates compatible with the restriction of energy.
+gives an expression for the thermodynamic entropy, to which the Second law refers. Where $k_B$ is the Boltzmann's constant, and $|.|$ denotes the volume given by the Lesbege measure onto $\Omega_E$.\\
+\indent In his paper \cite{boltzmann1871prioritat} Boltzmann asks himself about the most common histogram that appears for a given macrostate. What he proved is that the vast majority of the points in the phase space have the property to end up looking as the histogram found when maximizing $S$, that is the histogram that corresponds to the equilibrium macrostate. Thus, $\Omega_E$ will consist almost entirely of phase points in the equilibrium macrostate $\Gamma_{Eq}$, with few exceptions, whose totality has volume of the order $10^N$ relative to that of $\Omega_E$. Moreover, for non-equilibrium phase points $X$ of energy $E$, the Hamiltonian dynamics, governing the motion of $X_t$ arising from $X$, would have to be exceptionally special to avoid reasonably quick carrying $X_t$ to $\Gamma_{Eq}$ and keep it there for a long time. \\
+\indent Even though Boltzmann's ideas provide the correct definition of thermodynamic entropy, Boltzmann entropy fails when we consider interacting systems\cite{garrido_boltzmann_2004, goldstein_boltzmann_2004 }. The work of Boltzmann in the next years \cite{boltzmann1866mechanische, boltzmann1877beziehung} was dedicated to include the interactions in his description. However, he never could include interactions to his theory and that was reflected in the fact that his predictions significantly differed from the experiments, thus, it opened the path for alternative formulations of statistical mechanics.
+\subsection{Gibbs entropy}
+For the sake of providing an alternative foundation of statistical mechanics, Gibbs proposed in his work \cite{gibbs_elementary_1902} a form of study statistical mechanics, where probability densities and \textit{ensembles} play the main role. In his development, ensembles were infinite sets of macroscopically identical systems, each represented by a correspondent microstate, being compatible with a macrostate, and the probabilities appeared when he decided to explain the state of the system through a probability density $\rho$ on its phase space.
+\begin{equation}
+S_{\mathcal{G}} (\rho) =-k \int \rho(X) \log\rho(X).
+\label{CH1:gibbs_entropy}
+\end{equation}
+This particular identification of the state of the system and the success of this theory, lead to link the \textit{Gibbs entropy} with the thermodynamic entropy. However, this particular identification, as pointed by Goldstein et. al. \cite{goldstein_boltzmanns_2001, goldstein_gibbs_2020}, is not correct. To understand the point of Goldstein et. al., note that first, the Gibbs entropy is computed by a function of $N$ particles instead of 1 particle as in Boltzmann's idea, and second, Gibbs entropy is a constant of motion. That is, if we write $\rho_t$ for the evolution on densities induced by the motion on phase space, we have that $S_{\mathcal{G}} (\rho_t)$ is independent of $t$, 
+\begin{equation}
+\frac{\mathrm{d} S_{\mathcal{G}}}{\mathrm{d} t} =0.
+\end{equation}
+It is frequently asked how this can be compatible with the second law if the entropy does not change. Ideas to answer these kind of questions have been proposed by Jaynes \cite{Jaynes1957InformationTA,doi:10.1119/1.1971557}, in which he argues that even though Gibbs entropy does not change over time, the distributions $\rho_t$ for posterior measurements will lead to an entropy $S_{\mathcal{G}}'$  such that $S_{\mathcal{G}}\leq S_{\mathcal{G}}'$ and thus, the second law will be recovered.
+This position has been strongly criticised by S. Goldstein et. al. \cite{goldstein_boltzmanns_2001, goldstein_gibbs_2020}, where they stated that the real thermodynamic entropy is the one provided by Boltzmann and that the Gibbs entropy is not even an entity of the right sort to describe what should be understood as the thermodynamic entropy, because in Gibbs entropy,  $\rho$ corresponds to a probability distribution, that is, a probability of an ensemble of systems, and it is not a function on phase space, a function of the actual state $X$ of an individual system. \\
+\indent One could wonder what is so attractive about the Gibbs entropy since it does not provide a correct interpretation of thermodynamics. The answer to this is simple: Gibbs' approach is simple, elegant and produce the correct answers when predicting thermodynamic quantities. In Gibbs' perspective, the idea of assigning a probability density function on the phase space $\Omega(\Lambda)$, not only allows us to compute expected values of observables, but it also let us understand the state of a subsystem by simply computing the corresponding marginal probability from the probability density describing the whole system of $N$ particles. Moreover, Gibbs' achievement \cite{gibbs_elementary_1902} was to realize that there is a canonical measure over the phase space that allows us to conveniently define our probabilities. The measure that allows us to do that is given by the Darboux theorem \cite{butterfield_symplectic_2007, butterfield_representation_2007}, and is known as the measure of the \textit{symplectic form}. Specifically, when Gibbs looked at the problem of the gas with constant energy and fixed volume, he assigned equal probabilities to all possible systems that look macroscopically like $X$. In his own words \cite{gibbs_elementary_1902}:
+\begin{quote}
+\textit{All microstates accessible to an isolated system are equally probable, because there is no evidence that certain microstate should be more probable than others.}
+\end{quote}
+
+\indent Namely, Gibbs considered that whenever a macroscopic system is at equilibrium, every state compatible with the constraints of the system has to be equally available (likely) compared to the others. Mathematically this translates into the choice of a constant density function, called the \textit{micro-canonical} ensemble.\\
+
+\indent The two notions of Gibbs and Boltzmann entropy are parallel to two notions of thermal equilibrium, notions that are described by Goldstein et. al.\cite{goldstein_gibbs_2020} as the \textit{ensemblist} and the \textit{individualist} point of view. In the view of the ensemblist, a system is in thermal equilibrium if and only if its phase point $X$ is random with the appropiate distribution, such as the micro-canonical distribution. In contrast, in the individualist view, a system is in thermal equilibrium if and only if its phase point $X$ lies in a certain subset $\Gamma_{Eq}$ of phase space. These two positions allow us to compare in a clearer way the main differences between Boltzmann and Gibbs entropy for classical systems. However, our world is quantum and the arguments we have discussed so far are classic. In the next section we are going to discuss how Gibbs can be implemented in the quantum case.
+
+\section{The quantum case}
+
+In quantum mechanics, a system is described by a vector in Hilbert space $\mathcal{H}$ and its evolution is generated by a Hamiltonian operator $\hat{H}$. Hence, when we consider a macroscopic quantum system with Hilbert space $\mathcal{H}$, we can think on translate Gibbs' ideas in a quantum mechanical context. First, any description of state of knowledge in a quantum mechanical systems has to be in terms of the maximum available information\cite{PhysRev.108.171}. That is, the quantum systems has to be in a quantum pure state $\ket{\psi_1}$ with probability $p_1$ or it may be in the state $\ket{\psi_2}$ with probability $p_2$, etc. All the alternatives $\ket{\psi_i}$ are not necessarily mutually orthogonal, but each may be expanded in terms of a complete orthonormal set of functions $\ket{\phi_k}$
+
+\begin{equation}
+\ket{\psi_{i}} = \sum_{k}c_{ki}\ket{\phi_k}.
+\end{equation}
+This state of knowledge is interpreted by a point $P_i$ with coordinates $c_{ki}$. At each point $P_i$, we place a weight $p_i$, such that at the end we have a collection of weights $p_i$ assigned to a state. Since each of the possible wave functions is normalised to unity,
+\begin{equation}
+\braket{\psi_{i},\psi_{i}} = \int |\psi_i|^2 d\tau =1, 
+\end{equation}
+we have that 
+\begin{equation}
+\sum_k |c_{ik}|^2= 1,
+\end{equation}
+and all points $P_i$ lie over the unit hypersphere. If each of the possible states $\ket{\psi_i}$ satisfies the same Schr\"odinger equation, then as time goes on, the dynamics of the points $P_i$ can be seen as a rigid rotation hypersphere. Hence, the measure over which we assign the probabilities have to be an invariant measure over unitary transformations and a uniform measure over the sphere. This measure is known as the \textit{Haar measure}. Moreover, $p_i$ are not in general the probabilities of mutually exclusive events. In quantum mechanics, if a state is known to be in the 	state $\ket{\psi_i}$, then the probability of finding it upon measurement $\ket{\psi_j}$ is given by $|\braket{\psi_{i},\psi_{i}}|^2$. Therefore, the probabilities $p_i$ refer to independent mutually exclusive events only when the states $\ket{\psi_i}$ are mutually orthogonal states. Since nothing assures that we only work with orthogonal states, it is convenient to define an entropy that takes this into account
+\begin{equation}
+S_{vN}(\hat{\rho}) = -k\operatorname{Tr}(\hat{\rho}\log \hat{\rho}),
+\end{equation}
+where $\hat{\rho}$ corresponds to the density matrix. This expression is known as the \textit{quantum Gibbs entropy} or simply  as the \textit{von Neumann entropy} \cite{von_neumann_mathematical_1955}. Note that this definition of entropy assigns zero entropy to any quantum pure state, and that similarly as in the classical case, this entropy is a constant in time, meaning that it can not account for the second law of thermodynamics.\\	
+\indent This ensemblist viewpoint has been criticised \cite{mccrea_1939, TERHAAR1995216, goldstein_gibbs_2020, goldstein_boltzmanns_2001} to rely on subjective randomness and ensemble averages that in certain occasions do not have a clear physical meaning. However, in the last decades, there has been a wave of works dedicated to quantum thermalisation \cite{popescu_foundations_2005, goldstein_canonical_2006, gemmer_thermalization_2006, popescu_entanglement_2006, goldstein_approach_2010, kaufman_quantum_2016, gogolin_equilibration_2016 }, which often are connected with the key words \textit{eigenstate thermalization hypothesis} (ETH), and \textit{canonical typicality}, in which an individualist viewpoint is addressed. A common factor in all these works is that an individual, closed, macroscopic quantum system in a pure state $\ket{\psi(t)}$, that evolves unitarily, under conditions usually satisfied, will behave very much as one would expect from a system in thermal equilibrium to behave \cite{goldstein_gibbs_2020}. In the next section, we will introduce the ideas behind typicality and we will dive in the details of it.
+
+
+\section{Canonical typicality}
+
+The purpose of this section is to explain why in quantum systems, the ensemblist ideas are not necessary to explain thermalisation, and an individualist view point can be used instead.\\
+\indent Consider a large quantum mechanical system, we will call it \textit{the universe}, that can be decomposed in two parts, the system $S$ and its environment $E$, where the dimension of the environment $d_{\mathcal{E}}$ is considered to be much larger than the  dimension of the system $d_{\mathcal{S}}$. Now, suppose the universe has to obey some global constraint $R$, which translates into the choice of a subspace of the total Hilbert space, say
+ \begin{equation}
+ \mathcal{H}_{R} \subset \mathcal{H}_{\mathcal{S}} \otimes \mathcal{H}_{\mathcal{E}},
+ \label{CH1:Tipicality_1}
+ \end{equation}
+where the dimension of $\mathcal{H}_{R}$ is denoted  by  $d_R$. When we deal with the standard approach in statistical mechanics, the restriction is imposed over the total energy. However, as Popescu et. al. emphasise in \cite{popescu_entanglement_2006, popescu_foundations_2005}, this restriction can be completely arbitrary and not necessarily referring to the energy.\\
+\indent Let $\mathcal{E}_R$ be the equiprobable state in $\mathcal{H}_{R}$,
+\begin{equation}
+\mathcal{E}_{R} = \frac{\mathbb{I}_R}{d_R},
+\end{equation}
+where $\mathbb{I}_R$ corresponds to the projector operator on $\mathcal{H}_R$, and $\mathcal{E}_R$ correspond with the maximally mixed state in $\mathcal{H}_R$, because it corresponds to the state of maximum ignorance in $\mathcal{H}_R$.\\
+\indent We define $\Omega_S$, the canonical state of the system corresponding to the restriction $R$, as the quantum state of the system when the universe is in the equiprobable state $\mathcal{E}_R$. The canonical state of the system $\Omega_S$ is therefore obtained by tracing out the environment in the equiprobable state of the universe:
+\begin{equation}
+\Omega_{S}=\operatorname{Tr}_{E} \mathcal{E}_{R}.
+\label{CH1:Canonical_state}
+\end{equation}
+Now, instead of considering the universe in the equiprobable state $\mathcal{E}_R$, we consider the universe to be in a random pure state $\ket{\phi}\in \mathcal{H}_R$. In that case, the system will be described by its reduced density matrix
+\begin{equation}
+\rho_{S}=\operatorname{tr}_{B}(|\phi\rangle\langle\phi|).
+\label{CH1:Reduced_density_random_pure_state}
+\end{equation}
+In the spirit of Boltzmann's ideas one could think that at an individual level, thermalisation may appear as consequence that the vast majority of states have the property that they equilibrate. As we will see, here we address similar ideas from a quantum point of view. Thus, we ask ourselves, ``how different is $\rho_S$ form the canonical state $\Omega_S$?''. The answer to this question is addressed by Popescu et. al. in \cite{popescu_entanglement_2006,popescu_foundations_2005}, which states that $\rho_S$ is very close to $\Omega_S$ for almost every pure state compatible with the constraint $R$. That is, for almost every pure state of the universe, the system behaves as if the universe were actually in the equiprobable mixed state $\mathcal{E}_R$. \\
+%\indent As an illustrative analogy to typicality, consider our universe obeying the global constraint $R$ as a map chart in which we see nothing but a vast ocean representing the pure states such that its reduced state is approximately the canonical state and some islands representing those states that drastically differ from the canonical state.\\
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[width=0.9\textwidth]{Figures/ocean-of-typicality.png}
+%\caption{Illustration of the canonical typicality in a map chart. The boat here refers to a random picked state in our universe, and the islands refer to those states who radically differ from the Canonical state.}
+%\label{figura_tipicidad}
+%\end{figure}
+\indent To formally express canonical typicality, it is necessary to first define a notion of distance between the states $\rho_S$ and $\Omega_S$, as well as a measure over which pure states $\ket{\phi}$ are defined.\\
+\indent We define the trace distance between $\rho_S$ and the canonical state $\Omega_S$, by  $||\rho_S-\Omega||_1$, this distance is explicitly calculated by
+\begin{equation}
+||\rho||_1=\operatorname{Tr}|\rho|=\operatorname{Tr}\left(\sqrt{\rho^{\dagger} \rho}\right).
+\label{CH1:Trace_distance}
+\end{equation}
+Consider $\ket{\phi}$ to be a pure state in $\mathcal{H}_R$, with respective dimension $d_R$. As the state is normalized ($\langle\phi | \phi\rangle=1$) we know that the pure state $\ket{\phi}$ lives in a ($2d_R-1$)-dimensional real sphere. Thus, the states the state $\ket{\phi}$ lives over the sphere surface of $d_R$ dimensions. Hence, if we randomly sample pure states, we will have to sample them with the previously discussed Haar measure, which is the measure that is invariant under unitary transformations.\\
+\indent Once defined the notion of distance as well as the measure over which the states are sampled, we are ready to announce the theorem of canonical typicality.
+% clarified the Now with the notion of the distance we chose to work with, and the space where these pure states live in, we are ready to announce the general result in typicality.\\
+\begin{theorem}[Theorem of Canonical Typicality \cite{popescu_entanglement_2006,popescu_foundations_2005}.]
+For a random chosen state, sampled with the Haar measure, $\ket{\phi}\in\mathcal{H}_R\subset\mathcal{H}_S\otimes\mathcal{H}_B$ and arbitrary $\varepsilon >0$ the distance between the reduced density matrix $\rho_{S}=\operatorname{Tr}_{E}(|\phi\rangle\langle\phi|)$ and the canonical state $\Omega_S=\operatorname{Tr}_E\mathcal{E}_R$ is given probabilistically by:
+\begin{equation}
+\operatorname{Prob}\left(\left\|\rho_{S}-\Omega_{S}\right\|_{1} \geq \eta\right) \leq \eta^{\prime},
+\label{CH1:Typicality_result_1}
+\end{equation}
+where
+\begin{equation}
+\eta=\varepsilon+\sqrt{\frac{d_{S}}{d_{E}^{\mathrm{eff}}}}, \quad \eta^{\prime}=2 \exp \left(-C d_{R} \varepsilon^{2}\right),
+\label{CH1:Typicality_result_1_1}
+\end{equation}
+with
+\begin{equation}
+C=\frac{1}{18 \pi^{3}}, \quad d_{E}^{\mathrm{eff}}=\frac{1}{\operatorname{Tr} \Omega_{E}^{2}}\geq \frac{d_R}{d_S}, \quad \Omega_{E}=\operatorname{Tr}_{S} \mathcal{E}_{R}.
+\label{CH1:Typicality_result_1_2}
+\end{equation}
+\end{theorem}
+
+Note that $\eta$ and $\eta'$ are small quantities, thus, we can assert that whenever $d^{\mathrm{eff}}_E\ggg d_S$ and $d_R\varepsilon^2\ggg 1$, every reduced state will be close to its correspondent canonical state. What this results tells us is that probabilistically speaking, if the dimension of the accessible space ($d_R$) is large enough, we will have that for the overwhelming majority of choices of random pure states, will have almost certainly that every subsystem, with small enough dimension, will be indistinguishable from the canonical state. Moreover, Popescu et. al \cite{popescu_entanglement_2006} found a bound to the average differences between the state of the system (the reduced state) and the canonical state. Explicitly, using the levy lemma, they are able to show 
+
+\begin{equation}
+\left\langle\left\|\rho_{S}-\Omega_{S}\right\|_{1}\right\rangle \leq \sqrt{\frac{d_S}{d_E^{\mathrm{eff}}}}\leq\sqrt{\frac{d_{S}^{2}}{d_{R}}}.
+\label{CH1:Typicality_result_2}
+\end{equation}
+
+This bound tells us that most of pure states constrained to a global restriction have the property that when we look at the local state of the system it seem to behave as the thermal state.\\
+\indent Despite this result explains very well the reason why by randomly choosing a state $\ket{\phi}$ over the Haar measure, it coincides with the canonical state in almost all cases, it does not explain the way a state out of equilibrium (an atypical state), reaches equilibrium. The reason for that is that no particular evolution was considered here and only probabilistic arguments were used. This means that typicality is a kinematic description of thermalisation. However, because almost all states of the universe have the property that the local states are approximately the canonical state, we anticipate that most evolutions will quickly carry a state in which the system is not thermalised to one in which it is. Namely, in the next section we will see how from a typicality viewpoint,  Linden et. al.\cite{linden_quantum_2009} were able to show that thermalisation can occur in a system reliant on a unitary dynamic.
+
+\section{Evolution towards equilibrium.}
+
+Typicality is kinematic result, meaning that is only valid for a given time and a given state, and were unitary evolution does not play a role. Specifically, we are interested in states that are atypical, in the sense that are states that locally differ from the canonical state. As pointed out by Linden et. al.\cite{linden_quantum_2009}, to prove thermalisation is a much complicated problem since a closer look of the elements present in thermalisation, shows that equilibration, environment state independence, system state independence and the Boltzmannian form of the state of equilibrium are needed to assure that thermalisation has taken place. Specifically, the result obtained by Linden et. al. in \cite{linden_quantum_2009} addressed only the first two elements, showing that, equilibrium can be understood as a local universal property of quantum systems. It is important to stress that when we refer to equilibrium we do not necessarily refer to thermal equilibrium; indeed, the equilibrium state can be an arbitrary state with only the property that it does not change over time.\\
+\indent To understand how is possible to prove that equilibrium appear as a ``typical behaviour'' in quantum systems. It is important to first define some concepts that we have used before but that we consider are important to make explicit.\\
+
+\textbf{Universe, system and environment:} For us the universe will always refer to a large quantum system living in a Hilbert space $\mathcal{H}$. As before, our universe is always decomposed in two,  and in this decomposition we refer to the system $S$ as a small part of the total Hilbert space. The remaining, we will call it the environment. Explicitly, we will always decompose the Hilbert space of the universe as a tensor product of the Hilbert space of the system and the environment, $\mathcal{H}=\mathcal{H}_S\otimes \mathcal{H}_E$, where $d_S$ and $d_E$ are the respective dimension of the system and the environment. 
+
+Note that neither the environment nor the system have been provided with any special property, meaning that for this formulation, the system could be a single particle or even a section of a lattice.\\
+\indent For the sake of proving the result in \cite{linden_quantum_2009}, we also define the Hamiltonian of the universe as:
+\begin{definition}[Hamiltonian]
+The evolution of the universe will be governed by a Hamiltonian given by
+\begin{equation}
+\hat{H}=\sum_{k}E_k\ket{E_k}\bra{E_k},
+\label{CH1:Hamiltonian_universe_linden}
+\end{equation}
+with $\ket{E_k}$ the eigenstate in the energy basis with energy $E_k$. Where the main required assumption is that the Hamiltonian has non-degenerate energy gaps.
+\end{definition}
+%related with the possible values of energies this Hamiltonian can have. The only requirement needed the Hamiltonian to have non-degenerate energy gaps.
+Expressing this condition in a more  explicit way, it is said that a Hamiltonian has no-degenerate energy gaps if any non-zero difference of eigenvalues of energy determine the two energy values involved. That is, for any four eigenstates with energy $E_k$, $E_\ell$, $E_m$, $E_n$, satisfy that if $E_{k}-E_{\ell}=E_{m}-E_{n}$, then $m=n$ and $k=\ell$, or $k=m$ and $\ell = n$. \\
+\indent Notice that the restriction imposed to the Hamiltonian is an extremely natural constraint, because all Hamiltonians that lack of symmetries have non-degenerate energies, so we talk about a set of Hamiltonians with measure $1$ that fulfils this condition.\\
+\textbf{Notation:} We will work here with pure time dependent states of the universe, states that will be represented by $\ket{\Psi(t)}$ with a time dependent density matrix given by $\rho(t) =\ket{\Psi(t)}\bra{\Psi(t)}$. 
+
+As the state of the system at a time $t$ can be found by tracing out the environment, that is, $\rho_S(t)=\operatorname{Tr}_E \rho(t)$,identically, we define the state of the environment as $\rho_E(t)=\operatorname{Tr}_S \rho(t)$.\\
+\indent It is convenient to define the transient states of the universe, or the time averaged state $\omega$ as
+\begin{equation}
+\omega=\langle\rho(t)\rangle_{t}=\lim _{\tau \rightarrow \infty} \frac{1}{\tau} \int_{0}^{\tau} \rho(t) d t.
+\label{CH1:average_time_state}
+\end{equation}
+This definition allows us to also define $\omega_s$ and $\omega_E$ as the time averaged state of the system and the environment respectively. Finally, we introduce the concept of the effective dimension of a mixed state $\rho$:
+\begin{equation}
+d^{\mathrm{eff}}(\rho)=\frac{1}{\operatorname{Tr}\left(\rho^{2}\right)}.
+\label{CH1:Effective_dimension}
+\end{equation}
+The meaning of this effective dimension is how many states contribute to the mixture, carrying the probabilistic weight of different states, and different than the support of an operator in the Hilbert space, it is a continuous measure.\\
+\indent With the concepts aforementioned, Linden et. al.  \cite{linden_quantum_2009} are able to show that every pure state of a quantum universe, composed by a large number of eigenstates of energy, and that evolves under an arbitrary Hamiltonian, is such that every small system will equilibrate. The reason of consider the global state to have many eigenstates of energy is because if there are many eigenstates, we can assure that there will be a large quantity of changes throughout the evolution of the system. The notion of evolving through many states can be mathematically encapsulated via the effective dimension of the time average state $\omega=\langle\rho(t)\rangle_{t}$, and the connection between this and the number of eigenstates is with ease seen by expanding a time dependent state $\ket{\Psi(t)}$ as
+
+%\footnote{The reason why we need the global state to have many eigenstates of energy is because by imposing this we can assure that there will be a large quantity of changes throughout the evolution of the system.}
+%\indent Where the reason of requiring the universe to have many changes in its time evolution, is because for equilibration to take place it is needed that part of the information of the initial state of the system leaves the system and enters in the environment. This notion of evolving through many states can be mathematically encapsulated via the effective dimension of the time average state $\omega=\langle\rho(t)\rangle_{t}$, and the connection between this and the number of eigenstates is with ease seen by expanding $\ket{Psi(t)}$ as
+\begin{equation}
+|\Psi(t)\rangle=\sum_{k} c_{k} e^{-i E_{k} t}\left|E_{k}\right\rangle
+\label{CH1:expansion_1}
+\end{equation}
+where $\sum_{k}\left|c_{k}\right|^{2}=1$ and hence
+\begin{equation}
+\rho(t)=\sum_{k, l} c_{k} c_{l}^{*} e^{-i\left(E_{k}-E_{l}\right) t}\left|E_{k}\right\rangle\left\langle E_{l}\right|,
+\label{CH1:expansion_2}
+\end{equation}
+that can be expanded and written as
+\begin{equation}
+\begin{aligned}
+\rho(t)=\underbrace{\sum_{n}\|c_{n}\|^{2}\ket{E_{n}}\bra{E_{n}}}_{\omega}&+\underbrace{\sum_{m \neq n} c_{n} c_{m}^{*}\ket{E_{n}}\bra{E_{m}} e^{-i t\left(E_{n}-E_{m}\right)}}_{\lambda (t)} \\
+&=\omega+\lambda(t).
+\end{aligned}
+\label{CH1:Expansion_to_use_after}
+\end{equation}
+For the case of non-degeneracy of the energy levels, we have that the cross-terms vanish, that is
+\begin{equation}
+\omega=\langle\rho(t)\rangle_{t}=\sum_{k}\left|c_{k}\right|^{2}\left|E_{k}\right\rangle\left\langle E_{k}\right|,
+\label{CH1:expansion_3}
+\end{equation}
+which leads us to 
+\begin{equation}
+d^{\mathrm{eff}}(\omega)=\frac{1}{\operatorname{Tr}\left(\omega^{2}\right)}=\frac{1}{\sum_{k}\left|c_{k}\right|^{4}}.
+\label{CH1:expansion_4}
+\end{equation}
+In the same way as in typicality, we are going to ask ourselves about the distance between $\rho_{S}(t)$ and $\omega_{S}=\left\langle\rho_{S}(t)\right\rangle_{t}$. To do this, we first compute the difference between $\rho_S(t)$ and $\omega_{S}$ in terms of the energy eigenstates as
+%where $D$ will refer to the trace distance we already discussed.
+%\footnote{Here has in the case of typicality we use the trace distance.}, 
+\begin{equation}
+\rho_{S}(t)-\omega_{S}=\sum_{m \neq n} c_{m} c_{n}^{*} e^{-i\left(E_{m}-E_{n}\right) t} \operatorname{Tr}_{E}\left|E_{m}\right\rangle\left\langle E_{n}\right|.
+\label{CH1:expansion_5}
+\end{equation}
+Since in general we know that $\rho_S(t)$ fluctuates around the state $\omega_S$, it is evident that the distance between them will change over time. Thus, we will be interested in the time average of the trace distance $\langle ||\rho_{S}(t)- \omega_{S}||_1\rangle_t$. The value this average takes will tell us about where the system is spending most of its time. In other words, $\langle ||\rho_{S}(t)- \omega_{S}||_1\rangle_t$ will be small when the system equilibrates to $\omega_S$. To be able to prove what is announced as the \textit{Theorem 1} in \cite{linden_quantum_2009} it is useful to relate the trace distance to the square of the Hilbert-Schmidt distance using a standard bound provided in \cite{fuchs_cryptographic_1999}
+\begin{equation}
+||\rho_{1}-\rho_{2}||_1=\frac{1}{2} \operatorname{Tr}_{S} \sqrt{\left(\rho_{1}-\rho_{2}\right)^{2}} \leq \frac{1}{2} \sqrt{d_{S} \operatorname{Tr}_{S}\left(\rho_{1}-\rho_{2}\right)^{2}}.
+\label{CH1:Linden_proof_1}
+\end{equation}
+Which combined with the concavity of the square-root function, yields:
+\begin{equation}
+\left\langle ||\rho_{S}(t)- \omega_{S}||_1\right\rangle_{t} \leq \sqrt{d_{S}\left\langle\operatorname{Tr}_{S}\left[\rho_{S}(t)-\omega_{S}\right]^{2}\right\rangle_{t}},
+\label{CH1:Linden_proof_2}
+\end{equation}
+that provides us the bound we need to proof the theorem. Now using \eqref{CH1:expansion_5} we write:
+\begin{equation}
+\left\langle\operatorname{Tr}_{\mathcal{S}}\left[\rho_{\mathcal{S}}(t)-\omega_{\mathcal{S}}\right]^{2}\right\rangle_{t}=\sum_{m \neq n} \sum_{k \neq l} \mathcal{T}_{k l m n} \operatorname{Tr}_{\mathcal{S}}\left(\operatorname{Tr}_{E}\left|E_{k}\right\rangle\left\langle E_{l}\left|\operatorname{Tr}_{E}\right| E_{m}\right\rangle\left\langle E_{n}\right|\right),
+\end{equation}
+where $\mathcal{T}_{k l m n}=c_{k} c_{l}^{*} c_{m} c_{n}^{*} e^{-i\left(E_{k}-E_{l}+E_{m}-E_{n}\right) t}$. We compute the time average taking into account that the Hamiltonian has non-degenerate energy gaps, thus, we find that
+%\footnote{This condition is reflected in the evaluation by considering the terms where $k\neq\ell$ and $m\neq n$, leading to $m=\ell$ and $k=n$ are the only terms that contribute.} 
+
+\begin{equation}
+\begin{aligned}
+\left\langle\operatorname{Tr}_{S}\left[\rho_{S}(t)-\omega_{S}\right]^{2}\right\rangle_{t} &=\sum_{k \neq l}\left|c_{k}\right|^{2}\left|c_{l}\right|^{2} \operatorname{Tr}_{S}\left(\operatorname{Tr}_{E}\left|E_{k}\right\rangle\left\langle E_{l}\left|\operatorname{Tr}_{E}\right| E_{l}\right\rangle\left\langle E_{k}\right|\right) \\
+&=\sum_{k \neq l}\left|c_{k}\right|^{2}\left|c_{l}\right|^{2} \sum_{s s^{\prime} b b^{\prime}}\left\langle s b | E_{k}\right\rangle\left\langle E_{l} | s^{\prime} b\right\rangle\left\langle s^{\prime} b^{\prime} | E_{l}\right\rangle\left\langle E_{k} | s b^{\prime}\right\rangle\\
+&=\sum_{k \neq l}\left|c_{k}\right|^{2}\left|c_{l}\right|^{2} \sum_{s s^{\prime} b b^{\prime}}\left\langle s b | E_{k}\right\rangle\left\langle E_{k} | s b^{\prime}\right\rangle\left\langle s^{\prime} b^{\prime} | E_{l}\right\rangle\left\langle E_{l} | s^{\prime} b\right\rangle \\
+&=\sum_{k \neq l}\left|c_{k}\right|^{2}\left|c_{l}\right|^{2} \operatorname{Tr}_{E}\left(\operatorname{Tr}_{S}\left|E_{k}\right\rangle\left\langle E_{k}\left|\operatorname{Tr}_{S}\right| E_{l}\right\rangle\left\langle E_{l}\right|\right)\\
+&=\sum_{k \neq l} \operatorname{Tr}_{E}\left[\operatorname{Tr}_{S}\left(\left|c_{k}\right|^{2}\left|E_{k}\right\rangle\left\langle E_{k}\right|\right) \operatorname{Tr}_{S}\left(\left|c_{l}\right|^{2}\left|E_{l}\right\rangle\left\langle E_{l}\right|\right)\right] \\
+&=\operatorname{Tr}_{E} \omega_{E}^{2}-\sum_{k}\left|c_{k}\right|^{4} \operatorname{Tr}_{S}\left[\left(\operatorname{Tr}_{E}\left|E_{k}\right\rangle\left\langle E_{k}\right|\right)^{2}\right] \\
+&\leq \operatorname{Tr}_{E} \omega_{E}^{2},
+\end{aligned}
+\label{CH1:Linden_proof_3}
+\end{equation}
+where $\omega_E=\operatorname{Tr}_S \omega$. To obtain a further bound, we invoke weak sub-additivity of the Re\'enyi entropy \cite{camilo_strong_2019}
+\begin{equation}
+\operatorname{Tr}\left(\omega^{2}\right) \geq \frac{\operatorname{Tr}_{E}\left(\omega_{E}^{2}\right)}{\operatorname{rank}\left(\rho_{S}\right)} \geq \frac{\operatorname{Tr}_{E}\left(\omega_{E}^{2}\right)}{d_{S}}.
+\label{CH1:Linden_proof_4}
+\end{equation}
+Hence, combining \eqref{CH1:Linden_proof_2}, \eqref{CH1:Linden_proof_3} and \eqref{CH1:Linden_proof_4} we get
+\begin{equation}
+\left\langle ||\rho_{S}(t)- \omega_{S}||_1\right\rangle_{t} \leq \frac{1}{2} \sqrt{d_{S} \operatorname{Tr}_{E}\left(\omega_{E}^{2}\right)} \leq \frac{1}{2} \sqrt{d_{S}^{2} \operatorname{Tr}\left(\omega^{2}\right)}.
+\label{CH1:Inequality_last}
+\end{equation}
+By taking the definition of effective dimension, we get the main result shown in \cite{linden_quantum_2009}
+\begin{equation}
+\left\langle ||\rho_{S}(t)- \omega_{S}||_1\right\rangle_{t} \leq \frac{1}{2} \sqrt{\frac{d_{S}}{d^{\mathrm{eff}}\left(\omega_{E}\right)}} \leq \frac{1}{2} \sqrt{\frac{d_{S}^{2}}{d^{\mathrm{eff}}(\omega) }}.
+\label{CH1:Result_linden}
+\end{equation}
+As we can see, the result obtained by Linden et. al. tells us that the vast majority of quantum systems, in which the dynamics of the universe is governed by a Hamiltonian with no gaps, will spend most of its time close to its equilibrium state independently of its initial state. Note that this result is not necessarily considering that the state of equilibration will coincide with the canonical state, but since we expect to have thermal typicality in the system, that state of equilibrium will coincide with the thermal equilibrium.
+\section{Consequences of typicality}
+We presented typicality as an alternative mechanism to understand thermalisation in large quantum systems, and we saw how these ideas let us explain equilibration in large quantum systems. The purpose of this section will be to point some of the consequences within typicality.\\
+\indent Consider two different orthogonal pure states living in the same Hilbert subspace ($\ket{E_n},\ket{E_m} \in \mathcal{H}_{R}$), the Hilbert subspace associated with the global restriction $R$. From typicality, we know that the each of the reduced states of $\ket{E_n},\ket{E_m}$ approximately leads to the canonical state, that is,
+\begin{equation}
+\operatorname{Tr}_{\mathcal{E}} \ket{E_n}\bra{E_n} \approx \operatorname{Tr}_{\mathcal{E}} \ket{E_m}\bra{E_m} \approx \Omega_{\mathcal{S}}.
+\end{equation}
+Consider a third state $\ket{\Psi}$ to be a generic linear combination of $\ket{E_n}$ and $\ket{E_m}$. In this case we will have that the density matrix associated with the third state is:
+\begin{equation}
+\begin{aligned}
+\rho &= \ket{\Psi}\bra{\Psi}\\
+&= \|c_n\|^2 \ket{E_n}\bra{E_n} +  \|c_m\|^2 \ket{E_m}\bra{E_m} \\
+& + c_n c^{*}_m  \ket{E_n}\bra{E_m}+ c_m c^{*}_n \ket{E_m}\bra{E_n}.
+\end{aligned}
+\label{CH1:State_as_function_of_time}
+\end{equation}
+If we take the partial trace of the equation \eqref{CH1:State_as_function_of_time}, we will end up with the state of the system,
+\begin{equation}
+\begin{aligned}
+\Omega(E) &\approx \operatorname{Tr}_E \rho = \operatorname{Tr}_E  \ket{\Psi}\bra{\Psi}\\
+&= \|c_n\|^2\operatorname{Tr}_E  \ket{E_n}\bra{E_n} +  \|c_m\|^2 \operatorname{Tr}_E \ket{E_m}\bra{E_m} \\
+& + c_n c^{*}_m  \operatorname{Tr}_E \ket{E_n}\bra{E_m} + c_m c^{*}_n \operatorname{Tr}_E \ket{E_m}\bra{E_n}.
+\end{aligned}
+\label{CH1:State_as_function_of_time_system}
+\end{equation}
+\indent  Notice that the way we constructed the state $\ket{\Psi}$, makes the non-crossed terms in \eqref{CH1:State_as_function_of_time_system} to approximately  coincide with $\operatorname{Tr}_E \ket{E_n}\bra{E_n} =\operatorname{Tr}_E \ket{E_m}\bra{E_m} \approx \Omega(E)$, with $\Omega(E)$ the canonical state. Thus, the equation \eqref{CH1:State_as_function_of_time_system} can be written as:
+\begin{equation}
+\Omega(E) \approx\rho_S= \Omega(E) + c_n c^{*}_m  \operatorname{Tr}_E \ket{E_n}\bra{E_m} + c_m c^{*}_n \operatorname{Tr}_E \ket{E_m}\bra{E_n}.
+\label{CH1:State_as_function_of_time_system_typicality}
+\end{equation}
+In order to get the equality, the cross terms in \eqref{CH1:State_as_function_of_time_system_typicality} have to  approximately vanish. This property of vanishing partial traces of exterior products of states is what we name \textit{ultra-orthogonality}. Explicitly, that is,
+\begin{equation}
+\operatorname{Tr}_E \ket{E_n}\bra{E_m} = \operatorname{Tr}_E \ket{E_m}\bra{E_n} \approx  0.
+\label{CH1:Property_of_super_orthogonality}
+\end{equation}
+Notice that this property appears naturally by just using the results of typicality. Also, the property of getting vanishing partial traces over the crossed terms could explain an alternative path to equilibrium as an instant phenomenon. To see this, we can replace the condition \eqref{CH1:Property_of_super_orthogonality} in equation \eqref{CH1:expansion_5} and see that:
+\begin{equation}
+\operatorname{Tr}_{\mathcal{E}}\rho(t)\equiv \rho_{\mathcal{S}} \approx \omega_{\mathcal{S}}.
+\label{CH1:inst_eq}
+\end{equation}
+Notice that whenever ultra-orthogonality holds, temporal averages are not needed and equilibration will appear as an instantaneous phenomenon. Inspired on this interesting phenomena, we decided to explore ultra-orthogonality for the special case in which the terms in \eqref{CH1:Property_of_super_orthogonality} of the left hand side are exactly equal to zero, and thus implying the equality in equation \eqref{CH1:inst_eq}. This means that the correspondent reduced state of a fully interacting universe will be immediately constant. The idea of this work is to explore if it is possible to find Hilbert subspaces in which ultra-orthogonality holds, and more importantly, to find out how large these Hilbert subspaces can be. Specifically we will be interested in the question ``what is the largest Hilbert subspace in which ultra-orthogonality will hold?'' In the next chapters we will tackle this question for the case of systems that their Hamiltonians can be mapped, under appropriate approximations (or transformations), to Hamiltonians which are quadratic in fermionic operators.
+
+% that are like the reduce our problem to Fermionic systems and we will show that for this specific case, we are able to find exponentially large Hilbert spaces where ultra-orthogonality holds.
+%which tell us that these crossed terms should be of the order of the fluctuations in the system, because dimension generally grows exponentially with the number of particles, we would expect any fixed power of $d_{S}$ to be much smaller than than $d^{\operatorname{eff}(\omega_E)}$. Considering this, we state that an alternative mechanism which makes the systems to equilibrate emerge naturally as a consequence of typicality.\\
+
+%Inspired on this, we decided to explore ultra-orthogonality for the special case in which the terms in \eqref{CH1:Property_of_super_orthogonality} of the left hand side are equal to zero, strictly speaking. What this implies is that whenever we look at the reduced state of this universe, it will be immediately stationary, that is
+
+
+%and to show that for that special case, thanks to an alternative interpretation of Fermionic states, we are able to find exponentially large Hilbert spaces where ultra-orthogonality holds.
+% \footnote{Note that we are not expecting to stumble upon the thermal state, this result only tell us about the correspondent state of equilibrium for the reduced state. Nonetheless, since thermal typicality is expected on the system, one might think that this equilibrium state correspond to the canonical one. }.
+% Up to this point, one might think that this condition is quite restrictive and that just few states will satisfy it. We are going to provide arguments to show that it is not the case in Fermions, and that indeed there is an exponentially large Hilbert subspace of states fulfilling this condition. More over we will show how this is possible to prove by using tools taken from Fermionic random minimum codes.
+
+% a physical system such that can be solved analytically (or numerically). Take into account that the latter requirement is needed to have a complete knowledge of the state of our universe, and be able to then take a small portion of it to study this reduced state. Thus in order to do that, it is necessary to be able to compute with relative easiness the diagonalization of our universe as well as the reduced states of it in an efficient way\footnote{We emphasise that it has to be efficient because the trend of exponential growth inherit by Hilbert spaces turns out to be a challenging problem when working with large systems.}. In the following sections we will provide the background required to understand the choice of the system we made as well as a detailed calculations which provide a full characterization of this system and its reduced states. More over we show a way to generalise this result to any Fermionic system and how this ultra-orthogonality is related with a minimal distance code.
